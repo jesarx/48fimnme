@@ -473,12 +473,48 @@
   \par\necesito{5\baselineskip}\addvspace{3mm}%
   {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.4mm}%
 }
+% ----------------------------------------------------------- Logotipos ------
+% Franja de logotipos al pie de la última página de un concierto (en las
+% actividades académicas, a continuación del texto). Llegan en un solo color
+% (preparar_logos.py) y el filtro les da un tamaño visual parejo.
+\newcommand{\logo}[3]{\raisebox{-0.5\height}{\includegraphics[width=#2,height=#3]{#1}}}
+\newcommand{\logosep}{\hskip 5.5mm plus 4mm minus 1.5mm\relax}
+\newcommand{\franjalogos}[1]{{\centering\setlength{\baselineskip}{14mm}%
+  \setlength{\lineskiplimit}{2mm}\setlength{\lineskip}{3.5mm}#1\par}}
+% #1 sección (para el ajuste fino)  #2 logotipos. La franja (filete y
+% logotipos) va en una caja que no se parte; si no cabe, pasa entera a la
+% página siguiente.
+\newbox\cajalogos
+\newcommand{\cajadelogos}[2][5mm]{\setbox\cajalogos=\vbox{\hsize=\linewidth
+  \parindent=0pt\parskip=0pt{\color{filete}\hrule height 0.45pt}\vskip #1\franjalogos{#2}}}
+\newcommand{\logosconcierto}[2]{\par
+  \ifblank{#1}{\def\logosaqui{1}}{\directlua{fimnme.logosfin("#1")}}%
+  \ifnum\logosaqui=1
+    \cajadelogos{#2}%
+    % si no cabe (también si la página ya está llena), a la página siguiente
+    \ifdim\pagetotal>0pt
+      \ifdim\dimexpr\pagegoal-\pagetotal\relax<\dimexpr\ht\cajalogos+\dp\cajalogos+6mm\relax
+        \newpage\fi\fi
+    \vspace*{\fill}\vskip 6mm\box\cajalogos
+    \ifblank{#1}{}{\marcapos{logos:#1}}\par
+  \fi}
+% Alternativa: la franja al pie de la página del programa (cuando al final
+% del concierto quedaría sola en una página). «fil» cede ante el \vspace*{\fill}
+% que lleva al pie el bloque de intérpretes: la franja queda debajo de él.
+\newcommand{\logosprograma}[3]{% #1 concierto  #2 fil/fill  #3 logotipos
+  \directlua{fimnme.logosprograma(#1)}%
+  \ifnum\logosaqui=1 \logosalpie[#2]{#3}\fi}
+% Conciertos que solo tienen programa: la franja siempre al pie del programa
+\newcommand{\logosalpie}[2][fill]{\par\vspace{0pt plus 1#1}\cajadelogos[3.5mm]{#2}%
+  \vskip 3.5mm\box\cajalogos\par}
+\newcommand{\logosactividad}[1]{\par\addvspace{4mm}\nopagebreak\franjalogos{#1}%
+  \par\addvspace{3mm}}
 % Nota que ya apareció (misma obra, mismo texto): título y «Ver pág. N»
 \newcommand{\notaver}[2]{% #1 título  #2 etiqueta de la nota
-  \par\necesito{3\baselineskip}\addvspace{3mm}%
-  {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.6mm}%
-  {\estilotitulos\small\color{verdegris}Nota al programa:\enspace
-    \hyperref[#2]{\color{acento}\bfseries Ver pág.~\pageref*{#2}}\par}%
+  \par\necesito{2\baselineskip}\addvspace{2.6mm}%
+  {\estilotitulos\raggedright{\bfseries\color{acento}#1}\nobreak\enspace
+    {\small\color{verdegris}·\enspace nota al programa:\enspace
+    \hyperref[#2]{\color{acento}\bfseries Ver pág.~\pageref*{#2}}}\par}%
 }
 \newcommand{\firma}[1]{\par\nopagebreak{\raggedleft\small\itshape\color{verdegris}#1\par}}
 % Notas al programa: recuadro con fondo y filete verdes, al tamaño del texto.

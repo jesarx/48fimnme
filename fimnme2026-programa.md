@@ -451,6 +451,11 @@ compositores Lisa Streich, Helena Winkelman, Miroslav Srnka, Konstantia
 Gourzi y Mark Simpson. Realizó también el estreno alemán del Concierto
 para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 
+::: logos
+![](<logos/logos OSN/OSN-1.png>)
+![](<logos/logos OSN/Logo-Patronato Industria Alemana Cultura.PNG>)
+:::
+
 ## SÁB | NOV 7, 12:00 h - Ortiz / Artificios / Tetraktys / Ibarra
 
 Pabellón Escénico, Jardín Escénico
@@ -1076,6 +1081,13 @@ del INBAL.
 > se vendían no como aparatos para reproducir música, sino como un modo
 > de preservar para siempre las voces de los seres queridos».
 
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
+
 ## SÁB | NOV 7, 19:00 h - Gonzalo Gutiérrez, piano
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
@@ -1437,6 +1449,13 @@ Casa del Lago. Es beneficiario del programa Creadores Escénicos con
 Trayectoria en la categoría del Sistema de Apoyos a la Creación en la
 categoría de Interdisciplina.
 
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
+
 ## DOM | NOV 8, 16:30 h - Cuarteto Arcano
 
 Museo Universitario Arte Contemporáneo, UNAM
@@ -1654,6 +1673,10 @@ Morelia. Se ha destacado también con varias participaciones en el Foro
 Internacional de Música Nueva Manuel Enríquez. Grabó el disco *Cuerdas
 sin cordura*, que incluye obras de jóvenes compositores mexicanos.
 
+::: logos
+![](<logos/logo muac/MUAC-LOGO-COLAB.png>)
+:::
+
 ## DOM | NOV 8, 18:00 h - OJUEM: Areán / Rosado
 
 Sala Nezahualcóyotl, CCU, UNAM
@@ -1824,6 +1847,13 @@ Apellániz e Iturriagagotia. Es profesor de música de cámara, piano
 contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
+
+::: logos
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.12 0.38 0.28 0.6"}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.28 0.38 0.52 0.6"}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.52 0.38 0.752 0.6"}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.752 0.38 0.88 0.6"}
+:::
 
 ## LUN | NOV 9, 19:00 h - Black Noise & Victoria Amaro
 
@@ -2512,6 +2542,11 @@ experimentación con instrumentos y objetos sonoros acústicos, la
 exploración de distintas posibilidades de interacción entre músicos y
 público y la intervención sonora de los más diversos espacios.
 
+::: logos
+![](<logos/logos carrillo gil/logo_museo carillo gil.png>)
+![](<logos/logos carrillo gil/logo Generación Espontanea.jpg>)
+:::
+
 ## MIÉ | NOV 11, 19:00 h - Piccolegio / Trío LaMN
 
 Laboratorio Escénico, Jardín Escénico
@@ -3004,6 +3039,10 @@ Apellániz e Iturriagagotia. Es profesor de música de cámara, piano
 contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
+
+::: logos
+![](<logos/logo muac/MUAC-LOGO-COLAB.png>)
+:::
 
 ## VIE | NOV 13, 17:00 h - Dirén Checa, violín
 
@@ -4987,6 +5026,10 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 *Estrella de la mañana*, de A. Nante, en el Victoria Hall de Ginebra, y
 *Carte Noire Nommée Désir*, de R. Chaillon.
 
+::: logos
+![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
+:::
+
 ## SÁB | NOV 14, 19:00 h - Cepromusic: Saariaho
 
 Auditorio Simón Bolívar, Colegio de San Ildefonso, UNAM
@@ -5147,6 +5190,11 @@ importantes foros y festivales de música contemporánea. Es profesor de
 Composición en la Escuela Superior de Música del INBAL, realiza la
 edición crítica de las obras de Silvestre Revueltas en colaboración con
 Roberto Kolb y es director musical del Ensamble Cepromusic.
+
+::: logos
+![](<logos/logos cepromusic/LOGO CEPRO black.svg>)
+![](<logos/logos cepromusic/2.1 Logos Musica UNAM_San Ildefonso.ai>){partir=si}
+:::
 
 ## DOM | NOV 15, 17:00 h - Vicente Moronta, oboe
 
@@ -6360,6 +6408,13 @@ premio???, para reclamarlo solo conéctate, da clic al siguiente enlace y
 sigue estos sencillos pasos. ¡No querrás perderte esta oportunidad para
 cumplir tus sueños! phishing.alejandroviramontes.com
 
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
+
 ## MIÉ | NOV 18, 19:00 h - Francisco García Torres: Enríquez 100
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
@@ -6862,6 +6917,13 @@ recibido becas, premios y distinciones y su obra se ha presentado en los
 más importantes festivales nacionales e internacionales en veinte
 países. Pertenece al Sistema Nacional de Creadores de Arte.
 
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
+
 ## JUE | NOV 19, 19:00 h - OCBA
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
@@ -7043,6 +7105,10 @@ Kuschnir, Anita Mitterer, Christos Kanettis, Igor Petrushevski, Ola
 Rudner, Alla Aranovskaya, Otto Derolez y Leon Spierer, entre otros. Es
 principal de segundos violines en la OFUNAM y profesor de violín y
 música de cámara a nivel licenciatura en la Escuela Ollin Yoliztli.
+
+::: logos
+![](<logos/logo OCBA/logo OCBA.pdf>)
+:::
 
 ## JUE | NOV 19, 20:00 h - Electroacústica II
 
@@ -7291,6 +7357,13 @@ crece hasta alcanzar un clímax de ruido antes de disolverse nuevamente.
 Su dinámica contenida, pero en gradual expansión, junto con su flujo
 espacial, funciona como una pausa perceptiva: una breve apertura entre
 paisajes sonoros turbulentos.
+
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
 
 ## VIE | NOV 20, 17:00 h - Iracema de Andrade / ÓNIX
 
@@ -7615,6 +7688,10 @@ como un ensamble de virtuosos dedicados a expandir el canon musical
 contemporáneo a través de la excelencia interpretativa y la innovación
 constante.
 
+::: logos
+![](<logos/logo el claustro/EL-CLAUSTRO-LOGO-blanco-1.png>)
+:::
+
 ## VIE | NOV 20, 19:00 h - Cepromusic
 
 Pabellón Escénico, Jardín Escénico
@@ -7912,6 +7989,10 @@ multimedia, y cuenta con tres producciones discográficas. Desde su
 creación el ensamble ha ejecutado cuatrocientos conciertos en los que ha
 interpretado más de ochocientas obras y trescientos estrenos.
 
+::: logos
+![](<logos/logos cepromusic/LOGO CEPRO black.svg>)
+:::
+
 ## VIE | NOV 20, 19:00 h - Cuarteto Ruvalcaba
 
 Antigua Sede del Senado. Casona de Xicoténcatl
@@ -8099,6 +8180,10 @@ internacionales. Ha colaborado con los solistas mexicanos Pablo Garibay,
 Miguel Ángel Villanueva e Irasema Terrazas. El nombre del cuarteto honra
 la memoria de Higinio Ruvalcaba (1905-1976), destacado violinista y
 compositor mexicano, integrante del Cuarteto Léner.
+
+::: logos
+![](<logos/logo xico/xico_senado.jpg>)
+:::
 
 ## SÁB | NOV 21, 12:00 h - Cuarteto de BA: Enríquez 100
 
@@ -8864,6 +8949,11 @@ UNAM, la Orquesta Sinfónica Nacional, la Orquesta Filarmónica de la Ciudad de
 México y la Orquesta Filarmónica de Jalisco. Su capacidad para dirigir
 múltiples obras de memoria le otorga una versatilidad única en el podio.
 
+::: logos
+![](<logos/Logotipos Institucionales Orquesta Sinfónica de Xalapa/Logotipos OSX (1).ai>){recorte="0 0.2 0.5 0.65" realce=0.3}
+![](<logos/Logotipos Institucionales Orquesta Sinfónica de Xalapa/Logotipos OSX (1).ai>){pagina=3 recorte="0 0 0.45 0.5"}
+:::
+
 ## LUN | NOV 9, 19:00 h - Morelia: Ensamble Danaus
 
 Centro Mexicano para la Música y las Artes Sonoras\
@@ -9051,6 +9141,10 @@ y colaborar con compositores nacionales e internacionales. Ha participado en
 los festivales Fica 21 de Veracruz, *Ortiz Tirado* en Álamos, Aires de la UNAM,
 de Música *Bernal Jiménez* en Morelia, Cultural Zacatecas y el Foro
 Internacional de Música Nueva *Manuel Enríquez*, entre otros.
+
+::: logos
+![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
+:::
 
 ## MAR | NOV 10, 17:00 h - Monterrey: Q-SION, percusiones
 
@@ -9319,6 +9413,10 @@ dancísticos y escénicos. Q-SION ha recibido apoyos de Conarte, Ibermúsicas y 
 Secretaría de Cultura de México, y ha sido reconocido por su trabajo de gestión
 cultural y compromiso con las comunidades.
 
+::: logos
+![](<logos/logos monterrey/LaSuperiorMonterrey-LogoInstitucional-01.png>)
+:::
+
 ## MAR | NOV 10, 19:30 h - Guadalajara: Dúo Gasparini-Monnet
 
 Martes de Música\
@@ -9469,6 +9567,15 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 *Estrella de la mañana*, de A. Nante, en el Victoria Hall de Ginebra, y
 *Carte Noire Nommée Désir*, de R. Chaillon.
 
+::: logos
+![](<logos/logos jalisco/1 logo martes musicales.jpeg>)
+![](<logos/logos jalisco/2 logo ex convento del carmen guadalajara.jpeg>)
+![](<logos/logos jalisco/3 logo museos y exposiciones jalisco.jpeg>)
+![](<logos/logos jalisco/4 logos_Cultura_y_Gobierno_Jalisco.ps>){recorte="0.19 0.09 0.465 0.215"}
+![](<logos/logos jalisco/4 logos_Cultura_y_Gobierno_Jalisco.ps>){recorte="0.465 0.09 0.68 0.215"}
+![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
+:::
+
 ## JUE | NOV 12, 19:00 h - CMMAS: Compositoras en música electrónica
 
 Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
@@ -9562,6 +9669,10 @@ El título quiere decir *fragante* y refiere a un grabado en madera de Paul Gaug
 ![](int/Asako Arai.jpg)
 
 Doctora en artes musicales, es flautista del Quinteto de Alientos de la Ciudad de México y de diversos ensambles de cámara. Ha grabado varios discos para Dorian, Spartacus, Global, Soundspells, Quindecim y Urtext. Su más reciente CD para Albany Records es *Without Borders* y contiene obras comisionadas para flauta y piano. Se ha presentado como solista con la Orquesta Filarmónica de Hong Kong, el Cuarteto de Cuerdas Emerson, La Camerata y la OFUNAM. Ha recibido becas del programa Creadores Escénicos con Trayectoria del Fonca y del Fideicomiso para la Cultura México/Estados Unidos para promover la creación y difusión de obras mexicanas. Ha estrenado varias obras del repertorio contemporáneo para flauta en los festivales Internacional Cervantino y Foro Internacional de Música Nueva *Manuel Enríquez* que le ha valido elogios de crítica y público. Es profesora de flauta y música de cámara en la Escuela Superior de Música. Entre sus maestros se encuentran Samuel Baron, John Wion, Timothy Wilson y Keith Underwood.
+
+::: logos
+![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
+:::
 
 ## VIE | NOV 13, 19:00 h - Julio I. Cervantes, guitarra
 
@@ -9896,6 +10007,10 @@ para Guitarra 2015. Ha sido becario del Programa Acompañarte y de
 Resiliencia Sonora. Recibió el reconocimiento a la Excelencia Académica
 Coparmex 2019.
 
+::: logos
+![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
+:::
+
 ## VIE | NOV 13, 19:00 h - Eusebio Sánchez, percusiones
 
 Sala Chopin, Escuela Superior de Música y Danza, Monterrey, Nuevo León
@@ -9992,6 +10107,10 @@ Es una obra para percusión sola inspirada en el calendario ritual maya del mism
 
 Es percusionista, concertista y productor, originario de Monterrey. Graduado con mención honorífica de la ESMDM y con Maestría en Percusión por la Universidad Alfonso X el Sabio de Madrid, también cursó Ingeniería en Producción musical en el Tecnológico de Monterrey. Ha sido becario de Cemex, Anglo Arts y City Music Foundation. Fundador del ensamble Q-SION y de la asociación Sol Sonoro, ha colaborado con compositores como Hilda Paredes, Alejandro Basulto y Martín Matalón. Su trabajo ha sido presentado en México, Reino Unido, Japón, Francia, España, Austria y Colombia. Entre sus proyectos destacan *Xilitla*, *El amor y la muerte*, *Ambivalencias* y Supersónica. Ha participado en los festivales PASIC, FIMNME y Fête de Morts. Reconocido por programas como EFCA, CEIIDA, PADID, OneBeat e Ibermúsicas, continúa impulsando la proyección internacional de la música mexicana de concierto.
 
+::: logos
+![](<logos/logos monterrey/LaSuperiorMonterrey-LogoInstitucional-01.png>)
+:::
+
 ## VIE | NOV 13, 19:30 h - Carmen Maldonado, percusión teatral
 
 Universidad de las Artes de Yucatán, Mérida, Yucatán
@@ -10081,6 +10200,11 @@ Obra teatral dramática coreografiada en la cual se incluyen imágenes para faci
 ![](int/Carmen Maldonado.jpg)
 
 Percusionista mexicana interesada en entender el mundo mediante el arte y otras disciplinas. Con enfoque en la percusión teatral, crea imágenes a partir de las posibilidades tímbricas de objetos, a veces llamados instrumentos, caracterizando lo audible con gestos y movimientos. Trabaja con la memoria universal y su impacto bio-psico-sociocultural-espiritual. Realizó su Licenciatura en la Escuela de Música Vida y Movimiento del Centro Cultural Ollin Yoliztli. Desde 2008 ha incursionado en el repertorio solista, orquestal y de cámara en diferentes agrupaciones. Actualmente reside en Mérida y es intérprete de *Metamorfosis*, música teatral para percusiones. Fundadora del Colectivo Hifa, el dueto NóduloSA y equipos de trabajo experimentales involucrados en proyectos interdisciplinares entre arte y ciencia, forma parte del Ensamble Contemporáneo de la Universidad de las Artes de Yucatán en el área de percusiones, donde también es docente.
+
+::: logos
+![](<logos/logos yucatan/Logos Yucatán CONVIVENCIA B Y N.jpg>){recorte="0 0 0.69 1"}
+![](<logos/logos yucatan/Logos Yucatán CONVIVENCIA B Y N.jpg>){recorte="0.74 0 1 1"}
+:::
 
 ## SÁB | NOV 14, 17:00 h - Acapulco: Fabián Rangel
 
@@ -10228,6 +10352,10 @@ Es una composición musical para cualquier instrumento de cuerda frotada y elect
 
 Violinista que se desenvuelve principalmente en la música contemporánea y experimental. Ha tocado con los ensambles Liminar, Templum, Generación Espontánea y Sonidero 13. Es director del proyecto Shilti desde 2013. Fue parte del Evolution Ensamble, que organizó el International Contemporary Ensamble, desde Nueva York. Participó en el 44 FIMNME. Estudió en la Escuela Vida y Movimiento del Centro Cultural Ollin Yoliztli, la Orquesta Escuela *Carlos Chávez* y la Escuela Superior de Música del INBAL (ESM). Fue integrante de las orquestas Sinfónica Juvenil del Estado de Veracruz, Sinfónica Mexiquense y Sinfónica Juvenil *Eduardo Mata*. Se ha presentado en México, Estados Unidos y Argentina. Estudió la licenciatura con Elwira Krengiel en la ESM y actualmente forma parte de la Orquesta Filarmónica de Acapulco.
 
+::: logos
+![](<logos/logo acapulco/logo centro cultural Domingo Soler.jpg>)
+:::
+
 ## MIÉ | NOV 18, 19:00 h - Morelia: Electroacústica I
 
 Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
@@ -10276,6 +10404,10 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 *Programa idéntico al del MIÉ | NOV 18 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex}.*
 
+::: logos
+![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
+:::
+
 ## JUE | NOV 19, 19:00 h - Morelia: Electroacústica II
 
 Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
@@ -10312,6 +10444,10 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 *Programa idéntico al del JUE | NOV 19 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:jue-nov-19-electroacustica-ii}`{=latex}.*
 
+::: logos
+![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
+:::
+
 \part{ACTIVIDADES ACADÉMICAS}
 
 ## SÁB | NOV 7, 12:00 h - Simon Höfele, taller de trompeta
@@ -10347,6 +10483,13 @@ Casa Rafael Galván, UAM
 **Valeria Macías Rodríguez, Andrés Nuño de Buen y Hugo Solís**, ponentes
 
 **Tito Rivas**, moderador
+
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
 
 ---
 
@@ -10473,6 +10616,12 @@ Orquesta Sinfónica del Estado de Puebla y del Coro de la UNAM. Desde 2013 es
 director artístico de la Orquesta Sinfónica Universitaria de Universidad
 Autónoma de San Luis Potosí.
 
+::: logos
+![](<logos/logos san luis potosi/LOGOS Orquesta Universitaria San Luis Potosí l difusion l orquesta (1).pdf>){recorte="0.06 0.27 0.375 0.73"}
+![](<logos/logos san luis potosi/LOGOS Orquesta Universitaria San Luis Potosí l difusion l orquesta (1).pdf>){recorte="0.40 0.27 0.548 0.73"}
+![](<logos/logos san luis potosi/LOGOS Orquesta Universitaria San Luis Potosí l difusion l orquesta (1).pdf>){recorte="0.58 0.27 0.96 0.73"}
+:::
+
 ## SÁB | NOV 28, 20:00 h - Ocotlán: Dúo Gasparini-Monnet
 
 Fundación Cultural Rodolfo Morales, Ocotlán de Morelos, Oaxaca
@@ -10582,6 +10731,11 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 *Estrella de la mañana*, de A. Nante, en el Victoria Hall de Ginebra, y
 *Carte Noire Nommée Désir*, de R. Chaillon.
 
+::: logos
+![](<logos/logos gasparini-monet/logo fundación cultural rodolfo morales oaxaca.png>)
+![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
+:::
+
 ## MAR | DIC 1, 20:00 h - Oaxaca: Dúo Gasparini-Monnet
 
 Centro Cultural San Pablo, Oaxaca, Oaxaca
@@ -10690,6 +10844,11 @@ Philharmonie de Paris. Recibió los premios del CRR de París y de Canto
 del Conservatoire National Supérieur de Paris. En 2021 interpretó
 *Estrella de la mañana*, de A. Nante, en el Victoria Hall de Ginebra, y
 *Carte Noire Nommée Désir*, de R. Chaillon.
+
+::: logos
+![](<logos/logos gasparini-monet/Logo Harp Elu Oaxaca.jpg.jpeg>){recorte="0.2 0.38 0.75 0.92"}
+![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
+:::
 
 \part{ENRÍQUEZ | 100}
 

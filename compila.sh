@@ -21,6 +21,8 @@ mkdir -p build
 
 echo "▸ Preparando fotografías…"
 python3 automatizacion/preparar_imagenes.py
+echo "▸ Preparando logotipos…"
+python3 automatizacion/preparar_logos.py
 
 echo "▸ Pandoc → LaTeX…"
 pandoc "$NOMBRE.yaml" "$NOMBRE.md" \
