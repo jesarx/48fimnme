@@ -8189,6 +8189,10 @@ compositor mexicano, integrante del Cuarteto Léner.
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
+---
+
+**Jornadas INBAL-SACM 2026. Integral de los cuartetos de cuerda de Manuel Enríquez**
+
 ### Programa
 
 **Manuel Enríquez**
@@ -8209,13 +8213,15 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 
     -   I - II - III
 
--   Cuarteto de cuerda núm. 5, *Xopan Cuícatl* (1988)
+-   Cuarteto de cuerda núm. 5, *Xopan Cuícatl* (1988) `\hfill `{=tex}14'
 
 **Cuarteto de Cuerdas de Bellas Artes**\
 Ilya Ivanov, violín\
 Carlos Quijano, violín\
 Félix Alanís, viola\
 Manuel Cruz, violonchelo
+
+*En colaboración con la Sociedad de Autores y Compositores de México.*
 
 ### Personas compositoras
 
@@ -8237,6 +8243,24 @@ Internacional de Música Nueva (que hoy lleva su nombre), espacio vital
 para la difusión de la creación contemporánea. Distinguido como Creador
 Emérito y miembro de la Academia de Artes, su legado permanece como
 pilar de la identidad musical mexicana del siglo XX.
+
+##### Cuartetos de cuerda núms. 1 a 4
+
+Los cuatro Cuartetos de Cuerdas de Manuel Enríquez, escritos a lo largo de cuatro décadas, muestran de manera clara varias de las técnicas de composición utilizadas por Enríquez a lo largo de su evolución estilística: politonalidad y atonalidad sustentadas en formas clásicas; elementos rítmico-melódicos de corte nacionalista; abandono progresivo de formas tradicionales, tanto a nivel de la obra entera como de los movimientos individuales; apertura de ciertos parámetros; técnicas aleatorias; notación gráfica y semigráfica y la recuperación de ciertos elementos tradicionales, transformados, que Enríquez hace a partir de los años 1980. Estas obras muestran también la incorporación y el desarrollo gradual de los motivos rítmico-melódicos y de los elementos expresivos que conforman el lenguaje característico de Enríquez. Pero de manera más significativa aún, los Cuartetos muestran el lirismo llevado al extremo, la expresión de un dramatismo poco común en la música mexicana que subyace como una constante en toda la obra de Enríquez y al servicio de la cual se encuentran técnicas composicionales y elementos estilísticos.
+
+Los dos movimientos exteriores del primer Cuarteto adoptan las tradicionales formas sonata y rondó A-B-A-C-A, que con la adición en ambos casos de una introducción y una coda con el mismo material se transforman en formas arco. A pesar de sus ritmos vivos, la alternancia de 6/8 y 5/8 y el desplazamiento de los acentos, rasgos que emparientan a este Cuarteto con muchas obras de estilo nacionalista en México, el uso constante de intervalos de gran tensión e inestabilidad en la construcción de las melodías, elemento estilístico característico de toda la producción de Enríquez, lo transforma en una obra altamente personal. En el segundo movimiento el tipo de expresividad que se logra en los temas básicos mediante este recurso se ve realzado en el fondo inexpresivo y casi mecánico sobre el cual ambas melodías están colocadas. Este es un procedimiento que Enríquez utiliza constantemente y con gran habilidad en la mayor parte de sus obras.
+
+El segundo Cuarteto de Cuerdas es, junto con *Ambivalencia* para violín y violonchelo del mismo compositor, la primera obra mexicana en la que se utiliza la escritura gráfica. Con ello, las alturas y ritmos específicos de algunas secciones y, hasta cierto punto, el tempo y la forma, se dejan al azar o a la decisión de los intérpretes. Este Cuarteto, en el que encontramos elementos derivados de la música electrónica, conserva una estructura en tres movimientos: dos de *tempo* vivo y un movimiento central lento, bipartita. En este movimiento, particularmente intenso, predominan los matices *p* a *pp*. Una de sus secciones consiste enteramente en un tejido de melodías de intervalos de gran lirismo. La segunda parte del tercer movimiento está formada por elementos motívicos que nos remiten a movimientos anteriores, lo que podría constituir una reminiscencia de los principios cíclicos de construcción formal.
+
+En el Cuarteto III, Enríquez abandona la estructura en varios movimientos para incorporar en uno solo secciones de gran actividad instrumental y dinámica, así como secciones de dinámica y *tempi* más suaves. A nivel general, el tercer Cuarteto tiene una gran forma arco en la que la parte central es una sección abierta en cuanto a estructura, tempo y ritmo. Internamente el Cuarteto se estructura con base en tensiones y distensiones que yuxtaponen segmentos de intensidad manifiesta con segmentos aparentemente *senza espressione* y *senza movimento* que no están exentos de gran tensión. En este Cuarteto reaparecen, entrelazados o por secciones, elementos característicos del lenguaje de Enríquez, como son los *ostinati* rítmico-armónicos; los arpegios repetidos en las cuatro cuerdas; las *cascadas* de sonidos cortos; las superposiciones de sonidos *tenuti*, *senza vibrato*; y la oposición de dos planos expresivos diferentes. Ejemplo de este último elemento es el final del Cuarteto III, que está estrechamente emparentado con el final del último movimiento del Cuarteto IV y encuentra sus variantes en los finales del segundo y el tercer movimiento de este mismo cuarteto. Esta oposición de planos expresivos paralelos, diferentes e indiferentes entre sí, es quizá el recurso expresivo más característico de Enríquez y constituye el elemento unificador del cuarto Cuarteto, en el que la oposición se da constantemente y de diferentes maneras: en valores rítmico-temporales aumentados o disminuidos, en dos instrumentos contra los otros dos, a nivel de toda una sección o a nivel motívico.
+
+El Cuarteto IV, en el que Enríquez retoma la estructura en tres movimientos, es una de las obras más logradas del compositor. En él, los diferentes motivos que conforman el lenguaje de Enríquez reciben un tratamiento más amplio y muchos de ellos constituyen por sí solos el elemento a partir del cual toda una sección se desarrolla. Finalmente, hay que hacer notar en este Cuarteto una revaloración del elemento melódico —y, por lo tanto, lírico— que se da incluso en las secciones abiertas (por oposición a obras anteriores en las que este tipo de secciones están constituidas por eventos sonoros muy cortos), así como la presencia de elementos musicales mexicanos, presencia que se deja sentir en las citas de la *Sinfonía India* de Carlos Chávez.
+
+\hfill Leonora Saavedra
+
+##### Cuarteto de cuerda núm. 5, *Xopan Cuícatl*
+
+*Xopan Cuícatl*, cantos de primavera en náhuatl, es el último de los cinco cuartetos de cuerda de Manuel Enríquez. Compuesta en 1988, la obra establece un diálogo entre la memoria del mundo prehispánico y el lenguaje musical contemporáneo. Enríquez no busca reconstruir una música indígena antigua, sino evocar su atmósfera mediante el timbre, la textura y el gesto sonoro. La escritura alterna pasajes de gran precisión con momentos de libertad, explorando las posibilidades expresivas de las cuatro cuerdas y creando un discurso de contrastes, tensiones y transformaciones constantes. El título sugiere una imagen de renovación: la primavera como metáfora de una memoria que vuelve a florecer, transformada por la sensibilidad de un compositor mexicano del siglo XX. La obra está dedicada al compositor y director estadounidense Joel Thome.
 
 ------------------------------------------------------------------------
 
