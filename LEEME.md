@@ -68,6 +68,9 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 - Cada sección de un concierto (Programa, Personas compositoras,
   Intérpretes…) empieza en página nueva, salvo una sección que solo tenga
   referencias «Ver pág.».
+- Para remitir a la página de otro concierto: `` `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex} ``.
+  La etiqueta se forma sola con la fecha y el título del encabezado, en
+  minúsculas, sin acentos y con guiones.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.

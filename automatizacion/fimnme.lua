@@ -796,7 +796,10 @@ function Pandoc(doc)
         cabecera = escape(fecha_texto(f) .. " · " .. titulo_txt)
         local toc_titulo = titulo
         local macro = (clave_orden(parte) == "actividades academicas") and "\\actividadacademica" or "\\concierto"
-        emit(raw(string.format("%s{%s}{%s}{%s}{%s}{%s}{%s}\\hypertarget{%s}{}\\label{%s}",
+        -- etiqueta estable para referencias desde el Markdown:
+        -- \pageref{conc:mie-nov-18-electroacustica-i}
+        local estable = "conc:" .. clave_orden(fecha_texto(f) .. " " .. titulo_txt):gsub("[^%w]+", "-"):gsub("^-+", ""):gsub("-+$", "")
+        emit(raw(string.format("%s{%s}{%s}{%s}{%s}{%s}{%s}\\hypertarget{%s}{}\\label{%s}\\label{" .. estable .. "}",
           macro,
           table.concat(kicker, "\\quad/\\quad "), titulo, cabecera,
           f.hora or "", toc_titulo,
