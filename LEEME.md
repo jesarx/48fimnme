@@ -24,7 +24,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
-| `revision/` | Listas de correcciones para revisar (p. ej. el cotejo con los programas de mano). |
+| `revision/` | Listas de correcciones y comentarios recibidos (con sus PDF), y ejemplos de referencia (`ejemplos/`). |
 | `resumen/` | Programa resumido (agenda en una página y programas condensados; ver `resumen/LEEME.md`). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
@@ -33,6 +33,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
 | `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
+| `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial; tomada de `revision/ejemplos/directorio y pleca.pdf`. |
 
 ## Convenciones del Markdown
 
@@ -104,8 +105,14 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 - Para remitir a la página de otro concierto: `` `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex} ``.
   La etiqueta se forma sola con la fecha y el título del encabezado, en
   minúsculas, sin acentos y con guiones.
-- Cada actividad académica (con sus participantes y logotipos) va en un
-  bloque que no se parte entre páginas.
+- Cada actividad académica va en un bloque que no se parte entre páginas.
+  En el título de la actividad va lo que es (*Conferencia: …*, *Taller de
+  trompeta*) y debajo solo quiénes participan, sin repetir datos. Los
+  logotipos de todas las actividades van en un solo bloque `::: logos` al
+  final de la parte, y salen al pie de la última página de actividades.
+- `::: contraportada` (al final del Markdown): directorio de la Secretaría
+  de Cultura y del INBAL. Va en la última página, con la pleca institucional
+  al pie; el programa resumido también la lleva.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.
