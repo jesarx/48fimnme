@@ -451,7 +451,7 @@ compositores Lisa Streich, Helena Winkelman, Miroslav Srnka, Konstantia
 Gourzi y Mark Simpson. Realizó también el estreno alemán del Concierto
 para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 
-## SÁB | NOV 7, 12:00 h - Tetraktys / Artificios / Ortiz / Ibarra
+## SÁB | NOV 7, 12:00 h - Ortiz / Artificios / Tetraktys / Ibarra
 
 Pabellón Escénico, Jardín Escénico
 
@@ -1332,7 +1332,7 @@ internacional, se ha presentado en diversas salas como el Tokyo Opera
 City Recital Hall, el New York Americas Society y el Boston University
 Concert Hall, entre muchos otros recintos.
 
-## DOM | NOV 8, 12:00 h - Instalación sonora: Nuño de Buen
+## DOM | NOV 8, 12:00 h - Instalación sonora: Nuño de Buen / Vigueras
 
 Casa Rafael Galván, UAM
 
@@ -1825,7 +1825,7 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
-## LUN | NOV 9, 19:00 h - Black Noise Ensamble
+## LUN | NOV 9, 19:00 h - Black Noise & Victoria Amaro
 
 Pabellón Escénico, Jardín Escénico
 
@@ -2512,7 +2512,7 @@ experimentación con instrumentos y objetos sonoros acústicos, la
 exploración de distintas posibilidades de interacción entre músicos y
 público y la intervención sonora de los más diversos espacios.
 
-## MIÉ | NOV 11, 19:00 h - Trío LaMN
+## MIÉ | NOV 11, 19:00 h - Piccolegio / Trío LaMN
 
 Laboratorio Escénico, Jardín Escénico
 
