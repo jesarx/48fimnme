@@ -371,6 +371,8 @@
   #1\ifblank{#3}{}{\par{\footnotesize\color{verdegris}#3\par}}}
 \newcommand{\movimiento}[1]{%
   \item[]\hspace*{0.9em}{\small\color{verdegris}#1}}
+% Aire entre los movimientos de una obra y la obra siguiente
+\newcommand{\trasmovimientos}{\par\addvspace{1.6mm}}
 \newcommand{\intermedio}{%
   \par\addvspace{2mm}%
   \noindent{\color{filete}\leaders\hrule height 0.5pt depth 0pt\hfill}%
@@ -382,7 +384,7 @@
 % Intérpretes de un grupo de obras: filete a la izquierda, un punto menos.
 % El bloque no se parte entre páginas.
 \newenvironment{interpretes}{%
-  \par\addvspace{2.2mm}%
+  \par\addvspace{3.6mm}%
   \begin{tcolorbox}[enhanced, frame hidden, boxrule=0pt, sharp corners,
     colback=fondobeige, borderline west={1.3pt}{0pt}{acentoclaro},
     enlarge left by=0.33em, width=\linewidth-0.33em,
@@ -391,7 +393,8 @@
   \setlength{\parskip}{0.8mm}\estilotitulos}
   {\end{tcolorbox}\par}
 % Separación entre grupos de obras con distintos intérpretes
-\newcommand{\separadorgrupo}{\par\addvspace{6.5mm}}
+% (se estira si en la página sobra espacio: los grupos se reparten en ella)
+\newcommand{\separadorgrupo}{\par\addvspace{6.5mm plus 1fil}}
 % Al empezar un grupo: si no cabe entero en lo que queda de página, pasa a
 % la siguiente (el filtro estima su altura en renglones).
 \newcommand{\inigrupo}[1]{\necesito{#1\baselineskip}}
@@ -429,7 +432,7 @@
   \else\ifnum\modoprograma=2
     \linespread{0.95}\selectfont\setlength{\anchoespaciocompositor}{0pt}%
     \setlength{\parskip}{0pt plus 1pt}%
-    \renewcommand{\separadorgrupo}{\par\addvspace{2mm}}%
+    \renewcommand{\separadorgrupo}{\par\addvspace{2mm plus 1fil}}%
   \else
     \setlength{\parskip}{0.3\baselineskip plus 1pt minus 0.5pt}%
   \fi\fi}{\par}
@@ -470,7 +473,7 @@
   \nopagebreak\vspace{1.4mm}%
 }
 \newcommand{\notaobra}[1]{%
-  \par\necesito{5\baselineskip}\addvspace{3mm}%
+  \par\necesito{7\baselineskip}\addvspace{3mm}%
   {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.4mm}%
 }
 % ----------------------------------------------------------- Logotipos ------
@@ -516,6 +519,9 @@
     {\small\color{verdegris}·\enspace nota al programa:\enspace
     \hyperref[#2]{\color{acento}\bfseries Ver pág.~\pageref*{#2}}}\par}%
 }
+% Subtítulo dentro de una semblanza («Integrantes»...)
+\newcommand{\subtitulosemblanza}[1]{\par\necesito{4\baselineskip}%
+  \addvspace{0.3\baselineskip}{\bfseries #1\par}\nopagebreak}
 \newcommand{\firma}[1]{\par\nopagebreak{\raggedleft\small\itshape\color{verdegris}#1\par}}
 % Notas al programa: recuadro con fondo y filete verdes, al tamaño del texto.
 % Las semblanzas, en cambio, van sin recuadro y un punto menos.

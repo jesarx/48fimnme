@@ -334,6 +334,11 @@ end
 local function lista_obras(lista, marcas)
   local out = { "\\begin{obras}" }
   local anterior = false
+  local function obra(t)
+    -- un poco de aire entre los movimientos de una obra y la obra siguiente
+    if out[#out]:match("^\\movimiento") then table.insert(out, "\\trasmovimientos") end
+    table.insert(out, t)
+  end
   for _, item in ipairs(lista.content) do
     local primero = item[1]
     local inl = (primero and (primero.t == "Plain" or primero.t == "Para")) and primero.content or pandoc.List()
@@ -345,7 +350,7 @@ local function lista_obras(lista, marcas)
     elseif dur == "" and not tiene_anio(titulo) and anterior then
       table.insert(out, "\\movimiento{" .. latex(titulo) .. "}")
     else
-      table.insert(out, "\\obra{" .. latex(titulo) .. "}{" .. escape(dur) .. "}{" .. latex(cred) .. "}")
+      obra("\\obra{" .. latex(titulo) .. "}{" .. escape(dur) .. "}{" .. latex(cred) .. "}")
       anterior = true
     end
     -- Bloques restantes del elemento: sublistas (movimientos) o texto
@@ -357,7 +362,7 @@ local function lista_obras(lista, marcas)
           marcas_en(s, marcas)
           local t2, d2, c2 = partir_obra(s)
           if d2 ~= "" then
-            table.insert(out, "\\obra{" .. latex(t2) .. "}{" .. escape(d2) .. "}{" .. latex(c2) .. "}")
+            obra("\\obra{" .. latex(t2) .. "}{" .. escape(d2) .. "}{" .. latex(c2) .. "}")
           else
             table.insert(out, "\\movimiento{" .. latex(t2) .. "}")
           end
@@ -1083,7 +1088,19 @@ function Pandoc(doc)
         num_seccion = num_seccion + 1
         seccion_abierta = concierto_abierto .. "-" .. num_seccion
         emit(raw(inicio .. "\\iniseccion{" .. seccion_abierta .. "}"))
-        emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
+        local titulo_sec = latex(b.content)
+        if seccion == "interpretes" then
+          -- con una sola ficha, en singular
+          local fichas, k = 0, i + 1
+          while bloques[k] and not (bloques[k].t == "Header" and bloques[k].level <= 3) do
+            if bloques[k].t == "Header" and bloques[k].level == 4 then fichas = fichas + 1 end
+            k = k + 1
+          end
+          if fichas == 1 then titulo_sec = "Intérprete" end
+        end
+        emit(raw("\\seccion{" .. titulo_sec .. "}{3}"))
+        -- «Notas al programa» generales del concierto: en el recuadro verde
+        if seccion == "notas al programa" then abrir_nota(i + 1) end
       else
         -- en el Coloquio, cada sección después de la primera en página nueva
         if seccion ~= "programa" and mayor and secciones_mayor > 0 then emit(raw("\\clearpage")) end
@@ -1276,6 +1293,13 @@ function Pandoc(doc)
       local resto = pandoc.List()
       for k = 2, #b.content do resto:insert(b.content[k]) end
       emit(raw("\\firma{" .. latex(strip_trailing_space(resto)) .. "}"))
+      i = i + 1
+
+    elseif en_semblanza and (b.t == "Para" or b.t == "Plain") and #b.content == 1
+           and b.content[1].t == "Strong" and #stringify(b.content) < 60 then
+      -- subtítulo dentro de una semblanza (p. ej. «Integrantes»): no se
+      -- queda solo al pie de la página
+      emit(raw("\\subtitulosemblanza{" .. latex(b.content[1].content) .. "}"))
       i = i + 1
 
     elseif (b.t == "Para" or b.t == "Plain") and mayor and SECCIONES_SEDES[mayor] and

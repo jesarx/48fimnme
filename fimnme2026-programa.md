@@ -1211,12 +1211,10 @@ musical.
 El título alude con ironía al doble carácter de estas piezas, tanto el
 uso de lo ajeno como también a la *forma apropiada* en el sentido de
 aquellas que han sido consideradas ideales en la música clásica.
-
 La primera de ellas, *Fuga sesgada*, explota el contrapunto extendido a través
 de la creación de planos adicionales con notas de adorno y polifonías internas
 de sucesiones de acordes, usando los grados conjuntos, que se consideran los
 intervalos melódicos por excelencia del contrapunto escolástico.
-
 La segunda *Jizznopedia*, no se apropia de una forma en el sentido estricto,
 sino del *mood* de Satie cuya *Gymnopédie* núm. 1 está siempre desmenuzada,
 sugerida y coloreada con armonía de jazz. La tercera, *Varnolds*, es un rondó
@@ -1913,7 +1911,7 @@ Miguel Ángel Rivera Bedolla, guitarra\
 Guillermo Cuellar Ocaña, piano y teclados\
 Abraham Parra Arámburo, percusiones\
 
-Victoria Amaro, soprano
+**Victoria Amaro**, soprano
 
 ### Personas compositoras
 
@@ -2495,10 +2493,9 @@ En homenaje a Natalia Pérez Turner
 
 ### Programa
 
-**Generación Espontánea**
-
 -   Improvisación libre
 
+**Generación Espontánea**\
 Carlos Alegre, violín\
 Sarmen Almond, voz\
 Darío Bernal Villegas, percusión\
@@ -2702,8 +2699,6 @@ Italia, Suiza, Canadá, Brasil, Chile y Argentina.
 > una serie de sensaciones, plegándose infinitamente».
 
 #### Ana Elisa de María (México, 2004)
-
-![](comp/Ana%20M.E..png)
 
 Saxofonista, compositora y etnomusicóloga originaria de Oaxaca. Con una
 fuerte conexión con sus raíces y un enfoque innovador en su obra,
@@ -5062,8 +5057,9 @@ Flores, **fagot** | Alfredo Fenollosa, **corno** | Diego Velásquez,
 **piano** | Dirén Checa, **violín** | Javier Regalado, **violín** |
 Juanmanuel Flores, **violín** | Eduardo Cabrera, **viola** | Diego
 Gutiérrez, **violonchelo** | Konstantin Evmenkin, **violonchelo** |
-Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**. Beneficiarios del **Programa de Residencias
-Artísticas en Grupos Estables del INBAL**.
+Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**
+
+*Beneficiarios del Programa de Residencias Artísticas en Grupos Estables del INBAL*
 
 ### Personas compositoras
 
@@ -6635,7 +6631,7 @@ Casa Rafael Galván, UAM
 
 **Antonio Russek**, curaduría y proyección sonora
 
-##### Notas al programa
+### Notas al programa
 
 La disciplina de composición acusmática en soporte fijo dentro del
 universo de la música electroacústica es una práctica reciente
@@ -6824,7 +6820,6 @@ matemático milenario que permite transformar palabras o textos en
 valores numéricos. Dicho método fue utilizado para generar los valores
 de parámetros de ADSR, EQ, *reverb* y *delay* para el procesamiento de
 cada palabra aleatoria generada por el patch.
-
 La textura, el timbre y la estructura emula un espacio de meditación.
 
 #### Tania Rubio (México, 1987)
@@ -6952,10 +6947,10 @@ INTERMEDIO\
     -   *Song 3*
     -   *Movement 4*
 
+[**Carlos Gándara**, violín]{.solista}
+
 **Orquesta de Cámara de Bellas Artes**\
 Luis Manuel Sánchez Rivas, director artístico
-
-**Carlos Gándara**, violín
 
 ### Personas compositoras
 
@@ -7064,6 +7059,8 @@ Francisco Savín, Luis Samuel Saloma, Enrique Barrios, Juan Trigos, Jesús
 Medina, José Luis Castillo, Ludwig Carrasco y, actualmente, Luis Manuel
 Sánchez Rivas. Se ha presentado en Alemania, Brasil, Estados Unidos,
 Portugal y Costa Rica.
+
+### Dirección y solistas
 
 #### Luis Manuel Sánchez Rivas
 
@@ -7734,8 +7731,9 @@ Flores, **fagot** | Alfredo Fenollosa, **corno** | Diego Velásquez,
 **piano** | Dirén Checa, **violín** | Javier Regalado, **violín** |
 Juanmanuel Flores, **violín** | Eduardo Cabrera, **viola** | Diego
 Gutiérrez, **violonchelo** | Konstantin Evmenkin, **violonchelo** |
-Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**. Beneficiarios del **Programa de Residencias Artísticas en Grupos
-Estables del INBAL**.
+Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**
+
+*Beneficiarios del Programa de Residencias Artísticas en Grupos Estables del INBAL*
 
 ### Personas compositoras
 
@@ -8886,11 +8884,10 @@ Sala Principal, Centro Cultural Tlaqná, Xalapa, Veracruz
 
 - *Des Knaben Wunderhorn (Lieder)* \hfill 40'
 
+[**Gabriela Flores**, mezzosoprano; **Armando Gama**, barítono]{.solista}
+
 **Orquesta Sinfónica de Xalapa**\
 Martin Lebel, director
-
-**Gabriela Flores**, mezzosoprano\
-**Armando Gama**, barítono
 
 ### Personas compositoras
 
@@ -8951,6 +8948,8 @@ Desde 2020 la OSX vive una nueva etapa bajo la dirección de Martin Lebel, quien
 se ha propuesto acrecentar el acervo y el prestigio musical de la orquesta,
 invitando a nuevos y reconocidos talentos artísticos y directores huéspedes que
 brinden frescura y dinamismo a la organización.
+
+### Dirección y solistas
 
 #### Martin Lebel
 
@@ -10547,6 +10546,8 @@ San Luis Potosí
   - *Adagio*
   - *Finale. Allegro energico*
 
+[**Román Shimalin Tsyganov**, violín]{.solista}
+
 \
 INTERMEDIO\
 
@@ -10570,8 +10571,6 @@ INTERMEDIO\
 **Orquesta Sinfónica Universitaria\
 de la Universidad Autónoma de San Luis Potosí**\
 Alfredo Ibarra, director artístico
-
-**Román Shimalin Tsyganov**, violín
 
 ### Personas compositoras
 
@@ -10629,6 +10628,8 @@ OSU ha logrado situarse como un referente cultural indispensable en la
 región, formando nuevos públicos y rompiendo brechas generacionales a través de
 la diversidad de sus propuestas. La orquesta ha colaborado con destacados
 solistas, agrupaciones y directores invitados.
+
+### Dirección y solistas
 
 #### Alfredo Ibarra
 
