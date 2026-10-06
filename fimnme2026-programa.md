@@ -11209,32 +11209,7 @@ María Isabel Grañén Porrúa, *presidenta*
 
 ## Directorio
 
-### Secretaría de Cultura
-
-**Claudia Curiel de Icaza**\
-*Secretaria de Cultura*
-
-**Marina Núñez Bespalova**\
-*Subsecretaria de Desarrollo Cultural*
-
-### Instituto Nacional de Bellas Artes y Literatura
-
-**Alejandra de la Paz**\
-*Directora General*
-
-**Haydeé Boetto Bárcena**\
-*Subdirectora General de Bellas Artes*
-
-**Aarón Polo López**\
-*Director de Difusión y Relaciones Públicas*
-
-**Silvia Carreño y Figueras**\
-*Gerente del Palacio de Bellas Artes*
-
 ### Coordinación Nacional de Música y Ópera
-
-**José María Serralde Ruiz**\
-*Coordinador Nacional*
 
 **Graciela Martínez Corona**\
 *Subcoordinadora*
@@ -11288,3 +11263,33 @@ Javier González Gómez.
 ```{=tex}
 \end{colofon}
 ```
+
+<!-- Contraportada: directorio de la Secretaría de Cultura y del INBAL (va
+siempre en la última página, con la pleca institucional al pie) -->
+
+::: contraportada
+### Secretaría de Cultura
+
+**Claudia Curiel de Icaza**\
+*Secretaria de Cultura*
+
+**Marina Núñez Bespalova**\
+*Subsecretaria de Desarrollo Cultural*
+
+### Instituto Nacional de Bellas Artes y Literatura
+
+**Alejandra de la Paz**\
+*Directora General*
+
+**Haydeé Boetto Bárcena**\
+*Subdirectora General de Bellas Artes*
+
+**Aarón Polo López**\
+*Director de Difusión y Relaciones Públicas*
+
+**José María Serralde Ruiz**\
+*Coordinador Nacional de Música y Ópera*
+
+**Silvia Carreño y Figueras**\
+*Gerente del Palacio de Bellas Artes*
+:::

@@ -231,13 +231,31 @@
   \null\clearpage
 }
 
+% Contraportada: directorio de la Secretaría de Cultura y del INBAL (del
+% bloque «::: contraportada» del Markdown) y la pleca institucional al pie.
+\newsavebox{\cajadirectorio}
+\newenvironment{directoriocontraportada}{%
+  \global\setbox\cajadirectorio=\vbox\bgroup\hsize=84mm\parindent=0pt
+  \centering\estilotitulos\fontsize{7.6}{9.3}\selectfont\color{portadatexto}%
+  \let\\\saltocredito\setlength{\parskip}{2mm}\hyphenpenalty=10000}
+  {\par\egroup}
+\newcommand{\grupodirectorio}[1]{\par\addvspace{4.5mm}%
+  {\fontsize{7}{8.6}\bfseries\color{portadacaja}\espaciado[80]{\MakeUppercase{#1}}\par}%
+  \nopagebreak\vspace{0.4mm}}
+\newcommand{\pleca}{automatizacion/plantilla/pleca-cultura-inbal.pdf}
 \newcommand{\contraportada}{%
   \clearpage\thispagestyle{empty}%
   \begin{tikzpicture}[remember picture, overlay]
     \fondopartitura[0.10]
-    \node[inner sep=0pt] at ($$(current page.center)+(0,12mm)$$) {\logofimnme{30mm}{portadalogo}};
-    \node[anchor=south, inner sep=0pt] at ($$(current page.south)+(0,19mm)$$)
-      {\logocnmo{17mm}{white}};
+    \node[anchor=north, inner sep=0pt] at ($$(current page.north)+(0,-20mm)$$)
+      {\logofimnme{17mm}{portadalogo}};
+    \ifvoid\cajadirectorio\else
+      \node[inner sep=0pt] at ($$(current page.center)+(0,4mm)$$) {\usebox{\cajadirectorio}};
+    \fi
+    \node[anchor=south, inner sep=0pt] (pleca) at (current page.south)
+      {\includegraphics[width=\paperwidth]{\pleca}};
+    \node[anchor=south, inner sep=0pt] at ($$(pleca.north)+(0,7mm)$$)
+      {\logocnmo{14mm}{white}};
   \end{tikzpicture}%
   \null
 }

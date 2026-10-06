@@ -907,6 +907,24 @@ function Pandoc(doc)
       goto continuar
     end
 
+    -- ------------------------------------------------- CONTRAPORTADA --
+    -- «::: contraportada»: directorio de la Secretaría de Cultura y del
+    -- INBAL, que va en la última página (con la pleca institucional).
+    if b.t == "Div" and b.classes:includes("contraportada") then
+      cerrar_mayor()
+      emit(raw("\\begin{directoriocontraportada}"))
+      for _, c in ipairs(b.content) do
+        if c.t == "Header" then
+          emit(raw("\\grupodirectorio{" .. latex(c.content) .. "}"))
+        elseif c.t == "Para" or c.t == "Plain" then
+          emit(raw(latex(c.content)))
+        end
+      end
+      emit(raw("\\end{directoriocontraportada}"))
+      i = i + 1
+      goto continuar
+    end
+
     -- ----------------------------------------------------------- LOGOS --
     -- «::: logos» al final de un concierto: franja de logotipos al pie de su
     -- última página. En las actividades académicas, un solo bloque al final
