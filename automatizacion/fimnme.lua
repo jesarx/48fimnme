@@ -1,0 +1,828 @@
+-- =============================================================================
+--  fimnme.lua — Filtro Pandoc para el Programa General del FIMNME
+--
+--  Convierte la estructura del Markdown en las macros de la plantilla
+--  automatizacion/plantilla/fimnme.latex:
+--
+--    \part{...}                      → página de parte
+--    \portadacapitulo{VIE | NOV 6}   → página divisoria del día
+--    ## VIE | NOV 6, 20:00 h - Título → encabezado de concierto (+ índice,
+--                                       marcador PDF y cabecera de página)
+--    ### Programa / Personas compositoras / Intérpretes ...  → secciones
+--    **Compositor** + lista de obras → programa con duraciones alineadas
+--    #### Nombre (País, año) + foto   → ficha biográfica con foto
+--    ##### *Obra*                     → título de nota al programa
+--
+--  Además:
+--    * genera la leyenda de estrenos (* / **) según las marcas que realmente
+--      aparecen en cada programa;
+--    * alimenta el índice onomástico de personas compositoras (makeindex);
+--    * usa las fotos ya recortadas por automatizacion/preparar_imagenes.py;
+--    * descarta los \clearpage y \vfill manuales: la paginación la decide
+--      la plantilla.
+-- =============================================================================
+
+local stringify = pandoc.utils.stringify
+
+-- -----------------------------------------------------------------------------
+-- Utilidades
+-- -----------------------------------------------------------------------------
+
+local function trim(s)
+  return (s:gsub("^%s+", ""):gsub("%s+$", ""))
+end
+
+local function raw(s)
+  return pandoc.RawBlock("latex", s)
+end
+
+local function rawi(s)
+  return pandoc.RawInline("latex", s)
+end
+
+-- Inlines → LaTeX
+local function latex(inlines)
+  if inlines == nil or #inlines == 0 then return "" end
+  local doc = pandoc.Pandoc({ pandoc.Plain(inlines) })
+  local s = pandoc.write(doc, "latex", { wrap_text = "wrap-none" })
+  return trim(s)
+end
+
+-- Bloques → LaTeX
+local function latex_blocks(blocks)
+  local s = pandoc.write(pandoc.Pandoc(blocks), "latex", { wrap_text = "wrap-none" })
+  return trim(s)
+end
+
+-- Texto plano seguro para LaTeX (para cabeceras e índices)
+local function escape(s)
+  s = s:gsub("\\", "\\textbackslash{}")
+  s = s:gsub("([#%%&_{}%$])", "\\%1")
+  s = s:gsub("~", "\\textasciitilde{}")
+  s = s:gsub("%^", "\\textasciicircum{}")
+  return s
+end
+
+local function urldecode(s)
+  if not s then return s end
+  return (s:gsub("%%(%x%x)", function(h) return string.char(tonumber(h, 16)) end))
+end
+
+local function strip_trailing_space(inlines)
+  while #inlines > 0 do
+    local t = inlines[#inlines].t
+    if t == "Space" or t == "SoftBreak" or t == "LineBreak" then
+      inlines:remove(#inlines)
+    else
+      break
+    end
+  end
+  while #inlines > 0 do
+    local t = inlines[1].t
+    if t == "Space" or t == "SoftBreak" or t == "LineBreak" then
+      inlines:remove(1)
+    else
+      break
+    end
+  end
+  return inlines
+end
+
+-- Quita acentos y pasa a minúsculas (clave de orden del índice)
+local ACENTOS = {
+  ["á"]="a", ["à"]="a", ["â"]="a", ["ä"]="a", ["ã"]="a", ["å"]="a",
+  ["é"]="e", ["è"]="e", ["ê"]="e", ["ë"]="e",
+  ["í"]="i", ["ì"]="i", ["î"]="i", ["ï"]="i",
+  ["ó"]="o", ["ò"]="o", ["ô"]="o", ["ö"]="o", ["õ"]="o", ["ø"]="o",
+  ["ú"]="u", ["ù"]="u", ["û"]="u", ["ü"]="u",
+  ["ñ"]="n", ["ç"]="c", ["ć"]="c", ["ř"]="r", ["ß"]="ss", ["ý"]="y",
+  ["Á"]="a", ["À"]="a", ["Â"]="a", ["Ä"]="a", ["Å"]="a",
+  ["É"]="e", ["Í"]="i", ["Ó"]="o", ["Ö"]="o", ["Ú"]="u", ["Ü"]="u", ["Ñ"]="n",
+}
+local function clave_orden(s)
+  s = pandoc.text.lower(s)
+  for k, v in pairs(ACENTOS) do s = s:gsub(k, v) end
+  s = s:gsub("[^%w ,]", "")
+  return s
+end
+
+-- Caracteres CJK: se envuelven para usar una fuente que los tenga.
+local function envolver_cjk(inlines)
+  return pandoc.Inlines(inlines):walk({
+    Str = function(el)
+      if not el.text:find("[\228-\233][\128-\191][\128-\191]") then return nil end
+      local out = pandoc.List()
+      local buf, cjk = "", false
+      for _, c in utf8.codes(el.text) do
+        local ch = utf8.char(c)
+        local es = c >= 0x2E80 and c <= 0x9FFF
+        if es ~= cjk and buf ~= "" then
+          out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
+          buf = ""
+        end
+        cjk = es
+        buf = buf .. ch
+      end
+      if buf ~= "" then
+        out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
+      end
+      return out
+    end,
+  })
+end
+
+-- -----------------------------------------------------------------------------
+-- Configuración
+-- -----------------------------------------------------------------------------
+
+local MANIFIESTO = {}   -- ruta original → { ruta procesada, tipo }
+local function cargar_manifiesto()
+  local f = io.open("build/fotos/manifiesto.tsv", "r")
+  if not f then
+    io.stderr:write("Aviso: falta build/fotos/manifiesto.tsv; ejecute preparar_imagenes.py\n")
+    return
+  end
+  for linea in f:lines() do
+    local orig, dest, tipo = linea:match("^([^\t]+)\t([^\t]+)\t?([^\t]*)$")
+    if orig then MANIFIESTO[orig] = { dest, tipo ~= "" and tipo or "circulo" } end
+  end
+  f:close()
+end
+
+local NOMBRES_INDICE = {}   -- "Nombre Apellido" → "Apellido, Nombre" ("-" = omitir)
+local PARTES_CON_DIVISORES = {}  -- partes con página divisoria para cada día
+
+-- Secciones de nivel ## que se componen centradas (créditos y directorio)
+local SECCIONES_CENTRADAS = { ["creditos"] = true, ["directorio"] = true }
+local SECCIONES_SEDES = { ["sedes"] = true }
+
+-- Claves normalizadas con clave_orden (sin tildes, en minúsculas)
+local SECCIONES_FICHA = {
+  ["personas compositoras"] = "comp",
+  ["interpretes"] = "int",
+  ["direccion y solistas"] = "int",
+  ["solistas"] = "int",
+  ["direccion"] = "int",
+}
+
+-- -----------------------------------------------------------------------------
+-- Fechas:  "VIE | NOV 6, 20:00 h"  /  "VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h"
+-- -----------------------------------------------------------------------------
+
+local MES_NUM = { OCT = 10, NOV = 11, DIC = 12 }
+local MES_NOMBRE = { OCT = "octubre", NOV = "noviembre", DIC = "diciembre" }
+local DIA_NOMBRE = { LUN = "Lunes", MAR = "Martes", ["MIÉ"] = "Miércoles", JUE = "Jueves",
+                     VIE = "Viernes", ["SÁB"] = "Sábado", DOM = "Domingo" }
+
+local function divisor_dia(f, texto_indice)
+  return string.format("\\divisordia{%s}{%s}{%s}{%s}",
+    DIA_NOMBRE[f.dia] or f.dia, f.num, MES_NOMBRE[f.mes] or f.mes, texto_indice or "")
+end
+
+local function parse_una_fecha(s, mes_defecto)
+  s = trim(s)
+  local dia, mes, num, resto = s:match("^([^%s|,]+)%s*|%s*(%a+)%s+(%d+)(.*)$")
+  if not dia then
+    dia, num, resto = s:match("^([^%s|,]+)%s+(%d+)(.*)$")
+    mes = mes_defecto
+  end
+  if not dia then return nil end
+  local hora = resto and resto:match("(%d%d?:%d%d)")
+  return { dia = dia, mes = mes or "NOV", num = num, hora = hora }
+end
+
+local function parse_fechas(s, mes_defecto)
+  local fechas = {}
+  for parte in (s .. "/"):gmatch("([^/]+)/") do
+    local f = parse_una_fecha(parte, mes_defecto)
+    if not f then return nil end
+    table.insert(fechas, f)
+  end
+  if #fechas == 0 then return nil end
+  return fechas
+end
+
+local function fecha_texto(f)        -- VIE | NOV 6
+  return f.dia .. " | " .. f.mes .. " " .. f.num
+end
+
+local function fecha_hora_texto(f)   -- VIE | NOV 6 · 20:00 h
+  local s = fecha_texto(f)
+  if f.hora then s = s .. " · " .. f.hora .. " h" end
+  return s
+end
+
+local function fecha_clave(f)
+  local h = f.hora or "00:00"
+  local hh, mm = h:match("(%d+):(%d+)")
+  return string.format("%02d%02d%02d%02d", MES_NUM[f.mes] or 0, tonumber(f.num), tonumber(hh), tonumber(mm))
+end
+
+-- Separa "FECHA - Título" en la primera aparición de " - "
+local function partir_encabezado(texto)
+  local a, b = texto:find(" %- ")
+  if not a then return nil, texto end
+  return texto:sub(1, a - 1), texto:sub(b + 1)
+end
+
+-- Igual que partir_encabezado pero sobre inlines (para conservar cursivas)
+local function partir_inlines(inlines)
+  for i = 1, #inlines - 2 do
+    if inlines[i].t == "Space" and inlines[i + 1].t == "Str" and inlines[i + 1].text == "-"
+       and inlines[i + 2].t == "Space" then
+      local izq, der = pandoc.List(), pandoc.List()
+      for j = 1, i - 1 do izq:insert(inlines[j]) end
+      for j = i + 3, #inlines do der:insert(inlines[j]) end
+      return izq, der
+    end
+  end
+  return nil, inlines
+end
+
+-- -----------------------------------------------------------------------------
+-- Índice onomástico
+-- -----------------------------------------------------------------------------
+
+local function nombre_indice(nombre)
+  nombre = trim(nombre:gsub("%s+", " "))
+  local o = NOMBRES_INDICE[nombre]
+  if o == "-" then return nil end
+  if o then return o end
+  local palabras = {}
+  for w in nombre:gmatch("%S+") do table.insert(palabras, w) end
+  if #palabras < 2 then return nombre end
+  return palabras[#palabras] .. ", " .. table.concat(palabras, " ", 1, #palabras - 1)
+end
+
+local function escape_indice(s)
+  s = escape(s)
+  return (s:gsub('([!@|"])', '"%1'))
+end
+
+local function entrada_indice(nombre, sufijo)
+  local display = nombre_indice(nombre)
+  if not display then return "" end
+  return "\\index{" .. escape_indice(clave_orden(display)) .. "@" ..
+         escape_indice(display) .. (sufijo or "") .. "}"
+end
+
+-- -----------------------------------------------------------------------------
+-- Programa: obras, duraciones y leyenda de estrenos
+-- -----------------------------------------------------------------------------
+
+local function es_leyenda(texto)
+  local t = texto:gsub("[%*•\\]", ""):gsub("quad", ""):gsub("par", " ")
+  t = trim(t:gsub("%s+", " "))
+  if t == "" then return false end
+  t = t:gsub("Estreno mundial", ""):gsub("Estreno en México", "")
+  return trim(t) == ""
+end
+
+local function marcas_en(inlines, marcas)
+  for _, el in ipairs(inlines) do
+    if el.t == "Str" then
+      local s = el.text
+      if s:find("%*%*") then marcas.mexico = true; s = s:gsub("%*%*", "") end
+      if s:find("%*") then marcas.mundial = true end
+    end
+  end
+end
+
+local function leyenda_latex(marcas)
+  local partes = {}
+  if marcas.mundial then table.insert(partes, "* Estreno mundial") end
+  if marcas.mexico then table.insert(partes, "** Estreno en México") end
+  if #partes == 0 then return nil end
+  return "\\leyenda{" .. table.concat(partes, "\\quad ") .. "}"
+end
+
+-- Separa los inlines de un elemento de lista en título / duración / créditos
+local function partir_obra(inlines)
+  local titulo, dur, cred = pandoc.List(), "", pandoc.List()
+  local i, n = 1, #inlines
+  local encontrado = false
+  while i <= n do
+    local el = inlines[i]
+    if el.t == "RawInline" and el.text:match("^\\hfill") then
+      encontrado = true
+      dur = el.text:gsub("^\\hfill%s*", "")
+      i = i + 1
+      -- La duración continúa en los Str siguientes (p. ej. "10" + "’")
+      while i <= n and inlines[i].t == "Str" and (dur == "" or not dur:find("[’']$")) do
+        dur = dur .. inlines[i].text
+        i = i + 1
+      end
+      -- Resto: créditos
+      for j = i, n do cred:insert(inlines[j]) end
+      break
+    else
+      titulo:insert(el)
+    end
+    i = i + 1
+  end
+  if not encontrado then titulo = inlines end
+  return strip_trailing_space(titulo), trim(dur), strip_trailing_space(cred)
+end
+
+local function tiene_anio(inlines)
+  return stringify(inlines):find("%(%d%d%d%d") ~= nil
+end
+
+-- Convierte una BulletList del programa en el entorno «obras»
+local function lista_obras(lista, marcas)
+  local out = { "\\begin{obras}" }
+  local anterior = false
+  for _, item in ipairs(lista.content) do
+    local primero = item[1]
+    local inl = (primero and (primero.t == "Plain" or primero.t == "Para")) and primero.content or pandoc.List()
+    local titulo, dur, cred = partir_obra(inl)
+    if not es_leyenda(stringify(inl)) then marcas_en(inl, marcas) end
+    if es_leyenda(stringify(inl)) and dur == "" then
+      -- leyenda escrita como viñeta («- Estreno mundial»): se descarta
+      marcas.declaradas = (marcas.declaradas or "") .. stringify(inl)
+    elseif dur == "" and not tiene_anio(titulo) and anterior then
+      table.insert(out, "\\movimiento{" .. latex(titulo) .. "}")
+    else
+      table.insert(out, "\\obra{" .. latex(titulo) .. "}{" .. escape(dur) .. "}{" .. latex(cred) .. "}")
+      anterior = true
+    end
+    -- Bloques restantes del elemento: sublistas (movimientos) o texto
+    for k = 2, #item do
+      local b = item[k]
+      if b.t == "BulletList" or b.t == "OrderedList" then
+        for _, sub in ipairs(b.content) do
+          local s = sub[1] and sub[1].content or pandoc.List()
+          marcas_en(s, marcas)
+          local t2, d2, c2 = partir_obra(s)
+          if d2 ~= "" then
+            table.insert(out, "\\obra{" .. latex(t2) .. "}{" .. escape(d2) .. "}{" .. latex(c2) .. "}")
+          else
+            table.insert(out, "\\movimiento{" .. latex(t2) .. "}")
+          end
+        end
+      elseif b.content then
+        table.insert(out, "\\movimiento{" .. latex(b.content) .. "}")
+      end
+    end
+  end
+  if #out == 1 then return raw("") end
+  table.insert(out, "\\end{obras}")
+  return raw(table.concat(out, "\n"))
+end
+
+-- -----------------------------------------------------------------------------
+-- Fichas biográficas
+-- -----------------------------------------------------------------------------
+
+-- "Kaija Saariaho (Finlandia, 1952 – Francia, 2023)" → nombre, detalle
+local function partir_ficha(inlines)
+  local n = #inlines
+  if n > 0 and inlines[n].t == "Str" and inlines[n].text:match("%)$") then
+    -- buscar el Str que abre el paréntesis final
+    for i = n, 1, -1 do
+      local el = inlines[i]
+      if el.t == "Str" and el.text:match("^%(") then
+        local nombre, detalle = pandoc.List(), pandoc.List()
+        for j = 1, i - 1 do nombre:insert(inlines[j]) end
+        for j = i, n do detalle:insert(inlines[j]) end
+        local d = latex(detalle):gsub("^%(", ""):gsub("%)$", "")
+        return strip_trailing_space(nombre), d
+      end
+    end
+  end
+  return inlines, ""
+end
+
+local function imagen_sola(bloque)
+  if bloque and bloque.t == "Para" and #bloque.content == 1 and bloque.content[1].t == "Image" then
+    return bloque.content[1]
+  end
+  return nil
+end
+
+local function resolver_foto(src)
+  local ruta = urldecode(src)
+  local m = MANIFIESTO[ruta]
+  if m then return m[1], m[2] end
+  io.stderr:write("Aviso: foto no encontrada en el manifiesto: " .. ruta .. "\n")
+  return nil, nil
+end
+
+-- -----------------------------------------------------------------------------
+-- Recorrido principal
+-- -----------------------------------------------------------------------------
+
+function Pandoc(doc)
+  cargar_manifiesto()
+  local mi = doc.meta["indice-onomastico"]
+  if mi then
+    for k, v in pairs(mi) do NOMBRES_INDICE[k] = stringify(v) end
+  end
+  local pd = doc.meta["divisores-por-dia"]
+  if pd then
+    for _, v in ipairs(pd) do PARTES_CON_DIVISORES[clave_orden(stringify(v))] = true end
+  end
+
+  local bloques = doc.blocks
+  local out = pandoc.List()
+  local function emit(b) out:insert(b) end
+
+  -- Estado
+  local parte = ""            -- título de la parte actual (en mayúsculas)
+  local seccion = nil          -- sección ### actual (en minúsculas)
+  local en_programa = false
+  local marcas = {}
+  local cabecera = ""          -- texto de la cabecera del concierto actual
+  local mes_actual = "NOV"
+  local dia_toc = nil          -- último día escrito en el índice
+  local indice_abierto = nil   -- compositor con rango de índice abierto
+  local mayor = nil            -- sección ## sin fecha en curso (sedes, créditos...)
+  local concierto_abierto = nil -- número del concierto en curso (para el ajuste fino)
+  local tras_lista = false      -- el último bloque del programa fue una lista de obras
+  local dia_divisor = nil      -- último día con página divisoria
+  local num_concierto = 0
+
+  -- Fechas secundarias (conciertos que se repiten otro día): se listan
+  -- también en el índice general bajo ese día.
+  local secundarias = {}       -- clave de día → lista de {hora, titulo, etiqueta}
+  local pendientes = {}        -- secundarias del día en curso aún no escritas
+
+  local function cerrar_indice()
+    if indice_abierto then
+      emit(raw(entrada_indice(indice_abierto, "|)")))
+      indice_abierto = nil
+    end
+  end
+
+  local function cerrar_programa()
+    if en_programa then
+      local d = marcas.declaradas or ""
+      local dm = d:find("mundial") ~= nil
+      local dx = d:find("México") ~= nil
+      if d ~= "" and ((dm and not marcas.mundial) or (dx and not marcas.mexico) or
+         (marcas.mundial and not dm) or (marcas.mexico and not dx)) then
+        io.stderr:write(string.format("Leyenda de estrenos: %s | declarada [%s%s] marcas [%s%s]\n",
+          cabecera, dm and "*" or "", dx and "**" or "",
+          marcas.mundial and "*" or "", marcas.mexico and "**" or ""))
+      end
+      -- quitar espaciadores colgantes al final del programa
+      while #out > 0 and out[#out].t == "RawBlock" and out[#out].text == "\\par\\addvspace{1.8mm}" do
+        out:remove(#out)
+      end
+      local l = leyenda_latex(marcas)
+      if l then emit(raw(l)) end
+      if concierto_abierto then emit(raw("\\finprograma{" .. concierto_abierto .. "}")) end
+      emit(raw("\\end{bloqueprograma}"))
+      en_programa = false
+    end
+  end
+
+  local function cerrar_seccion()
+    cerrar_indice()
+    cerrar_programa()
+    seccion = nil
+  end
+
+  local function cerrar_concierto()
+    if concierto_abierto then
+      emit(raw("\\finconcierto{" .. concierto_abierto .. "}"))
+      concierto_abierto = nil
+    end
+  end
+
+  local function cerrar_mayor()
+    cerrar_seccion()
+    cerrar_concierto()
+    if mayor and SECCIONES_CENTRADAS[mayor] then
+      emit(raw("\\end{creditos}"))
+    end
+    mayor = nil
+  end
+
+  local function escribir_pendientes(hasta)
+    local resto = {}
+    for _, p in ipairs(pendientes) do
+      if hasta == nil or p.clave < hasta then
+        emit(raw("\\addtocontents{toc}{\\protect\\contentsline{concierto}{\\protect\\numberline{" ..
+          p.hora .. "}" .. p.titulo .. "}{\\protect\\pageref{" .. p.etiqueta .. "}}{" .. p.etiqueta .. "}}"))
+      else
+        table.insert(resto, p)
+      end
+    end
+    pendientes = resto
+  end
+
+  local function dia_en_indice(f)
+    local clave = f.mes .. f.num
+    if dia_toc ~= clave then
+      escribir_pendientes(nil)
+      dia_toc = clave
+      pendientes = secundarias[clave] or {}
+      return true
+    end
+    return false
+  end
+
+  -- Pre-pasada: conciertos con más de una fecha
+  do
+    local mes = "NOV"
+    for _, b in ipairs(bloques) do
+      if b.t == "Header" and b.level == 2 then
+        local izq = partir_encabezado(stringify(b.content))
+        local fs = izq and parse_fechas(izq, mes)
+        if fs then
+          mes = fs[1].mes
+          num_concierto = num_concierto + 1
+          for k = 2, #fs do
+            local _, der = partir_inlines(b.content)
+            local clave = fs[k].mes .. fs[k].num
+            secundarias[clave] = secundarias[clave] or {}
+            table.insert(secundarias[clave], {
+              hora = fs[k].hora or "",
+              clave = fecha_clave(fs[k]),
+              titulo = latex(envolver_cjk(der)) .. " {\\color{verdegris}(también " ..
+                       escape(fecha_texto(fs[1])) .. ")}",
+              etiqueta = "concierto:" .. num_concierto,
+            })
+          end
+        end
+      end
+    end
+    num_concierto = 0
+  end
+
+  local i, n = 1, #bloques
+
+  while i <= n do
+    local b = bloques[i]
+    local siguiente = bloques[i + 1]
+
+    -- ---------------------------------------------------------------- RAW --
+    if b.t == "RawBlock" and (b.format == "latex" or b.format == "tex") then
+      local t = trim(b.text)
+      local titulo_parte = t:match("^\\part%*?{(.-)}$")
+      local divisor = t:match("^\\portadacapitulo{(.-)}$")
+      if t == "\\clearpage" or t == "\\newpage" or t == "\\pagebreak" then
+        -- la paginación la decide la plantilla
+      elseif t == "\\vfill" or t:match("^\\vfill%s*$") then
+        if en_programa then emit(raw("\\par\\addvspace{1.8mm}")) end
+      elseif t == "\\par" then
+        -- nada
+      elseif t == "\\printindex" then
+        cerrar_mayor()
+        emit(b)
+      elseif titulo_parte then
+        cerrar_mayor()
+        dia_divisor = nil
+        escribir_pendientes(nil)
+        dia_toc = nil
+        parte = titulo_parte
+        local texto = titulo_parte:gsub("|", "\\textbar{}")
+        local subtitulo = ""
+        if siguiente and (siguiente.t == "Para" or siguiente.t == "Plain") then
+          subtitulo = latex(siguiente.content)
+          i = i + 1
+        end
+        emit(raw("\\parte{" .. texto .. "}{" .. texto .. "}{" .. subtitulo .. "}"))
+        cabecera = ""
+      elseif divisor then
+        cerrar_mayor()
+        local f = parse_una_fecha(divisor, mes_actual)
+        if f and PARTES_CON_DIVISORES[clave_orden(parte)] then
+          -- se generan automáticamente
+        elseif f then
+          dia_divisor = f.mes .. f.num
+          mes_actual = f.mes
+          emit(raw(divisor_dia(f, dia_en_indice(f) and escape(fecha_texto(f)) or "")))
+        elseif clave_orden(divisor) ~= "programa general" then
+          emit(raw("\\divisor{" .. divisor .. "}"))
+        end
+      else
+        emit(b)
+      end
+      i = i + 1
+
+    -- ------------------------------------------------------------- HEADER --
+    elseif b.t == "Header" and b.level <= 2 then
+      cerrar_mayor()
+      local inl = envolver_cjk(b.content)
+      local texto = stringify(b.content)
+      local izq_txt = partir_encabezado(texto)
+      local fechas = izq_txt and parse_fechas(izq_txt, mes_actual)
+      if fechas then
+        local _, der = partir_inlines(inl)
+        local f = fechas[1]
+        mes_actual = f.mes
+        num_concierto = num_concierto + 1
+        local etiqueta = "concierto:" .. num_concierto
+        -- Página divisoria automática al cambiar de día
+        if PARTES_CON_DIVISORES[clave_orden(parte)] and dia_divisor ~= f.mes .. f.num then
+          dia_divisor = f.mes .. f.num
+          local nuevo = dia_en_indice(f)
+          emit(raw(divisor_dia(f, nuevo and escape(fecha_texto(f)) or "")))
+        end
+        -- Día en el índice general
+        if dia_en_indice(f) then
+          emit(raw("\\addtocontents{toc}{\\protect\\contentsline{dia}{" ..
+            escape(fecha_texto(f)) .. "}{}{}}"))
+        end
+        escribir_pendientes(fecha_clave(f))
+        local kicker = {}
+        for _, ff in ipairs(fechas) do table.insert(kicker, escape(fecha_hora_texto(ff))) end
+        local titulo = latex(der)
+        local titulo_txt = stringify(der)
+        cabecera = escape(fecha_texto(f) .. " · " .. titulo_txt)
+        local toc_titulo = titulo
+        local macro = (clave_orden(parte) == "actividades academicas") and "\\actividadacademica" or "\\concierto"
+        emit(raw(string.format("%s{%s}{%s}{%s}{%s}{%s}{%s}\\hypertarget{%s}{}\\label{%s}",
+          macro,
+          table.concat(kicker, "\\quad/\\quad "), titulo, cabecera,
+          f.hora or "", toc_titulo,
+          escape(fecha_texto(f) .. " · " .. titulo_txt), etiqueta, etiqueta)))
+        if macro == "\\concierto" then
+          concierto_abierto = num_concierto
+          emit(raw("\\iniconcierto{" .. num_concierto .. "}"))
+        end
+        -- Lugar: primer párrafo tras el encabezado
+        if siguiente and (siguiente.t == "Para" or siguiente.t == "Plain")
+           and siguiente.content[1] and siguiente.content[1].t ~= "Strong"
+           and #stringify(siguiente.content) < 160 then
+          local lugar = latex(strip_trailing_space(siguiente.content))
+          i = i + 1
+          -- Un segundo párrafo breve antes de las secciones (p. ej. otra fecha
+          -- y otra sede del mismo concierto) también forma parte del lugar.
+          local otro, tras = bloques[i + 1], bloques[i + 2]
+          if otro and otro.t == "Para" and otro.content[1] and otro.content[1].t ~= "Strong"
+             and #stringify(otro.content) < 160 and tras
+             and (tras.t == "Header" or tras.t == "HorizontalRule") then
+            lugar = lugar .. "\\par\\vspace{1mm}" .. latex(strip_trailing_space(otro.content))
+            i = i + 1
+          end
+          emit(raw("\\lugar{" .. lugar .. "}"))
+          -- el filete del lugar sustituye a un «---» inmediato
+          if bloques[i + 1] and bloques[i + 1].t == "HorizontalRule" then i = i + 1 end
+        end
+      else
+        -- Sección sin fecha (Coloquio, Sedes, Créditos, Directorio...)
+        cabecera = escape(texto)
+        emit(raw(string.format("\\seccionmayor{%s}{%s}{%s}", latex(inl), cabecera, escape(texto))))
+        mayor = clave_orden(texto)
+        if SECCIONES_CENTRADAS[mayor] then emit(raw("\\begin{creditos}")) end
+      end
+      i = i + 1
+
+    elseif b.t == "Header" and b.level == 3 then
+      cerrar_seccion()
+      local texto = stringify(b.content)
+      seccion = clave_orden(texto)
+      if seccion == "personas compositoras" then
+        emit(raw("\\clearpage"))
+      end
+      if mayor and (SECCIONES_CENTRADAS[mayor] or SECCIONES_SEDES[mayor]) then
+        emit(raw("\\grupocreditos{" .. latex(b.content) .. "}\\marcador{3}{" .. escape(texto) .. "}"))
+      else
+        if seccion ~= "programa" and concierto_abierto then emit(raw("\\aplicamodobiografias")) end
+        emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
+      end
+      if seccion == "programa" then
+        en_programa = true
+        marcas = {}
+        emit(raw("\\begin{bloqueprograma}"))
+      end
+      i = i + 1
+
+    elseif b.t == "Header" and b.level == 4 then
+      cerrar_indice()
+      local tipo = seccion and SECCIONES_FICHA[seccion]
+      local texto = stringify(b.content)
+      local izq_txt = partir_encabezado(texto)
+      local fechas = izq_txt and parse_fechas(izq_txt, mes_actual)
+      if tipo then
+        local inl = envolver_cjk(b.content)
+        local nombre, detalle = partir_ficha(inl)
+        local nombre_tex = latex(nombre)
+        local img = imagen_sola(siguiente)
+        local foto, forma
+        if img then
+          foto, forma = resolver_foto(img.src)
+          i = i + 1
+        end
+        local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
+        if tipo == "comp" then
+          indice_abierto = stringify(nombre)
+          marca = marca .. entrada_indice(indice_abierto, "|(")
+        end
+        if foto and forma == "banda" then
+          emit(raw(string.format("\\fichabanda{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
+        elseif foto then
+          emit(raw(string.format("\\ficha{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
+        else
+          emit(raw(string.format("\\fichasola{%s}{%s}%s", nombre_tex, detalle, marca)))
+        end
+      elseif fechas then
+        local _, der = partir_inlines(b.content)
+        local kicker = {}
+        for _, ff in ipairs(fechas) do table.insert(kicker, escape(fecha_hora_texto(ff))) end
+        emit(raw("\\actividad{" .. table.concat(kicker, "\\quad/\\quad ") .. "}{" .. latex(der) .. "}"))
+      else
+        emit(raw("\\notaobra{" .. latex(b.content) .. "}"))
+      end
+      i = i + 1
+
+    elseif b.t == "Header" then
+      emit(raw("\\notaobra{" .. latex(envolver_cjk(b.content)) .. "}"))
+      i = i + 1
+
+    -- Ficha cuyo nombre viene en negritas en lugar de «####»
+    elseif seccion and SECCIONES_FICHA[seccion] and (b.t == "Para" or b.t == "Plain")
+           and #b.content == 1 and b.content[1].t == "Strong" and imagen_sola(siguiente) then
+      cerrar_indice()
+      local nombre = b.content[1].content
+      local foto, forma = resolver_foto(imagen_sola(siguiente).src)
+      local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
+      if SECCIONES_FICHA[seccion] == "comp" then
+        indice_abierto = stringify(nombre)
+        marca = marca .. entrada_indice(indice_abierto, "|(")
+      end
+      local macro = (forma == "banda") and "\\fichabanda" or "\\ficha"
+      if foto then
+        emit(raw(string.format("%s{%s}{%s}{}%s", macro, foto, latex(nombre), marca)))
+      else
+        emit(raw(string.format("\\fichasola{%s}{}%s", latex(nombre), marca)))
+      end
+      i = i + 2
+
+    -- ------------------------------------------------------------ PROGRAMA --
+    elseif en_programa and b.t == "BulletList" then
+      emit(lista_obras(b, marcas))
+      tras_lista = true
+      i = i + 1
+
+    elseif en_programa and (b.t == "Para" or b.t == "Plain") then
+      local txt = trim(stringify(b.content))
+      if es_leyenda(txt) then
+        -- se regenera automáticamente al final del programa
+        marcas.declaradas = (marcas.declaradas or "") .. txt
+      elseif txt == "INTERMEDIO" then
+        emit(raw("\\intermedio"))
+        tras_lista = false
+      elseif b.content[1] and b.content[1].t == "Strong" and siguiente and siguiente.t == "BulletList" then
+        local nombre = b.content[1].content
+        local resto = pandoc.List()
+        for k = 2, #b.content do resto:insert(b.content[k]) end
+        local sep = (resto[1] and resto[1].t == "Space") and " " or ""
+        emit(raw("\\compositor{" .. latex(nombre) .. "}{" .. sep .. latex(strip_trailing_space(resto)) .. "}" ..
+                 entrada_indice(stringify(nombre))))
+      else
+        -- Intérpretes tras un grupo de obras: un poco de aire antes
+        if tras_lista and b.content[1] and b.content[1].t == "Strong" then
+          emit(raw("\\par\\addvspace{2mm}"))
+        end
+        marcas_en(b.content, marcas)
+        b.content = envolver_cjk(strip_trailing_space(b.content))
+        emit(b)
+      end
+      tras_lista = false
+      i = i + 1
+
+    -- -------------------------------------------------------------- OTROS --
+    elseif b.t == "HorizontalRule" then
+      emit(raw("\\separador"))
+      tras_lista = false
+      i = i + 1
+
+    elseif imagen_sola(b) then
+      local foto = resolver_foto(imagen_sola(b).src)
+      if foto then
+        emit(raw("\\par\\begin{center}\\circulofoto{" .. foto .. "}{\\diametrofoto}\\end{center}"))
+      end
+      i = i + 1
+
+    elseif b.t == "Para" and b.content[1] and b.content[1].t == "RawInline"
+           and b.content[1].text:match("^\\hfill") and trim(b.content[1].text) == "\\hfill" then
+      local resto = pandoc.List()
+      for k = 2, #b.content do resto:insert(b.content[k]) end
+      emit(raw("\\firma{" .. latex(strip_trailing_space(resto)) .. "}"))
+      i = i + 1
+
+    elseif (b.t == "Para" or b.t == "Plain") and mayor and SECCIONES_SEDES[mayor] and
+           b.content[1] and b.content[1].t == "Strong" then
+      local nombre = b.content[1].content
+      local resto = pandoc.List()
+      for k = 2, #b.content do resto:insert(b.content[k]) end
+      emit(raw("\\entradasede{" .. latex(nombre) .. "}{" .. latex(strip_trailing_space(resto)) .. "}"))
+      i = i + 1
+
+    else
+      if b.t == "Para" or b.t == "Plain" then
+        b.content = envolver_cjk(strip_trailing_space(b.content))
+      end
+      emit(b)
+      i = i + 1
+    end
+  end
+
+  cerrar_mayor()
+  escribir_pendientes(nil)
+  return pandoc.Pandoc(out, doc.meta)
+end

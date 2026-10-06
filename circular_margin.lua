@@ -1,1 +1,0 @@
-automatizacion/circular_margin.lua

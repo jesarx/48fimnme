@@ -1,0 +1,4 @@
+# Archivos intermedios de la compilación (se regeneran con ./compila.sh)
+build/
+__pycache__/
+*.pyc
