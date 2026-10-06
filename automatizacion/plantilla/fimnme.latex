@@ -44,9 +44,12 @@
   Path=\rutafuentes, Extension=.ttf,
   UprightFont=*-Regular, BoldFont=*-SemiBold, Numbers={Lining,Monospaced}]
 \AtBeginDocument{\renewcommand{\bfdefault}{sb}}
-% Caracteres chinos (p. ej. el título 樗栎 de Liao Lin Ni); el filtro los envuelve.
+% Caracteres chinos (p. ej. el título 樗栎 de Daniel Cui); el filtro los envuelve.
 \IfFontExistsTF{Noto Sans CJK SC}
-  {\newfontfamily\fuentecjk{Noto Sans CJK SC}\newcommand{\textocjk}[1]{{\fuentecjk #1}}}
+  {\newfontfamily\fuentecjk{Noto Sans CJK SC}[
+     BoldFont={Noto Sans CJK SC Bold}, FontFace={sb}{n}{Noto Sans CJK SC Bold}]
+   % sin cursiva: el texto chino se compone siempre en redonda
+   \newcommand{\textocjk}[1]{{\fontshape{n}\fuentecjk #1}}}
   {\newcommand{\textocjk}[1]{#1}}
 \newcommand{\ligera}{\fontseries{l}\selectfont}
 \newcommand{\negrita}{\fontseries{b}\selectfont}
@@ -317,15 +320,15 @@
   \phantomsection\addcontentsline{toc}{concierto}{\protect\numberline{#4}#5}%
   \marcador{2}{#6}%
   \begingroup\estilotitulos
-  {\fontsize{8.4}{10}\bfseries\color{acento}\espaciado[40]{#1}\par}%
-  \vspace{0.8mm}%
-  {\fontsize{15.5}{18.5}\negrita\color{verdeoscuro}#2\par}%
+  {\fontsize{7.8}{9.4}\bfseries\color{acento}\espaciado[40]{#1}\par}%
+  \vspace{0.5mm}%
+  {\fontsize{12}{14.4}\negrita\color{verdeoscuro}#2\par}%
   \endgroup
-  \nopagebreak\vspace{1.2mm}%
+  \nopagebreak\vspace{0.8mm}%
 }
 \newcommand{\lugar}[1]{%
-  {\estilotitulos\small\color{verdegris}#1\par}\nopagebreak
-  \vspace{1.2mm}{\color{filete}\rule{\linewidth}{0.6pt}}\par\vspace{0.4mm}%
+  {\estilotitulos\footnotesize\color{verdegris}#1\par}\nopagebreak
+  \vspace{1mm}{\color{filete}\rule{\linewidth}{0.6pt}}\par\vspace{0.2mm}%
 }
 % Sección genérica de nivel concierto (Coloquio, Sedes, Directorio...)
 \newcommand{\seccionmayor}[3]{% #1 título  #2 cabecera  #3 marcador/índice
@@ -388,7 +391,27 @@
   \setlength{\parskip}{0.8mm}\estilotitulos}
   {\end{tcolorbox}\par}
 % Separación entre grupos de obras con distintos intérpretes
-\newcommand{\separadorgrupo}{\par\addvspace{4mm}}
+\newcommand{\separadorgrupo}{\par\addvspace{6.5mm}}
+% Al empezar un grupo: si no cabe entero en lo que queda de página, pasa a
+% la siguiente (el filtro estima su altura en renglones).
+\newcommand{\inigrupo}[1]{\necesito{#1\baselineskip}}
+% Grupos con distintos intérpretes: si en la pasada anterior un grupo quedó
+% solo en su página, sus intérpretes van al pie, como en los programas de un
+% solo grupo (#1 concierto, #2 grupo, #3 ¿último?, #4 leyenda de estrenos).
+\def\fondogrupo{0}
+\newcommand{\grupoini}[2]{\def\fondogrupo{0}\marcapos{gi:#1-#2}\nobreak}
+\newcommand{\grupofin}[2]{\par\marcapos{gf:#1-#2}}
+\newcommand{\grupoint}[4]{\par\directlua{fimnme.grupofondo(#1, #2, #3)}%
+  \ifnum\fondogrupo=1 #4\par\vspace*{\fill}\fi}
+\newcommand{\leyendagrupos}[1]{\ifnum\fondogrupo=0 \leyendafinal{#1}\fi}
+% Leyenda de estrenos al final de un programa con varios grupos
+\newcommand{\leyendafinal}[1]{%
+  \par\nopagebreak[4]\vspace{4mm}%
+  {\footnotesize\color{verdegris}#1\par}}
+% Solista de una obra concreta (crédito bajo la obra, dentro del grupo)
+\newcommand{\solista}[1]{%
+  \par\nopagebreak\vspace{0.6mm}%
+  {\estilotitulos\small\leftskip=1.05em\color{verdeoscuro}#1\par}\nopagebreak[3]}
 % Nota breve dentro del programa (duración, patrocinio...)
 \newcommand{\notaprograma}[1]{%
   \par\addvspace{0.8mm}{\estilotitulos\small\itshape\color{verdegris}#1\par}}
@@ -438,9 +461,24 @@
   \par\necesito{6\baselineskip}\addvspace{4mm}%
   \cabezaficha{#1}{#2}\par\nopagebreak\vspace{1.8mm}%
 }
+% Compositor que ya apareció: nombre, datos y «Ver pág. N» (con enlace)
+\newcommand{\fichaver}[3]{% #1 nombre  #2 detalle  #3 etiqueta de la semblanza
+  \par\necesito{4\baselineskip}\addvspace{4mm}%
+  {\estilotitulos\fontsize{10.6}{12.8}\negrita\color{verdeoscuro}#1\par}%
+  \vspace{0.6mm}{\estilotitulos\small\color{verdegris}\ifblank{#2}{}{#2\enspace·\enspace}%
+    \hyperref[#3]{\color{acento}\bfseries Ver pág.~\pageref*{#3}}\par}%
+  \nopagebreak\vspace{1.4mm}%
+}
 \newcommand{\notaobra}[1]{%
   \par\necesito{5\baselineskip}\addvspace{3mm}%
   {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.4mm}%
+}
+% Nota que ya apareció (misma obra, mismo texto): título y «Ver pág. N»
+\newcommand{\notaver}[2]{% #1 título  #2 etiqueta de la nota
+  \par\necesito{3\baselineskip}\addvspace{3mm}%
+  {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.6mm}%
+  {\estilotitulos\small\color{verdegris}Nota al programa:\enspace
+    \hyperref[#2]{\color{acento}\bfseries Ver pág.~\pageref*{#2}}\par}%
 }
 \newcommand{\firma}[1]{\par\nopagebreak{\raggedleft\small\itshape\color{verdegris}#1\par}}
 % Notas al programa: recuadro con fondo y filete verdes, al tamaño del texto.

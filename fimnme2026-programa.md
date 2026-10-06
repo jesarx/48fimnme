@@ -16,9 +16,9 @@ Sala Principal, Palacio de Bellas Artes
 
 **Bernd Alois Zimmermann**
 
-- *Nobody knows the trouble I see* (1954)\*\* \hfill 16'
+- *Nobody Knows the Trouble I See* (1954)\*\* \hfill 16'
 
-**Simon Höfele**, trompeta
+[**Simon Höfele**, trompeta]{.solista}
 
 \
 INTERMEDIO\
@@ -147,7 +147,7 @@ que finalizó su famosa ópera *Die Soldaten*, en 1960, llevó a cabo con éxito
 complejo método de combinación de materiales procedentes de diferentes períodos
 estilísticos con su propia música.
 
-##### *Nobody knows the trouble I see*
+##### *Nobody Knows the Trouble I See*
 
 En un escueto perfil biográfico de Bernd Alois Zimmermann trazado por Marion
 Rothärmel se lee que uno de los elementos fundamentales en su pensamiento
@@ -173,7 +173,7 @@ especialmente rica: compuso sendos conciertos para orquesta, cuerdas, violín,
 trompeta, dos para violonchelo, uno para dos pianos, y *Antífonas* para viola y
 pequeña orquesta.
 
-*Nobody knows the trouble I've seen* (Nadie conoce la tribulación que he visto)
+*Nobody Knows the Trouble I've Seen* (Nadie conoce la tribulación que he visto)
 es un *spiritual* afroamericano cuya primera publicación se localiza en 1866,
 aunque se sabe que es muy anterior. La lista de intérpretes que lo han cantado
 y/o grabado es notable: Louis Armstrong, Lena Horne, Mahalia Jackson, Paul
@@ -183,7 +183,7 @@ sobre todo en los Estados Unidos, e incluso algunos compositores académicos de
 ascendencia africana la han incorporado a su música de concierto, entre ellos
 Samuel Coleridge-Taylor (1875-1912) y Florence Price (1887-1953). Con un ligero
 pero significativo cambio en el título, Bernd Alois Zimmermann compuso un
-Concierto para trompeta al que designó *Nobody knows the trouble I see* (Nadie
+Concierto para trompeta al que designó *Nobody Knows the Trouble I See* (Nadie
 conoce la tribulación que veo), en el que la referencia al canto espiritual
 original está señalada por el contenido de blues y jazz de la obra. De hecho,
 la orquestación misma, que incluye guitarra, piano y órgano Hammond, está
@@ -191,7 +191,7 @@ orientada por el compositor hacia una expresión específicamente jazzística, e
 particular en instrumentos como el clarinete, la trompeta, el saxofón, el
 trombón y la percusión.
 
-Si bien *Nobody knows the trouble I see* está concebida en un solo movimiento,
+Si bien *Nobody Knows the Trouble I See* está concebida en un solo movimiento,
 su continuidad fluye en secciones bien definidas e identificables. Inicia con
 una extensa sección lenta y oscura en la que la trompeta solista suena con
 sordina y se enfrenta a complejos saltos de registro. Viene después una sección
@@ -205,7 +205,7 @@ encuentre la referencia directa al *spiritual* original. Esta sección concluye
 con una coda contemplativa en la que la trompeta solista, de nuevo con sordina,
 se pierde en un murmullo.
 
-Bernd Alois Zimmermann compuso *Nobody knows the trouble I see* entre 1953 y
+Bernd Alois Zimmermann compuso *Nobody Knows the Trouble I See* entre 1953 y
 1954, por encargo de la Orquesta Sinfónica de la Radio del Norte Alemán, y el
 estreno del concierto ocurrió el 10 de octubre de 1955 en Hamburgo con ese
 conjunto, dirigido por Ernest Bour, y el legendario trompetista checo-alemán
@@ -451,7 +451,7 @@ compositores Lisa Streich, Helena Winkelman, Miroslav Srnka, Konstantia
 Gourzi y Mark Simpson. Realizó también el estreno alemán del Concierto
 para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 
-## SÁB | NOV 7, 12:00 h - Tetraktys / Artificios / Ortiz / Ibarra
+## SÁB | NOV 7, 12:00 h - Ortiz / Artificios / Tetraktys / Ibarra
 
 Pabellón Escénico, Jardín Escénico
 
@@ -480,19 +480,19 @@ Alejandro Castaños, guitarras eléctricas
 
 **William Kanengiser**
 
--   *Gongan* (1997) `\hfill `{=tex}4'
+-   *Gongan* (1997)\*\* `\hfill `{=tex}4'
 
 **Fernando Lewis de Mattos**
 
--   *Ibia-Mom Jaci Ndipapahabi* (1999) `\hfill `{=tex}7'
+-   *Ibia-Mom Jaci Ndipapahabi* (1999)\*\* `\hfill `{=tex}7'
 
 **Liliana Z. del Río**
 
--   *La llegada de Atheris* (2019) `\hfill `{=tex}6'
+-   *La llegada de Atheris* (2019)\*\* `\hfill `{=tex}6'
 
 **Atanas Ourkouzounov**
 
--   *Cinq illusions sonores* (2012) `\hfill `{=tex}12'
+-   *Cinq illusions sonores* (2012)\*\* `\hfill `{=tex}12'
 
 **Ignacio Baca Lobera**
 
@@ -500,7 +500,7 @@ Alejandro Castaños, guitarras eléctricas
 
 **Marek Pasieczny**
 
--   *Scintilla after Arvo Pärt* (2014-2015) `\hfill `{=tex}6'
+-   *Scintilla after Arvo Pärt* (2014-2015)\*\* `\hfill `{=tex}6'
 
 **Tetraktys Guitar Quartet**
 
@@ -511,7 +511,7 @@ Hugo Armando Medina González
 
 **Leo Brouwer**
 
--   De *Sonata de los misterios* (2011) `\hfill `{=tex}18'
+-   De *Sonata de los misterios* (2011)\*\* `\hfill `{=tex}18'
 -   *I. Preludio*
 -   *III. Tiento y toccata*
 
@@ -529,7 +529,7 @@ Hugo Armando Medina González
 
 **Stefan Soewandi**
 
--   *Kamajaya* (1998) `\hfill `{=tex}17'
+-   *Kamajaya* (1998)\*\* `\hfill `{=tex}17'
 
 **Vladimir Ibarra**, guitarra
 
@@ -1007,9 +1007,7 @@ works*.
 
 Casa Rafael Galván, UAM
 
-**Instalación sonora**
-
-Inauguración
+**Instalación**
 
 ------------------------------------------------------------------------
 
@@ -1017,9 +1015,7 @@ Inauguración
 
 **Andrés Nuño de Buen**
 
-- *Sobre las sensaciones de tono y otros fantasmas*\*
-
-*Duración: 50 minutos*
+- *Sobre las sensaciones de tono y otros fantasmas*\* `\hfill `{=tex}50'
 
 ### Personas compositoras
 
@@ -1088,7 +1084,7 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 
 **Juro Kim Feliz**
 
--   *O forse, l'ho già perduta poco a poco...* (2018) `\hfill `{=tex}7'
+-   *O forse, l'ho già perduta poco a poco...* (2018)\*\* `\hfill `{=tex}7'
 
 **Lucas Barroso**
 
@@ -1096,7 +1092,7 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 
 **Oscar Pablo Di Liscia**
 
--   *Piezas con forma apropiada* (2024) `\hfill `{=tex}10'
+-   *Piezas con forma apropiada* (2024)\*\* `\hfill `{=tex}10'
 
 **Leopoldo Novoa Matallana**
 
@@ -1113,7 +1109,7 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 
 **Rebecca Saunders**
 
--   *to an utterance -- a study* (2020) `\hfill `{=tex}12'
+-   *to an utterance -- a study* (2020)\*\* `\hfill `{=tex}12'
 
 **Gonzalo Gutiérrez**, piano
 
@@ -1331,12 +1327,12 @@ y Néstor Castañeda, y posteriormente con István Nadás y Ludovica Mosca
 en Barcelona. Ha sido solista de la Orquesta Filarmónica de la Ciudad de
 México, así como del ensamble del Conservatorio de las Rosas. Ha
 colaborado con la Orquesta Sinfónica Nacional, la Orquesta del Teatro de
-Bellas Artes, Ónix Ensamble y el Ensamble del CEPROMUSIC. A nivel
+Bellas Artes, Ónix Ensamble y el Ensamble del Cepromusic. A nivel
 internacional, se ha presentado en diversas salas como el Tokyo Opera
 City Recital Hall, el New York Americas Society y el Boston University
 Concert Hall, entre muchos otros recintos.
 
-## DOM | NOV 8, 12:00 h - Instalación sonora: Nuño de Buen
+## DOM | NOV 8, 12:00 h - Instalación sonora: Nuño de Buen / Vigueras
 
 Casa Rafael Galván, UAM
 
@@ -1348,9 +1344,7 @@ Casa Rafael Galván, UAM
 
 **Andrés Nuño de Buen**
 
-- *Sobre las sensaciones de tono y otros fantasmas*\*
-
-*Duración: 50 minutos*
+- *Sobre las sensaciones de tono y otros fantasmas*\* `\hfill `{=tex}50'
 
 **Andrés Nuño de Buen**
 
@@ -1451,11 +1445,11 @@ Museo Universitario Arte Contemporáneo, UNAM
 
 **Graziano Riccardi**
 
--   *Quello che resta* (2021) `\hfill `{=tex}12'
+-   *Quello che resta* (2021)\*\* `\hfill `{=tex}12'
 
 **Inés Badalo**
 
--   *Quimera etérea* (2018) `\hfill `{=tex}10'
+-   *Quimera etérea* (2018)\*\* `\hfill `{=tex}10'
 
 **Alberto Alcalá**
 
@@ -1493,7 +1487,7 @@ seminario en la UNAM en 2025. Ha ganado concursos como Città di Udine
 premio especial Ise-Shima 2023 en Japón y el segundo premio New
 Generation 2023 en Kazajistán. Su música es interpretada por
 agrupaciones como Divertimento Ensemble, Quartetto Indaco, Spódzielnia
-Muzyczna y CEPROMUSIC. Sus partituras las publican las editoriales SZ
+Muzyczna y Cepromusic. Sus partituras las publican las editoriales SZ
 Sugar, Sconfinarte y Curci.
 
 ##### *Quello che resta*
@@ -1677,6 +1671,8 @@ Sala Nezahualcóyotl, CCU, UNAM
 -   *Ciudad sin sueño*, fantasía para piano y orquesta
     `\hfill `{=tex}20'
 
+[**Alberto Rosado**, piano]{.solista}
+
 **Aurés Moussong**
 
 -   *Ve* (2022)\* `\hfill `{=tex}11'
@@ -1829,7 +1825,7 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
-## LUN | NOV 9, 19:00 h - Black Noise Ensamble
+## LUN | NOV 9, 19:00 h - Black Noise & Victoria Amaro
 
 Pabellón Escénico, Jardín Escénico
 
@@ -1845,7 +1841,7 @@ Pabellón Escénico, Jardín Escénico
 
 **Kaija Saariaho**
 
--   *Il pleut* (1986) `\hfill `{=tex}5'
+-   *Il pleut* (1986)\*\* `\hfill `{=tex}5'
 
 **Armando Luna**
 
@@ -1865,7 +1861,7 @@ INTERMEDIO\
 
 **Kaija Saariaho**
 
--   *Changing Light* (2002) `\hfill `{=tex}6'
+-   *Changing Light* (2002)\*\* `\hfill `{=tex}6'
 
 **Wilfrido Terrazas**
 
@@ -1873,7 +1869,7 @@ INTERMEDIO\
 
 **Giacinto Scelsi**
 
--   *Ogloudoglou* (1969) `\hfill `{=tex}4'
+-   *Ogloudoglou* (1969)\*\* `\hfill `{=tex}4'
 
 **Black Noise Ensamble**
 
@@ -1990,13 +1986,6 @@ conjuntos instrumentales y vocales, respectivamente.
 > teclado, mientras que la voz cantada se mueve alrededor de la misma
 > línea con cierta libertad».
 
-##### *Changing Light*
-
-> «Esta pieza fue escrita para el proyecto Compassion de Edna Michell.
-> En la composición, sigo la idea de un diálogo, sugerida por el texto
-> que he elegido. La intimidad y la fragilidad del universo sonoro del
-> dúo reflejan la fragilidad de nuestra existencia incierta».
-
 #### Armando Luna (México, 1964-2015)
 
 ![](comp/Armando%20Luna.jpg)
@@ -2086,6 +2075,28 @@ gran capacidad del autor en el manejo de la idiomática de diversos
 instrumentos, sin que queden exentos los instrumentos de aliento o
 inclusive el piano.
 
+#### Kaija Saariaho (Finlandia, 1952 -- Francia, 2023)
+
+![](comp/saariaho.jpg)
+
+Fue una voz destacada de su generación de compositores, tanto en su país
+natal como en el mundo entero. Estudió composición en Helsinki, Friburgo y
+París, donde residió desde 1982 hasta su muerte. Sus estudios e
+investigaciones en el IRCAM, el centro parisino de experimentación
+electroacústica, tuvieron una gran influencia en su música, y sus
+características texturas exuberantes y misteriosas se crearon a menudo
+combinando la interpretación en vivo con la electrónica. Expandió
+gradualmente su expresión musical a una gran variedad de géneros, y sus
+piezas de cámara y música coral se han convertido en piezas clave de
+conjuntos instrumentales y vocales, respectivamente.
+
+##### *Changing Light*
+
+> «Esta pieza fue escrita para el proyecto Compassion de Edna Michell.
+> En la composición, sigo la idea de un diálogo, sugerida por el texto
+> que he elegido. La intimidad y la fragilidad del universo sonoro del
+> dúo reflejan la fragilidad de nuestra existencia incierta».
+
 #### Wilfrido Terrazas (México, 1974)
 
 ![](comp/Wilfrido%20Terrazas.jpg)
@@ -2172,7 +2183,7 @@ Carrillo y en la Universidad de Guanajuato, posteriormente fue alumna en
 la Escuela Superior de Música del INBAL y de la Escuela de Música Vida y
 Movimiento del Centro Cultural Ollin Yoliztli. Desde 2017 ha participado
 de manera activa en la creación y difusión de música nueva, sumando más
-de cuarenta estrenos como solista y con los ensambles CEPROMUSIC,
+de cuarenta estrenos como solista y con los ensambles Cepromusic,
 Liminar, Vórtice y Atempo. Desde 2023 forma parte del Colectivo Black
 Noise como soprano y directora musical. Actualmente graba los discos:
 *Microconciertos, efímeras composiciones para ensamble de cámara*,
@@ -2501,7 +2512,7 @@ experimentación con instrumentos y objetos sonoros acústicos, la
 exploración de distintas posibilidades de interacción entre músicos y
 público y la intervención sonora de los más diversos espacios.
 
-## MIÉ | NOV 11, 19:00 h - Trío LaMN
+## MIÉ | NOV 11, 19:00 h - Piccolegio / Trío LaMN
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -2509,7 +2520,7 @@ Laboratorio Escénico, Jardín Escénico
 
 **Kaija Saariaho**
 
--   *Dolce tormento* (2004) `\hfill `{=tex}5'
+-   *Dolce tormento* (2004)\*\* `\hfill `{=tex}5'
 
 **Piccolegio**, piccolo
 
@@ -2523,7 +2534,7 @@ Laboratorio Escénico, Jardín Escénico
 
 **Alejandro Romero**
 
--   *Eón interior* (2023) `\hfill `{=tex}11'
+-   *Eón interior* (2023)\*\* `\hfill `{=tex}11'
 -   *Lento*
 -   *Subito-con fuoco-Lontano*
 -   *Slogato*
@@ -3097,24 +3108,6 @@ consiste en dejar emerger una voz singular del bullicio del mundo en una
 danza ascendente y vibrante, hasta que la oscuridad la envuelve de
 nuevo.
 
-##### *Frises*
-
-> «Nació por encargo del violinista Richard Schmoucler, que propuso unir
-> obras alrededor de la *Segunda Partita* de Bach, especialmente la
-> *Chacona*, y pidió que mi pieza empezara con la nota final, el re. La
-> obra tiene cuatro partes, cada una inspirada en una forma *ostinata*
-> histórica: carillón, *passacaglia*, *ground bass* y *chaconne,* cuatro
-> variaciones sobre tema, proceso armónico u otro parámetro. Añadí
-> electrónica: sonidos preparados activados por el intérprete y
-> transformaciones en tiempo real, distintas en cada parte. *Frise
-> jaune* es un preludio-improvisación sobre re, con armónicos y campanas
-> electrónicas (carillón). *Frise de fleurs* usa un *ground bass* que
-> enriquece sus acordes hacia lo lírico. *Pavage* trabaja
-> transformaciones matemáticas del material, como un empedrado
-> metamórfico. *Frise grise* es una procesión solemne: *passacaglia* con
-> *pizzicati* de la mano izquierda en tres cuerdas y melodía en la
-> cuarta, descendiendo de mi a sol hasta volver al re en doble cuerda».
-
 #### Fermín León (México, 1998)
 
 ![](comp/Fermín%20León.jpg)
@@ -3245,6 +3238,39 @@ carrera y en la música contemporánea.
 
 ------------------------------------------------------------------------
 
+#### Kaija Saariaho (Finlandia, 1952 -- Francia, 2023)
+
+![](comp/saariaho.jpg)
+
+Fue una voz destacada de su generación de compositores, tanto en su país
+natal como en el mundo entero. Estudió composición en Helsinki, Friburgo
+y París, donde residió desde 1982 hasta su muerte. Sus estudios e
+investigaciones en el IRCAM, el centro parisino de experimentación
+electroacústica, tuvieron una gran influencia en su música, y sus
+características texturas exuberantes y misteriosas se crearon a menudo
+combinando la interpretación en vivo con la electrónica. Expandió
+gradualmente su expresión musical a una gran variedad de géneros, y sus
+piezas de cámara y música coral se han convertido en piezas clave de
+conjuntos instrumentales y vocales, respectivamente.
+
+##### *Frises*
+
+> «Nació por encargo del violinista Richard Schmoucler, que propuso unir
+> obras alrededor de la *Segunda Partita* de Bach, especialmente la
+> *Chacona*, y pidió que mi pieza empezara con la nota final, el re. La
+> obra tiene cuatro partes, cada una inspirada en una forma *ostinata*
+> histórica: carillón, *passacaglia*, *ground bass* y *chaconne,* cuatro
+> variaciones sobre tema, proceso armónico u otro parámetro. Añadí
+> electrónica: sonidos preparados activados por el intérprete y
+> transformaciones en tiempo real, distintas en cada parte. *Frise
+> jaune* es un preludio-improvisación sobre re, con armónicos y campanas
+> electrónicas (carillón). *Frise de fleurs* usa un *ground bass* que
+> enriquece sus acordes hacia lo lírico. *Pavage* trabaja
+> transformaciones matemáticas del material, como un empedrado
+> metamórfico. *Frise grise* es una procesión solemne: *passacaglia* con
+> *pizzicati* de la mano izquierda en tres cuerdas y melodía en la
+> cuarta, descendiendo de mi a sol hasta volver al re en doble cuerda».
+
 ### Intérpretes
 
 #### Dirén Checa
@@ -3253,7 +3279,7 @@ carrera y en la música contemporánea.
 
 Violinista mexicana que desarrolla su carrera interpretando música
 nueva, trabajando con compositores vivos y creando experiencias sonoras
-de vanguardia. Es artista residente del CEPROMUSIC, fue becaria de la
+de vanguardia. Es artista residente del Cepromusic, fue becaria de la
 OJUEM, ha tocado con la OFCM y es violinista invitada de la OSM. Estudió
 en Eastman School of Music e Interlochen Arts Academy y, entre otros, se
 ha formado con Adrián Justus, Irvine Arditti, Carlo Chiarappa, Bin Huang
@@ -3285,7 +3311,7 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 
 **Emma Wilde**
 
--   *Light is Withheld* (2019) `\hfill`{=tex}6'
+-   *Light is Withheld* (2019)\*\* `\hfill`{=tex}6'
 
 **María Granillo**
 
@@ -3539,7 +3565,7 @@ Lavista; de dirección coral con Alfredo Mendoza, Sergio Cárdenas y Digna
 Guerra, y de dirección orquestal con Enrique Arturo Diemecke. Ha sido
 director asociado del ensamble Tempus Fugit, director asistente en la
 Compañía Nacional de Ópera y director invitado del ensamble del
-CEPROMUSIC. Le han sido comisionadas nuevas obras por instituciones como
+Cepromusic. Le han sido comisionadas nuevas obras por instituciones como
 la Universidad de Yale, el VocalEssence Ensamble y la asociación
 Classical Movements.
 
@@ -3672,11 +3698,7 @@ Alcázar, **bibliotecaria**; Paulina Rodríguez, **servicio social**.
 
 ![](int/Rodrigo%20Cadet.jpg)
 
-Director huésped habitual para el Coro de Madrigalistas de Bellas Artes,
-el músico integró, a petición del comité organizador, un programa vocal
-que suma obras seleccionadas desde Convocatoria FIMNME 2026, obras de
-autoras y autores del canon contemporáneo, y una obra propia; un hito en
-la programación y el propósito del Foro.
+Originario de la Ciudad de México. Compositor y director egresado de la Escuela Superior de Música, ha escrito obras para orquesta, ensambles de cámara y coro. Ha hecho estudios de composición y orquestación con Hugo Rosales, Alejandro Romero, Georgina Derbez, Arturo Márquez y Mario Lavista; de dirección coral con Alfredo Mendoza, Sergio Cárdenas y Digna Guerra, y de dirección orquestal con Enrique Arturo Diemecke. Ha sido director asociado del ensamble Tempus Fugit, director asistente en la Compañía Nacional de Ópera y director invitado del ensamble del Cepromusic. Ha sido director huésped en las orquestas Sinfónica Nacional, Sinfónica del IPN, Filarmónica de Sonora y de Cámara de Bellas Artes, entre otras. Ha dirigido el estreno de varias óperas, entre ellas *El día que María perdió la voz* de Marcela Rodríguez y *Titus* de Guillermo Eisner. Le han sido comisionadas nuevas obras por instituciones como la Universidad de Yale, el VocalEssence Ensamble y la asociación Classical Movements.
 
 ## SÁB | NOV 14, 11:30 h - Alberto Rosado, piano
 
@@ -3962,7 +3984,7 @@ Pabellón Escénico, Jardín Escénico
 -   *Medio tiempo*
 -   *Segundo tiempo*
 
-**Juanmanuel Flores**, violín
+[**Juanmanuel Flores**, violín]{.solista}
 
 **Manuel Enríquez**
 
@@ -3989,7 +4011,7 @@ Carlos Blázquez
 
 **Nicolaus A. Huber**
 
--   *Dasselbe ist nicht dasselbe* (1978) `\hfill`{=tex}16'
+-   *Dasselbe ist nicht dasselbe* (1978)\*\* `\hfill`{=tex}16'
 
 **Manuel Enríquez**
 
@@ -4037,7 +4059,7 @@ revolucionaron la concepción del tiempo, la textura y la masa sonora. Su
 lenguaje combina rigor científico con una intensa fuerza expresiva,
 explorando la música como fenómeno físico y arquitectónico.
 
-##### *Rebonds A* y *Rebonds B*
+##### *Rebonds A* y *B*
 
 Es una de las obras más emblemáticas del repertorio para percusión sola
 del siglo XX. Concebida en dos secciones, *Rebonds A* y *Rebonds B*, la
@@ -4167,21 +4189,6 @@ papel estructural. La obra propone así una experiencia de escucha
 activa, invitando al oyente a recorrer sus distintos planos y establecer
 relaciones propias entre los fragmentos.
 
-##### *Interecos, para la puerta de Ángela Gurría*
-
-La composición de esta obra le fue propuesta a Manuel Enríquez por
-Federico Silva, quien previamente había invitado a la escultora mexicana
-Ángela Gurría a realizar la obra monumental *Puerta-escultura* (1983),
-una pieza formada por placas de hierro con puntas que se despliegan con
-potencia y agresividad y que genera una sensación de impenetrabilidad
-para la Capilla de la Ex Hacienda de San Andrés. En la obra musical la
-escultura de Gurría se usa como un instrumento más de percusión,
-acompañado de sonidos electrónicos grabados en cinta. La obra se estrenó
-durante la inauguración de la Capilla en 1983, donde también se
-encuentra el mural *Anunciación* de Federico Silva, que tenía el
-propósito de «transformar la naturaleza clerical del edificio en un
-espacio dedicado a las artes, despojándolo de sus elementos religiosos».
-
 #### Nicolaus A. Huber (Alemania, 1939)
 
 ![](comp/Nicolaus%20Huber.jpg)
@@ -4209,6 +4216,27 @@ la Folkwang Hochschule de Essen.
 > medida en que lo observo en nuestro entorno social, es bastante
 > evidente, pues, como indica el título de la pieza, "lo mismo no es lo
 > mismo"».
+
+#### Manuel Enríquez (México, 1926-1994)
+
+![](comp/Manuel%20Enríquez.jpg)
+
+Compositor, violinista y director mexicano, es una figura central en el desarrollo de la música contemporánea en México. Formado en el Conservatorio Nacional de Música y posteriormente en la Juilliard School de Nueva York, fue un impulsor clave de nuevas estéticas sonoras en la segunda mitad del siglo XX. Su obra explora la atonalidad, las técnicas extendidas y la experimentación tímbrica, consolidando un lenguaje personal de gran rigor y expresividad. Enríquez también desempeñó un papel fundamental como promotor cultural, destacando como fundador del Foro Internacional de Música Nueva que lleva su nombre, espacio dedicado a la difusión de la creación contemporánea. En el marco de su centenario, su legado adquiere renovada relevancia, reafirmando su influencia en generaciones posteriores de compositores y en la consolidación de la música nueva en México.
+
+##### *Interecos, para la puerta de Ángela Gurría*
+
+La composición de esta obra le fue propuesta a Manuel Enríquez por
+Federico Silva, quien previamente había invitado a la escultora mexicana
+Ángela Gurría a realizar la obra monumental *Puerta-escultura* (1983),
+una pieza formada por placas de hierro con puntas que se despliegan con
+potencia y agresividad y que genera una sensación de impenetrabilidad
+para la Capilla de la Ex Hacienda de San Andrés. En la obra musical la
+escultura de Gurría se usa como un instrumento más de percusión,
+acompañado de sonidos electrónicos grabados en cinta. La obra se estrenó
+durante la inauguración de la Capilla en 1983, donde también se
+encuentra el mural *Anunciación* de Federico Silva, que tenía el
+propósito de «transformar la naturaleza clerical del edificio en un
+espacio dedicado a las artes, despojándolo de sus elementos religiosos».
 
 #### Bruce Hamilton (Estados Unidos, 1966)
 
@@ -4366,11 +4394,11 @@ de Percusión Barranquilla. En 2021 recibió la beca DAAD para cursar un
 posgrado en la Musikhochschule Lübeck con Johannes Fischer. Ha
 colaborado con diversas agrupaciones internacionales y nacionales como
 Philharmonisches Orchester Vorpommern, Neueköllner Oper, Neue
-Philharmonie Hamburg, Lübecker Kammerorchester, CEPROMUSIC, el flautista
+Philharmonie Hamburg, Lübecker Kammerorchester, Cepromusic, el flautista
 Stefan Temmingh y la Orquesta Sinfónica de Minería. En 2021 grabó su
 primer álbum con apoyo del Fonca. En 2022 fue el primer percusionista en
 ingresar como solista al programa Live Music Now Deutschland en Lübeck,
-Alemania. Desde 2024 es miembro residente del Ensamble CEPROMUSIC.
+Alemania. Desde 2024 es miembro residente del Ensamble Cepromusic.
 
 #### Fourtissimo Percussion Ensemble
 
@@ -4395,7 +4423,7 @@ en 2019, con la OJUEM UNAM y en 2024 con la Orquesta Sinfónica del IPN.
 Nació en Puebla. Egresado de la Licenciatura en Percusiones en 2014 y en
 2020 de la maestría bajo la cátedra de Alfredo Bringas. Fue solista en
 *La Orestiada* de Iannis Xenakis durante el Festival Internacional
-Cervantino 2022 con el ensamble CEPROMUSIC. Fue seleccionado por dos
+Cervantino 2022 con el ensamble Cepromusic. Fue seleccionado por dos
 años consecutivos por la Academia Cervantina en 2014 y 2015, dentro del
 marco del Festival Internacional Cervantino a través de diferentes
 conciertos, entre ellos los realizados con Red Fish Blue Fish en 2014
@@ -4403,7 +4431,7 @@ con la obra *Drumming* de Steve Reich y bajo la dirección de Steven
 Schick y *Pleiades* en 2015 de Iannis Xenakis con Aiyun Huang e Iván
 Manzanilla. Fue profesor de tiempo completo en el Afghanistan National
 Institute of Music en Kabul en 2016 y 2017. Desde 2018 es músico
-residente del Ensamble CEPROMUSIC.
+residente del Ensamble Cepromusic.
 
 #### Aldo Aranda
 
@@ -4460,7 +4488,7 @@ Sala Xochipilli, Facultad de Música, UNAM
     A Marisa Canales (1994) `\hfill `{=tex}4'
     -   *I*
 
-**Miguel Ángel Villanueva**, flauta
+[**Miguel Ángel Villanueva**, flauta]{.solista}
 
 **Carlos Chávez**
 
@@ -4469,13 +4497,13 @@ Sala Xochipilli, Facultad de Música, UNAM
     -   *Adagio*
     -   *Rondo*
 
-**Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio**, solistas
+[**Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio**, solistas]{.solista}
 
 **Gustavo Larrea**
 
 -   *Voces* (2018) `\hfill `{=tex}22'
 
-**José del Mar**, barítono
+[**José del Mar**, barítono]{.solista}
 
 **Andrea Sarahí**
 
@@ -4693,7 +4721,7 @@ Grégorien de París, l'École Normale de Musique de París y The Pierre
 Monteux School for Conductors and Orchestra Musicians en Estados Unidos.
 Ha dirigido las orquestas Sinfónica de la Universidad de Guanajuato,
 Filarmónica del Estado de Querétaro, Sinfónica de Yucatán, Sinfónica de
-Oaxaca, Sinfónica de la Marina, el Ensamble CEPROMUSIC y a Solistas
+Oaxaca, Sinfónica de la Marina, el Ensamble Cepromusic y a Solistas
 Ensamble de Bellas Artes. Fue director titular de la Orquesta Sinfónica
 del CNM de 2017 a 2022. Actualmente es director de los ensambles de
 Música Nueva de la Facultad de Música de la UNAM y de la Escuela
@@ -4738,8 +4766,9 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 -   *Sequenza III* para voz femenina solista (1965) `\hfill`{=tex}7'
 -   *Sequenza VIII* para violín solo (1976) `\hfill`{=tex}13'
 
-**Canciones tradicionales** (Arreglo de Noemi Gasparini)
-`\hfill`{=tex}10'
+**Canciones tradicionales**
+
+-   Arreglo de Noemi Gasparini `\hfill`{=tex}10'
 
 INTERMEDIO\
 
@@ -4876,7 +4905,7 @@ creaciones se han tocado en México, Europa, Estados Unidos, Canadá,
 Asia, Australia y Latinoamérica. Es miembro del SNCA. Hay 41 discos con
 su música. Diversas orquestas y ensambles han presentado su trabajo:
 OFUNAM, OSN, OSEM, OFCM, OCBA, OSUANL, OSUG, OSIDEM, OBC, OSEP,
-CEPROMUSIC, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las
+Cepromusic, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las
 Américas, Cuarteto de la Ciudad de México, Duplum, Cuarteto Arcano,
 Cello Alterno y Zikluz. Así como destacados solistas: Tere Frenk,
 Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez,
@@ -4958,7 +4987,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 *Estrella de la mañana*, de A. Nante, en el Victoria Hall de Ginebra, y
 *Carte Noire Nommée Désir*, de R. Chaillon.
 
-## SÁB | NOV 14, 19:00 h - CEPROMUSIC: Saariaho
+## SÁB | NOV 14, 19:00 h - Cepromusic: Saariaho
 
 Auditorio Simón Bolívar, Colegio de San Ildefonso, UNAM
 
@@ -4978,7 +5007,7 @@ INTERMEDIO\
 -   *Semafor* (2020) `\hfill`{=tex}14'
 -   *Solar* (1993) `\hfill`{=tex}17'
 
-**Ensamble CEPROMUSIC**
+**Ensamble Cepromusic**
 
 José Luis Castillo, director artístico
 
@@ -4990,8 +5019,7 @@ Flores, **fagot** | Alfredo Fenollosa, **corno** | Diego Velásquez,
 **piano** | Dirén Checa, **violín** | Javier Regalado, **violín** |
 Juanmanuel Flores, **violín** | Eduardo Cabrera, **viola** | Diego
 Gutiérrez, **violonchelo** | Konstantin Evmenkin, **violonchelo** |
-Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **nuevas
-tecnologías**. Beneficiarios todos, del **Programa de Residencias
+Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**. Beneficiarios del **Programa de Residencias
 Artísticas en Grupos Estables del INBAL**.
 
 ### Personas compositoras
@@ -5066,26 +5094,26 @@ polaridades.
 
 ### Intérpretes
 
-#### CEPROMUSIC
+#### Cepromusic
 
 ![](int/Cepromusic_1.jpg)
 
 El Centro de Experimentación y Producción de Música Contemporánea
-(CEPROMUSIC), creado en 2012, es un espacio en el que convergen
+(Cepromusic), creado en 2012, es un espacio en el que convergen
 actividades artísticas y académicas en favor de la creación, desarrollo
 y difusión de la música contemporánea en México. Además de sus
 temporadas regulares en el Palacio de Bellas Artes, el Ensamble
-CEPROMUSIC ha realizado diez giras internacionales por Alemania,
+Cepromusic ha realizado diez giras internacionales por Alemania,
 Colombia, Escocia, España, Inglaterra, Brasil y Estados Unidos; así como
 residencias artísticas y académicas en Colombia, España, Estados Unidos,
 México y Reino Unido. En 2018 fue invitado al Festival de Verano de
-Darmstadt. El CEPROMUSIC ha tenido residencias y colaboraciones con
+Darmstadt. El Cepromusic ha tenido residencias y colaboraciones con
 compositores e intérpretes como Anna Göckel, Chris Cogburn, Christian
 Wolﬀ, Dafne Vicente, Irvine Arditti, James Dillon, John Butcher, Joshua
 Fineberg, Kaija Saariaho, Katalin Károlyi, Klaus Lang, Peter Ablinger,
 Sigma Project Quartet, Susan Platts, Tiﬀany DuMouchelle, Tony Arnold,
 UMS'n JIP y Ute Wassermann, entre otros. Además de su decidida vocación
-latinoamericana, el Ensamble CEPROMUSIC es el instrumento de gran parte
+latinoamericana, el Ensamble Cepromusic es el instrumento de gran parte
 de los compositores mexicanos contemporáneos, habiendo colaborado,
 encargado, interpretado y grabado a compositores nacionales de varias
 generaciones. El ensamble colabora habitualmente con otras disciplinas
@@ -5098,7 +5126,7 @@ interpretado más de ochocientas obras y trescientos estrenos.
 
 ![](int/José%20Luis%20Castillo.jpg)
 
-Nació en España. Director artístico del CEPROMUSIC y director titular de
+Nació en España. Director artístico del Cepromusic y director titular de
 la Orquesta Filarmónica de Jalisco. Estudió composición, análisis y
 dirección de orquesta en Valencia, Salzburgo, Luxemburgo y París con
 Manuel Galduf y Alexander Müllenbach. Radica en México desde 1997. Fue
@@ -5118,7 +5146,7 @@ de estrenos en México. Como compositor, sus obras se interpretan en
 importantes foros y festivales de música contemporánea. Es profesor de
 Composición en la Escuela Superior de Música del INBAL, realiza la
 edición crítica de las obras de Silvestre Revueltas en colaboración con
-Roberto Kolb y es director musical del Ensamble CEPROMUSIC.
+Roberto Kolb y es director musical del Ensamble Cepromusic.
 
 ## DOM | NOV 15, 17:00 h - Vicente Moronta, oboe
 
@@ -5672,7 +5700,7 @@ Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
 Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
 premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
 Tecnologías aplicadas a la creación musical y Compositor residente del
-CEPROMUSIC.
+Cepromusic.
 
 ##### *Testigos presenciales de una intrascendente escena histórica...*
 
@@ -5816,19 +5844,7 @@ paisaje nevado permanece para siempre en quien lo ha habitado.
 
 ![](comp/Aures%20Moussong.jpg)
 
-Estudió Composición en la Escuela Superior de Música con Horacio Uribe,
-Georgina Derbez y José Luis Castillo. Obtuvo una Maestría en Composición
-por la Liszt Academy de Budapest y la UdK de Berlín, así como una
-especialización en el Conservatoire de Strasbourg con Daniel D'Adamo.
-Recientemente finalizó un CAS en composición con Dieter Ammann en la
-Hochschule Luzern. Ha recibido premios en los concursos internacionales
-Ibermúsicas en Portugal, CHINA-CEEC en China, *Egidio Carella* en Italia
-y WoCe en Hungría. Su obra *Dialogue à quatre* se estrenó en el Festival
-Música de Estrasburgo y fue finalista del Basel Composition Competition
-con *Macabre Carnaval*. Su música ha sido interpretada por la OFUNAM y
-el Moscow Contemporary Ensemble en el XII Festival de Música
-Contemporánea de San Petersburgo. Desde 2023 es miembro del Sistema
-Nacional de Creadores de Arte de México.
+Estudió Composición en la Escuela Superior de Música de la Ciudad de México con Horacio Uribe, Georgina Derbez y José Luis Castillo. Obtuvo una Maestría en Composición por la Liszt Academy de Budapest y la UdK de Berlín, y una especialización en el Conservatoire de Strasbourg con Daniel D'Adamo. Recientemente finalizó un CAS en Composición con Dieter Ammann en la Hochschule Luzern. Ha recibido premios en concursos internacionales como Ibermúsicas en Portugal, CHINA-CEEC en China, *Egidio Carella* en Italia y WoCe en Hungría. Su obra *Dialogue à quatre* fue estrenada en el Festival Música de Estrasburgo y fue finalista del Basel Composition Competition este año con *Macabre Carnaval*. Su música ha sido interpretada recientemente por la OFUNAM y el Moscow Contemporary Ensemble en el XII Festival de Música Contemporánea de San Petersburgo. Desde 2023 es miembro del Sistema Nacional de Creadores de Arte de México.
 
 ##### *Magma Flux*
 
@@ -5854,7 +5870,7 @@ solista y versátil del instrumento.
 Su música ha sido interpretada alrededor del mundo por ensambles y
 solistas como The Boston Modern Orchestra Project, JACK Quartet,
 International Contemporary Ensemble, Talea Ensemble, Callithumpian
-Consort, Ensamble CEPROMUSIC, Piedmont East Bay Children's Choir, Garth
+Consort, Ensamble Cepromusic, Piedmont East Bay Children's Choir, Garth
 Knox, Claire Chase, Le Nouvel Ensemble Moderne y el Arditti String
 Quartet, entre otros. Ha sido merecedor de premios como
 Kompositionspreis der Stadt Wolkersdorf de Austria, Harvard University
@@ -5910,7 +5926,7 @@ Creación y Proyectos Culturales en la vertiente de Creadores Escénicos
 2024. En 2023 lanzó el disco *ContrAnachrony*, música para contrafagot
 solo y con electroacústica. Es pasante de la Maestría en Música mexicana
 de concierto en el Conservatorio Nacional de Música y residente del
-ensamble CEPROMUSIC.
+ensamble Cepromusic.
 
 ## MAR | NOV 17, 19:00 h - Calderone / Bassanese: Scodanibbio
 
@@ -6253,7 +6269,7 @@ electrónica en vivo, composición algorítmica, instalación e
 improvisación. Su música ha sido interpretada por destacados ensambles y
 solistas en América y Europa. Ha sido miembro del Sistema Nacional de
 Creadores de Arte (2014 y 2021) y coordinador de Tecnologías Aplicadas a
-la Creación Musical en CEPROMUSIC (2018--2020). Fue beneficiario del
+la Creación Musical en Cepromusic (2018--2020). Fue beneficiario del
 programa PECDA Michoacán 2025. Es cofundador del sello Corunda y
 profesor de análisis y composición algorítmica con SuperCollider en la
 Academia de Arte de Florencia en la Ciudad de México.
@@ -6522,7 +6538,7 @@ y MusicAlp en Tignes, Francia. En México su actividad como solista y
 camerista lo ha llevado a los escenarios más importantes, incluyendo la
 Sala Manuel M. Ponce, el Auditorio Blas Galindo y el Munal, además de
 colaborar con la Orquesta Sinfónica de Aguascalientes. Actualmente es
-pianista residente del Ensamble CEPROMUSIC, con el que mantiene una
+pianista residente del Ensamble Cepromusic, con el que mantiene una
 presencia constante en el Foro Internacional de Música Nueva Manuel
 Enríquez.
 
@@ -7116,7 +7132,7 @@ sonoro ficticio con las piezas *Fonomicroscopía del D.F*., *Cerro del
 Bramador* y *La selva ya no suena*. Está particularmente interesada en
 reflexionar sobre la música con su relación con el espacio y como arte
 escénico. Sus piezas fueron tocadas en México y en el extranjero por
-Verge Ensemble, CEPROMUSIC, Eva Zollner, Duplum y el Quinteto de
+Verge Ensemble, Cepromusic, Eva Zollner, Duplum y el Quinteto de
 Alientos de la Ciudad de México. Es miembro del SNCA.
 
 ##### *Canamayté*
@@ -7429,21 +7445,6 @@ explora una amplia gama de recursos tímbricos y gestuales que permiten
 rearticular la dramaturgia sonora de la obra, manteniendo el espíritu
 experimental de la escritura de Enríquez.
 
-##### *Díptico I* para flauta y piano
-
-Es una de las obras más emblemáticas de la madurez creativa de Manuel
-Enríquez. Compuesta en un periodo de intensa búsqueda vanguardista, la
-obra destaca por su equilibrio entre el rigor estructural y una libertad
-gestual casi improvisatoria. A través de un lenguaje atonal y el uso de
-grafías contemporáneas, Enríquez explora las posibilidades tímbricas de
-ambos instrumentos, exigiendo al flautista y al pianista una interacción
-orgánica. La pieza se divide en secciones que contrastan densidades
-sonoras: desde momentos de gran introspección y lirismo fragmentado
-hasta explosiones de virtuosismo rítmico. Es una obra que redefine la
-relación de cámara, donde la flauta y el piano no se acompañan, sino que
-dialogan, se confrontan y se fusionan en un espacio sonoro de vanguardia
-que sigue vigente por su frescura y profundidad intelectual.
-
 #### Jimena Contreras (México, 1986)
 
 ![](comp/Jimena%20Contreras.jpeg)
@@ -7478,6 +7479,40 @@ cuerdas que sugieren lo oculto. El sonido es una presencia a punto de
 desvanecerse. Comisionada por Golden Hornet y escrita para Ónix
 Ensamble, la obra convierte la escucha en un acto de atención a lo que
 no puede verse, pero insiste en hacerse presente.
+
+#### Manuel Enríquez (México, 1926-1994)
+
+![](comp/Manuel%20Enríquez.jpg)
+
+Originario de Ocotlán, Jalisco, fue una figura fundamental de la
+vanguardia musical en México. Se formó con Áurea Corona y Miguel Bernal
+Jiménez, perfeccionándose después en la Juilliard School con Ivan
+Galamian y Peter Mennin. En 1961, gracias a la beca Guggenheim,
+incursionó en la música electrónica en Columbia y Princeton bajo la guía
+de Stefan Wolpe. Como violinista, fue concertino de la Sinfónica de
+Guadalajara y fundó el célebre Cuarteto México, con el que realizó giras
+por Europa y América. Su labor docente y administrativa fue vasta:
+dirigió el Conservatorio Nacional y el Cenidim, donde impulsó la
+investigación electroacústica y virreinal. En 1979 fundó el Foro
+Internacional de Música Nueva (que hoy lleva su nombre), espacio vital
+para la difusión de la creación contemporánea. Distinguido como Creador
+Emérito y miembro de la Academia de Artes, su legado permanece como
+pilar de la identidad musical mexicana del siglo XX.
+
+##### *Díptico I* para flauta y piano
+
+Es una de las obras más emblemáticas de la madurez creativa de Manuel
+Enríquez. Compuesta en un periodo de intensa búsqueda vanguardista, la
+obra destaca por su equilibrio entre el rigor estructural y una libertad
+gestual casi improvisatoria. A través de un lenguaje atonal y el uso de
+grafías contemporáneas, Enríquez explora las posibilidades tímbricas de
+ambos instrumentos, exigiendo al flautista y al pianista una interacción
+orgánica. La pieza se divide en secciones que contrastan densidades
+sonoras: desde momentos de gran introspección y lirismo fragmentado
+hasta explosiones de virtuosismo rítmico. Es una obra que redefine la
+relación de cámara, donde la flauta y el piano no se acompañan, sino que
+dialogan, se confrontan y se fusionan en un espacio sonoro de vanguardia
+que sigue vigente por su frescura y profundidad intelectual.
 
 #### Andrea Chamizo (México, 1988)
 
@@ -7580,7 +7615,7 @@ como un ensamble de virtuosos dedicados a expandir el canon musical
 contemporáneo a través de la excelencia interpretativa y la innovación
 constante.
 
-## VIE | NOV 20, 19:00 h - CEPROMUSIC
+## VIE | NOV 20, 19:00 h - Cepromusic
 
 Pabellón Escénico, Jardín Escénico
 
@@ -7610,7 +7645,7 @@ Pabellón Escénico, Jardín Escénico
 
 -   *Digressing* (2021) `\hfill `{=tex}6'
 
-**Ensamble CEPROMUSIC**
+**Ensamble Cepromusic**
 
 José Luis Castillo, director artístico
 
@@ -7622,8 +7657,7 @@ Flores, **fagot** | Alfredo Fenollosa, **corno** | Diego Velásquez,
 **piano** | Dirén Checa, **violín** | Javier Regalado, **violín** |
 Juanmanuel Flores, **violín** | Eduardo Cabrera, **viola** | Diego
 Gutiérrez, **violonchelo** | Konstantin Evmenkin, **violonchelo** |
-Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **nuevas
-tecnologías**. Beneficiarios del **Programa de Residencias Artísticas en Grupos
+Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas tecnologías aplicadas a la creación musical**. Beneficiarios del **Programa de Residencias Artísticas en Grupos
 Estables del INBAL**.
 
 ### Personas compositoras
@@ -7685,11 +7719,11 @@ formación con Jorge Torres, Georgina Derbez, Arturo Márquez, Frédéric
 Durieux y Panayiotis Kokoras, entre otros. Su música se ha interpretado
 en el Munal, el MUAC, la Sala Nezahualcóyotl y el Palacio de Bellas
 Artes, por instrumentistas y orquestas como Ludwig Carrasco, Ensemble
-Dal Niente, Quinteto de Alientos de la Ciudad de México, CEPROMUSIC,
+Dal Niente, Quinteto de Alientos de la Ciudad de México, Cepromusic,
 Orquesta Juvenil Universitaria Eduardo Mata y Orquesta Sinfónica
 Nacional. En 2020 fue becario de la Cátedra Extraordinaria Arturo
 Márquez. En 2024 fue seleccionado en el Programa Permanente de
-Fortalecimiento a Jóvenes Compositores del CEPROMUSIC y ganador del
+Fortalecimiento a Jóvenes Compositores del Cepromusic y ganador del
 concurso Internacional de Composición para el Quinteto de Alientos de la
 Ciudad de México.
 
@@ -7750,7 +7784,7 @@ desconocido--- es también el horizonte poético de esta música.
 Han interpretado sus piezas la Sinfónica de Londres, el Ensemble
 Intercontemporain, la Sinfónica de Helsingborgs, la Sinfónica de Gävle,
 la Filarmónica de Berlín del Cuarteto de Ateneo, la Sinfónica de la RAI,
-la Filarmónica Estatal de Oradea, Norrbotten NEO, CEPROMUSIC,
+la Filarmónica Estatal de Oradea, Norrbotten NEO, Cepromusic,
 AuditivVokal Dresden y la Camerata de Berna. A partir de experimentos
 posmodernos en el primer período, se centró en algunas formas de teatro
 musical, explorando las posibilidades de la voz e investigando diversas
@@ -7800,7 +7834,7 @@ con pensamiento filosófico y crítico. Su obra aborda temas como el
 colapso ambiental, la alienación laboral y las formas musicales del
 poder. Ha compuesto piezas instrumentales, mixtas y escénicas,
 presentadas en México, Europa y Asia y publicadas por BabelScores y
-Diaphonia Edizioni. Ha trabajado con ensambles como CEPROMUSIC, y ha
+Diaphonia Edizioni. Ha trabajado con ensambles como Cepromusic, y ha
 sido invitado a diversos festivales y coloquios internacionales. Es
 egresado de la Facultad de Música de la UANL como violinista concertista
 y maestro en Música por la UNAM. Actualmente es profesor de Composición
@@ -7850,26 +7884,26 @@ principal de atención o del curso de la argumentación.
 
 ### Intérpretes
 
-#### CEPROMUSIC
+#### Cepromusic
 
 ![](int/Cepromusic_6.jpg)
 
 El Centro de Experimentación y Producción de Música Contemporánea
-(CEPROMUSIC), creado en 2012, es un espacio en el que convergen
+(Cepromusic), creado en 2012, es un espacio en el que convergen
 actividades artísticas y académicas en favor de la creación, desarrollo
 y difusión de la música contemporánea en México. Además de sus
 temporadas regulares en el Palacio de Bellas Artes, el Ensamble
-CEPROMUSIC ha realizado diez giras internacionales por Alemania,
+Cepromusic ha realizado diez giras internacionales por Alemania,
 Colombia, Escocia, España, Inglaterra, Brasil y Estados Unidos; así como
 residencias artísticas y académicas en Colombia, España, Estados Unidos,
 México y Reino Unido. En 2018 fue invitado al Festival de Verano de
-Darmstadt. El CEPROMUSIC ha tenido residencias y colaboraciones con
+Darmstadt. El Cepromusic ha tenido residencias y colaboraciones con
 compositores e intérpretes como Anna Göckel, Chris Cogburn, Christian
 Wolﬀ, Dafne Vicente, Irvine Arditti, James Dillon, John Butcher, Joshua
 Fineberg, Kaija Saariaho, Katalin Károlyi, Klaus Lang, Peter Ablinger,
 Sigma Project Quartet, Susan Platts, Tiﬀany DuMouchelle, Tony Arnold,
 UMS'n JIP y Ute Wassermann, entre otros. Además de su decidida vocación
-latinoamericana, el Ensamble CEPROMUSIC es el instrumento de gran parte
+latinoamericana, el Ensamble Cepromusic es el instrumento de gran parte
 de los compositores mexicanos contemporáneos, habiendo colaborado,
 encargado, interpretado y grabado a compositores nacionales de varias
 generaciones. El ensamble colabora habitualmente con otras disciplinas
@@ -8330,7 +8364,7 @@ Nacional de Composición de Morelia 2022 y seleccionado para la Cátedra
 Arturo Márquez 2023. Su música ha sido interpretada en Argentina, Chile,
 Estados Unidos, Austria y México. Es ingeniero asistente de grabación en
 la Sala Nezahualcóyotl y asistente de producción y bibliotecario del
-CEPROMUSIC.
+Cepromusic.
 
 ##### *Sodoma*
 
@@ -8388,7 +8422,7 @@ con presencia escénica plena.
 Pablo Ramírez es clarinetista, compositor y diseñador sonoro, egresado
 de la Escuela Superior de Música del INBAL (ESM). Fue músico residente
 de la Compañía Nacional de Teatro y actualmente es docente y
-clarinetista bajo residente en el CEPROMUSIC.
+clarinetista bajo residente en el Cepromusic.
 
 Pablo Miró es Doctor en Música por la Universidad de Montreal, pianista
 con trayectoria en Europa y América y profesor de Piano y Música de
@@ -8726,118 +8760,6 @@ Meister Music, ambos merecedores del reconocimiento Record Geijutsu.
 
 \part{CONCIERTOS EN LOS ESTADOS}
 
-## VIE | OCT 30, 20:00 h - San Luis Potosí: OSLP
-
-Centro Cultural Universitario Bicentenario\
-San Luis Potosí
-
-### Programa
-
-**Axel Retif**
-
-- *Noches negras* (2019-rev. 2022)
-
-**Max Bruch**
-
-- Concierto en sol menor núm. 1, Op. 26
-  - *Preludio. Allegro moderato*
-  - *Adagio*
-  - *Finale. Allegro energico*
-
-\
-INTERMEDIO\
-
-**Manuel de Falla**
-
-- *Interludio* y *Danza* de *La vida breve*
-- *Danza ritual del fuego* de *El amor brujo*
-
-**Reveriano Soutullo - Juan Vert**
-
-- *La leyenda del beso*. Intermedio
-
-**Amadeo Vives**
-
-- Fandango de *Doña Francisquita*
-
-**Gerónimo Giménez**
-
-- *La boda de Luis Alonso*
-
-**Orquesta Sinfónica Universitaria\
-de la Universidad Autónoma de San Luis Potosí**\
-Alfredo Ibarra, director artístico
-
-**Román Shimalin Tsyganov**, violín
-
-### Personas compositoras
-
-#### Axel Retif (México, 1992)
-
-![](comp/Axel Retif.jpg)
-
-Originario de Puebla. Su música se distingue por un carácter eléctrico,
-dinámico y abrasivo, construyendo paisajes sonoros inmersivos a partir de una
-sola idea musical. Desde su primer estreno en el Foro Internacional de Música
-Nueva Manuel Enríquez en 2018, su obra ha sido interpretada en más de ciento
-treinta conciertos en más de doce países. Entre sus colaboraciones recientes
-destacan proyectos con Arditti Quartet, Splinter Reeds, Loadbang y Duo YonX. En
-2023 representó a México y a Radio UNAM en el 69th International Rostrum of
-Composers, organizado por el International Music Council bajo los auspicios de
-la UNESCO. En noviembre de 2026 participará con una Artist Talk en el 31st
-International Symposium on Electronic Emerging Art en Dubái, Emiratos Árabes
-Unidos. Asimismo, ha impartido conferencias en instituciones y universidades de
-Colombia, Estados Unidos, Irán, Malasia y México. Es director y editor de Tagma
-Records, sello dedicado a la difusión de música contemporánea.
-
-##### *Noches negras*
-
-> «Desde una materia sonora densa, se despliega una oscuridad interior en la
-> que el ser humano pierde sus certezas, sus deseos y la confianza en aquello
-> que antes sostenía su vida. No se trata solo de una crisis emocional, sino de
-> un tránsito espiritual: el momento en que el conocimiento externo, la razón y
-> las formas visibles del mundo dejan de ser suficientes, y el corazón queda
-> expuesto ante su propia fragilidad. La obra entiende esta noche como un
-> camino de purificación. En ella, el ego se enfrenta a sus propios velos: el
-> apego, la vanidad, el miedo, la duda y la ilusión de control. La oscuridad no
-> aparece como abandono, sino como una prueba que despoja al ser de lo falso
-> para abrirlo a una verdad más profunda».
-
----
-
-### Intérpretes
-
-#### Orquesta Sinfónica Universitaria de la UASLP (OSU)
-
-![](int/Orquesta Sinfónica Universitaria San Luis Potosí 1.jpg)
-
-La OSU representa una de las agrupaciones musicales e institucionales más
-emblemáticas del estado. Su antecedente se remonta a 1971 con la fundación de
-la Orquesta de Cámara Universitaria, dirigida inicialmente por Francisco
-Carreras Costajussa, posteriormente por José Luis Ortiz Díaz Infante y más
-adelante por Rosendo Hernández Grimaldo. En 2008, en respuesta al talento
-emergente de jóvenes músicos y al deseo de difundir la gran música universal en
-la comunidad potosina, la agrupación evolucionó hacia la Sinfonietta
-Universitaria. Tuvo su presentación inaugural el 22 de junio de 2009 en la
-Plaza de los Fundadores, bajo la dirección de Gilberto Núñez Puente. Tras un
-constante proceso de maduración artística, en 2014 se consolidó oficialmente
-como Orquesta Sinfónica Universitaria. Integrada por más de setenta músicos, la
-OSU ha logrado posicionarse como un referente cultural indispensable en la
-región, formando nuevos públicos y rompiendo brechas generacionales a través de
-la diversidad de sus propuestas. La orquesta ha colaborado con destacados
-solistas, agrupaciones y directores invitados.
-
-#### Alfredo Ibarra
-
-Cuenta con una sólida y respetada trayectoria nacional e internacional. Ha sido
-director artístico de la Sinfónica de Naucalpan, la Orquesta de la Escuela
-Superior de Música, la Orquesta del Teatro de Aguascalientes, la Orquesta de la
-Escuela de Música de la Universidad de Zacatecas y la Sinfónica de Michoacán,
-durante una década. De igual forma, se ha desempeñado como titular de la
-Orquesta Sinfónica del Estado de Puebla y del Coro de la UNAM. Desde 2013 es
-director artístico de la Orquesta Sinfónica Universitaria de Universidad
-Autónoma de San Luis Potosí.
-
 ## VIE | NOV 6, 20:00 h - Xalapa: OSX
 
 Sala Principal, Centro Cultural Tlaqná, Xalapa, Veracruz
@@ -8874,7 +8796,7 @@ del PECDA Baja California 2025. Su pieza *Elegía de una pandemia* es una de sus
 composiciones más reconocidas y forma parte del repertorio estable de la
 Orquesta de Baja California. Ha sido seleccionada en dos ocasiones por el
 Festival Aires de la UNAM y ha participado en Forum Wallis en Suiza y Muslab en
-Ecuador, entre otros. Hizo la música para el corto *Amor Ice* el cual ganó
+Ecuador, entre otros. Hizo la música para el corto *Amor Ice*, el cual ganó
 mejor cortometraje el Festival de Guanajuato 2023.
 
 ##### *Ticuán*, tres relatos para orquesta
@@ -8902,18 +8824,17 @@ Fundada en 1929, se distingue por ser vehículo del compromiso cultural del
 Gobierno de Veracruz y, desde 1975, de la Universidad Veracruzana. Desde hace
 muchos años se ha convertido en una de las orquestas más reconocidas en el
 país. Actúa con frecuencia en ciudades de la entidad como Orizaba, Córdoba,
-Coatzacoalcos, Boca del Río, Veracruz, Poza Rica, y del país, tocando en la
+Coatzacoalcos, Boca del Río, Veracruz y Poza Rica, así como del país, tocando en la
 Ciudad de México, Puebla, Cuernavaca, San Luis Potosí, Aguascalientes,
 Guadalajara, Monterrey, Villahermosa, Tampico y Morelia y en foros tan
 importantes como el Palacio de Bellas Artes, la Sala Nezahualcóyotl, la
 Catedral Metropolitana y la Iglesia de Santo Domingo, en Oaxaca. En el ámbito
 nacional, la OSX ha sido sede de importantes acontecimientos entre los que
-destacan el Festival y Concurso Internacional de Violonchelo Pablo Casals 1959
-que reunió a músicos de la talla del propio Casals, Heitor Villa-Lobos, André
+destacan el Festival y Concurso Internacional de Violonchelo Pablo Casals 1959, que reunió a músicos de la talla del propio Casals, Heitor Villa-Lobos, André
 Navarra, Zara Nelsova y Mstislav Rostropovich, y en el ámbito internacional la
 OSX ha representado a México en el Festival Europalia 1993 y ha realizado giras
-internacionales como la de 2004 por Bélgica, Holanda, Luxemburgo y Alemania y
-la de 2010 en Guatemala. A lo largo de su historia ha sido dirigida por Juan
+internacionales como la de 2004 por Bélgica, Países Bajos, Luxemburgo y Alemania y
+la de 2010, en Guatemala. A lo largo de su historia ha sido dirigida por Juan
 Lomán, José Yves Limantour, Luis Ximénez Caballero, Francisco Savín, Fernando
 Ávila, Luis Herrera de la Fuente, José Guadalupe Flores, Enrique Diemecke,
 Carlos Miguel Prieto, Fernando Lozano y Lanfranco Marcelletti, entre otros.
@@ -8928,8 +8849,8 @@ brinden frescura y dinamismo a la organización.
 
 Nació en Francia. Desde 2020 es director titular de la Orquesta Sinfónica de
 Xalapa. Anteriormente fue director de la Orquesta Filarmónica de Montevideo,
-Uruguay. En 2009 fue nombrado director de la Orquesta de Karlovy Vary en la
-República Checa, en 2014 fue distinguido como ciudadano honorario de dicha
+Uruguay. En 2009, fue nombrado director de la Orquesta de Karlovy Vary en la
+República Checa, y en 2014 fue distinguido como ciudadano honorario de dicha
 ciudad y hoy día es su director honorario. En 2003 obtuvo el primer gran premio
 de dirección en el Concurso Internacional *Prokofiev* en San Petersburgo,
 Rusia. Además de su labor con varias orquestas en Francia, ha dirigido en Rusia
@@ -8995,7 +8916,7 @@ violencia. Dentro de su catálogo se encuentran obras para solistas, ensambles
 de cámara, orquesta electrónica y electroacústica. Su trabajo ha sido
 interpretado por las orquestas Sinfónica Nacional y OFUNAM y ha colaborado con
 los directores Julia Cruz, José Luis Castillo y Ludwig Carrasco. Se ha formado
-con Gabriela Ortiz, María Granillo, Arturo Márquez, y Derek Bermel. En 2003
+con Gabriela Ortiz, María Granillo, Arturo Márquez y Derek Bermel. En 2003
 lanzó su álbum *Calladita: cinco obras sobre la violencia*, donde aborda este
 tema invitando a la reflexión desde distintas perspectivas sonoras. Actualmente
 cursa la Maestría en Composición en la UNAM.
@@ -9018,7 +8939,7 @@ musicológicos*, *Mario Lavista: textos en torno a la música* y *Favor de no
 disparar sobre el pianista*, novela biográfica de Silvestre Revueltas, entre
 decenas de artículos y ensayos. Es autor de las óperas *La tentación de San
 Antonio* y *Luna*, además de la sinfonía *Lluvias*, a partir de un poema de
-Saint John Perse, y de una numerosa obra camerística. Realizó una intervención
+Saint-John Perse, y de una numerosa obra camerística. Realizó una intervención
 orquestal de canciones de Chucho Monge, que grabó con el tenor Francisco
 Araiza. Es miembro honorario del Sistema Nacional de Creadores. Fue director
 del Cenidim y rector del Conservatorio de las Rosas. Actualmente es miembro del
@@ -9056,8 +8977,8 @@ de Música Nueva *Manuel Enríquez*.
 En esta obra la forma y los desarrollos son derivados del concepto de la
 acumulación. La primera sección consiste en una serie de frases que se repite
 idéntica cuatro veces, salvo por el hecho de que la primera vez solo tocan dos
-instrumentos, es decir un dueto, en la segunda vuelta se incorpora un nuevo
-instrumento formando un trío, después un cuarteto y finalmente un quinteto. De
+instrumentos, es decir un dueto; en la segunda vuelta se incorpora un nuevo
+instrumento formando un trío, después un cuarteto y, finalmente, un quinteto. De
 este modo la forma es derivada de una acumulación progresiva de capas
 melódicas. En la segunda sección escuchamos una serie de camas armónicas
 derivadas de la acumulación gradual de notas largas que van tocando cada uno de
@@ -9070,11 +8991,11 @@ no tanto de contrapunto imitativo, sino de contrapunto acumulativo.
 
 ![](comp/Johanna Doderer.jpg)
 
-Compositora residente en Viena, nació en Bregenz y estudió con Beat Furrer en Graz, y posteriormente estudió composición y teoría musical con Erich Urbanner y composición para cine y medios con Klaus Peter Sattler en Viena. El eje central de su obra es la ópera. Además de numerosas piezas de música de cámara, ha escrito varias obras para orquesta. Sus composiciones se interpretan en todo el mundo. Tras lidiar con las técnicas de la música contemporánea durante muchos años, ha encontrado su propio lenguaje compositivo, el cual no excluye la tonalidad. La música de Doderer se ha consolidado en los grandes centros musicales del mundo junto a los repertorios clásicos y contemporáneos.
+Compositora residente en Viena, nació en Bregenz y se formó con Beat Furrer en Graz; posteriormente estudió composición y teoría musical con Erich Urbanner y composición para cine y medios con Klaus Peter Sattler en Viena. El eje central de su obra es la ópera. Además de numerosas piezas de música de cámara, ha escrito obras para orquesta. Sus composiciones se interpretan en todo el mundo. Tras lidiar con las técnicas de la música contemporánea durante muchos años, ha encontrado su propio lenguaje compositivo, el cual no excluye la tonalidad. La música de Doderer se ha consolidado en los grandes centros musicales del mundo junto a los repertorios clásicos y contemporáneos.
 
 ##### *Raunacht*
 
-Las Rauhnacht son 12 noches comprendidas entre las festividades religiosas de Navidad y la Epifanía. Son 12 noches en las que pueden tener lugar rituales y se puede procesar el pasado y conjurar el futuro del año venidero mediante rituales (velas, deseos, oraciones, búsquedas de visión, quema de incienso, etcétera). La Rauhnacht es una antigua tradición de la región alpina. Este quinteto de alientos en un solo movimiento se desarrolla en poco menos de diez minutos, comenzando con un solo de flauta solitario, una rápida y animada niebla en espiral de cinco voces que, junto a momentos melódicamente bellos que pueden haber sido tomados de la naturaleza, crea arreglos sonoros modernos y exigentes cuya intensidad puede tanto disuadir como atraer a los oyentes. Lo que queda es la impresión de una obra autónoma de gran transparencia y comunicación densa que está abierta al oyente.
+Las Rauhnacht son doce noches comprendidas entre las festividades religiosas de Navidad y la Epifanía. Son doce noches en las que pueden tener lugar rituales y se procesa el pasado y se conjura el futuro del año venidero mediante rituales (velas, deseos, oraciones, búsquedas de visión, quema de incienso, etcétera). La Rauhnacht es una antigua tradición de la región alpina. Este quinteto de alientos en un solo movimiento se desarrolla en poco menos de diez minutos, comenzando con un solo de flauta solitario, una rápida y animada niebla en espiral de cinco voces que, junto a momentos melódicamente bellos que pueden haber sido tomados de la naturaleza, crea arreglos sonoros modernos y exigentes cuya intensidad puede tanto disuadir como atraer a los oyentes. Lo que queda es la impresión de una obra autónoma de gran transparencia y comunicación densa que está abierta al oyente.
 
 #### Manuel Enríquez (México, 1926-1994)
 
@@ -9102,7 +9023,7 @@ motivos que van apareciendo consecutivamente en los distintos instrumentos. En
 el segundo movimiento, los otros cuatro instrumentos proveen un discurso
 disjunto y fragmentario que sirve como sustento de una larga y sinuosa melodía
 en el fagot. En la segunda parte de este movimiento se escucha un
-acompañamiento reiterado basado en un motivo de cinco notas. El título del
+acompañamiento reiterado que se basa en un motivo de cinco notas. El título del
 tercer movimiento, *Jazzeando*, es evidente en sí mismo, y el elemento
 jazzístico (sustentado, lógicamente, en una discreta dosis de blues) está
 presente tanto en los ritmos y las armonías como en los giros instrumentales.
@@ -9196,7 +9117,7 @@ Tramas. Actualmente desarrolla *Astrolabio cromático* con apoyo del SACPC.
 ##### *Estás*
 
 El título de la obra es un acertijo. La obra parte de la idea de que todo
-sonido es producto de una acción física y a partir de allí explora
+sonido es producto de una acción física y, a partir de allí, explora
 exhaustivamente distintos tipos de contacto entre las manos y las membranas de
 los instrumentos (timbales y bombo). La obra en sí misma busca la interacción
 escénica del instrumento con el ejecutante, algo dejado de largo durante los
@@ -9218,8 +9139,7 @@ ofrecer servicios de ingeniería de audio.
 
 ##### *Ternasonantia*
 
-Terna, refiriéndose a la propuesta de tres posibles líderes, y sonancia
-resultado sonoro del grupo, juntos forman tanto el título como la descripción
+Terna, refiriéndose a la propuesta de tres posibles líderes, y sonancia, resultado sonoro del grupo, juntos forman el título y la descripción
 de la pieza. La interacción entre los acentos binarios y no binarios y la
 mezcla de rítmicas libres y específicas, desarrollan la sensación del pulso
 controlado, pero, deliberadamente retado por la expresión libre que más que
@@ -9237,7 +9157,7 @@ Ablinger, Clara Iannotta e Isabel Mundry. Ha participado en los festivales
 Mixtur 2016 en Barcelona, BTzM 2017 en Austria, ManiFeste 2021 en Francia,
 Tchaikovsky City 2024 en Rusia y Barcelona Modern 2025. Su música ha sido
 interpretada en México, Francia, Alemania, Italia, Portugal, Rusia, España y
-Corea del Sur por agrupaciones como Achrome Ensemble, CEPROMUSIC, Ensemble
+Corea del Sur por agrupaciones como Achrome Ensemble, Cepromusic, Ensemble
 InterContemporain, Kommas Ensemble, Low Frequency Trio, Manufaktur für Aktuelle
 Musik, Retro Disco, Taller Sonoro y Trío Siqueiros. Su trabajo se centra en la
 filosofía de la música, especialmente en la relación entre música y lenguaje.
@@ -9271,7 +9191,7 @@ orquesta, música mixta y acusmática, interpretadas en México, Costa Rica,
 Argentina, Polonia, Portugal y España. Su música ha sido presentada por
 intérpretes y agrupaciones como Wilfrido Terrazas, José Manuel Alcántara, Iván
 Manzanilla, Josetxo Silguero, Low Frequency Trio, Duplum, Ensamble
-Noodus-Cromano, Liminar, CEPROMUSIC, Nosense Ensamble Vocal, Cuarteto 8xRadio,
+Noodus-Cromano, Liminar, Cepromusic, Nosense Ensamble Vocal, Cuarteto 8xRadio,
 Ludwig e Irene Carrasco, la Orquesta Filarmónica de Querétaro y Vertixe Sonora.
 
 ##### *Is the Closest Star Closed?*
@@ -9341,10 +9261,10 @@ identidad musical mexicana del siglo XX.
 
 Es una obra para ensamble de percusiones situada en el contexto de la música
 contemporánea de México de finales del siglo XX. En esta pieza Enríquez
-demuestra una escritura rigorosa y controlada, manejando con precisión
+demuestra una escritura rigorosa y controlada, maneja con precisión
 secuencias, instrumentación y dinámicas dentro de la partitura. Aunque comparte
 con otras obras del ámbito percusivo una preocupación por la exploración
-sonora, *Políptico* se distingue por su estructura detallada y control formal,
+sonora, *Políptico* se distingue por su estructura detallada y dominio formal,
 donde cada elemento está cuidadosamente organizado para lograr una expresividad
 específica dentro de un lenguaje percutivo moderno. La obra pertenece a una
 etapa madura de Enríquez en la que combina técnicas contemporáneas con una
@@ -9356,7 +9276,7 @@ significativa al repertorio mexicano para percusiones.
 ![](comp/saariaho.jpg)
 
 Fue una voz destacada de su generación de compositores, tanto en su país natal
-como en todo el mundo. Estudió composición en Helsinki, Friburgo y París, donde
+como en el mundo entero. Estudió composición en Helsinki, Friburgo y París, donde
 residió desde 1982 hasta su muerte. Sus estudios e investigaciones en el IRCAM,
 el centro parisino de experimentación electroacústica, tuvieron una gran
 influencia en su música, y sus características texturas exuberantes y
@@ -9373,8 +9293,7 @@ evocan el fluir y la convergencia de ríos, utilizando técnicas contemporáneas
 como microtonalidad, heterofonía y capas sonoras superpuestas. Saariaho combina
 instrumentos acústicos con efectos tímbricos complejos, logrando un paisaje
 sonoro que alterna momentos de calma etérea y densidad intensa, donde cada
-sonido adquiere significación propia. La obra no busca la melodía tradicional
-sino un diálogo entre colores y movimientos internos del sonido, característica
+sonido adquiere significación propia. La obra no busca la melodía tradicional, sino un diálogo entre colores y movimientos internos del sonido, característica
 central de la compositora finlandesa. *Trois Rivières* ejemplifica su enfoque
 poético y sensorial, mostrando cómo la música contemporánea puede transformar
 la percepción del tiempo, el espacio y la energía musical en un flujo continuo,
@@ -9460,7 +9379,7 @@ Miguel Ángel Valdés-Brito Pérez, piano
 Compositor húngaro considerado una de las figuras más importantes de la música
 contemporánea europea, conocido por su estilo conciso, expresivo y
 profundamente introspectivo. Estudió en la Academia de Música *Franz Liszt* de
-Budapest, donde más tarde también fue profesor. Durante su carrera desarrolló
+Budapest, donde más tarde fue también profesor. Durante su carrera desarrolló
 un lenguaje musical muy personal, influido por Béla Bartók y Anton Webern,
 caracterizado por piezas breves pero intensas, con gran atención al detalle y
 al silencio. Entre sus obras más destacadas se encuentra *Játékok* (Juegos),
@@ -9471,7 +9390,7 @@ su contribución única a la música de los siglos XX y XXI.
 
 ##### *Kafka Fragments*, Op. 24
 
-Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de
+Esta obra es la más extensa que Kurtág haya compuesto hasta la fecha. Se trata de
 un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de
 su diario y cartas, así como de *Preparativos de boda en el campo*. Un único
 fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la
@@ -9492,7 +9411,7 @@ de vida y muerte*, con la asesoría de María Granillo. Sus creaciones se han
 tocado en México, Europa, Estados Unidos, Canadá, Asia, Australia y
 Latinoamérica. Es miembro del SNCA. Hay 41 discos con su música. Diversas
 orquestas y ensambles han presentado su trabajo: OFUNAM, OSN, OSEM, OFCM, OCBA,
-OSUANL, OSUG, OSIDEM, OBC, OSEP, CEPROMUSIC, Ónix, Cuarteto Latinoamericano,
+OSUANL, OSUG, OSIDEM, OBC, OSEP, Cepromusic, Ónix, Cuarteto Latinoamericano,
 Tambuco, Camerata de las Américas, Cuarteto de la Ciudad de México, Duplum,
 Cuarteto Arcano, Cello Alterno y Zikluz. Así como destacados solistas: Tere
 Frenk, Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez,
@@ -9518,7 +9437,7 @@ Nació en Tlaxcala. Estudió piano con Isaías Noriega de la Vega y Jorge Suáre
 
 ##### *Cliché*
 
-Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, especie de cita de músicas muchas veces escuchadas, se volvieran material inicial de base para la composición de una pieza musical?
+Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, esa especie de citas musicales escuchadas mil veces, se volvieran el material de base para la composición de una pieza?
 
 ---
 
@@ -9586,7 +9505,7 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 ![](comp/Asha Srinivasan.jpg)
 
-Compositora indo estadounidense que combina su formación musical occidental con su herencia india para crear un lenguaje compositivo. Su música ha sido presentada en diversos escenarios y analizada en trabajos académicos. En 2019 recibió un encargo del programa NewMusic Initiative de East Carolina University. Su obra *Dviraag* fue premiada en el Festival Internacional de Composición de Tailandia 2011 y ganó el concurso del Flute New Music Consortium 2015. En 2012 el grupo Alarm Will Sound estrenó *Svara-lila* en el Mizzou International Composers Festival. Sus obras han sido grabadas por MSR Classics, Ablaze Records, Mark Records, Beauport Classical y Seamus CD Series. Fue miembro del consejo del American Composers Forum 2016--2018 y jurado del National Endowment for the Arts en 2017--2018. Posee un doctorado de la University of Maryland y una Maestría en Música del Peabody Conservatory. Actualmente es profesora asociada de música en Lawrence University.
+Compositora indoestadounidense que combina su formación musical occidental con su herencia india para crear un lenguaje compositivo. Su música ha sido presentada en diversos escenarios y analizada en trabajos académicos. En 2019 recibió un encargo del programa NewMusic Initiative de East Carolina University. Su obra *Dviraag* fue premiada en el Festival Internacional de Composición de Tailandia 2011 y ganó el concurso del Flute New Music Consortium 2015. En 2012 el grupo Alarm Will Sound estrenó *Svara-lila* en el Mizzou International Composers Festival. Sus obras han sido grabadas por MSR Classics, Ablaze Records, Mark Records, Beauport Classical y Seamus CD Series. Fue miembro del consejo del American Composers Forum 2016--2018 y jurado del National Endowment for the Arts en 2017--2018. Posee un doctorado de la University of Maryland y una Maestría en Música del Peabody Conservatory. Actualmente es profesora asociada de música en Lawrence University.
 
 ##### *Alone, Dancing*
 
@@ -9598,7 +9517,7 @@ Existen dos versiones de esta obra, la primera para flauta y electrónica y la s
 
 ![](comp/Carole Chargueron.jpg)
 
-Obtuvo la Licenciatura y Maestría en Musicología tras lo cual ingresó a la clase de música electroacústica en Niza. Viajó a Estados Unidos para estudiar en CalArts con Morton Subotnick. Se tituló en Composición electroacústica en el CNSMD de Lyon. Reside en México desde 1998. Es responsable del Taller de electroacústica de la Escuela Superior de Música y fue coordinadora de la Academia de Composición de dicha institución. Fue docente del diplomado transdisciplinario del Cenart Tránsitos. Fue coorganizadora del festival de música electroacústica Sismo 04. Obtuvo becas del Fonca e Ibermúsicas. Sus piezas se han tocado en festivales en México y en varios países del mundo. Está interesada en componer música electroacústica mixta, piezas acusmáticas, reflexionar sobre la música con su relación con el espacio y como arte escénico. Es parte del Sistema Nacional de Creadores de Arte.
+Obtuvo la Licenciatura y Maestría en Musicología, tras lo cual ingresó a la clase de música electroacústica en Niza. Viajó a Estados Unidos para estudiar en CalArts con Morton Subotnick. Se tituló en Composición electroacústica en el CNSMD de Lyon. Reside en México desde 1998. Es responsable del Taller de electroacústica de la Escuela Superior de Música y fue coordinadora de la Academia de Composición de dicha institución. Fue docente del diplomado transdisciplinario del Cenart Tránsitos. Fue coorganizadora del festival de música electroacústica Sismo 04. Obtuvo becas del Fonca e Ibermúsicas. Sus piezas se han tocado en festivales en México y en varios países del mundo. Está interesada en componer música electroacústica mixta, piezas acusmáticas, reflexionar sobre la música con su relación con el espacio y como arte escénico. Es parte del Sistema Nacional de Creadores de Arte.
 
 ##### *Flautillería*
 
@@ -9612,7 +9531,7 @@ Compositora, intérprete y productora de audio. Su música de cámara, coral y o
 
 ##### *Can I have it without begging*
 
-Desde la década de 1980, he estado creando periódicamente piezas para diversos conjuntos e instrumentación, inspiradas en las maravillosas canciones profanas de Guillaume de Machaut. He llamado a este proyecto *Machaut in the Machine Age*. *Can I have it without begging* es la séptima pieza de esta serie y toma como punto de partida la Balada núm. 19, *Amours me fait desirer* de Machaut. Fue comisionada por la National Flute Association en 2018.
+Desde la década de los años ochenta, he estado creando periódicamente piezas para diversos conjuntos e instrumentación, inspiradas en las maravillosas canciones profanas de Guillaume de Machaut. He llamado a este proyecto *Machaut in the Machine Age*. *Can I have it without begging* es la séptima pieza de esta serie y toma como punto de partida la Balada núm. 19, *Amours me fait desirer* de Machaut. Fue comisionada por la National Flute Association en 2018.
 
 #### Georgina Derbez (México, 1968)
 
@@ -9622,13 +9541,13 @@ Fue escogida por el Utopik Ensamble de Francia para representar a México en un 
 
 ##### *Tonada de la luna llena I*
 
-Esta pieza toma como fuente de inspiración la obra del venezolano Simón Díaz, *Tonada de la luna llena*, y especialmente la versión de Caetano Veloso. Consiste en dos movimientos que se pueden tocar individualmente. A pedido de Asako Arai, escribí el primer movimiento de este díptico (*Tonada de la luna llena I*) sin usar ninguna técnica extendida, de manera que sus alumnos avanzados pudieran abordarla. Sin embargo, escucharemos en la parte electrónica muchos sonidos que justamente emulan las técnicas extendidas, de forma que ambas partes se complementan. Todo el material de la electrónica proviene también de sonidos producidos por la flauta. La electrónica está sobre todo para colorear al instrumento, teniendo algunos momentos donde hace eco al material de esta. Dada la naturaleza de la fuente de inspiración el resultado es particularmente lírico. Las piezas fueron compuestas entre septiembre y noviembre de 2020 con el apoyo del SNCA y están dedicadas a Asako Arai.
+Esta pieza toma como fuente de inspiración la obra del venezolano Simón Díaz, *Tonada de la luna llena*, y especialmente la versión de Caetano Veloso. Consiste en dos movimientos que se pueden tocar individualmente. A pedido de Asako Arai, escribí el primer movimiento de este díptico sin usar ninguna técnica extendida, de manera que sus alumnos avanzados pudieran abordarla. Sin embargo, escucharemos en la parte electrónica muchos sonidos que justamente emulan las técnicas extendidas, de forma que ambas partes se complementan. Todo el material de la electrónica proviene también de sonidos producidos por la flauta. La electrónica está sobre todo para colorear al instrumento, teniendo algunos momentos donde hace eco al material de esta. Dada la naturaleza de la fuente de inspiración, el resultado es particularmente lírico. Las piezas fueron compuestas entre septiembre y noviembre de 2020 con el apoyo del SNCA y están dedicadas a Asako Arai.
 
 #### Kaija Saariaho (Finlandia, 1952 -- Francia, 2023)
 
 ![](comp/saariaho.jpg)
 
-Fue una voz destacada de su generación de compositores, tanto en su país natal como en todo el mundo. Estudió composición en Helsinki, Friburgo y París, donde residió desde 1982 hasta su muerte. Sus estudios e investigaciones en el IRCAM, el centro parisino de experimentación electroacústica, tuvieron una gran influencia en su música, y sus características texturas exuberantes y misteriosas se crearon a menudo combinando la interpretación en vivo con la electrónica. Expandió gradualmente su expresión musical a una gran variedad de géneros, y sus piezas de cámara y música coral se han convertido en piezas clave de conjuntos instrumentales y vocales, respectivamente.
+Fue una voz destacada de su generación de compositores, tanto en su país natal como en el mundo entero. Estudió composición en Helsinki, Friburgo y París, donde residió desde 1982 hasta su muerte. Sus estudios e investigaciones en el IRCAM, el centro parisino de experimentación electroacústica, tuvieron una gran influencia en su música, y sus características texturas exuberantes y misteriosas se crearon a menudo combinando la interpretación en vivo con la electrónica. Expandió gradualmente su expresión musical a una gran variedad de géneros, y sus piezas de cámara y música coral se han convertido en piezas clave de conjuntos instrumentales y vocales, respectivamente.
 
 ##### *NoaNoa*
 
@@ -9655,25 +9574,21 @@ Morelia, Michoacán
 
 -   *Del desapego y la impermanencia* (2022) `\hfill `{=tex}8'
 
-**Federico Núñez**
-
--   *Five Introspections* (2015)\* `\hfill `{=tex}9'
-
 **Erika Vega**
 
--   *Y sueña que su sueño se repite* (2016) `\hfill `{=tex}7'
+-   *Y sueña que su sueño se repite* (2016)\*\* `\hfill `{=tex}7'
 
 **Mizky Bernal Miranda**
 
--   *Tres-Cuatro* (2025) `\hfill `{=tex}6'
+-   *Tres-Cuatro* (2025)\*\* `\hfill `{=tex}6'
 
 **Pedro Castillo Lara**
 
--   *Capricho* (2006) `\hfill `{=tex}7'
+-   *Capricho* (2006)\*\* `\hfill `{=tex}7'
 
 **Rosalba Quindici**
 
--   *Preludio* (2015) `\hfill `{=tex}3'
+-   *Preludio* (2015)\*\* `\hfill `{=tex}3'
 
 **Arturo M. Zanabria**
 
@@ -9681,7 +9596,7 @@ Morelia, Michoacán
 
 **Panayiotis Kokoras**
 
--   *Slide* (2002) `\hfill `{=tex}9'
+-   *Slide* (2002)\*\* `\hfill `{=tex}9'
 
 **Hebert Vázquez**
 
@@ -9719,43 +9634,6 @@ del desapego. De carácter meditativo y contemplativo, la obra se percibe
 como una nube sonora que nos incita a la escucha con una actitud
 reflexiva.
 
-#### Federico Núñez (Argentina, 1976)
-
-![](comp/Federico%20Núñez.jpg)
-
-Compositor, guitarrista e investigador argentino dedicado a la creación
-contemporánea. Su producción abarca música para música de cámara,
-escénica y electrónica, con una búsqueda centrada en el timbre, la
-espacialidad sonora y la expansión de los recursos instrumentales desde
-una perspectiva vinculada al pensamiento musical latinoamericano. Parte
-de su obra incorpora instrumentos prehispánicos, especialmente en la
-ópera mexica *Otlatocaliztli*. Doctor en Artes con especialización en
-Composición por la Universidad Nacional de las Artes, se formó con
-Guillermo Pozzatti y realizó estudios con Gerardo Gandini y Mario
-Lavista. Sus obras se han presentado en Argentina, México, Estados
-Unidos, Japón y países de Europa Ha recibido los premios Municipal de la
-Ciudad de Buenos Aires y Juan Carlos Paz, además de becas y residencias
-otorgadas por el Fonca y AECID. Su catálogo es publicado por Cayambis
-Music Press.
-
-##### *Five Introspections*
-
-La obra explora cinco reflexiones musicales centradas en las
-posibilidades tímbricas de la guitarra y en la transformación de
-recursos técnicos instrumentales en material compositivo. *Glissandi*,
-*tapping* sobre notas repetidas, trémolos, trinos y armónicos no
-funcionan únicamente como técnicas extendidas, sino como elementos
-generadores sometidos a constantes procesos de desarrollo y
-resignificación. Cada movimiento investiga distintas relaciones entre
-gesto, resonancia y textura. Como culminación del ciclo, la quinta pieza
-emerge como síntesis y transformación final de los materiales
-precedentes, caracterizada por una pulsación continua de corcheas, la
-alternancia entre sonidos naturales y armónicos, y la progresiva
-superposición de los distintos elementos temáticos expuestos
-anteriormente. En términos de escritura, la obra requiere frecuentemente
-el empleo de dos pentagramas por sistema, con el fin de articular planos
-sonoros independientes y comportamientos resonantes complejos.
-
 #### Erika Vega (México, 1987)
 
 ![](comp/Erika%20Vega.jpg)
@@ -9765,7 +9643,7 @@ representación, interpretación, percepción y memoria, reflexionando con
 frecuencia sobre cuestiones sociales y políticas. Su práctica musical
 abarca la improvisación libre, la música de concierto, danza
 contemporánea, medios audiovisuales y teatro musical. Ha escrito obras
-para los ensambles Elision, CEPROMUSIC y Curious Chamber Players, el
+para los ensambles Elision, Cepromusic y Curious Chamber Players, el
 cuarteto Sigma Project, el Aleph Guitar Quartet, la Filarmónica de Los
 Ángeles, la Royal Liverpool Philharmonic y el ensamble Proxima Centauri.
 Estudió en la UNAM, en la BUAP y en el Royal Conservatory de Bruselas.
@@ -10058,7 +9936,7 @@ Sala Chopin, Escuela Superior de Música y Danza, Monterrey, Nuevo León
 
 ![](comp/saariaho.jpg)
 
-Fue una voz destacada de su generación de compositores, tanto en su país natal como en todo el mundo. Estudió composición en Helsinki, Friburgo y París, donde residió desde 1982 hasta su muerte. Sus estudios e investigaciones en el IRCAM, el centro parisino de experimentación electroacústica, tuvieron una gran influencia en su música, y sus características texturas exuberantes y misteriosas se crearon a menudo combinando la interpretación en vivo con la electrónica. Expandió gradualmente su expresión musical a una gran variedad de géneros, y sus piezas de cámara y música coral se han convertido en piezas clave de conjuntos instrumentales y vocales, respectivamente.
+Fue una voz destacada de su generación de compositores, tanto en su país natal como en el mundo entero. Estudió composición en Helsinki, Friburgo y París, donde residió desde 1982 hasta su muerte. Sus estudios e investigaciones en el IRCAM, el centro parisino de experimentación electroacústica, tuvieron una gran influencia en su música, y sus características texturas exuberantes y misteriosas se crearon a menudo combinando la interpretación en vivo con la electrónica. Expandió gradualmente su expresión musical a una gran variedad de géneros, y sus piezas de cámara y música coral se han convertido en piezas clave de conjuntos instrumentales y vocales, respectivamente.
 
 ##### *Six Japanese Gardens*
 
@@ -10072,7 +9950,7 @@ Es compositora, productora de radio y productora general de Nosotras Sonamos Rad
 
 ##### *Scottisch*
 
-La obra es una composición experimental para instrumentos reciclados (latas, plástico y cartón), cinta y procesamiento en vivos. Basada en el chotis, toma elementos rítmicos y formales de este género tradicional, reinterpretándolos mediante texturas percusivas y electrónica en tiempo real. Cada instrumento es manipulado para crear sonidos opacos, modulados a través de Ableton Live con efectos como reverberación, delay y eco, ofreciendo un diálogo entre lo acústico y lo digital. La pieza permite al intérprete explorar libremente la sonoridad y los procesos electrónicos, generando un paisaje tímbrico único. No ha sido estrenada públicamente, presentándose únicamente en conciertos virtuales durante la pandemia como parte del proyecto *Horizontes Tímbricos*, apoyado por CEIIDA UANL.
+La obra es una composición experimental para instrumentos reciclados (latas, plástico y cartón), cinta y procesamiento en vivos. Basada en el chotis, toma elementos rítmicos y formales de este género tradicional, reinterpretándolos mediante texturas percusivas y electrónica en tiempo real. Cada instrumento es manipulado para crear sonidos opacos, modulados a través de Ableton Live con efectos como reverberación, delay y eco, ofreciendo un diálogo entre lo acústico y lo digital. La pieza permite al intérprete explorar libremente la sonoridad y los procesos electrónicos, generando un paisaje tímbrico único. No ha sido estrenada públicamente; se presentó únicamente en conciertos virtuales durante la pandemia como parte del proyecto *Horizontes Tímbricos*, apoyado por CEIIDA UANL.
 
 #### Rocío Cano Valiño (Argentina, 1991)
 
@@ -10088,7 +9966,7 @@ Forma parte del ciclo *Antanáklasi*, inspirado en el cuadro *Al espejo* de la a
 
 ![](comp/Itzá García.jpg)
 
-Compositora radicada en Nueva York cuyo trabajo explora la relación entre tiempo, interacción social y tecnología en la música contemporánea. Su práctica combina instrumentos acústicos, tecnologías aumentadas y aprendizaje automático, investigando cómo la sonoridad puede transformarse mediante datos y procesos tecnológicos. Su obra ha sido interpretada por JACK Quartet, Ensemble Musikfabrik, Yarn/Wire, Talea Ensemble y CEPROMUSIC. Ha recibido apoyos como la beca Conacyt, residencias en el Atlantic Center for the Arts y Zurich University of the Arts, y reconocimientos en innovación sonora. Actualmente cursa un Doctorado en Composición en The Graduate Center, CUNY, y es cofundadora del festival Overdrive, dedicado a música electrónica y experimental.
+Compositora radicada en Nueva York cuyo trabajo explora la relación entre tiempo, interacción social y tecnología en la música contemporánea. Su práctica combina instrumentos acústicos, tecnologías aumentadas y aprendizaje automático, investigando cómo la sonoridad puede transformarse mediante datos y procesos tecnológicos. Su obra ha sido interpretada por JACK Quartet, Ensemble Musikfabrik, Yarn/Wire, Talea Ensemble y Cepromusic. Ha recibido apoyos como la beca Conacyt, residencias en el Atlantic Center for the Arts y Zurich University of the Arts, y reconocimientos en innovación sonora. Actualmente cursa un Doctorado en Composición en The Graduate Center, CUNY, y es cofundadora del festival Overdrive, dedicado a música electrónica y experimental.
 
 ##### *(Des) Balance*
 
@@ -10148,7 +10026,7 @@ Universidad de las Artes de Yucatán, Mérida, Yucatán
 
 ![](comp/Eduardo Rivas.png)
 
-Compositor, improvisador y artista interdisciplinar de Mérida. Clarinetista formado con Paolo Dorio, ha sido músico invitado de la Sinfónica de Yucatán. Es licenciado y maestro en Artes Musicales por la UNAY, donde estudió con Javier Álvarez. Ha tenido revisión de obra, talleres y clases magistrales con Marcelo Toledo, Eva Zöllner, Heather Roche, Rodrigo Sigal, Juan Sebastián Lach Lau y Mauricio Valdés San Emeterio, entre otros. Su música la han interpretado los ensambles Zöllner-Roche y Sequenza Sur, en los festivales Aires Nacionales y Visiones Sonoras. Obtuvo la mención honorífica en el Primer Concurso Estatal de Composición *Daniel Ayala Pérez* con la obra *La luz empieza a vomitar*. Fue beneficiario de PECDA 2019 y Fortalecimiento a Jóvenes Creadores de Yucatán 2020. Su trabajo abarca creación, producción, docencia, difusión y aprendizaje crítica de cultura, tecnología del arte y gestión.
+Compositor, improvisador y artista interdisciplinar de Mérida. Clarinetista formado con Paolo Dorio, ha sido músico invitado de la Sinfónica de Yucatán. Es licenciado y maestro en Artes Musicales por la UNAY, donde estudió con Javier Álvarez. Ha tenido revisión de obra, talleres y clases magistrales con Marcelo Toledo, Eva Zöllner, Heather Roche, Rodrigo Sigal, Juan Sebastián Lach Lau y Mauricio Valdés San Emeterio, entre otros. Su música la han interpretado los ensambles Zöllner-Roche y Sequenza Sur, en los festivales Aires Nacionales y Visiones Sonoras. Obtuvo la mención honorífica en el Primer Concurso Estatal de Composición *Daniel Ayala Pérez* con la obra *La luz empieza a vomitar*. Fue beneficiario de PECDA 2019 y Fortalecimiento a Jóvenes Creadores de Yucatán 2020. Su trabajo abarca creación, producción, docencia, difusión y aprendizaje, crítica de cultura, tecnología del arte y gestión.
 
 ##### *Extremidad ausente*
 
@@ -10162,13 +10040,13 @@ Compositor, artista sonoro e improvisador de Mérida. Es licenciado en Artes mus
 
 ##### *Artibeus jamaicensis*
 
-Cenote en español, dzonot en maya, es una especie de lago en cavernas interconectadas bajo la superficie de la península de Yucatán. Es ahí donde habita el *Artibeus jamaicensis*, una especie de murciélago pequeño y frugívoro que se encarga de polinizar el viejo y místico árbol Ramón regenerando el espacio en caso de que la caverna colapse. La pieza es una inmersión en ese espacio sagrado desde la ecología acústica y la composición musical.
+Cenote en español, dzonot en maya, es una especie de lago en cavernas interconectadas bajo la superficie de la península de Yucatán. Es ahí donde habita el *Artibeus jamaicensis*, una especie de murciélago pequeño y frugívoro que se encarga de polinizar el viejo y místico árbol, Ramón regenerando el espacio en caso de que la caverna colapse. La pieza es una inmersión en ese espacio sagrado desde la ecología acústica y la composición musical.
 
 #### Amaury León (México, 1986)
 
 ![](comp/Amaury León.JPG)
 
-Inició estudios de Composición en la UNAY en 2007 y Tuba en 2012 experimentando luego con trompeta y bombardino. En 2014 creó el proyecto de música electrónica wirowero. En 2017 compuso para la obra de teatro *Lunas mujeres que caminan bajo el agua* y su obra *Energy* apareció en el disco *Osmon* vol.7 de la Universidad de Tennessee. En 2018 se unió al teatro Oveja Negra, componiendo para *Morritz y el pequeño Mons* y *La niña de maíz y sal*. En 2019 estrenó *Bocanada* con la Universidad de Tennessee y *Blue Underworld* con la de Houston. En mayo estrenó *Rio* con la Universidad de Tennessee. Actualmente cursa la Maestría en Artes haciendo cruce entre arte y ciencias mientras experimenta improvisación junto a Carmen Maldonado.
+Inició estudios de Composición en la UNAY en 2007 y Tuba en 2012, experimentando luego con trompeta y bombardino. En 2014 creó el proyecto de música electrónica WiroWero. En 2017 compuso para la obra de teatro *Lunas mujeres que caminan bajo el agua* y su obra *Energy* apareció en el disco *Osmon* vol.7 de la Universidad de Tennessee. En 2018 se unió al teatro Oveja Negra, componiendo para *Morritz y el pequeño Mons* y *La niña de maíz y sal*. En 2019 estrenó *Bocanada* con la Universidad de Tennessee y *Blue Underworld* con la de Houston. En mayo estrenó *Río* con la Universidad de Tennessee. Actualmente cursa la Maestría en Artes, haciendo cruce entre arte y ciencias mientras experimenta improvisación junto a Carmen Maldonado.
 
 ##### *Agarrando señal*
 
@@ -10182,13 +10060,13 @@ Compositor, docente y músico de Mérida. En 2016, obtuvo el segundo lugar en el
 
 ##### *Homún* (2a versión)
 
-Es una obra que hace alusión al cenote Homún, que juega con la fonética del nombre, los materiales que evocan sonidos del cenote y la propia convivencia con el espacio geográfico. En esta versión la flauta es sustituida electrónicamente para convertirla en solo de multipercusión y electrónica.
+Es una obra que hace alusión al cenote Homún, que juega con la fonética del nombre, los materiales que evocan sonidos del cenote y la propia convivencia con el espacio geográfico. En esta versión, la flauta es sustituida electrónicamente para convertirla en solo de multipercusión y electrónica.
 
 #### Robert Constable (Estados Unidos, 1958)
 
 ![](comp/Robert Constable.jpeg)
 
-Lleva 50 años componiendo música y sus obras se han interpretado en todo el mundo. Formado en la Universidad del Sur de Florida y en la Escuela de Música Eastman, recibió una beca Fulbright para estudiar con György Ligeti en Alemania. De 1993 a 2005, participó activamente como director y miembro del Festival Bonk de Música Nueva en Tampa Bay. Recibió el encargo de componer una fanfarria para metales con motivo de la inauguración del nuevo Museo *Salvador Dalí* en San Petersburgo, Florida. Es miembro del Hermitage Artist Retreat desde 2019. En 2023 creó el festival de música de vanguardia Mérida Clásica Moderna, cuyos primeros conciertos tuvieron lugar en 2024. Actualmente está finalizando la banda sonora del innovador documental de Miguel Ventura Herrera *Encontrando a Felipa Poot*.
+Lleva cincuenta años componiendo música y sus obras se han interpretado en todo el mundo. Formado en la Universidad del Sur de Florida y en la Escuela de Música Eastman, recibió una beca Fulbright para estudiar con György Ligeti en Alemania. De 1993 a 2005 participó activamente como director y miembro del Festival Bonk de Música Nueva en Tampa Bay. Recibió el encargo de componer una fanfarria para metales con motivo de la inauguración del nuevo Museo *Salvador Dalí*, en San Petersburgo, Florida. Es miembro del Hermitage Artist Retreat desde 2019. En 2023 creó el festival de música de vanguardia Mérida Clásica Moderna, cuyos primeros conciertos tuvieron lugar en 2024. Actualmente está finalizando la banda sonora del innovador documental de Miguel Ventura Herrera *Encontrando a Felipa Poot*.
 
 ##### *Dies Irae*
 
@@ -10202,7 +10080,7 @@ Obra teatral dramática coreografiada en la cual se incluyen imágenes para faci
 
 ![](int/Carmen Maldonado.jpg)
 
-Percusionista mexicana interesada en entender el mundo mediante el arte y otras disciplinas. Con enfoque en la percusión teatral crea imágenes a partir de las posibilidades tímbricas de objetos, a veces llamados instrumentos, caracterizando lo audible con gestos y movimientos. Trabaja con la memoria universal y su impacto bio-psico-sociocultural-espiritual. Realizó su Licenciatura en la Escuela de Música Vida y Movimiento del Centro Cultural Ollin Yoliztli. Desde 2008 ha incursionado en el repertorio solista, orquestal y de cámara en diferentes agrupaciones. Actualmente reside en Mérida y es intérprete de Metamorfosis música teatral para percusiones, fundadora del Colectivo Hifa, el dueto NóduloSA y equipos de trabajo experimentales involucrados en proyectos interdisciplinares entre arte y ciencia y forma parte del Ensamble Contemporáneo de la Universidad de las Artes de Yucatán en el área de percusiones, donde también es docente.
+Percusionista mexicana interesada en entender el mundo mediante el arte y otras disciplinas. Con enfoque en la percusión teatral, crea imágenes a partir de las posibilidades tímbricas de objetos, a veces llamados instrumentos, caracterizando lo audible con gestos y movimientos. Trabaja con la memoria universal y su impacto bio-psico-sociocultural-espiritual. Realizó su Licenciatura en la Escuela de Música Vida y Movimiento del Centro Cultural Ollin Yoliztli. Desde 2008 ha incursionado en el repertorio solista, orquestal y de cámara en diferentes agrupaciones. Actualmente reside en Mérida y es intérprete de *Metamorfosis*, música teatral para percusiones. Fundadora del Colectivo Hifa, el dueto NóduloSA y equipos de trabajo experimentales involucrados en proyectos interdisciplinares entre arte y ciencia, forma parte del Ensamble Contemporáneo de la Universidad de las Artes de Yucatán en el área de percusiones, donde también es docente.
 
 ## SÁB | NOV 14, 17:00 h - Acapulco: Fabián Rangel
 
@@ -10234,7 +10112,7 @@ Centro Cultural Domingo Soler, Acapulco, Guerrero
 
 - Tres miniaturas (2024)\* \hfill 6'
 
-**Édgar Guzmán**
+**Edgar Guzmán**
 
 - *Reboot* (2014) \hfill 10'
 
@@ -10258,7 +10136,7 @@ Compositora, pianista y gestora cultural. Formada en la Escuela Superior de Mús
 
 ##### *Kintsugi*
 
-Obra para violín solo, inspirada en la canción *Como la cigarra* de María Elena Walsh. La obra recorre tres momentos importantes correspondientes con el concepto original de Walsh: la transformación continua y el permanente resurgimiento de uno mismo. El primer momento es una melodía inicial que inicia el tránsito, después una sección intermedia de suspensión y por último, una sección en la que la melodía reaparece transformada, marcando así, un ciclo.
+Obra para violín solo, inspirada en la canción *Como la cigarra* de María Elena Walsh. La obra recorre tres momentos importantes correspondientes con el concepto original de Walsh: la transformación continua y el permanente resurgimiento de uno mismo. El primer momento es una melodía inicial que inicia el tránsito; después una sección intermedia de suspensión y, por último, una sección en la que la melodía reaparece transformada, marcando, así, un ciclo.
 
 #### Eunice Shanti (México, 1988)
 
@@ -10268,7 +10146,7 @@ Estudió piano y la Licenciatura en Filosofía en la Universidad de Guadalajara,
 
 ##### *Metamórfica*
 
-Basada en el elemento Tierra, esta obra toma inspiración de las rocas metamórficas, cuyo nombre proviene del griego meta (cambio) y morphe (forma), aludiendo a su *cambio de forma*. Estas rocas, a través de procesos geológicos, experimentan profundas transformaciones estructurales y mineralógicas. De manera análoga, la pieza musical explora un viaje de transformación sonora, donde emergen nuevas texturas con cambios dinámicos y contrastes tímbricos; el violín se convierte en un símbolo del fenómeno morfológico de las rocas en constante metamorfosis.
+Basada en el elemento tierra, esta obra toma inspiración de las rocas metamórficas, cuyo nombre proviene del griego meta (cambio) y morphe (forma), aludiendo a su *cambio de forma*. Estas rocas, a través de procesos geológicos, experimentan profundas transformaciones estructurales y mineralógicas. De manera análoga, la pieza musical explora un viaje de transformación sonora, donde emergen nuevas texturas con cambios dinámicos y contrastes tímbricos; el violín se convierte en un símbolo del fenómeno morfológico de las rocas en constante metamorfosis.
 
 #### Kat Farn (Reino Unido, 2004)
 
@@ -10278,13 +10156,13 @@ Organista, clavecinista, pianista y compositora originaria de Sheffield. Actualm
 
 ##### *Oiseaux du Paradis*
 
-Está basada en la canción del mismo título de Maurice Ravel, y explora el material de una manera postespectral, acentuando los armónicos de las líneas cantadas. La pieza está escrita para un instrumento solista indeterminado y de ese modo la trasposición, ya sea en notas sencillas en octavas o la pieza entera, es aceptada. Las secciones serán tocadas en cualquier orden y repetidas cualquier número de veces y no todas las secciones podrán ser oídas. De manera opcional, los intérpretes pueden incluir procesos electrónicos en vivo como se acomoden, la compositora no tiene preferencias y deja la decisión al intérprete.
+Está basada en la canción del mismo título de Maurice Ravel, y explora el material de una manera postespectral, acentuando los armónicos de las líneas cantadas. La pieza está escrita para un instrumento solista indeterminado y de ese modo la trasposición, ya sea en notas sencillas en octavas o la pieza entera, es aceptada. Las secciones serán tocadas en cualquier orden y repetidas cualquier número de veces, y no todas las secciones podrán ser oídas. De manera opcional, los intérpretes pueden incluir procesos electrónicos en vivo como se acomoden; la compositora no tiene preferencias y deja la decisión al intérprete.
 
 #### Héctor Ulises Vera (México, 1985)
 
 ![](comp/Héctor Ulises Vera.png)
 
-Nacido en la Ciudad de México. Estudió piano y composición en la UNAM. Fue ingeniero de grabación en diferentes estudios, actividad que lo motivó a profundizar en la música electroacústica. Participó en el colectivo de música experimental Ruido 13 enfocándose en la improvisación con la viola como instrumento principal. Su actividad como docente de alumnos con diversas discapacidades lo ha llevado a la exploración de partituras táctiles y auditivas para músicos ciegos y sordos, integradas con las nuevas tecnologías. Sus obras se han programado en diversos foros y festivales de México, Japón, Taiwán, Francia, Reino Unido, Portugal, Argentina y Canadá. Es cofundador y bajista de la banda de metal Voltax, con la que ha realizado grabaciones además de presentarse en foros y festivales de América y Europa.
+Nacido en la Ciudad de México. Estudió piano y composición en la UNAM. Fue ingeniero de grabación en diferentes estudios, actividad que lo motivó a profundizar en la música electroacústica. Participó en el colectivo de música experimental Ruido 13, enfocándose en la improvisación con la viola como instrumento principal. Su actividad como docente de alumnos con diversas discapacidades lo ha llevado a la exploración de partituras táctiles y auditivas para músicos ciegos y sordos, integradas con las nuevas tecnologías. Sus obras se han programado en diversos foros y festivales de México, Japón, Taiwán, Francia, Reino Unido, Portugal, Argentina y Canadá. Es cofundador y bajista de la banda de metal Voltax, con la que ha realizado grabaciones, además de presentarse en foros y festivales de América y Europa.
 
 ##### Estudio para violín
 
@@ -10298,19 +10176,19 @@ Filósofa por la UNAM bajo la asesoría de Axel Barceló, aplicó el estudio lin
 
 ##### *EE2*
 
-Se trata de una pieza interactiva para violín y electrónica controlada por MAX/MSP. Esta pieza es abierta, lo que significa que hay muchos resultados posibles de ejecución y de la forma musical ante las posibilidades mostradas en la partitura. Es interactiva ya que existe una reciprocidad de participación entre el ejecutante del violín y quien active el *patch* de MAX/MSP. Esto significa que se procurará que no haya una supremacía de un instrumento sobe el otro, se intenta que MAX/MSP funja como otro ejecutante. Por un lado, el *patch* anticipará al violín, el cual se guiará auditivamente a partir de las muestras arrojadas. En cierto modo esta pieza es una especie de guía sonora ante las acciones que realizará el violín: una especie de improvisación guiada a partir de lo establecido en los diferentes recuadros que le corresponden dentro de la partitura. También existe la posibilidad de que el violín intente anticipar la muestra que tocará el *patch* de MAX/MSP.
+Se trata de una pieza interactiva para violín y electrónica controlada por MAX/MSP. Esta pieza es abierta, lo que significa que hay muchos resultados posibles de ejecución y de la forma musical ante las posibilidades mostradas en la partitura. Es interactiva, ya que existe una reciprocidad de participación entre el ejecutante del violín y quien active el *patch* de MAX/MSP. Esto significa que se procurará que no haya una supremacía de un instrumento sobre el otro; se intenta que MAX/MSP funja como otro ejecutante. Por un lado, el *patch* anticipará al violín, el cual se guiará auditivamente a partir de las muestras arrojadas. En cierto modo esta pieza es una especie de guía sonora ante las acciones que realizará el violín: una especie de improvisación guiada a partir de lo establecido en los diferentes recuadros que le corresponden dentro de la partitura. También existe la posibilidad de que el violín intente anticipar la muestra que tocará el *patch* de MAX/MSP.
 
 #### Jorge Arturo Ángeles Lerma (México, 1992)
 
 ![](comp/Jorge Arturo Ángeles Lerma.png)
 
-Nació en Chilpancingo. Realizó sus estudios musicales en el Conservatorio de las Rosas en Composición bajo la tutela de Horacio Uribe, Eduardo Solís, Juan Sebastián Lach Lau y Luis Jaime Cortez. Laboró como copista para la Sinfónica de Michoacán. Participó en dos ocasiones en el Festival *Miguel Bernal Jiménez*: la primera en 2013, como director en campanario en la obra de intervención sonora urbana del compositor Llorenç Barber y la segunda en 2014 como integrante de la Coral de las Rosas. Su obra ha sido transmitida por la Sociedad de Violas de Filadelfia en 2022, y ha sido interpretada por el CEPROMUSIC en el marco del Foro Internacional de Música Nueva *Manuel Enríquez* en 2024 y 2025 y por la Orquesta de Cámara del Tzintzuni en 2021.
+Nació en Chilpancingo. Realizó sus estudios musicales en el Conservatorio de las Rosas en Composición bajo la tutela de Horacio Uribe, Eduardo Solís, Juan Sebastián Lach Lau y Luis Jaime Cortez. Laboró como copista para la Sinfónica de Michoacán. Participó en dos ocasiones en el Festival *Miguel Bernal Jiménez*: la primera en 2013, como director en campanario en la obra de intervención sonora urbana del compositor Llorenç Barber y la segunda en 2014, como integrante de la Coral de las Rosas. Su obra ha sido transmitida por la Sociedad de Violas de Filadelfia en 2022, y ha sido interpretada por el Cepromusic en el marco del Foro Internacional de Música Nueva *Manuel Enríquez* en 2024 y 2025, y la Orquesta de Cámara del Tzintzuni en 2021.
 
 ##### Tres miniaturas
 
-Tomando como inspiración la técnica japonesa de restauración llamada Kintsugi y utilizando la forma clásica rápido-lento-rápido, esta pequeña obra se presenta en tres movimientos (uno rápido, uno lento y cierra con uno rápido) sin ninguna pausa entre ellos, formando así la totalidad de la obra, que, aunque fragmentada, sigue representando un todo completo.
+Tomando como inspiración la técnica japonesa de restauración llamada kintsugi y utilizando la forma clásica rápido-lento-rápido, esta pequeña obra se presenta en tres movimientos sin ninguna pausa entre ellos, formando así la totalidad de la obra, que, aunque fragmentada, sigue representando un todo completo.
 
-#### Édgar Guzmán (México, 1981)
+#### Edgar Guzmán (México, 1981)
 
 ![](comp/Edgar Guzmán.jpg)
 
@@ -10338,7 +10216,7 @@ Originario de Ocotlán, Jalisco, fue una figura fundamental de la vanguardia mus
 
 ##### *Móvil II*
 
-Es una composición musical para cualquier instrumento de cuerda frotada y electrónica. En esta ocasión se presenta con violín, instrumento con el que se ha popularizado su interpretación, probablemente debido a que el propio autor la interpretó en público y dejó registro de ella en una versión grabada en Madrid en 1967, con el que fue su instrumento de formación. La obra consta de una hoja de símbolos gráficos y nueve módulos independientes entre sí. Cada módulo incluye diversos símbolos distribuidos en el espacio, que se combinan con indicaciones tradicionales para generar una serie de frases conformadas por *gestos*. Esta obra emplea una técnica composicional que requiere decisiones creativas del intérprete.
+Es una composición musical para cualquier instrumento de cuerda frotada y electrónica. En esta ocasión se presenta con violín, instrumento con el que se ha popularizado su interpretación, probablemente debido a que el propio autor la interpretó en público y dejó registro de ella en una versión grabada en Madrid, en 1967, con el que fue su instrumento de formación. La obra consta de una hoja de símbolos gráficos y nueve módulos independientes entre sí. Cada módulo incluye diversos símbolos distribuidos en el espacio, que se combinan con indicaciones tradicionales para generar una serie de frases conformadas por *gestos*. Esta obra emplea una técnica composicional que requiere decisiones creativas del intérprete.
 
 ---
 
@@ -10349,6 +10227,90 @@ Es una composición musical para cualquier instrumento de cuerda frotada y elect
 ![](int/Fabián Rangel.jpg)
 
 Violinista que se desenvuelve principalmente en la música contemporánea y experimental. Ha tocado con los ensambles Liminar, Templum, Generación Espontánea y Sonidero 13. Es director del proyecto Shilti desde 2013. Fue parte del Evolution Ensamble, que organizó el International Contemporary Ensamble, desde Nueva York. Participó en el 44 FIMNME. Estudió en la Escuela Vida y Movimiento del Centro Cultural Ollin Yoliztli, la Orquesta Escuela *Carlos Chávez* y la Escuela Superior de Música del INBAL (ESM). Fue integrante de las orquestas Sinfónica Juvenil del Estado de Veracruz, Sinfónica Mexiquense y Sinfónica Juvenil *Eduardo Mata*. Se ha presentado en México, Estados Unidos y Argentina. Estudió la licenciatura con Elwira Krengiel en la ESM y actualmente forma parte de la Orquesta Filarmónica de Acapulco.
+
+## MIÉ | NOV 18, 19:00 h - Morelia: Electroacústica I
+
+Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
+
+### Programa
+
+**Alejandra Hernández**
+
+-   *Micrograma* (2025) `\hfill `{=tex}10'
+
+**Andrea Sorrenti**
+
+-   *Paseo intolerante* (2025) `\hfill `{=tex}5'
+
+**Luigi Morleo**
+
+-   *Carassio Nero Intermezzo* (2023)\* `\hfill `{=tex}4'
+
+**Jorge Martínez Valderrama**
+
+-   *Cuando el cauce recuerda* (2026) `\hfill `{=tex}5'
+
+**Daniel Colorado**
+
+-   *Nebula* (2026)\* `\hfill `{=tex}6'
+
+**Elliot Hernández**
+
+-   *Leviathan* (2024) `\hfill `{=tex}7'
+
+**Iván Naranjo**
+
+-   *Espacios en espacios* (2018) `\hfill `{=tex}10'
+
+**Rod Ziq**
+
+-   *2025* (2025) `\hfill `{=tex}6'
+
+**Flavio Monteiro**
+
+-   *Carmina Simulacra* (2024)\* `\hfill `{=tex}10'
+
+**Alejandro Viramontes Nunura**
+
+-   *Phi\$hing* (2023) `\hfill `{=tex}5'
+
+*Programa idéntico al del MIÉ | NOV 18 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex}.*
+
+## JUE | NOV 19, 19:00 h - Morelia: Electroacústica II
+
+Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
+
+### Programa
+
+**Iván Ferrer Orozco**
+
+-   *Fourth Garden: Exodus - for piano* (2018)\*\* `\hfill `{=tex}10'
+
+**Carole Chargueron**
+
+-   *Canamayté* (2024)\* `\hfill `{=tex}15'
+
+**Pamela Soria**
+
+-   *Maschine Poesie (Máquina|Poesía)* (2024)\*\* `\hfill `{=tex}9'
+
+**Tobías Álvarez**
+
+-   *Son de materia* (2026) `\hfill `{=tex}7'
+
+**Ana M.E.**
+
+-   *Supernova* (2026)\* `\hfill `{=tex}6'
+
+**Gustavo Arima**
+
+-   *Escombros* (2024)\*\* `\hfill `{=tex}8'
+
+**Héctor Bravo Benard**
+
+-   *Interlude* (2022)\*\* `\hfill `{=tex}11'
+
+*Programa idéntico al del JUE | NOV 19 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:jue-nov-19-electroacustica-ii}`{=latex}.*
 
 \part{ACTIVIDADES ACADÉMICAS}
 
@@ -10398,7 +10360,118 @@ Escuela Superior de Música
 
 \part{ECOS DEL FORO}
 
-Conciertos en fechas posteriores al FIMNME 2026.
+Conciertos fuera de las fechas del FIMNME 2026.
+
+## VIE | OCT 30, 20:00 h - San Luis Potosí: OSLP
+
+Centro Cultural Universitario Bicentenario\
+San Luis Potosí
+
+### Programa
+
+**Axel Retif**
+
+- *Noches negras* (2019-rev. 2022)
+
+**Max Bruch**
+
+- Concierto en sol menor núm. 1, Op. 26
+  - *Preludio. Allegro moderato*
+  - *Adagio*
+  - *Finale. Allegro energico*
+
+\
+INTERMEDIO\
+
+**Manuel de Falla**
+
+- *Interludio* y *Danza* de *La vida breve*
+- *Danza ritual del fuego* de *El amor brujo*
+
+**Reveriano Soutullo - Juan Vert**
+
+- *La leyenda del beso*. Intermedio
+
+**Amadeo Vives**
+
+- Fandango de *Doña Francisquita*
+
+**Gerónimo Giménez**
+
+- *La boda de Luis Alonso*
+
+**Orquesta Sinfónica Universitaria\
+de la Universidad Autónoma de San Luis Potosí**\
+Alfredo Ibarra, director artístico
+
+**Román Shimalin Tsyganov**, violín
+
+### Personas compositoras
+
+#### Axel Retif (México, 1992)
+
+![](comp/Axel Retif.jpg)
+
+Originario de Puebla. Su música se distingue por un carácter eléctrico,
+dinámico y abrasivo, construyendo paisajes sonoros inmersivos a partir de una
+sola idea musical. Desde su primer estreno en el Foro Internacional de Música
+Nueva Manuel Enríquez en 2018, su obra ha sido interpretada en más de ciento
+treinta conciertos en más de doce países. Entre sus colaboraciones recientes
+destacan proyectos con Arditti Quartet, Splinter Reeds, Loadbang y Duo YonX. En
+2023 representó a México y a Radio UNAM en el 69th International Rostrum of
+Composers, organizado por el International Music Council bajo los auspicios de
+la UNESCO. En noviembre de 2026 participará con una Artist Talk en el 31st
+International Symposium on Electronic Emerging Art en Dubái, Emiratos Árabes
+Unidos. Asimismo, ha impartido conferencias en instituciones y universidades de
+Colombia, Estados Unidos, Irán, Malasia y México. Es director y editor de Tagma
+Records, sello dedicado a la difusión de música contemporánea.
+
+##### *Noches negras*
+
+> «Desde una materia sonora densa, se despliega una oscuridad interior en la
+> que el ser humano pierde sus certezas, sus deseos y la confianza en aquello
+> que antes sostenía su vida. No se trata solo de una crisis emocional, sino de
+> un tránsito espiritual: el momento en que el conocimiento externo, la razón y
+> las formas visibles del mundo dejan de ser suficientes y el corazón queda
+> expuesto ante su propia fragilidad. La obra entiende este tipo de noche como un
+> camino de purificación. En ella, el ego se enfrenta a sus propios velos: el
+> apego, la vanidad, el miedo, la duda y la ilusión de control. La oscuridad no
+> aparece como abandono, sino como una prueba que despoja al ser de lo falso
+> para abrirlo a una verdad más profunda».
+
+---
+
+### Intérpretes
+
+#### Orquesta Sinfónica Universitaria de la Universidad Autónoma de San Luis Potosí (OSU)
+
+![](int/Orquesta Sinfónica Universitaria San Luis Potosí 1.jpg)
+
+La OSU representa una de las agrupaciones musicales e institucionales más
+emblemáticas del estado. Su antecedente se remonta a 1971, con la fundación de
+la Orquesta de Cámara Universitaria, dirigida inicialmente por Francisco
+Carreras Costajussa, posteriormente por José Luis Ortiz Díaz Infante y más
+adelante por Rosendo Hernández Grimaldo. En 2008, en respuesta al talento
+emergente de jóvenes músicos y al deseo de difundir la gran música universal en
+la comunidad potosina, la agrupación evolucionó hacia la Sinfonietta
+Universitaria. Tuvo su presentación inaugural el 22 de junio de 2009 en la
+Plaza de los Fundadores, bajo la dirección de Gilberto Núñez Puente. Tras un
+constante proceso de maduración artística, en 2014 se consolidó oficialmente
+como Orquesta Sinfónica Universitaria. Integrada por más de setenta músicos, la
+OSU ha logrado situarse como un referente cultural indispensable en la
+región, formando nuevos públicos y rompiendo brechas generacionales a través de
+la diversidad de sus propuestas. La orquesta ha colaborado con destacados
+solistas, agrupaciones y directores invitados.
+
+#### Alfredo Ibarra
+
+Cuenta con una sólida y respetada trayectoria nacional e internacional. Ha sido
+director artístico de la Sinfónica de Naucalpan, la Orquesta de la Escuela
+Superior de Música, la Orquesta del Teatro de Aguascalientes, la Orquesta de la
+Escuela de Música de la Universidad de Zacatecas y, durante una década, la Sinfónica de Michoacán. De igual forma, se ha desempeñado como titular de la
+Orquesta Sinfónica del Estado de Puebla y del Coro de la UNAM. Desde 2013 es
+director artístico de la Orquesta Sinfónica Universitaria de Universidad
+Autónoma de San Luis Potosí.
 
 ## SÁB | NOV 28, 20:00 h - Ocotlán: Dúo Gasparini-Monnet
 
@@ -10457,13 +10530,13 @@ Compositor húngaro considerado una de las figuras más importantes de la músic
 
 ##### *Kafka Fragments*, Op. 24
 
-Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
+Esta obra es la más extensa que Kurtág haya compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
 
 #### Leonardo Coral (México, 1962)
 
 ![](comp/Leonardo Coral.jpg)
 
-Estudió con Federico Ibarra en la UNAM. Obtuvo la maestría con la obra *Ciclo de vida y muerte*, con la asesoría de María Granillo. Sus creaciones se han tocado en México, Europa, Estados Unidos, Canadá, Asia, Australia y Latinoamérica. Es miembro del SNCA. Hay 41 discos con su música. Diversas orquestas y ensambles han presentado su trabajo: OFUNAM, OSN, OSEM, OFCM, OCBA, OSUANL, OSUG, OSIDEM, OBC, OSEP, CEPROMUSIC, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las Américas, Cuarteto de la Ciudad de México, Duplum, Cuarteto Arcano, Cello Alterno y Zikluz. Así como destacados solistas: Tere Frenk, Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez, Omar Hernández, Ignacio Mariscal, Fernando Domínguez, Luis Humberto Ramos, Omán Kaminsky, Alejandro Escuer, Judith Reyes, Hugo Ticciati, Cuauhtémoc Rivera, Nana Babayeva, Rodrigo Garibay y han dirigido sus obras José Areán, Rodrigo Cadet, José Luis Castillo, Andrés Cárdenes y Félix Carrasco.
+Estudió con Federico Ibarra en la UNAM. Obtuvo la maestría con la obra *Ciclo de vida y muerte*, con la asesoría de María Granillo. Sus creaciones se han tocado en México, Europa, Estados Unidos, Canadá, Asia, Australia y Latinoamérica. Es miembro del SNCA. Hay 41 discos con su música. Diversas orquestas y ensambles han presentado su trabajo: OFUNAM, OSN, OSEM, OFCM, OCBA, OSUANL, OSUG, OSIDEM, OBC, OSEP, Cepromusic, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las Américas, Cuarteto de la Ciudad de México, Duplum, Cuarteto Arcano, Cello Alterno y Zikluz. Así como destacados solistas: Tere Frenk, Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez, Omar Hernández, Ignacio Mariscal, Fernando Domínguez, Luis Humberto Ramos, Omán Kaminsky, Alejandro Escuer, Judith Reyes, Hugo Ticciati, Cuauhtémoc Rivera, Nana Babayeva, Rodrigo Garibay y han dirigido sus obras José Areán, Rodrigo Cadet, José Luis Castillo, Andrés Cárdenes y Félix Carrasco.
 
 ##### *Orígenes*
 
@@ -10477,7 +10550,7 @@ Nació en Tlaxcala. Estudió piano con Isaías Noriega de la Vega y Jorge Suáre
 
 ##### *Cliché*
 
-Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, especie de cita de músicas muchas veces escuchadas, se volvieran material inicial de base para la composición de una pieza musical?
+Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, esa especie de citas musicales escuchadas mil veces, se volvieran el material de base para la composición de una pieza?
 
 ---
 
@@ -10562,17 +10635,17 @@ Miguel Ángel Valdés-Brito Pérez, piano
 
 ![](comp/Gyorgy Kurtag.jpg)
 
-Compositor húngaro considerado una de las figuras más importantes de la música contemporánea europea, conocido por su estilo conciso, expresivo y profundamente introspectivo. Estudió en la Academia de Música *Franz Liszt* de Budapest, donde más tarde también fue profesor. Durante su carrera desarrolló un lenguaje musical muy personal, influido por Béla Bartók y Anton Webern, caracterizado por piezas breves pero intensas, con gran atención al detalle y al silencio. Entre sus obras más destacadas se encuentra *Játékok* (Juegos), una colección de piezas para piano que comenzó en la década de 1970, así como su ópera *Fin de partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág ha recibido numerosos premios internacionales y es reconocido por su contribución única a la música de los siglos XX y XXI.
+Compositor húngaro considerado una de las figuras más importantes de la música contemporánea europea, conocido por su estilo conciso, expresivo y profundamente introspectivo. Estudió en la Academia de Música *Franz Liszt* de Budapest, donde más tarde fue también profesor. Durante su carrera desarrolló un lenguaje musical muy personal, influido por Béla Bartók y Anton Webern, caracterizado por piezas breves pero intensas, con gran atención al detalle y al silencio. Entre sus obras más destacadas se encuentra *Játékok* (Juegos), una colección de piezas para piano que comenzó en la década de 1970, así como su ópera *Fin de partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág ha recibido numerosos premios internacionales y es reconocido por su contribución única a la música de los siglos XX y XXI.
 
 ##### *Kafka Fragments*, Op. 24
 
-Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
+Esta obra es la más extensa que Kurtág haya compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
 
 #### Leonardo Coral (México, 1962)
 
 ![](comp/Leonardo Coral.jpg)
 
-Estudió con Federico Ibarra en la UNAM. Obtuvo la maestría con la obra *Ciclo de vida y muerte*, con la asesoría de María Granillo. Sus creaciones se han tocado en México, Europa, Estados Unidos, Canadá, Asia, Australia y Latinoamérica. Es miembro del SNCA. Hay 41 discos con su música. Diversas orquestas y ensambles han presentado su trabajo: OFUNAM, OSN, OSEM, OFCM, OCBA, OSUANL, OSUG, OSIDEM, OBC, OSEP, CEPROMUSIC, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las Américas, Cuarteto de la Ciudad de México, Duplum, Cuarteto Arcano, Cello Alterno y Zikluz. Así como destacados solistas: Tere Frenk, Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez, Omar Hernández, Ignacio Mariscal, Fernando Domínguez, Luis Humberto Ramos, Omán Kaminsky, Alejandro Escuer, Judith Reyes, Hugo Ticciati, Cuauhtémoc Rivera, Nana Babayeva, Rodrigo Garibay y han dirigido sus obras José Areán, Rodrigo Cadet, José Luis Castillo, Andrés Cárdenes y Félix Carrasco.
+Estudió con Federico Ibarra en la UNAM. Obtuvo la maestría con la obra *Ciclo de vida y muerte*, con la asesoría de María Granillo. Sus creaciones se han tocado en México, Europa, Estados Unidos, Canadá, Asia, Australia y Latinoamérica. Es miembro del SNCA. Hay 41 discos con su música. Diversas orquestas y ensambles han presentado su trabajo: OFUNAM, OSN, OSEM, OFCM, OCBA, OSUANL, OSUG, OSIDEM, OBC, OSEP, Cepromusic, Ónix, Cuarteto Latinoamericano, Tambuco, Camerata de las Américas, Cuarteto de la Ciudad de México, Duplum, Cuarteto Arcano, Cello Alterno y Zikluz. Así como destacados solistas: Tere Frenk, Mauricio Náder, Krisztina Deli, Juan Carlos Laguna, Gonzalo Gutiérrez, Omar Hernández, Ignacio Mariscal, Fernando Domínguez, Luis Humberto Ramos, Omán Kaminsky, Alejandro Escuer, Judith Reyes, Hugo Ticciati, Cuauhtémoc Rivera, Nana Babayeva, Rodrigo Garibay y han dirigido sus obras José Areán, Rodrigo Cadet, José Luis Castillo, Andrés Cárdenes y Félix Carrasco.
 
 ##### *Orígenes*
 
@@ -10586,7 +10659,7 @@ Nació en Tlaxcala. Estudió piano con Isaías Noriega de la Vega y Jorge Suáre
 
 ##### *Cliché*
 
-Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, especie de cita de músicas muchas veces escuchadas, se volvieran material inicial de base para la composición de una pieza musical?
+Muchas veces las primeras ideas que surgen al comenzar la composición de una pieza son rápidamente dejadas de lado, porque nos parecen triviales y poco interesantes. Pero ¿qué pasaría si en vez de realizar esta labor de limpieza prudente y juiciosa, permitiéramos que estos lugares comunes, esa especie de citas musicales escuchadas mil veces, se volvieran el material de base para la composición de una pieza?
 
 ---
 
@@ -10873,7 +10946,7 @@ Hidalgo 907 e Independencia 904, Centro, Oaxaca, Oaxaca
 
 ### Instituciones
 
-**Centro de Experimentación y Producción de Música Contemporánea (CEPROMUSIC), INBAL**\
+**Centro de Experimentación y Producción de Música Contemporánea (Cepromusic), INBAL**\
 José Luis Castillo, *director*
 
 **Centro Cultural del Bosque y Jardín Escénico, INBAL**\
