@@ -283,7 +283,10 @@ function Pandoc(doc)
         -- compositor
         if not grupo or tras_obras then nuevo_grupo() end
         table.insert(grupo.obras, { compositor = latex(b.content[1].content), titulos = {} })
-      elseif b.t == "BulletList" and grupo and #grupo.obras > 0 then
+      elseif b.t == "BulletList" then
+        -- obras sin compositor encabezándolas (p. ej. una improvisación)
+        if not grupo or tras_obras then nuevo_grupo() end
+        if #grupo.obras == 0 then table.insert(grupo.obras, { compositor = "", titulos = {} }) end
         local actual = grupo.obras[#grupo.obras]
         local hay_obra = #actual.titulos > 0
         for _, item in ipairs(b.content) do
@@ -456,7 +459,10 @@ function Pandoc(doc)
       for _, t in ipairs(o.titulos) do
         ts[#ts + 1] = t.texto .. (t.solista and ("\\solista{" .. t.solista .. "}") or "")
       end
-      if #ts > 0 then partes[#partes + 1] = "\\comp{" .. o.compositor .. "}" .. table.concat(ts, ", ") end
+      if #ts > 0 then
+        partes[#partes + 1] = (o.compositor ~= "" and ("\\comp{" .. o.compositor .. "}") or "") ..
+          table.concat(ts, ", ")
+      end
     end
     return table.concat(partes, "\\sep ")
   end
