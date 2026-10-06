@@ -3984,7 +3984,7 @@ Pabellón Escénico, Jardín Escénico
 -   *Medio tiempo*
 -   *Segundo tiempo*
 
-[**Juanmanuel Flores**, violín]{.solista}
+[**Bryan Flores**, percusiones]{.solista}
 
 **Manuel Enríquez**
 
