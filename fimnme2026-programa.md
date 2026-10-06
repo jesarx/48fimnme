@@ -14,7 +14,7 @@ Sala Principal, Palacio de Bellas Artes
 
 - *In memoriam* (2025)\* \hfill 9'
 
-**Bernd Alois Zimmermann** (Alemania, 1918-1970)
+**Bernd Alois Zimmermann**
 
 - *Nobody knows the trouble I see* (1954)\*\* \hfill 16'
 
@@ -33,8 +33,7 @@ INTERMEDIO\
 **Orquesta Sinfónica Nacional**\
 Ludwig Carrasco, director artístico
 
-Concierto en colaboración con el\
-Patronato de la Industria Alemana para la Cultura.
+*Concierto en colaboración con el Patronato de la Industria Alemana para la Cultura.*
 
 ### Personas compositoras
 
@@ -518,7 +517,7 @@ Hugo Armando Medina González
 
 **Ernesto García de León**
 
--   De Partita núm. 3, op. 83, *De la infancia selvática* (2020)\*
+-   De Partita núm. 3, Op. 83, *De la infancia selvática* (2020)\*
     `\hfill `{=tex}23'
 -   *III. Argumento de grillos y cigarras*
 -   *IV. Araña mono*
@@ -858,7 +857,7 @@ veracruzanas como la fiesta de El Viejo, las mojigangas, los come tierra
 de León evoca toda esta riqueza natural y cultural a través de las
 cuerdas.
 
-##### *De la infancia selvática*, partita núm. 3, op. 83
+##### *De la infancia selvática*, partita núm. 3, Op. 83
 
 > «Durante mi infancia, la selva con su follaje exuberante se encontraba
 > a solo 200 metros de mi casa. No era necesario caminar mucho. Yo solía
@@ -1020,7 +1019,7 @@ Inauguración
 
 - *Sobre las sensaciones de tono y otros fantasmas*\*
 
-Duración: 50 minutos
+*Duración: 50 minutos*
 
 ### Personas compositoras
 
@@ -1351,7 +1350,7 @@ Casa Rafael Galván, UAM
 
 - *Sobre las sensaciones de tono y otros fantasmas*\*
 
-Duración: 50 minutos
+*Duración: 50 minutos*
 
 **Andrés Nuño de Buen**
 
@@ -1671,8 +1670,7 @@ Sala Nezahualcóyotl, CCU, UNAM
 
 -   *Mosaicos* `\hfill `{=tex}10'
 
-Obra auspiciada por la Cátedra extraordinaria de composición musical Arturo
-Márquez
+*Obra auspiciada por la Cátedra extraordinaria de composición musical Arturo Márquez*
 
 **Francisco Coll**
 
@@ -2182,7 +2180,7 @@ proyecto ganador del Programa de Fomento a Proyectos y Coinversiones
 Culturales con Black Noise, así como un integral del compositor potosino
 Julián Carrillo con Liminar.
 
-## MAR | NOV 10, 19:00 h - Alberto Rosado: Resonancias de ida y vuelta
+## MAR | NOV 10, 19:00 h - Alberto Rosado, piano
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -2788,7 +2786,7 @@ ganó el apoyo de Fomento a Proyectos y Coinversiones Culturales 2023
 para grabar la obra integral para cuerdas del compositor mexicano José
 Luis Hurtado.
 
-## JUE | NOV 12, 19:00 h - Alberto Rosado: e-piano
+## JUE | NOV 12, 19:00 h - Alberto Rosado, piano
 
 Museo Universitario Arte Contemporáneo, UNAM
 
@@ -3267,380 +3265,6 @@ proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
 
-## VIE | NOV 13, 19:00 h - Julio I. Cervantes, guitarra
-
-Centro Mexicano para la Música y las Artes Sonoras\
-Morelia, Michoacán
-
-### Programa
-
-**Guadalupe Perales**
-
--   *Del desapego y la impermanencia* (2022) `\hfill `{=tex}8'
-
-**Federico Núñez**
-
--   *Five Introspections* (2015)\* `\hfill `{=tex}9'
-
-**Erika Vega**
-
--   *Y sueña que su sueño se repite* (2016) `\hfill `{=tex}7'
-
-**Mizky Bernal Miranda**
-
--   *Tres-Cuatro* (2025) `\hfill `{=tex}6'
-
-**Pedro Castillo Lara**
-
--   *Capricho* (2006) `\hfill `{=tex}7'
-
-**Rosalba Quindici**
-
--   *Preludio* (2015) `\hfill `{=tex}3'
-
-**Arturo M. Zanabria**
-
--   *Cauchemar* (2021) `\hfill `{=tex}6'
-
-**Panayiotis Kokoras**
-
--   *Slide* (2002) `\hfill `{=tex}9'
-
-**Hebert Vázquez**
-
--   *Ángel del abismo* (2013) `\hfill `{=tex}7'
-
-**Julio Isaac Cervantes**, guitarra
-
-### Personas compositoras
-
-#### Guadalupe Perales (México, 1992)
-
-![](comp/Guadalupe%20Perales.jpg)
-
-Maestra en Composición por el Conservatorio de Música de Tianjin, China.
-Interesada en la música electroacústica, el timbre, en las
-colaboraciones y creaciones colaborativas, así como en la música y
-cultura china de manera muy especial. Es cofundadora, arreglista e
-intérprete de pipa (laúd chino) en el dúo Jiemei (Hermanas) donde junto
-con Angélica Gómez Barrientos se dedica a la promoción de la música
-tradicional china en México. Desde 2021 es integrante de la colectiva
-Las Montoneras, dedicada a la difusión y promoción del quehacer musical
-de mujeres mexicanas, en la que se desempeña como compositora y
-coconductora del programa de radio *Nada clásicas*, de Opus 94. Fungió
-como coordinadora de Female FEC Artists: mujeres compositoras,
-intérpretes y artistas sonoras, así como de la sede Ciudad de México del
-Festival Expresiones Contemporáneas de 2020 a 2022. Fue representante de
-México en el 67º International Rostrum of Composers organizado por el
-International Music Council.
-
-##### *Del desapego y la impermanencia*
-
-Dedicada a Nayeli Bernabé, esta obra es una exploración íntima que se
-deriva de la reflexión en torno al dolor, al sufrimiento y el proceso
-del desapego. De carácter meditativo y contemplativo, la obra se percibe
-como una nube sonora que nos incita a la escucha con una actitud
-reflexiva.
-
-#### Federico Núñez (Argentina, 1976)
-
-![](comp/Federico%20Núñez.jpg)
-
-Compositor, guitarrista e investigador argentino dedicado a la creación
-contemporánea. Su producción abarca música para música de cámara,
-escénica y electrónica, con una búsqueda centrada en el timbre, la
-espacialidad sonora y la expansión de los recursos instrumentales desde
-una perspectiva vinculada al pensamiento musical latinoamericano. Parte
-de su obra incorpora instrumentos prehispánicos, especialmente en la
-ópera mexica *Otlatocaliztli*. Doctor en Artes con especialización en
-Composición por la Universidad Nacional de las Artes, se formó con
-Guillermo Pozzatti y realizó estudios con Gerardo Gandini y Mario
-Lavista. Sus obras se han presentado en Argentina, México, Estados
-Unidos, Japón y países de Europa Ha recibido los premios Municipal de la
-Ciudad de Buenos Aires y Juan Carlos Paz, además de becas y residencias
-otorgadas por el Fonca y AECID. Su catálogo es publicado por Cayambis
-Music Press.
-
-##### *Five Introspections*
-
-La obra explora cinco reflexiones musicales centradas en las
-posibilidades tímbricas de la guitarra y en la transformación de
-recursos técnicos instrumentales en material compositivo. *Glissandi*,
-*tapping* sobre notas repetidas, trémolos, trinos y armónicos no
-funcionan únicamente como técnicas extendidas, sino como elementos
-generadores sometidos a constantes procesos de desarrollo y
-resignificación. Cada movimiento investiga distintas relaciones entre
-gesto, resonancia y textura. Como culminación del ciclo, la quinta pieza
-emerge como síntesis y transformación final de los materiales
-precedentes, caracterizada por una pulsación continua de corcheas, la
-alternancia entre sonidos naturales y armónicos, y la progresiva
-superposición de los distintos elementos temáticos expuestos
-anteriormente. En términos de escritura, la obra requiere frecuentemente
-el empleo de dos pentagramas por sistema, con el fin de articular planos
-sonoros independientes y comportamientos resonantes complejos.
-
-#### Erika Vega (México, 1987)
-
-![](comp/Erika%20Vega.jpg)
-
-Compositora y violinista que explora activamente temas de
-representación, interpretación, percepción y memoria, reflexionando con
-frecuencia sobre cuestiones sociales y políticas. Su práctica musical
-abarca la improvisación libre, la música de concierto, danza
-contemporánea, medios audiovisuales y teatro musical. Ha escrito obras
-para los ensambles Elision, CEPROMUSIC y Curious Chamber Players, el
-cuarteto Sigma Project, el Aleph Guitar Quartet, la Filarmónica de Los
-Ángeles, la Royal Liverpool Philharmonic y el ensamble Proxima Centauri.
-Estudió en la UNAM, en la BUAP y en el Royal Conservatory de Bruselas.
-Es doctora por la Universidad de Oxford. Actualmente es miembro del
-Sistema Nacional de Creadores de Arte en México, reside entre Oxford y
-Bruselas y se desempeña como curadora de The World's Music en Oxford,
-además de contribuir a la investigación académica en torno a la
-intersemiótica músico-literaria.
-
-##### *Y sueña que su sueño se repite*
-
-Inspirada en el fragmento del poema *Muerte sin fin* de José Gorostiza:
-«un instante, no más no más que el mínimo / perpetuo instante del
-quebranto». La obra se construye como un laberinto sonoro, evocando la
-imagen joyceana del laberinto de la conciencia, donde el pensamiento,
-como el sueño, no avanza en línea recta, sino que se repliega, se
-disgrega. Así como en *Muerte sin fin* la narrativa se dispersa y
-retorna, en *Y sueña que su sueño se repite* el tiempo musical se
-fragmenta y se repite, no para llegar a un destino, sino para habitar el
-desvío. Los armónicos de la guitarra, esos sonidos frágiles, casi
-espectrales, funcionan como sombras de un instante que no puede
-poseerse, solo vislumbrarse. Su repetición evoca la memoria del sueño,
-pero también su constante disolución. Más que contar una historia, esta
-obra se deja habitar como un espacio mental: un sueño que se repite
-dentro del sueño mismo. Un laberinto donde cada retorno es distinto,
-aunque parezca el mismo.
-
-#### Mizky Bernal Miranda (Bolivia, 1991)
-
-![](comp/Mizky%20Bernal%20Miranda.png)
-
-Compositora, instrumentista y artista sonora con una Maestría en Arte
-sonoro. Su trabajo se centra en la exploración de la música
-contemporánea y experimental. Su música ha sido difundida por distintas
-emisoras, festivales, en colaboración con diversos solistas, ensambles y
-orquestas de renombre. En 2025 participó como compositora invitada en el
-Festival Internacional De Arte Sonoro de TSONAMI en Chile, del 5º
-International Workshop for Young Composers AntiquaNova en Argentina, el
-Festival Für Zeitgenössische Iberoamerikanische Musik de Suena Festival
-en Viena, en el concierto *Meditaciones* del Conservatorio Profesional
-de Música de Salamanca, España, en el Acto de Sonar del Festival de
-Música Contemporánea de Colombia, la International Computer Music
-Conference en Boston, en el Darmstädter Ferienkurse en Alemania y en el
-XXII Festival Internacional de Música Contemporánea PUCV-Darwin Vargas
-en Chile.
-
-##### *Tres-Cuatro*
-
-Es una pieza para guitarra preparada compuesta originalmente en 2018
-para cuarteto de guitarras y recompuesta en 2025 para guitarra sola. La
-obra conserva en su título la huella de ambas versiones: el cuatro
-señala su origen colectivo, mientras que el tres remite a las tres
-cuerdas entorchadas, cuya sonoridad áspera, densa y resonante se vuelve
-núcleo constructivo de la nueva escritura. La obra articula texturas
-inestables, espectros abrasivos y zonas de fricción sonora que
-convierten el color en forma y la materia en estructura. En este sentido
-la versión de 2025 constituye una recomposición radical de su lógica
-sonora. Uno de sus rasgos más singulares es que el guitarrista anuncia
-en voz alta las partes de la obra, incorporando la palabra como gesto
-performativo y estructural. La obra invita, así, a una escucha en la que
-el sonido expone su propia arquitectura.
-
-#### Pedro Castillo Lara (México, 1974)
-
-![](comp/Pedro%20Castillo%20Lara.jpg)
-
-Compositor, director y gestor cultural. Su obra abarca música
-instrumental, electroacústica y mixta, con presentaciones en América y
-Europa. Se formó en México y Francia, y obtuvo una Maestría en
-Composición en la Universidad París 8 y estudios en Cevran, Miromesnil y
-Nanterre. Fundador del proyecto internacional Muslab, ha impulsado la
-difusión de la música electroacústica en colaboración con más de treinta
-instituciones. Ha dirigido el Ensamble Muslab, Voces Latinas de París y
-la orquesta de la UAM Xochimilco, explorando repertorios que van del
-canto gregoriano a la creación contemporánea. Su trabajo se caracteriza
-por una búsqueda poética del sonido como espacio de pensamiento, cuerpo
-y resonancia. Miembro del Sistema Nacional de Creadores de Arte, combina
-creación, dirección y pedagogía en una visión transdisciplinaria que
-articula tradición, tecnología y transformación social.
-
-##### *Capricho*
-
-Es la primera obra para guitarra sola del compositor, compuesta en 2006
-como resultado de un encargo de Mario Mary para el ciclo Música por
-ordenador de la Universidad París 8. La pieza propone un cruce entre la
-libertad estructural del capricho clásico, la fuerza rítmica del
-flamenco y la gestualidad física de la música contemporánea. Con una
-escritura precisa, cada gesto instrumental es explorado como impulso
-expresivo. No se trata de narrar, sino de articular una dramaturgia
-sonora tensa y vital, construida a partir de texturas contrastantes,
-dinámicas extremas y silencios cargados. Estrenada por Bertrand
-Chavarría en París y posteriormente interpretada por José Benítez en
-España, *Capricho* se proyecta como una obra que abre el catálogo del
-compositor con una afirmación estética clara y una voz propia dentro del
-repertorio contemporáneo para guitarra.
-
-#### Rosalba Quindici (Italia, 1976)
-
-![](comp/Rosalba%20Quindici.jpg)
-
-Su obra abarca desde la música instrumental y vocal hasta el teatro
-musical, caracterizada por una exploración personal de la dimensión
-sinestésica (que incluye la danza), de la cual crea y organiza los
-diversos componentes. Su investigación compositiva se centra
-particularmente en la construcción de la escucha fenomenológica y la
-experimentación personal con el timbre en la voz y los instrumentos. Su
-música es interpretada regularmente por importantes instituciones y en
-los festivales Musikfestival Bern, Bienal de Múnich, Verso Traiettorie
-de Parma, Nuova Consonanza de Roma y Rondò de Milán, entre otros.
-Licenciada en Piano, Composición y Filosofía, profundizó sus estudios en
-Italia con Corghi, Gervasoni y Sciarrino y realizó un doctorado en
-fenomenología en la Universidad Federico II de Nápoles y en Suiza con
-Dayer.
-
-##### *Preludio*
-
-Marca el primer paso de la exploración personal de Quindici sobre la
-guitarra clásica, centrándose en particular en las posibilidades del
-sonido continuo. La compositora ha trabajado el potencial tímbrico de la
-guitarra adoptando una especie de *suspensión* del estilo de
-interpretación convencional del instrumento. De hecho, la guitarra se
-sostiene verticalmente entre las piernas del intérprete, con el diapasón
-frente a él, y se toca no solo con los dedos, sino también con un arco
-de violonchelo. El uso del arco, además de producir una calidad tímbrica
-distinta, permite la creación de un sonido continuo que se opone
-dialécticamente a la naturaleza discontinua de los sonidos tradicionales
-pulsados del instrumento. Formalmente, sin embargo, la obra se
-estructura en torno a una polifonía de gestos, que se repiten
-cíclicamente, basada en notas repetidas, pizzicato, trinos y glissandos
-armónicos.
-
-#### Arturo M. Zanabria (México, 1993)
-
-![](comp/Arturo%20M.%20Zanabria.jpg)
-
-Su trayectoria está respaldada por 17 premios nacionales e
-internacionales en las áreas de composición, guitarra y música de
-cámara. Entre los reconocimientos más destacados se encuentran el Premio
-de la Juventud 2022, otorgado por el Gobierno de la Ciudad de México y
-el Premio Nacional de Composición Orquestal Raíces en 2020. Realizó
-estudios de Composición y Guitarra en la Facultad de Música de la UNAM,
-donde obtuvo el título con honores en ambas licenciaturas. En 2018 fue
-beneficiario de la beca de la Fondation Turquois para estudiar guitarra
-durante un año en el Principado de Mónaco. En 2019 recibió la beca de la
-Cátedra Extraordinaria Arturo Márquez de composición musical, y en 2024
-obtuvo la beca Jóvenes Creadores del Fonca. Es docente en la FaM y
-miembro del Cuarteto Kuikani, Xika ensamble y el Dúo Xalpa.
-
-##### *Cauchemar*
-
-> «Es una obra que busca evocar una sensación inquietante, inspirada en
-> una serie de pesadillas experimentadas durante un periodo específico
-> de mi vida. La pieza propone una transmediación de dichas vivencias
-> oníricas mediante la exploración tímbrica de la guitarra, empleando un
-> arco de violín y una *scordatura* inusualmente grave».
-
-#### Panayiotis Kokoras (Grecia, 1974)
-
-![](comp/Panayiotis%20Kokoras.jpg)
-
-Es catedrático de Composición y director del CEMI de la Universidad del
-Norte de Texas. Su música se ha interpretado en más de mil conciertos
-por todo el mundo a cargo de reconocidos conjuntos, orquestas y
-solistas. Sus composiciones utilizan el sonido como única unidad
-estructural. Su concepto de *textura musical holófona* describe su
-objetivo de que cada sonido independiente (*fono*) contribuya por igual
-a la síntesis del todo (*holos*). Tanto en la escritura instrumental
-como en la electroacústica, su música se caracteriza por un virtuosismo
-sonoro, una escritura hiperidiomática que enfatiza la producción precisa
-de diversas posibilidades sonoras y la correcta distinción entre un
-timbre y otro para transmitir las ideas y la estructura musical de la
-pieza. Su producción compositiva también se nutre de la investigación
-musical en estrategias de recuperación de información musical, técnicas
-extendidas, sonido táctil, hiperidiomaticidad, robótica, sonido y
-conciencia.
-
-##### *Slide*
-
-> Los colores (sonidos) no se usan porque sean fieles a la naturaleza,
-> sino porque son necesarios para la imagen particular (composición).\
-> 
-> \hfill Wassily Kandinsky (1912)
-
-*Slide* es una pieza para guitarra clásica y electrónica que explora las
-características inusuales del lenguaje sonoro de la guitarra. Utilizando
-técnicas como rascar, golpear y romper cuerdas y combinándolas con
-objetos poco convencionales como *slides* de latón o vidrio, baquetas o
-cepillos de metal, el compositor crea un sonido único y detallado. Cada
-momento es cuidadosamente elaborado para crear una estructura dramática
-coherente, donde cada gesto justifica al siguiente y al anterior,
-uniendo frases, secciones y la composición misma. Con la ayuda de
-herramientas digitales, se aíslan y transforman fragmentos de sonido
-para revelar momentos que el oído difícilmente percibiría normalmente.
-
-#### Hebert Vázquez (Uruguay, 1963)
-
-![](comp/Hebert%20Vázquez.jpg)
-
-Estudió composición con Mario Lavista, Lukas Foss, Leonardo Balada y
-Stephen Chatman. Posee un Doctorado en Composición por parte de la
-Universidad de la Columbia Británica (Canadá). Ha obtenido varios
-premios y distinciones nacionales e internacionales a lo largo de su
-carrera, entre los que destaca una beca de la John Simon Guggenheim
-Memorial Foundation 2008, una nominación a los 18th Annual Latin GRAMMY
-Awards en la categoría de mejor obra/composición clásica contemporánea
-en 2017 y la presea Vasco de Quiroga, otorgada por la UMSNH en 2018. Ha
-sido miembro del Sistema Nacional de Creadores de Arte en cuatro
-ocasiones, de 1999 a la fecha. Su obra, interpretada en Europa, América
-y Asia, ha sido grabada por el Cuarteto Arditti, el Ensemble Nomad, el
-dúo Damiana, Ónix Ensamble, Ensamble 3 y los guitarristas Norio Sato,
-Gonzalo Salazar y Juan Carlos Laguna, principalmente para las disqueras
-Urtext y Quindecim Records.
-
-##### *Ángel del abismo*
-
-> «Habrá sido alrededor de 2011, en uno de mis viajes a Tokio, cuando el
-> guitarrista Norio Sato, con quien colaboro intensamente desde hace
-> varios años y a quien está dedicada la pieza, me preguntó si tenía
-> algo escrito para guitarra y electrónica. Aunque le dije que no y él
-> no insistió en el asunto, la idea me quedó rondando en la cabeza. Al
-> fin, en 2013, me decidí a materializarla, gracias al apoyo de mi amigo
-> Rodrigo Sigal, quien generosamente me abrió las puertas del CMMAS, y
-> de la invaluable asistencia técnica de Jorge Alba. Si bien en el
-> Apocalipsis se hace referencia a Abadón, el ángel del abismo sin
-> fondo, yo estoy pensando en Beatriz, la de la *Divina Comedia*, quien
-> ayuda a Dante a ascender al paraíso, después de que el poeta
-> recorriera los nueve círculos del infierno, así como el purgatorio, en
-> compañía de Virgilio».
-
-------------------------------------------------------------------------
-
-### Intérpretes
-
-#### Julio Isaac Cervantes
-
-![](int/Julio%20Isaac%20Cervantes.jpg)
-
-Estudió la Licenciatura en Música en la Facultad de Artes de la UMSNH
-bajo la tutela de Eva Pleskova y Hebert Vázquez. También con Horacio
-Uribe, Alejandro Escuer, Luis Jaime Cortez y Gonzalo Salazar. Se ha
-presentado en los festivales Internacional Pa'lo Escrito, Aires en
-2023-2025, Expresiones Contemporáneas y Visiones Sonoras, así como en el
-Foro Internacional de Música Nueva Manuel Enríquez (FIMNME). Su obra se
-ha interpretado en Aires-2019, Laboratorio Sonoro Centro Occidente,
-FIMNME, Panel de Lectura Sigma Project Quartet-Festival Callejón del
-Ruido y en el Festival Internacional de Arte Sonoro Monteaudio21. Fue
-ganador del Primer Encuentro Nacional de Arte y Cultura Somos
-Universitarios de la UAQ en 2014 y del Concurso de Composición de Música
-para Guitarra 2015. Ha sido becario del Programa Acompañarte y de
-Resiliencia Sonora. Recibió el reconocimiento a la Excelencia Académica
-Coparmex 2019.
-
 ## VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h - Madrigalistas: Cadet
 
 Viernes 13 de noviembre, 19:00 h\
@@ -4054,7 +3678,7 @@ que suma obras seleccionadas desde Convocatoria FIMNME 2026, obras de
 autoras y autores del canon contemporáneo, y una obra propia; un hito en
 la programación y el propósito del Foro.
 
-## SÁB | NOV 14, 11:30 h - Alberto Rosado: Lo fijo y lo volátil
+## SÁB | NOV 14, 11:30 h - Alberto Rosado, piano
 
 Salón de Recepciones, Museo Nacional de Arte
 
@@ -4833,10 +4457,10 @@ Sala Xochipilli, Facultad de Música, UNAM
 **Manuel Enríquez**
 
 -   *Zenzontle*, concierto para flauta\
-    -- A Marisa Canales (1994) `\hfill `{=tex}4'
+    A Marisa Canales (1994) `\hfill `{=tex}4'
     -   *I*
 
-Miguel Ángel Villanueva, flauta
+**Miguel Ángel Villanueva**, flauta
 
 **Carlos Chávez**
 
@@ -4845,13 +4469,13 @@ Miguel Ángel Villanueva, flauta
     -   *Adagio*
     -   *Rondo*
 
-Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio, solistas
+**Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio**, solistas
 
 **Gustavo Larrea**
 
 -   *Voces* (2018) `\hfill `{=tex}22'
 
-José del Mar, barítono
+**José del Mar**, barítono
 
 **Andrea Sarahí**
 
@@ -5133,7 +4757,7 @@ INTERMEDIO\
 
 **György Kurtág**
 
--   *Kafka Fragments*, op. 24 (1987) `\hfill`{=tex}25'
+-   *Kafka Fragments*, Op. 24 (1987) `\hfill`{=tex}25'
 
 **Dúo Gasparini-Monnet**
 
@@ -5289,7 +4913,7 @@ partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág
 ha recibido numerosos premios internacionales y es reconocido por su
 contribución única a la música de los siglos XX y XXI.
 
-##### *Kafka Fragments*, op. 24
+##### *Kafka Fragments*, Op. 24
 
 Esta obra es la más extensa que Kurtág haya compuesto hasta la fecha. Se
 trata de un ciclo para soprano y violín, basado en textos de Franz
@@ -6396,8 +6020,6 @@ de Música Electrónica y director artístico del festival To Listen To.
 
 Casa Rafael Galván, UAM
 
-**Electroacústica I**
-
 ------------------------------------------------------------------------
 
 ### Programa
@@ -6908,8 +6530,6 @@ Enríquez.
 
 Casa Rafael Galván, UAM
 
-**Concierto electroacústico**
-
 ------------------------------------------------------------------------
 
 ### Programa
@@ -7411,8 +7031,6 @@ música de cámara a nivel licenciatura en la Escuela Ollin Yoliztli.
 ## JUE | NOV 19, 20:00 h - Electroacústica II
 
 Casa Rafael Galván, UAM
-
-**Electroacústica II**
 
 ------------------------------------------------------------------------
 
@@ -9121,7 +8739,7 @@ San Luis Potosí
 
 **Max Bruch**
 
-- Concierto en sol menor núm. 1, op. 26
+- Concierto en sol menor núm. 1, Op. 26
   - *Preludio. Allegro moderato*
   - *Adagio*
   - *Finale. Allegro energico*
@@ -9794,7 +9412,7 @@ Guadalajara, Jalisco
 
 **György Kurtág**
 
-- *Kafka Fragments*, op. 24 (1987)
+- *Kafka Fragments*, Op. 24 (1987)
 
 **Leonardo Coral**
 
@@ -9851,7 +9469,7 @@ su ópera *Fin de partie*, basada en la obra de Samuel Beckett, estrenada en
 2018. Kurtág ha recibido numerosos premios internacionales y es reconocido por
 su contribución única a la música de los siglos XX y XXI.
 
-##### *Kafka Fragments*, op. 24
+##### *Kafka Fragments*, Op. 24
 
 Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de
 un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de
@@ -9935,8 +9553,6 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ## JUE | NOV 12, 19:00 h - CMMAS: Compositoras en música electrónica
 
 Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
-
-**Compositoras en música electrónica**
 
 ---
 
@@ -10027,6 +9643,380 @@ El título quiere decir *fragante* y refiere a un grabado en madera de Paul Gaug
 ![](int/Asako Arai.jpg)
 
 Doctora en artes musicales, es flautista del Quinteto de Alientos de la Ciudad de México y de diversos ensambles de cámara. Ha grabado varios discos para Dorian, Spartacus, Global, Soundspells, Quindecim y Urtext. Su más reciente CD para Albany Records es *Without Borders* y contiene obras comisionadas para flauta y piano. Se ha presentado como solista con la Orquesta Filarmónica de Hong Kong, el Cuarteto de Cuerdas Emerson, La Camerata y la OFUNAM. Ha recibido becas del programa Creadores Escénicos con Trayectoria del Fonca y del Fideicomiso para la Cultura México/Estados Unidos para promover la creación y difusión de obras mexicanas. Ha estrenado varias obras del repertorio contemporáneo para flauta en los festivales Internacional Cervantino y Foro Internacional de Música Nueva *Manuel Enríquez* que le ha valido elogios de crítica y público. Es profesora de flauta y música de cámara en la Escuela Superior de Música. Entre sus maestros se encuentran Samuel Baron, John Wion, Timothy Wilson y Keith Underwood.
+
+## VIE | NOV 13, 19:00 h - Julio I. Cervantes, guitarra
+
+Centro Mexicano para la Música y las Artes Sonoras\
+Morelia, Michoacán
+
+### Programa
+
+**Guadalupe Perales**
+
+-   *Del desapego y la impermanencia* (2022) `\hfill `{=tex}8'
+
+**Federico Núñez**
+
+-   *Five Introspections* (2015)\* `\hfill `{=tex}9'
+
+**Erika Vega**
+
+-   *Y sueña que su sueño se repite* (2016) `\hfill `{=tex}7'
+
+**Mizky Bernal Miranda**
+
+-   *Tres-Cuatro* (2025) `\hfill `{=tex}6'
+
+**Pedro Castillo Lara**
+
+-   *Capricho* (2006) `\hfill `{=tex}7'
+
+**Rosalba Quindici**
+
+-   *Preludio* (2015) `\hfill `{=tex}3'
+
+**Arturo M. Zanabria**
+
+-   *Cauchemar* (2021) `\hfill `{=tex}6'
+
+**Panayiotis Kokoras**
+
+-   *Slide* (2002) `\hfill `{=tex}9'
+
+**Hebert Vázquez**
+
+-   *Ángel del abismo* (2013) `\hfill `{=tex}7'
+
+**Julio Isaac Cervantes**, guitarra
+
+### Personas compositoras
+
+#### Guadalupe Perales (México, 1992)
+
+![](comp/Guadalupe%20Perales.jpg)
+
+Maestra en Composición por el Conservatorio de Música de Tianjin, China.
+Interesada en la música electroacústica, el timbre, en las
+colaboraciones y creaciones colaborativas, así como en la música y
+cultura china de manera muy especial. Es cofundadora, arreglista e
+intérprete de pipa (laúd chino) en el dúo Jiemei (Hermanas) donde junto
+con Angélica Gómez Barrientos se dedica a la promoción de la música
+tradicional china en México. Desde 2021 es integrante de la colectiva
+Las Montoneras, dedicada a la difusión y promoción del quehacer musical
+de mujeres mexicanas, en la que se desempeña como compositora y
+coconductora del programa de radio *Nada clásicas*, de Opus 94. Fungió
+como coordinadora de Female FEC Artists: mujeres compositoras,
+intérpretes y artistas sonoras, así como de la sede Ciudad de México del
+Festival Expresiones Contemporáneas de 2020 a 2022. Fue representante de
+México en el 67º International Rostrum of Composers organizado por el
+International Music Council.
+
+##### *Del desapego y la impermanencia*
+
+Dedicada a Nayeli Bernabé, esta obra es una exploración íntima que se
+deriva de la reflexión en torno al dolor, al sufrimiento y el proceso
+del desapego. De carácter meditativo y contemplativo, la obra se percibe
+como una nube sonora que nos incita a la escucha con una actitud
+reflexiva.
+
+#### Federico Núñez (Argentina, 1976)
+
+![](comp/Federico%20Núñez.jpg)
+
+Compositor, guitarrista e investigador argentino dedicado a la creación
+contemporánea. Su producción abarca música para música de cámara,
+escénica y electrónica, con una búsqueda centrada en el timbre, la
+espacialidad sonora y la expansión de los recursos instrumentales desde
+una perspectiva vinculada al pensamiento musical latinoamericano. Parte
+de su obra incorpora instrumentos prehispánicos, especialmente en la
+ópera mexica *Otlatocaliztli*. Doctor en Artes con especialización en
+Composición por la Universidad Nacional de las Artes, se formó con
+Guillermo Pozzatti y realizó estudios con Gerardo Gandini y Mario
+Lavista. Sus obras se han presentado en Argentina, México, Estados
+Unidos, Japón y países de Europa Ha recibido los premios Municipal de la
+Ciudad de Buenos Aires y Juan Carlos Paz, además de becas y residencias
+otorgadas por el Fonca y AECID. Su catálogo es publicado por Cayambis
+Music Press.
+
+##### *Five Introspections*
+
+La obra explora cinco reflexiones musicales centradas en las
+posibilidades tímbricas de la guitarra y en la transformación de
+recursos técnicos instrumentales en material compositivo. *Glissandi*,
+*tapping* sobre notas repetidas, trémolos, trinos y armónicos no
+funcionan únicamente como técnicas extendidas, sino como elementos
+generadores sometidos a constantes procesos de desarrollo y
+resignificación. Cada movimiento investiga distintas relaciones entre
+gesto, resonancia y textura. Como culminación del ciclo, la quinta pieza
+emerge como síntesis y transformación final de los materiales
+precedentes, caracterizada por una pulsación continua de corcheas, la
+alternancia entre sonidos naturales y armónicos, y la progresiva
+superposición de los distintos elementos temáticos expuestos
+anteriormente. En términos de escritura, la obra requiere frecuentemente
+el empleo de dos pentagramas por sistema, con el fin de articular planos
+sonoros independientes y comportamientos resonantes complejos.
+
+#### Erika Vega (México, 1987)
+
+![](comp/Erika%20Vega.jpg)
+
+Compositora y violinista que explora activamente temas de
+representación, interpretación, percepción y memoria, reflexionando con
+frecuencia sobre cuestiones sociales y políticas. Su práctica musical
+abarca la improvisación libre, la música de concierto, danza
+contemporánea, medios audiovisuales y teatro musical. Ha escrito obras
+para los ensambles Elision, CEPROMUSIC y Curious Chamber Players, el
+cuarteto Sigma Project, el Aleph Guitar Quartet, la Filarmónica de Los
+Ángeles, la Royal Liverpool Philharmonic y el ensamble Proxima Centauri.
+Estudió en la UNAM, en la BUAP y en el Royal Conservatory de Bruselas.
+Es doctora por la Universidad de Oxford. Actualmente es miembro del
+Sistema Nacional de Creadores de Arte en México, reside entre Oxford y
+Bruselas y se desempeña como curadora de The World's Music en Oxford,
+además de contribuir a la investigación académica en torno a la
+intersemiótica músico-literaria.
+
+##### *Y sueña que su sueño se repite*
+
+Inspirada en el fragmento del poema *Muerte sin fin* de José Gorostiza:
+«un instante, no más no más que el mínimo / perpetuo instante del
+quebranto». La obra se construye como un laberinto sonoro, evocando la
+imagen joyceana del laberinto de la conciencia, donde el pensamiento,
+como el sueño, no avanza en línea recta, sino que se repliega, se
+disgrega. Así como en *Muerte sin fin* la narrativa se dispersa y
+retorna, en *Y sueña que su sueño se repite* el tiempo musical se
+fragmenta y se repite, no para llegar a un destino, sino para habitar el
+desvío. Los armónicos de la guitarra, esos sonidos frágiles, casi
+espectrales, funcionan como sombras de un instante que no puede
+poseerse, solo vislumbrarse. Su repetición evoca la memoria del sueño,
+pero también su constante disolución. Más que contar una historia, esta
+obra se deja habitar como un espacio mental: un sueño que se repite
+dentro del sueño mismo. Un laberinto donde cada retorno es distinto,
+aunque parezca el mismo.
+
+#### Mizky Bernal Miranda (Bolivia, 1991)
+
+![](comp/Mizky%20Bernal%20Miranda.png)
+
+Compositora, instrumentista y artista sonora con una Maestría en Arte
+sonoro. Su trabajo se centra en la exploración de la música
+contemporánea y experimental. Su música ha sido difundida por distintas
+emisoras, festivales, en colaboración con diversos solistas, ensambles y
+orquestas de renombre. En 2025 participó como compositora invitada en el
+Festival Internacional De Arte Sonoro de TSONAMI en Chile, del 5º
+International Workshop for Young Composers AntiquaNova en Argentina, el
+Festival Für Zeitgenössische Iberoamerikanische Musik de Suena Festival
+en Viena, en el concierto *Meditaciones* del Conservatorio Profesional
+de Música de Salamanca, España, en el Acto de Sonar del Festival de
+Música Contemporánea de Colombia, la International Computer Music
+Conference en Boston, en el Darmstädter Ferienkurse en Alemania y en el
+XXII Festival Internacional de Música Contemporánea PUCV-Darwin Vargas
+en Chile.
+
+##### *Tres-Cuatro*
+
+Es una pieza para guitarra preparada compuesta originalmente en 2018
+para cuarteto de guitarras y recompuesta en 2025 para guitarra sola. La
+obra conserva en su título la huella de ambas versiones: el cuatro
+señala su origen colectivo, mientras que el tres remite a las tres
+cuerdas entorchadas, cuya sonoridad áspera, densa y resonante se vuelve
+núcleo constructivo de la nueva escritura. La obra articula texturas
+inestables, espectros abrasivos y zonas de fricción sonora que
+convierten el color en forma y la materia en estructura. En este sentido
+la versión de 2025 constituye una recomposición radical de su lógica
+sonora. Uno de sus rasgos más singulares es que el guitarrista anuncia
+en voz alta las partes de la obra, incorporando la palabra como gesto
+performativo y estructural. La obra invita, así, a una escucha en la que
+el sonido expone su propia arquitectura.
+
+#### Pedro Castillo Lara (México, 1974)
+
+![](comp/Pedro%20Castillo%20Lara.jpg)
+
+Compositor, director y gestor cultural. Su obra abarca música
+instrumental, electroacústica y mixta, con presentaciones en América y
+Europa. Se formó en México y Francia, y obtuvo una Maestría en
+Composición en la Universidad París 8 y estudios en Cevran, Miromesnil y
+Nanterre. Fundador del proyecto internacional Muslab, ha impulsado la
+difusión de la música electroacústica en colaboración con más de treinta
+instituciones. Ha dirigido el Ensamble Muslab, Voces Latinas de París y
+la orquesta de la UAM Xochimilco, explorando repertorios que van del
+canto gregoriano a la creación contemporánea. Su trabajo se caracteriza
+por una búsqueda poética del sonido como espacio de pensamiento, cuerpo
+y resonancia. Miembro del Sistema Nacional de Creadores de Arte, combina
+creación, dirección y pedagogía en una visión transdisciplinaria que
+articula tradición, tecnología y transformación social.
+
+##### *Capricho*
+
+Es la primera obra para guitarra sola del compositor, compuesta en 2006
+como resultado de un encargo de Mario Mary para el ciclo Música por
+ordenador de la Universidad París 8. La pieza propone un cruce entre la
+libertad estructural del capricho clásico, la fuerza rítmica del
+flamenco y la gestualidad física de la música contemporánea. Con una
+escritura precisa, cada gesto instrumental es explorado como impulso
+expresivo. No se trata de narrar, sino de articular una dramaturgia
+sonora tensa y vital, construida a partir de texturas contrastantes,
+dinámicas extremas y silencios cargados. Estrenada por Bertrand
+Chavarría en París y posteriormente interpretada por José Benítez en
+España, *Capricho* se proyecta como una obra que abre el catálogo del
+compositor con una afirmación estética clara y una voz propia dentro del
+repertorio contemporáneo para guitarra.
+
+#### Rosalba Quindici (Italia, 1976)
+
+![](comp/Rosalba%20Quindici.jpg)
+
+Su obra abarca desde la música instrumental y vocal hasta el teatro
+musical, caracterizada por una exploración personal de la dimensión
+sinestésica (que incluye la danza), de la cual crea y organiza los
+diversos componentes. Su investigación compositiva se centra
+particularmente en la construcción de la escucha fenomenológica y la
+experimentación personal con el timbre en la voz y los instrumentos. Su
+música es interpretada regularmente por importantes instituciones y en
+los festivales Musikfestival Bern, Bienal de Múnich, Verso Traiettorie
+de Parma, Nuova Consonanza de Roma y Rondò de Milán, entre otros.
+Licenciada en Piano, Composición y Filosofía, profundizó sus estudios en
+Italia con Corghi, Gervasoni y Sciarrino y realizó un doctorado en
+fenomenología en la Universidad Federico II de Nápoles y en Suiza con
+Dayer.
+
+##### *Preludio*
+
+Marca el primer paso de la exploración personal de Quindici sobre la
+guitarra clásica, centrándose en particular en las posibilidades del
+sonido continuo. La compositora ha trabajado el potencial tímbrico de la
+guitarra adoptando una especie de *suspensión* del estilo de
+interpretación convencional del instrumento. De hecho, la guitarra se
+sostiene verticalmente entre las piernas del intérprete, con el diapasón
+frente a él, y se toca no solo con los dedos, sino también con un arco
+de violonchelo. El uso del arco, además de producir una calidad tímbrica
+distinta, permite la creación de un sonido continuo que se opone
+dialécticamente a la naturaleza discontinua de los sonidos tradicionales
+pulsados del instrumento. Formalmente, sin embargo, la obra se
+estructura en torno a una polifonía de gestos, que se repiten
+cíclicamente, basada en notas repetidas, pizzicato, trinos y glissandos
+armónicos.
+
+#### Arturo M. Zanabria (México, 1993)
+
+![](comp/Arturo%20M.%20Zanabria.jpg)
+
+Su trayectoria está respaldada por 17 premios nacionales e
+internacionales en las áreas de composición, guitarra y música de
+cámara. Entre los reconocimientos más destacados se encuentran el Premio
+de la Juventud 2022, otorgado por el Gobierno de la Ciudad de México y
+el Premio Nacional de Composición Orquestal Raíces en 2020. Realizó
+estudios de Composición y Guitarra en la Facultad de Música de la UNAM,
+donde obtuvo el título con honores en ambas licenciaturas. En 2018 fue
+beneficiario de la beca de la Fondation Turquois para estudiar guitarra
+durante un año en el Principado de Mónaco. En 2019 recibió la beca de la
+Cátedra Extraordinaria Arturo Márquez de composición musical, y en 2024
+obtuvo la beca Jóvenes Creadores del Fonca. Es docente en la FaM y
+miembro del Cuarteto Kuikani, Xika ensamble y el Dúo Xalpa.
+
+##### *Cauchemar*
+
+> «Es una obra que busca evocar una sensación inquietante, inspirada en
+> una serie de pesadillas experimentadas durante un periodo específico
+> de mi vida. La pieza propone una transmediación de dichas vivencias
+> oníricas mediante la exploración tímbrica de la guitarra, empleando un
+> arco de violín y una *scordatura* inusualmente grave».
+
+#### Panayiotis Kokoras (Grecia, 1974)
+
+![](comp/Panayiotis%20Kokoras.jpg)
+
+Es catedrático de Composición y director del CEMI de la Universidad del
+Norte de Texas. Su música se ha interpretado en más de mil conciertos
+por todo el mundo a cargo de reconocidos conjuntos, orquestas y
+solistas. Sus composiciones utilizan el sonido como única unidad
+estructural. Su concepto de *textura musical holófona* describe su
+objetivo de que cada sonido independiente (*fono*) contribuya por igual
+a la síntesis del todo (*holos*). Tanto en la escritura instrumental
+como en la electroacústica, su música se caracteriza por un virtuosismo
+sonoro, una escritura hiperidiomática que enfatiza la producción precisa
+de diversas posibilidades sonoras y la correcta distinción entre un
+timbre y otro para transmitir las ideas y la estructura musical de la
+pieza. Su producción compositiva también se nutre de la investigación
+musical en estrategias de recuperación de información musical, técnicas
+extendidas, sonido táctil, hiperidiomaticidad, robótica, sonido y
+conciencia.
+
+##### *Slide*
+
+> Los colores (sonidos) no se usan porque sean fieles a la naturaleza,
+> sino porque son necesarios para la imagen particular (composición).\
+> 
+> \hfill Wassily Kandinsky (1912)
+
+*Slide* es una pieza para guitarra clásica y electrónica que explora las
+características inusuales del lenguaje sonoro de la guitarra. Utilizando
+técnicas como rascar, golpear y romper cuerdas y combinándolas con
+objetos poco convencionales como *slides* de latón o vidrio, baquetas o
+cepillos de metal, el compositor crea un sonido único y detallado. Cada
+momento es cuidadosamente elaborado para crear una estructura dramática
+coherente, donde cada gesto justifica al siguiente y al anterior,
+uniendo frases, secciones y la composición misma. Con la ayuda de
+herramientas digitales, se aíslan y transforman fragmentos de sonido
+para revelar momentos que el oído difícilmente percibiría normalmente.
+
+#### Hebert Vázquez (Uruguay, 1963)
+
+![](comp/Hebert%20Vázquez.jpg)
+
+Estudió composición con Mario Lavista, Lukas Foss, Leonardo Balada y
+Stephen Chatman. Posee un Doctorado en Composición por parte de la
+Universidad de la Columbia Británica (Canadá). Ha obtenido varios
+premios y distinciones nacionales e internacionales a lo largo de su
+carrera, entre los que destaca una beca de la John Simon Guggenheim
+Memorial Foundation 2008, una nominación a los 18th Annual Latin GRAMMY
+Awards en la categoría de mejor obra/composición clásica contemporánea
+en 2017 y la presea Vasco de Quiroga, otorgada por la UMSNH en 2018. Ha
+sido miembro del Sistema Nacional de Creadores de Arte en cuatro
+ocasiones, de 1999 a la fecha. Su obra, interpretada en Europa, América
+y Asia, ha sido grabada por el Cuarteto Arditti, el Ensemble Nomad, el
+dúo Damiana, Ónix Ensamble, Ensamble 3 y los guitarristas Norio Sato,
+Gonzalo Salazar y Juan Carlos Laguna, principalmente para las disqueras
+Urtext y Quindecim Records.
+
+##### *Ángel del abismo*
+
+> «Habrá sido alrededor de 2011, en uno de mis viajes a Tokio, cuando el
+> guitarrista Norio Sato, con quien colaboro intensamente desde hace
+> varios años y a quien está dedicada la pieza, me preguntó si tenía
+> algo escrito para guitarra y electrónica. Aunque le dije que no y él
+> no insistió en el asunto, la idea me quedó rondando en la cabeza. Al
+> fin, en 2013, me decidí a materializarla, gracias al apoyo de mi amigo
+> Rodrigo Sigal, quien generosamente me abrió las puertas del CMMAS, y
+> de la invaluable asistencia técnica de Jorge Alba. Si bien en el
+> Apocalipsis se hace referencia a Abadón, el ángel del abismo sin
+> fondo, yo estoy pensando en Beatriz, la de la *Divina Comedia*, quien
+> ayuda a Dante a ascender al paraíso, después de que el poeta
+> recorriera los nueve círculos del infierno, así como el purgatorio, en
+> compañía de Virgilio».
+
+------------------------------------------------------------------------
+
+### Intérpretes
+
+#### Julio Isaac Cervantes
+
+![](int/Julio%20Isaac%20Cervantes.jpg)
+
+Estudió la Licenciatura en Música en la Facultad de Artes de la UMSNH
+bajo la tutela de Eva Pleskova y Hebert Vázquez. También con Horacio
+Uribe, Alejandro Escuer, Luis Jaime Cortez y Gonzalo Salazar. Se ha
+presentado en los festivales Internacional Pa'lo Escrito, Aires en
+2023-2025, Expresiones Contemporáneas y Visiones Sonoras, así como en el
+Foro Internacional de Música Nueva Manuel Enríquez (FIMNME). Su obra se
+ha interpretado en Aires-2019, Laboratorio Sonoro Centro Occidente,
+FIMNME, Panel de Lectura Sigma Project Quartet-Festival Callejón del
+Ruido y en el Festival Internacional de Arte Sonoro Monteaudio21. Fue
+ganador del Primer Encuentro Nacional de Arte y Cultura Somos
+Universitarios de la UAQ en 2014 y del Concurso de Composición de Música
+para Guitarra 2015. Ha sido becario del Programa Acompañarte y de
+Resiliencia Sonora. Recibió el reconocimiento a la Excelencia Académica
+Coparmex 2019.
 
 ## VIE | NOV 13, 19:00 h - Eusebio Sánchez, percusiones
 
@@ -10418,7 +10408,7 @@ Fundación Cultural Rodolfo Morales, Ocotlán de Morelos, Oaxaca
 
 **György Kurtág**
 
-- *Kafka Fragments*, op. 24 (1987)
+- *Kafka Fragments*, Op. 24 (1987)
 
 **Leonardo Coral**
 
@@ -10465,7 +10455,7 @@ Miguel Ángel Valdés-Brito Pérez, piano
 
 Compositor húngaro considerado una de las figuras más importantes de la música contemporánea europea, conocido por su estilo conciso, expresivo y profundamente introspectivo. Estudió en la Academia de Música *Franz Liszt* de Budapest, donde más tarde también fue profesor. Durante su carrera desarrolló un lenguaje musical muy personal, influido por Béla Bartók y Anton Webern, caracterizado por piezas breves pero intensas, con gran atención al detalle y al silencio. Entre sus obras más destacadas se encuentra *Játékok* (Juegos), una colección de piezas para piano que comenzó en la década de 1970, así como su ópera *Fin de partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág ha recibido numerosos premios internacionales y es reconocido por su contribución única a la música de los siglos XX y XXI.
 
-##### *Kafka Fragments*, op. 24
+##### *Kafka Fragments*, Op. 24
 
 Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
 
@@ -10527,7 +10517,7 @@ Centro Cultural San Pablo, Oaxaca, Oaxaca
 
 **György Kurtág**
 
-- *Kafka Fragments*, op. 24 (1987)
+- *Kafka Fragments*, Op. 24 (1987)
 
 **Leonardo Coral**
 
@@ -10574,7 +10564,7 @@ Miguel Ángel Valdés-Brito Pérez, piano
 
 Compositor húngaro considerado una de las figuras más importantes de la música contemporánea europea, conocido por su estilo conciso, expresivo y profundamente introspectivo. Estudió en la Academia de Música *Franz Liszt* de Budapest, donde más tarde también fue profesor. Durante su carrera desarrolló un lenguaje musical muy personal, influido por Béla Bartók y Anton Webern, caracterizado por piezas breves pero intensas, con gran atención al detalle y al silencio. Entre sus obras más destacadas se encuentra *Játékok* (Juegos), una colección de piezas para piano que comenzó en la década de 1970, así como su ópera *Fin de partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág ha recibido numerosos premios internacionales y es reconocido por su contribución única a la música de los siglos XX y XXI.
 
-##### *Kafka Fragments*, op. 24
+##### *Kafka Fragments*, Op. 24
 
 Esta obra es la más extensa que Kurtág ha compuesto hasta la fecha. Se trata de un ciclo para soprano y violín, basado en textos de Franz Kafka, extraídos de su diario y cartas, así como de *Preparativos de boda en el campo*. Un único fragmento, de Elias Canetti, constituye una excepción. Está dedicado a la memoria del gran poeta húngaro János Pilinszky y recuerda al cuarto de sus *lieder* sobre poemas de Pilinszky; mediante su ritmo abrupto, salpicado de silencios, la música representa el andar vacilante e inestable de un niño pequeño, una metáfora particularmente impactante de la imposibilidad de contar una historia, o incluso de hablar. Estos fragmentos, acertadamente titulados *unas pocas palabras, a lo sumo unas pocas frases*, crean microcosmos cuya yuxtaposición jamás alcanzará la plenitud de la narración.
 
@@ -11000,7 +10990,7 @@ María Isabel Grañén Porrúa, *presidenta*
 **Javier González Gómez**\
 *Gestión de información*
 
-**Luiggi Amara**\
+**Luigi Amara**\
 *Cuidado editorial*
 
 **Luis Novoa Sandoval**\
@@ -11028,7 +11018,7 @@ propuesto para lectura en dispositivos móviles, con proporción de página 9:16
 
 El proceso de formación fue programado por el Coordinador Nacional de Música
 y Ópera, y la revisión editorial corrió a cargo de Eduardo Partida y
-Luiggi Amara.
+Luigi Amara.
 
 © INBAL. Ciudad de México, 2026.
 

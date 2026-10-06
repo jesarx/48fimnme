@@ -165,11 +165,13 @@
   \marcapos{ini:#1}\directlua{fimnme.iniconcierto(#1)}%
   \linespread{\interlineado}\selectfont}
 \newcommand{\finprograma}[1]{\par\marcapos{finprog:#1}}
-\newcommand{\finconcierto}[1]{\par\marcapos{fin:#1}}
-% Se llama al empezar las biografías y notas de cada concierto
+% Secciones de semblanzas y notas (Personas compositoras, Intérpretes...)
+\newcommand{\iniseccion}[1]{%
+  \marcapos{ini:#1}\directlua{fimnme.iniseccion("#1")}\aplicamodobiografias}
+\newcommand{\finseccion}[1]{\par\marcapos{fin:#1}}
 \newcommand{\aplicamodobiografias}{%
   \ifcase\modobiografias\relax
-    \linespread{\interlineado}\or\linespread{1.055}\or\linespread{1.19}\fi
+    \linespread{\interlineado}\or\linespread{1.055}\or\linespread{1.18}\or\linespread{1.24}\fi
   \selectfont}
 
 % ======================================================================
@@ -371,8 +373,30 @@
   \enspace{\footnotesize\bfseries\color{verdegris}\espaciado[120]{INTERMEDIO}}\enspace
   {\color{filete}\leaders\hrule height 0.5pt depth 0pt\hfill}\par\addvspace{1.2mm}}
 \newcommand{\leyenda}[1]{%
-  \par\removelastskip\nopagebreak[4]\vspace{1.8mm}\nopagebreak[4]%
+  \par\removelastskip\nopagebreak[4]\vspace{1mm}\nopagebreak[4]%
   {\footnotesize\color{verdegris}#1\par}}
+% Intérpretes de un grupo de obras: filete a la izquierda, un punto menos.
+% El bloque no se parte entre páginas.
+\newenvironment{interpretes}{%
+  \par\addvspace{2.2mm}%
+  \begin{tcolorbox}[enhanced, frame hidden, boxrule=0pt, sharp corners,
+    colback=fondobeige, borderline west={1.3pt}{0pt}{acentoclaro},
+    enlarge left by=0.33em, width=\linewidth-0.33em,
+    left=0.6em, right=0mm, top=0.5mm, bottom=0.5mm, boxsep=0pt,
+    before skip=0pt, after skip=0pt, fontupper=\small, parbox=false]
+  \setlength{\parskip}{0.8mm}\estilotitulos}
+  {\end{tcolorbox}\par}
+% Separación entre grupos de obras con distintos intérpretes
+\newcommand{\separadorgrupo}{\par\addvspace{4mm}}
+% Nota breve dentro del programa (duración, patrocinio...)
+\newcommand{\notaprograma}[1]{%
+  \par\addvspace{0.8mm}{\estilotitulos\small\itshape\color{verdegris}#1\par}}
+% Leyenda de estrenos como último renglón de la lista de obras
+\makeatletter
+\newcommand{\leyendaobras}[1]{%
+  \par\nopagebreak[4]\vspace{0.6mm}\nopagebreak[4]\@nobreaktrue
+  \item[]{\footnotesize\color{verdegris}#1}}
+\makeatother
 \newenvironment{bloqueprograma}{\par\estilotitulos
   \ifnum\modoprograma=1
     \linespread{1.0}\selectfont\setlength{\anchoespaciocompositor}{0.4mm}%
@@ -403,20 +427,6 @@
   \begin{minipage}[c]{\dimexpr\linewidth-\diametrofoto-3.5mm\relax}\cabezaficha{#2}{#3}\end{minipage}%
   \par\nopagebreak\vspace{2.6mm}%
 }
-% Ficha con foto de conjunto a lo ancho
-\newlength{\anchobanda}
-\newcommand{\fichabanda}[3]{%
-  \par\necesito{\dimexpr0.5\linewidth+8\baselineskip\relax}\addvspace{4mm}%
-  \cabezaficha{#2}{#3}\nopagebreak\vspace{2mm}%
-  \setlength{\anchobanda}{\linewidth}%
-  \noindent\begin{tikzpicture}
-    \begin{scope}
-      \clip[rounded corners=2.2mm] (0,0) rectangle (\anchobanda,0.5\anchobanda);
-      \node[inner sep=0pt, anchor=south west] at (0,0) {\includegraphics[width=\anchobanda]{#1}};
-    \end{scope}
-  \end{tikzpicture}%
-  \par\nopagebreak\vspace{2.6mm}%
-}
 % Ficha sin foto
 \newcommand{\fichasola}[2]{%
   \par\necesito{6\baselineskip}\addvspace{4mm}%
@@ -427,13 +437,12 @@
   {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.6mm}%
 }
 \newcommand{\firma}[1]{\par\nopagebreak{\raggedleft\small\itshape\color{verdegris}#1\par}}
-\newenvironment{cita}{%
-  \begin{tcolorbox}[enhanced, breakable, frame hidden, boxrule=0pt, sharp corners,
-    colback=fondocita, borderline west={1.6pt}{0pt}{acentoclaro},
-    left=3mm, right=2.4mm, top=1.6mm, bottom=1.6mm, before skip=2mm, after skip=2mm,
-    fontupper=\small, parbox=false]
-  \setparsizes{0pt}{0.45\baselineskip plus 1pt}{0pt plus 1fil}}
-  {\end{tcolorbox}}
+% Las citas de las notas (textos de los compositores, entre «») se componen
+% igual que el resto de la nota: las comillas ya indican que es cita.
+\newenvironment{cita}{\par}{\par}
+% Semblanzas: un punto menos que las notas al programa.
+\newenvironment{semblanza}{\par\small
+  \setparsizes{0pt}{0.5\baselineskip plus 1pt minus 0.5pt}{0pt plus 1fil}}{\par}
 \renewenvironment{quote}{\begin{cita}}{\end{cita}}
 \renewenvironment{quotation}{\begin{cita}}{\end{cita}}
 

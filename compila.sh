@@ -49,9 +49,9 @@ echo "▸ LuaLaTeX (pasada 1)…"
 lualatex_pasada
 if [[ "${1:-}" != "--rapido" ]]; then
   # Se repite hasta que el índice, las referencias y el ajuste fino de
-  # páginas se estabilizan (mínimo 3 pasadas, máximo 7).
+  # páginas se estabilizan (mínimo 3 pasadas, máximo 8).
   anterior=""
-  for pasada in 2 3 4 5 6 7; do
+  for pasada in 2 3 4 5 6 7 8; do
     makeindex -q -s automatizacion/plantilla/indice.ist "build/$NOMBRE.idx"
     echo "▸ LuaLaTeX (pasada $pasada)…"
     lualatex_pasada

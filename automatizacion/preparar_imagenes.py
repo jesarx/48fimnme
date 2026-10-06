@@ -13,11 +13,11 @@ Para cada imagen de ``comp/`` e ``int/``:
 Así las fotos llegan al PDF nítidas y ligeras, sin necesidad de pasar el PDF
 final por Ghostscript (que era lo que las pixelaba).
 
-Las fotos de conjunto (tres o más rostros, apaisadas) se recortan en formato
-2:1 para mostrarse a lo ancho, en lugar de en un círculo diminuto.
+Todas las fotos se muestran en círculo; en las de conjunto el recorte abarca
+lo más posible del grupo.
 
 Genera ``build/fotos/manifiesto.tsv`` con la correspondencia
-``ruta original -> ruta procesada -> tipo`` que lee el filtro Lua.
+``ruta original -> ruta procesada`` que lee el filtro Lua.
 
 Uso:  python3 automatizacion/preparar_imagenes.py [--hoja-contactos]
 """
@@ -27,7 +27,7 @@ import os
 import sys
 import unicodedata
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
 try:
     import cv2
@@ -39,7 +39,6 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARPETAS = ["comp", "int"]
 SALIDA = os.path.join(RAIZ, "build", "fotos")
 LADO = 300  # px; el círculo mide 19 mm, así que esto equivale a ~400 ppp
-BANDA = (1000, 500)  # px; fotos de grupo a lo ancho de la caja (88 mm ≈ 290 ppp)
 MODELO = os.path.join(RAIZ, "automatizacion", "modelos",
                       "face_detection_yunet_2023mar.onnx")
 EXTENSIONES = {".jpg", ".jpeg", ".jfif", ".png", ".tif", ".tiff", ".webp"}
@@ -108,48 +107,37 @@ def detectar_rostros(img):
     return [tuple(int(v / escala) for v in c) for c in caras]
 
 
-def es_grupo(caras):
-    """Tres o más caras de tamaño comparable: foto de conjunto."""
-    if len(caras) < 3:
-        return False
-    areas = sorted((c[2] * c[3] for c in caras), reverse=True)
-    return areas[2] > 0.3 * areas[0]
-
-
-def caja_banda(img, caras):
-    """Rectángulo 2:1 que contiene a todo el grupo."""
-    w, h = img.size
-    proporcion = BANDA[0] / BANDA[1]
-    if w / h >= proporcion:
-        bh, bw = h, h * proporcion
-    else:
-        bw, bh = w, w / proporcion
-    x0 = min(c[0] for c in caras)
-    y0 = min(c[1] for c in caras)
-    x1 = max(c[0] + c[2] for c in caras)
-    y1 = max(c[1] + c[3] for c in caras)
-    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-    izq = max(0, min(cx - bw / 2, w - bw))
-    arriba = max(0, min(cy - bh * 0.42, h - bh))
-    return (int(izq), int(arriba), int(izq + bw), int(arriba + bh))
-
-
 def caja_recorte(img, caras):
-    """Calcula el cuadrado (izq, arriba, lado) a recortar."""
+    """Decide el recorte cuadrado.
+
+    Devuelve (caja, lado) con caja = (izq, arriba, der, abajo). Si los rostros
+    de una foto de grupo no caben en ningún cuadrado de la imagen, la caja es
+    más estrecha que el cuadrado (``der - izq`` o ``abajo - arriba`` < lado):
+    entonces la foto se coloca entera y se rellena con un fondo difuminado.
+    """
     w, h = img.size
     m = min(w, h)
     if caras:
         caras = sorted(caras, key=lambda c: c[2] * c[3], reverse=True)
         principal = caras[0]
         # Si hay una cara claramente dominante, se usa sola; si no, se
-        # consideran todas (foto de grupo).
-        if len(caras) > 1 and caras[1][2] * caras[1][3] > 0.35 * principal[2] * principal[3]:
-            x0 = min(c[0] for c in caras)
-            y0 = min(c[1] for c in caras)
-            x1 = max(c[0] + c[2] for c in caras)
-            y1 = max(c[1] + c[3] for c in caras)
-            lado = max((x1 - x0) * 1.35, (y1 - y0) * 2.4, 0.55 * m)
+        # consideran todas las de tamaño comparable (foto de grupo).
+        grupo = [c for c in caras if c[2] * c[3] > 0.12 * principal[2] * principal[3]]
+        if len(grupo) > 1:
+            x0 = min(c[0] for c in grupo)
+            y0 = min(c[1] for c in grupo)
+            x1 = max(c[0] + c[2] for c in grupo)
+            y1 = max(c[1] + c[3] for c in grupo)
             cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+            necesario = max((x1 - x0) * 1.3, (y1 - y0) * 2.2)
+            if necesario > m:
+                lado = min(necesario, max(w, h))
+                if w >= h:
+                    izq = max(0, min(cx - lado / 2, w - lado))
+                    return (int(izq), 0, int(izq + lado), h), int(lado)
+                arriba = max(0, min(cy - lado / 2, h - lado))
+                return (0, int(arriba), w, int(arriba + lado)), int(lado)
+            lado = m
             cy_rel = 0.45
         else:
             x, y, cw, ch = principal
@@ -164,41 +152,48 @@ def caja_recorte(img, caras):
         izq = (w - lado) / 2
         # Retratos verticales: la cabeza suele estar en el tercio superior.
         arriba = (h - lado) * (0.22 if h > w else 0.5)
-    izq = max(0, min(izq, w - lado))
-    arriba = max(0, min(arriba, h - lado))
-    return int(round(izq)), int(round(arriba)), int(round(lado))
+    izq = int(round(max(0, min(izq, w - lado))))
+    arriba = int(round(max(0, min(arriba, h - lado))))
+    lado = int(round(lado))
+    return (izq, arriba, izq + lado, arriba + lado), lado
+
+
+def componer_cuadrado(img, caja, lado):
+    """Recorta; si la caja no es cuadrada, rellena con la foto difuminada."""
+    recorte = img.crop(caja)
+    rw, rh = recorte.size
+    if rw == rh:
+        return recorte
+    escala = lado / min(rw, rh)
+    fondo = recorte.resize((max(lado, int(rw * escala)), max(lado, int(rh * escala))), Image.LANCZOS)
+    fx, fy = (fondo.width - lado) // 2, (fondo.height - lado) // 2
+    fondo = fondo.crop((fx, fy, fx + lado, fy + lado))
+    fondo = fondo.filter(ImageFilter.GaussianBlur(lado / 25))
+    fondo = ImageEnhance.Brightness(fondo).enhance(0.8)
+    fondo.paste(recorte, ((lado - rw) // 2, (lado - rh) // 2))
+    return fondo
 
 
 def procesar(ruta_rel, forzar=False):
-    """Devuelve (ruta procesada, tipo) con tipo 'circulo' o 'banda'."""
+    """Recorta la foto en cuadrado (para el círculo) y devuelve la ruta procesada."""
     origen = os.path.join(RAIZ, ruta_rel)
     carpeta, nombre = os.path.split(ruta_rel)
-    base = os.path.join("build", "fotos", carpeta, slug(nombre))
-    for tipo in ("circulo", "banda"):
-        destino_rel = f"{base}.{tipo}.jpg"
-        destino = os.path.join(RAIZ, destino_rel)
-        if (
-            not forzar
-            and os.path.exists(destino)
-            and os.path.getmtime(destino) >= os.path.getmtime(origen)
-            and os.path.getmtime(destino) >= os.path.getmtime(__file__)
-        ):
-            return destino_rel, tipo
-    img = abrir_rgb(origen)
-    caras = detectar_rostros(img)
-    if es_grupo(caras) and img.size[0] > img.size[1]:
-        tipo = "banda"
-        img = img.crop(caja_banda(img, caras)).resize(BANDA, Image.LANCZOS)
-    else:
-        tipo = "circulo"
-        izq, arriba, lado = caja_recorte(img, caras)
-        img = img.crop((izq, arriba, izq + lado, arriba + lado))
-        img = img.resize((LADO, LADO), Image.LANCZOS)
-    destino_rel = f"{base}.{tipo}.jpg"
+    destino_rel = os.path.join("build", "fotos", carpeta, slug(nombre) + ".jpg")
     destino = os.path.join(RAIZ, destino_rel)
+    if (
+        not forzar
+        and os.path.exists(destino)
+        and os.path.getmtime(destino) >= os.path.getmtime(origen)
+        and os.path.getmtime(destino) >= os.path.getmtime(__file__)
+    ):
+        return destino_rel
+    img = abrir_rgb(origen)
+    caja, lado = caja_recorte(img, detectar_rostros(img))
+    img = componer_cuadrado(img, caja, lado)
+    img = img.resize((LADO, LADO), Image.LANCZOS)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     img.save(destino, "JPEG", quality=82, optimize=True, progressive=True)
-    return destino_rel, tipo
+    return destino_rel
 
 
 def hoja_contactos(rutas, archivo):
@@ -232,11 +227,11 @@ def main():
                 continue
             ruta_rel = carpeta + "/" + nombre
             try:
-                dest, tipo = procesar(ruta_rel, args.forzar)
+                dest = procesar(ruta_rel, args.forzar)
             except Exception as e:  # imagen corrupta o formato raro
                 print(f"Error con {ruta_rel}: {e}", file=sys.stderr)
                 continue
-            lineas.append(f"{ruta_rel}\t{dest}\t{tipo}")
+            lineas.append(f"{ruta_rel}\t{dest}")
             procesadas.append(dest)
 
     os.makedirs(SALIDA, exist_ok=True)

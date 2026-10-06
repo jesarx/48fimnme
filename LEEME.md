@@ -20,7 +20,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
-| `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales sueltos). |
+| `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
 | `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
 
@@ -39,11 +39,24 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   `- *Obra* (2025)\* \hfill 9'`. Lo que va después de la duración (p. ej.
   «Video de…») sale como crédito en línea aparte. Las viñetas sin duración ni
   año se componen como movimientos.
+- Después de un grupo de obras, los párrafos que no van en negrita inicial
+  ni en cursivas son sus intérpretes: se componen en un bloque con filete
+  verde, separado del siguiente grupo de obras. El último bloque de
+  intérpretes del programa se coloca al pie de la página.
+- Un párrafo entero en cursivas dentro del programa (`*Duración: 50 minutos*`,
+  patrocinios…) es una nota breve, en gris.
 - La leyenda «\* Estreno mundial / \*\* Estreno en México» se genera sola con
-  las marcas que aparezcan en cada programa; no hay que escribirla.
+  las marcas que aparezcan en cada programa y va justo debajo de la última
+  obra; no hay que escribirla.
 - `#### Nombre (País, año)` seguido de `![](comp/Foto.jpg)` crea la ficha con
-  foto. Las fotos de grupos se muestran apaisadas.
-- `##### *Obra*`: título de nota al programa.
+  foto circular (también para conjuntos: si los rostros no caben, la foto se
+  muestra completa sobre un fondo difuminado). La foto de cada persona o
+  conjunto sale solo la primera vez que aparece; las siguientes fichas van
+  sin foto. Las semblanzas se componen un punto menos que las notas.
+- `##### *Obra*`: título de nota al programa. Las citas (`> «…»`) se componen
+  igual que el resto de la nota.
+- Cada sección de un concierto (Programa, Personas compositoras,
+  Intérpretes…) empieza en página nueva.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.
