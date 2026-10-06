@@ -46,15 +46,17 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 - Un párrafo entero en cursivas dentro del programa (`*Duración: 50 minutos*`,
   patrocinios…) es una nota breve, en gris.
 - La leyenda «\* Estreno mundial / \*\* Estreno en México» se genera sola con
-  las marcas que aparezcan en cada programa y va justo debajo de la última
-  obra; no hay que escribirla.
+  las marcas que aparezcan en cada programa y va debajo de la última obra,
+  separada por un renglón y alineada al margen; no hay que escribirla.
 - `#### Nombre (País, año)` seguido de `![](comp/Foto.jpg)` crea la ficha con
   foto circular (también para conjuntos: si los rostros no caben, la foto se
   muestra completa sobre un fondo difuminado). La foto de cada persona o
   conjunto sale solo la primera vez que aparece; las siguientes fichas van
   sin foto. Las semblanzas se componen un punto menos que las notas.
-- `##### *Obra*`: título de nota al programa. Las citas (`> «…»`) se componen
-  igual que el resto de la nota.
+- `##### *Obra*`: título de nota al programa. El texto de la nota va en un
+  recuadro con fondo verde claro, al tamaño normal; si la nota incluye una
+  cita (`> «…»`) junto con otros párrafos, la cita va sangrada dentro del
+  recuadro.
 - Cada sección de un concierto (Programa, Personas compositoras,
   Intérpretes…) empieza en página nueva.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la

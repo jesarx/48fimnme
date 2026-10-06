@@ -31,32 +31,37 @@ local function escribe_aux(clave, modo)
     clave, modo))
 end
 
--- Devuelve el modo del programa (0 normal, 1 compacto). «pre» marca el final
--- de las obras, antes del bloque de intérpretes que va al pie de la página.
+-- Devuelve el modo del programa (0 normal, 1 compacto, 2 más compacto).
+-- «pre» marca el final de las obras, antes del bloque de intérpretes que va al
+-- pie de la página. Los modos solo escalan, así que no oscilan.
 local function modo_programa(n)
   local arriba, linea = medidas()
   local ini, fp, pre = fimnme.pos["ini:" .. n], fimnme.pos["finprog:" .. n], fimnme.pos["pre:" .. n]
   local prev = fimnme.previo["prog:" .. n] or 0
-  if prev == 1 then return 1 end
+  local desbordado = false
   if ini and fp and fp.page == ini.page + 1 then
-    if pre and pre.page == ini.page then return 1 end      -- solo pasaron los intérpretes
-    local ref = pre or fp
-    if ref.page == ini.page + 1 and arriba - ref.y <= 8 * linea then return 1 end
+    if pre and pre.page == ini.page then
+      desbordado = true                                   -- solo pasaron los intérpretes
+    else
+      local ref = pre or fp
+      desbordado = ref.page == ini.page + 1 and arriba - ref.y <= 8 * linea
+    end
   end
-  return 0
+  if desbordado then return math.min(prev + 1, 2) end
+  return prev
 end
 
 -- Devuelve el modo de una sección de semblanzas según cómo terminó en la
--- pasada anterior: 0 normal, 1 compacto (para que el final quepa en la página
--- anterior); si no basta, 2 y 3, cada vez más holgados (para que la última
--- página tenga más renglones). Los modos solo escalan, así que no oscilan.
+-- pasada anterior: 0 normal; 1 y 2, cada vez más compactos (para que el final
+-- quepa en la página anterior); si no basta, 3 y 4, cada vez más holgados
+-- (para que la última página tenga más renglones). Los modos solo escalan.
 local function modo_seccion(sid)
   local arriba, linea = medidas()
   local ini, fin = fimnme.pos["ini:" .. sid], fimnme.pos["fin:" .. sid]
   local prev = fimnme.previo["sec:" .. sid] or 0
   local suelto = ini and fin and fin.page > ini.page and arriba - fin.y <= 6 * linea
   if not suelto then return prev end
-  return math.min(prev + 1, 3)
+  return math.min(prev + 1, 4)
 end
 
 function fimnme.iniconcierto(n)
