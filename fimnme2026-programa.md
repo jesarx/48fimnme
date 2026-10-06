@@ -2700,6 +2700,8 @@ Italia, Suiza, Canadá, Brasil, Chile y Argentina.
 
 #### Ana Elisa de María (México, 2004)
 
+![](int/Ana%20Elisa%20de%20María.jpeg)
+
 Saxofonista, compositora y etnomusicóloga originaria de Oaxaca. Con una
 fuerte conexión con sus raíces y un enfoque innovador en su obra,
 continúa desarrollando su lenguaje musical, explora nuevas sonoridades y
@@ -4784,6 +4786,10 @@ respectivamente. Sus maestros fueron Héctor Jaramillo, Ida Ribera,
 Michel Moraguès y Shigenori Kudo. En 2023 obtuvo el Doctorado en
 Interpretación en la UNAM. Desde 2017 forma parte de los Artistas de la
 casa Powell Flutes.
+
+::: logos
+![](<logos/logos fam nov14/logo Facultad de Música de la UNAM.jpg>)
+:::
 
 ## SÁB | NOV 14, 17:00 h - Dúo Gasparini-Monnet
 
@@ -8298,6 +8304,10 @@ la Universidad Nacional de Costa Rica, Internacional de Música de
 Morelia y de Música de Cámara de San Miguel de Allende. Algunas de sus
 grabaciones se han difundido en radio y han formado parte de filmes
 independientes y cortometrajes.
+
+::: logos
+![](<logos/logos sacm 21nov/logo sacm Ai.ai>)
+:::
 
 ## SÁB | NOV 21, 17:00 h - Ensamble Sonus
 
