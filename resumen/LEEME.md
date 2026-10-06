@@ -11,13 +11,14 @@ letra de lectura (Noto Sans de 8 pt en los programas).
   título y sede; sus intérpretes y las personas compositoras («Obras de A, B
   y C»), sin los títulos de las obras; y cuántos estrenos mundiales y en
   México tiene. Al principio, el total de estrenos del Foro (cada obra una
-  sola vez). Cuando un concierto repite el programa de otro, se indica
-  «Mismo programa que…». Se omiten las listas de integrantes de los
-  conjuntos (se dan su nombre y su dirección).
+  sola vez). Se omiten las listas de integrantes de los conjuntos (se dan
+  su nombre y su dirección).
 - **Actividades académicas y Coloquio**, con sus participantes.
-- **Última página · Logotipos.** Todos los logotipos del Programa general (los
+- **Penúltima página · Logotipos.** Todos los logotipos del Programa general (los
   bloques `::: logos` de cada concierto), sin repetir, en copias ligeras
   para que el PDF siga pesando poco.
+- **Última página · Directorio** de la Secretaría de Cultura y del INBAL (el
+  bloque `::: contraportada` del Markdown), con la pleca institucional al pie.
 
 No se edita a mano: se genera a partir del mismo `fimnme2026-programa.md`,
 así que cualquier corrección al programa general llega también aquí.

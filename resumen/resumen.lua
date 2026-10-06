@@ -114,7 +114,7 @@ local CLAVES_SEDE = {
   "bellas artes", "museo nacional de arte", "jardin escenico", "carrillo gil",
   "conservatorio nacional", "musica y danza", "escuela superior de musica",
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
-  "rafael galvan", "xicotencatl", "sor juana", "cenart", "artes sonoras",
+  "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
   "convento del carmen", "rodolfo morales", "san pablo",
 }
@@ -255,9 +255,14 @@ function Pandoc(doc)
     for _, p in ipairs(parrafos) do
       local rs = renglones(p.content)
       local lugar
-      for _, r in ipairs(rs) do
+      for k, r in ipairs(rs) do
         local t = stringify(r)
-        if palabra_sede(t) then lugar = t; break end
+        if palabra_sede(t) then
+          -- con los renglones que siguen (ciudad y estado)
+          lugar = t
+          for j = k + 1, #rs do lugar = lugar .. ", " .. stringify(rs[j]) end
+          break
+        end
       end
       if lugar then res[#res + 1] = lugar end
     end
@@ -505,17 +510,6 @@ function Pandoc(doc)
   -- Programas: por concierto, sus intérpretes y las personas compositoras
   -- («Obras de A, B y C»), sin los títulos; y cuántos estrenos tiene.
   -- ---------------------------------------------------------------------------
-  -- programa completo (con títulos), para reconocer los que se repiten
-  local function firma_grupo(g)
-    local partes = {}
-    for _, o in ipairs(g.obras) do
-      local ts = {}
-      for _, t in ipairs(o.titulos) do ts[#ts + 1] = t.texto .. t.marcas end
-      if #ts > 0 then partes[#partes + 1] = o.compositor .. ":" .. table.concat(ts, ",") end
-    end
-    return table.concat(partes, ";")
-  end
-
   -- «A, B y C»; «e» ante /i/ (Iván, Ignacio, Hilda; no Iannis)
   local function unir(items)
     if #items <= 1 then return items[1] and items[1].latex or "" end
@@ -625,18 +619,12 @@ function Pandoc(doc)
   end
 
   -- primero se recorren para contar los estrenos del Foro (sin repetir)
-  local total, vistas_estreno, vistos = { 0, 0 }, {}, {}
+  local total, vistas_estreno = { 0, 0 }, {}
   for _, e in ipairs(eventos) do
     if e.tipo == "concierto" then
-      local fs = {}
-      for _, g in ipairs(e.grupos) do fs[#fs + 1] = firma_grupo(g) end
-      e.firma = table.concat(fs, "|")
-      if e.firma ~= "" and vistos[e.firma] then
-        e.repite = vistos[e.firma]
-      else
-        if e.firma ~= "" then vistos[e.firma] = e end
-        e.mundiales, e.mexico = contar_estrenos(e, total, vistas_estreno)
-      end
+      -- un programa que se repite se da completo (no se menciona que se
+      -- repite); sus estrenos cuentan una sola vez en el total
+      e.mundiales, e.mexico = contar_estrenos(e, total, vistas_estreno)
     end
   end
 
@@ -660,25 +648,15 @@ function Pandoc(doc)
       for _, l in ipairs(letras) do ls[#ls + 1] = "\\letra{" .. l .. "}" end
       emit(string.format("\\concierto{%s}{%s}{%s}{%s}", fecha_larga(e), table.concat(ls, ""),
         escape(e.titulo), lugares(e)))
-      if e.repite then
-        emit(string.format("\\mismoprograma{%s (%s)}", fecha_larga(e.repite), escape(e.repite.titulo)))
-        local ints = {}
-        for _, g in ipairs(e.grupos) do
-          local t = texto_interpretes(g)
-          if t ~= "" then ints[#ints + 1] = t end
+      for _, g in ipairs(e.grupos) do
+        local it = texto_interpretes(g)
+        local ob = texto_obras(g)
+        if it ~= "" or ob ~= "" then
+          emit(string.format("\\grupo{%s}{%s}", it, ob))
         end
-        if #ints > 0 then emit("\\interpretes{" .. table.concat(ints, "; ") .. "}") end
-      else
-        for k, g in ipairs(e.grupos) do
-          local it = texto_interpretes(g)
-          local ob = texto_obras(g)
-          if it ~= "" or ob ~= "" then
-            emit(string.format("\\grupo{%s}{%s}", it, ob))
-          end
-        end
-        local fe = frase_estrenos(e.mundiales, e.mexico)
-        if fe ~= "" then emit("\\estrenos{" .. fe .. "}") end
       end
+      local fe = frase_estrenos(e.mundiales, e.mexico)
+      if fe ~= "" then emit("\\estrenos{" .. fe .. "}") end
       emit("\\finconcierto")
     end
   end
@@ -702,6 +680,18 @@ function Pandoc(doc)
   else
     emit("\\cierre")
   end
+
+  -- Última página: directorio de la Secretaría de Cultura y del INBAL (el
+  -- bloque «::: contraportada») con la pleca institucional
+  local dir = {}
+  doc.blocks:walk({ Div = function(div)
+    if not div.classes:includes("contraportada") then return nil end
+    for _, c in ipairs(div.content) do
+      if c.t == "Header" then dir[#dir + 1] = "\\grupodirectorio{" .. latex(c.content) .. "}"
+      elseif c.t == "Para" or c.t == "Plain" then dir[#dir + 1] = latex(c.content) .. "\\par" end
+    end
+  end })
+  if #dir > 0 then emit("\\contraportada{" .. table.concat(dir, "\n") .. "}") end
 
   local bl = {}
   for _, s in ipairs(out) do bl[#bl + 1] = raw(s) end
