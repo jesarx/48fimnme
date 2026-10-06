@@ -32,13 +32,18 @@ UAM (43, 56, 211, 229, 246), MUAC (58), OJUEM-UNAM (66), Carrillo Gil y
 Generación Espontánea (94), SPEDIDAM (166), UNAM-San Ildefonso y Cepromusic
 (173, 265), OCBA (240) y Xico (274).
 
+## Resueltos después, con los materiales nuevos
+
+| Pág. | Comentario | Qué se hizo |
+|---|---|---|
+| 157 | Agregar el logo de la FaM | Al pie del concierto del Ensamble de Música Nueva y en la página final de logotipos. |
+| 282 | Agregar el logo de la SACM | Al pie del concierto del Cuarteto de Bellas Artes y en la página final. |
+| 100 | Foto de Ana Elisa de María | Con la foto nueva (`int/Ana Elisa de María.jpeg`). |
+
 ## Pendientes (faltan materiales o datos)
 
 | Pág. | Comentario | Qué falta |
 |---|---|---|
-| 157 | Agregar el logo de la FaM | No hay logotipo de la Facultad de Música de la UNAM en `logos/`. |
-| 282 | Agregar el logo de la SACM | No hay logotipo de la SACM en `logos/`. |
-| 100 | Foto de Ana Elisa de María | Falta la foto correcta. |
 | 265, 273 | Cepromusic (20 nov.): quién dirige; falta semblanza y foto del director | Hace falta el dato y, en su caso, la semblanza y la foto. Por ahora el programa dice «José Luis Castillo, director artístico», como en el programa de mano. |
 
 ## Criterios
