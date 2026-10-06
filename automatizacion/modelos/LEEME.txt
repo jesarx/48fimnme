@@ -1,0 +1,6 @@
+face_detection_yunet_2023mar.onnx
+
+Detector de rostros YuNet, del proyecto OpenCV Zoo
+(https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet),
+distribuido bajo la licencia MIT. Lo usa automatizacion/preparar_imagenes.py
+para centrar los recortes de las fotos en el rostro.

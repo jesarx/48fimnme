@@ -1,0 +1,53 @@
+---
+# Índice onomástico de personas compositoras
+#
+# El filtro arma cada entrada como «Apellido, Nombre» tomando la última palabra
+# como apellido. Aquí se registran solo las excepciones (apellidos compuestos,
+# partículas, variantes del mismo nombre). Usa "-" para no indexar un nombre.
+# La clave debe escribirse exactamente como aparece en el programa o en la ficha.
+indice-onomastico:
+  "Liliana Rodríguez Alvarado": "Rodríguez Alvarado, Liliana"
+  "Juan Cáceres Avitia": "Cáceres Avitia, Juan"
+  "Héctor Bravo Benard": "Bravo Benard, Héctor"
+  "Andrés Nuño de Buen": "Nuño de Buen, Andrés"
+  "Jesús Bernal Cabello": "Bernal Cabello, Jesús"
+  "Carlos Cruz de Castro": "Cruz de Castro, Carlos"
+  "Ismael Morales Díaz": "Morales Díaz, Ismael"
+  "Ismael Morales": "Morales Díaz, Ismael"
+  "Manuel de Falla": "Falla, Manuel de"
+  "Federico Ibarra": "Ibarra Groth, Federico"
+  "Federico Ibarra Groth": "Ibarra Groth, Federico"
+  "Cristina García Islas": "García Islas, Cristina"
+  "Pedro Castillo Lara": "Castillo Lara, Pedro"
+  "Jorge Arturo Ángeles Lerma": "Ángeles Lerma, Jorge Arturo"
+  "Ernesto García de León": "García de León, Ernesto"
+  "Oscar Pablo Di Liscia": "Di Liscia, Oscar Pablo"
+  "Ignacio Baca Lobera": "Baca Lobera, Ignacio"
+  "José Manuel López López": "López López, José Manuel"
+  "Javier Torres Maldonado": "Torres Maldonado, Javier"
+  "Rodrigo Zárate Marfil": "Zárate Marfil, Rodrigo"
+  "Ana Elisa de María": "De María, Ana Elisa"
+  "Leopoldo Novoa Matallana": "Novoa Matallana, Leopoldo"
+  "Fernando Lewis de Mattos": "De Mattos, Fernando Lewis"
+  "Mirtru Escalona Mijares": "Escalona Mijares, Mirtru"
+  "Eduardo Soto Millán": "Soto Millán, Eduardo"
+  "Mizky Bernal Miranda": "Bernal Miranda, Mizky"
+  "Liao Lin Ni": "Liao, Lin Ni"
+  "Alejandro Viramontes Nunura": "Viramontes Nunura, Alejandro"
+  "Joao Pedro Oliveira": "Oliveira, João Pedro"
+  "João Pedro Oliveira": "Oliveira, João Pedro"
+  "Iván Ferrer Orozco": "Ferrer Orozco, Iván"
+  "Luis de Pablo": "De Pablo, Luis"
+  "David Hernández Ramos": "Hernández Ramos, David"
+  "Liliana Z. del Río": "Del Río, Liliana Z."
+  "Frida V. de la Sota": "De la Sota, Frida V."
+  "Jorge Torres Sáenz": "Torres Sáenz, Jorge"
+  "Jorge Martínez Valderrama": "Martínez Valderrama, Jorge"
+  "Rocío Cano Valiño": "Cano Valiño, Rocío"
+  "Pedro García Velásquez": "García Velásquez, Pedro"
+  "Reveriano Soutullo - Juan Vert": "Soutullo, Reveriano y Juan Vert"
+  "Reveriano Soutullo y Juan Vert": "Soutullo, Reveriano y Juan Vert"
+  "Ana M.E.": "M.E., Ana"
+  "Generación Espontánea": "-"
+  "Canciones tradicionales": "-"
+...
