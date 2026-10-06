@@ -438,7 +438,21 @@ function Pandoc(doc)
   local indice_abierto = nil   -- compositor con rango de índice abierto
   local mayor = nil            -- sección ## sin fecha en curso (sedes, créditos...)
   local concierto_abierto = nil -- número del concierto en curso (para el ajuste fino)
-  local tras_lista = false      -- el último bloque del programa fue una lista de obras
+  local tras_lista = false      -- el programa acaba de listar obras (intérpretes a continuación)
+  local bloque_int = false      -- dentro de un bloque de intérpretes del programa
+  local en_semblanza = false    -- dentro del texto de una semblanza (tras una ficha)
+  local seccion_abierta = nil   -- id de la sección de semblanzas en curso (ajuste fino)
+  local prog_ini = 0            -- posición en «out» donde empieza el programa
+  local con_foto = {}           -- personas y fotos ya mostradas (la foto sale solo la primera vez)
+  local function foto_nueva(nombre, foto)
+    if not foto then return nil end
+    local k = clave_orden(nombre)
+    if con_foto[k] or con_foto[foto] then return nil end
+    con_foto[k], con_foto[foto] = true, true
+    return foto
+  end
+  local num_seccion = 0
+  local secciones_mayor = 0     -- secciones ### dentro de la sección ## sin fecha actual
   local dia_divisor = nil      -- último día con página divisoria
   local num_concierto = 0
 
@@ -454,7 +468,31 @@ function Pandoc(doc)
     end
   end
 
+  local function cerrar_semblanza()
+    if en_semblanza then
+      emit(raw("\\end{semblanza}"))
+      en_semblanza = false
+    end
+  end
+
+  local function abrir_semblanza()
+    cerrar_semblanza()
+    emit(raw("\\begin{semblanza}"))
+    en_semblanza = true
+  end
+
+  -- Cierra el bloque de intérpretes; «sigue» indica que el programa continúa
+  -- con otro grupo de obras (se deja un respiro para separarlos).
+  local function cerrar_bloque_int(sigue)
+    if bloque_int then
+      emit(raw("\\end{interpretes}"))
+      bloque_int = false
+      if sigue then emit(raw("\\separadorgrupo")) end
+    end
+  end
+
   local function cerrar_programa()
+    cerrar_bloque_int(false)
     if en_programa then
       local d = marcas.declaradas or ""
       local dm = d:find("mundial") ~= nil
@@ -469,8 +507,35 @@ function Pandoc(doc)
       while #out > 0 and out[#out].t == "RawBlock" and out[#out].text == "\\par\\addvspace{1.8mm}" do
         out:remove(#out)
       end
+      -- Última lista de obras y bloque final de intérpretes
+      local ultima_lista, bloque_final
+      for k = prog_ini + 1, #out do
+        if out[k].t == "RawBlock" and out[k].text:match("^\\begin{obras}") then ultima_lista = k end
+      end
+      for k = (ultima_lista or #out) + 1, #out do
+        if out[k].t == "RawBlock" and out[k].text == "\\begin{interpretes}" then bloque_final = k; break end
+      end
+      -- Los intérpretes de todo el programa van al pie de la página
+      if bloque_final then
+        local marca = concierto_abierto and ("\\marcapos{pre:" .. concierto_abierto .. "}") or ""
+        out:insert(bloque_final, raw("\\par" .. marca .. "\\vspace*{\\fill}"))
+      end
+      -- La leyenda de estrenos cierra la lista de obras
       local l = leyenda_latex(marcas)
-      if l then emit(raw(l)) end
+      if l then
+        local k = ultima_lista and ultima_lista + 1
+        if k and out[k] and out[k].t == "RawBlock" and out[k].text:match("^\\notaprograma") then
+          -- después de las notas breves que acompañan a la última obra
+          while out[k] and out[k].t == "RawBlock" and out[k].text:match("^\\notaprograma") do k = k + 1 end
+          out:insert(k, raw(l))
+        elseif ultima_lista then
+          -- como último renglón de la lista de obras (sin corte de página)
+          local txt = out[ultima_lista].text
+          out[ultima_lista] = raw((txt:gsub("\\end{obras}$", (l:gsub("^\\leyenda", "\\leyendaobras")) .. "\n\\end{obras}")))
+        else
+          emit(raw(l))
+        end
+      end
       if concierto_abierto then emit(raw("\\finprograma{" .. concierto_abierto .. "}")) end
       emit(raw("\\end{bloqueprograma}"))
       en_programa = false
@@ -478,16 +543,18 @@ function Pandoc(doc)
   end
 
   local function cerrar_seccion()
+    cerrar_semblanza()
     cerrar_indice()
     cerrar_programa()
+    if seccion_abierta then
+      emit(raw("\\finseccion{" .. seccion_abierta .. "}"))
+      seccion_abierta = nil
+    end
     seccion = nil
   end
 
   local function cerrar_concierto()
-    if concierto_abierto then
-      emit(raw("\\finconcierto{" .. concierto_abierto .. "}"))
-      concierto_abierto = nil
-    end
+    concierto_abierto = nil
   end
 
   local function cerrar_mayor()
@@ -667,6 +734,7 @@ function Pandoc(doc)
         cabecera = escape(texto)
         emit(raw(string.format("\\seccionmayor{%s}{%s}{%s}", latex(inl), cabecera, escape(texto))))
         mayor = clave_orden(texto)
+        secciones_mayor = 0
         if SECCIONES_CENTRADAS[mayor] then emit(raw("\\begin{creditos}")) end
       end
       i = i + 1
@@ -675,24 +743,33 @@ function Pandoc(doc)
       cerrar_seccion()
       local texto = stringify(b.content)
       seccion = clave_orden(texto)
-      if seccion == "personas compositoras" then
-        emit(raw("\\clearpage"))
-      end
       if mayor and (SECCIONES_CENTRADAS[mayor] or SECCIONES_SEDES[mayor]) then
         emit(raw("\\grupocreditos{" .. latex(b.content) .. "}\\marcador{3}{" .. escape(texto) .. "}"))
+      elseif seccion ~= "programa" and concierto_abierto then
+        -- Personas compositoras, Intérpretes...: cada sección en página nueva
+        num_seccion = num_seccion + 1
+        seccion_abierta = concierto_abierto .. "-" .. num_seccion
+        emit(raw("\\clearpage\\iniseccion{" .. seccion_abierta .. "}"))
+        emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
       else
-        if seccion ~= "programa" and concierto_abierto then emit(raw("\\aplicamodobiografias")) end
+        -- en el Coloquio, cada sección después de la primera en página nueva
+        if seccion ~= "programa" and mayor and secciones_mayor > 0 then emit(raw("\\clearpage")) end
         emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
       end
+      if mayor then secciones_mayor = secciones_mayor + 1 end
       if seccion == "programa" then
         en_programa = true
         marcas = {}
+        tras_lista = false
         emit(raw("\\begin{bloqueprograma}"))
+        prog_ini = #out
       end
       i = i + 1
 
     elseif b.t == "Header" and b.level == 4 then
+      cerrar_semblanza()
       cerrar_indice()
+      cerrar_programa()
       local tipo = seccion and SECCIONES_FICHA[seccion]
       local texto = stringify(b.content)
       local izq_txt = partir_encabezado(texto)
@@ -702,9 +779,9 @@ function Pandoc(doc)
         local nombre, detalle = partir_ficha(inl)
         local nombre_tex = latex(nombre)
         local img = imagen_sola(siguiente)
-        local foto, forma
+        local foto
         if img then
-          foto, forma = resolver_foto(img.src)
+          foto = foto_nueva(stringify(nombre), resolver_foto(img.src))
           i = i + 1
         end
         local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
@@ -712,13 +789,12 @@ function Pandoc(doc)
           indice_abierto = stringify(nombre)
           marca = marca .. entrada_indice(indice_abierto, "|(")
         end
-        if foto and forma == "banda" then
-          emit(raw(string.format("\\fichabanda{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
-        elseif foto then
+        if foto then
           emit(raw(string.format("\\ficha{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
         else
           emit(raw(string.format("\\fichasola{%s}{%s}%s", nombre_tex, detalle, marca)))
         end
+        abrir_semblanza()
       elseif fechas then
         local _, der = partir_inlines(b.content)
         local kicker = {}
@@ -730,30 +806,34 @@ function Pandoc(doc)
       i = i + 1
 
     elseif b.t == "Header" then
+      cerrar_semblanza()
+      cerrar_programa()
       emit(raw("\\notaobra{" .. latex(envolver_cjk(b.content)) .. "}"))
       i = i + 1
 
     -- Ficha cuyo nombre viene en negritas en lugar de «####»
     elseif seccion and SECCIONES_FICHA[seccion] and (b.t == "Para" or b.t == "Plain")
            and #b.content == 1 and b.content[1].t == "Strong" and imagen_sola(siguiente) then
+      cerrar_semblanza()
       cerrar_indice()
       local nombre = b.content[1].content
-      local foto, forma = resolver_foto(imagen_sola(siguiente).src)
+      local foto = foto_nueva(stringify(nombre), resolver_foto(imagen_sola(siguiente).src))
       local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
       if SECCIONES_FICHA[seccion] == "comp" then
         indice_abierto = stringify(nombre)
         marca = marca .. entrada_indice(indice_abierto, "|(")
       end
-      local macro = (forma == "banda") and "\\fichabanda" or "\\ficha"
       if foto then
-        emit(raw(string.format("%s{%s}{%s}{}%s", macro, foto, latex(nombre), marca)))
+        emit(raw(string.format("\\ficha{%s}{%s}{}%s", foto, latex(nombre), marca)))
       else
         emit(raw(string.format("\\fichasola{%s}{}%s", latex(nombre), marca)))
       end
+      abrir_semblanza()
       i = i + 2
 
     -- ------------------------------------------------------------ PROGRAMA --
     elseif en_programa and b.t == "BulletList" then
+      cerrar_bloque_int(true)
       emit(lista_obras(b, marcas))
       tras_lista = true
       i = i + 1
@@ -764,9 +844,11 @@ function Pandoc(doc)
         -- se regenera automáticamente al final del programa
         marcas.declaradas = (marcas.declaradas or "") .. txt
       elseif txt == "INTERMEDIO" then
+        cerrar_bloque_int(false)
         emit(raw("\\intermedio"))
         tras_lista = false
       elseif b.content[1] and b.content[1].t == "Strong" and siguiente and siguiente.t == "BulletList" then
+        cerrar_bloque_int(true)
         local nombre = b.content[1].content
         local resto = pandoc.List()
         for k = 2, #b.content do resto:insert(b.content[k]) end
@@ -774,19 +856,29 @@ function Pandoc(doc)
         emit(raw("\\compositor{" .. latex(nombre) .. "}{" .. sep .. latex(strip_trailing_space(resto)) .. "}" ..
                  entrada_indice(stringify(nombre))))
       else
-        -- Intérpretes tras un grupo de obras: un poco de aire antes
-        if tras_lista and b.content[1] and b.content[1].t == "Strong" then
-          emit(raw("\\par\\addvspace{2mm}"))
+        local c = strip_trailing_space(b.content)
+        if #c == 1 and c[1].t == "Emph" then
+          -- Nota del programa en cursivas (duración, patrocinio...)
+          cerrar_bloque_int(false)
+          emit(raw("\\notaprograma{" .. latex(c[1].content) .. "}"))
+        else
+          -- Intérpretes de las obras anteriores
+          if tras_lista and not bloque_int then
+            emit(raw("\\begin{interpretes}"))
+            bloque_int = true
+          end
+          marcas_en(c, marcas)
+          b.content = envolver_cjk(c)
+          emit(b)
+          tras_lista = false
         end
-        marcas_en(b.content, marcas)
-        b.content = envolver_cjk(strip_trailing_space(b.content))
-        emit(b)
       end
-      tras_lista = false
       i = i + 1
 
     -- -------------------------------------------------------------- OTROS --
     elseif b.t == "HorizontalRule" then
+      cerrar_semblanza()
+      cerrar_bloque_int(false)
       emit(raw("\\separador"))
       tras_lista = false
       i = i + 1
