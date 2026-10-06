@@ -66,6 +66,10 @@ local function modo_seccion(sid)
   local ini, fin = fimnme.pos["ini:" .. sid], fimnme.pos["fin:" .. sid]
   local prev = fimnme.previo["sec:" .. sid] or 0
   local suelto = ini and fin and fin.page > ini.page and arriba - fin.y <= 6 * linea
+  -- Con franja de logotipos: unos renglones sueltos acompañados de la
+  -- franja están bien; lo que hay que evitar es la franja sola en una página.
+  local logos = fimnme.pos["logos:" .. sid]
+  if logos and fin then suelto = logos.page > fin.page end
   if not suelto then return prev end
   return math.min(prev + 1, 4)
 end
@@ -98,4 +102,26 @@ function fimnme.grupofondo(n, g, ultimo)
   end
   escribe_aux("grp:" .. k, modo)
   tex.sprint(string.format("\\def\\fondogrupo{%d}", modo))
+end
+
+-- Franja de logotipos de un concierto. Va al final de su última sección; si
+-- ahí queda sola en una página aun con el ajuste más amplio de la sección
+-- (modo 4), en las pasadas siguientes va al pie de la página del programa.
+-- La decisión no se revierte.
+function fimnme.logosfin(sid)
+  local n = sid:match("^(%d+)%-")
+  local antes = fimnme.previo["lp:" .. n] or 0
+  local decision = antes
+  if antes == 0 then
+    local lg, fin = fimnme.pos["logos:" .. sid], fimnme.pos["fin:" .. sid]
+    if lg and fin and lg.page > fin.page and (fimnme.previo["sec:" .. sid] or 0) >= 4 then
+      decision = 1
+    end
+  end
+  escribe_aux("lp:" .. n, decision)
+  tex.sprint(string.format("\\def\\logosaqui{%d}", antes == 1 and 0 or 1))
+end
+
+function fimnme.logosprograma(n)
+  tex.sprint(string.format("\\def\\logosaqui{%d}", fimnme.previo["lp:" .. n] or 0))
 end

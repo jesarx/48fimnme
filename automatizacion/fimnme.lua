@@ -410,12 +410,63 @@ local function resolver_foto(src)
   return nil, nil
 end
 
+-- Logotipos de los conciertos: build/logos/manifiesto.tsv, que genera
+-- automatizacion/preparar_logos.py (clave «src|atributos», como allá).
+local LOGOS = {}
+local function cargar_logos()
+  local f = io.open("build/logos/manifiesto.tsv", "r")
+  if not f then
+    io.stderr:write("Aviso: falta build/logos/manifiesto.tsv; ejecute preparar_logos.py\n")
+    return
+  end
+  for linea in f:lines() do
+    local k, ruta, w, h = linea:match("^(.-)\t(.-)\t(%d+)\t(%d+)$")
+    if k then
+      LOGOS[k] = LOGOS[k] or {}
+      table.insert(LOGOS[k], { ruta = ruta, w = tonumber(w), h = tonumber(h) })
+    end
+  end
+  f:close()
+end
+
+-- Tamaño de un logotipo (mm) según su proporción, para que todos se vean
+-- del mismo tamaño: los cuadrados, más altos; los alargados, más bajos.
+local function medida_logo(w, h)
+  local r = w / h
+  local alto = math.max(4.6, math.min(10.5 * r ^ -0.45, 11.5))
+  local ancho = alto * r
+  if ancho > 32 then ancho, alto = 32, 32 / r end
+  return ancho, alto
+end
+
+-- Bloque «::: logos» → \logo{...}\logosep \logo{...}
+local function logos_latex(div)
+  local items = {}
+  div:walk({ Image = function(img)
+    local partes = {}
+    for _, k in ipairs({ "pagina", "partir", "realce", "recorte" }) do
+      if img.attributes[k] then partes[#partes + 1] = k .. "=" .. img.attributes[k] end
+    end
+    local piezas = LOGOS[img.src .. "|" .. table.concat(partes, ";")]
+    if not piezas then
+      io.stderr:write("Aviso: logotipo no preparado: " .. img.src .. "\n")
+    else
+      for _, p in ipairs(piezas) do
+        local ancho, alto = medida_logo(p.w, p.h)
+        items[#items + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}", p.ruta, ancho, alto)
+      end
+    end
+  end })
+  return table.concat(items, "\\logosep ")
+end
+
 -- -----------------------------------------------------------------------------
 -- Recorrido principal
 -- -----------------------------------------------------------------------------
 
 function Pandoc(doc)
   cargar_manifiesto()
+  cargar_logos()
   local mi = doc.meta["indice-onomastico"]
   if mi then
     for k, v in pairs(mi) do NOMBRES_INDICE[k] = stringify(v) end
@@ -447,6 +498,8 @@ function Pandoc(doc)
   local nota_solo_cita = false  -- la nota consiste solo en una cita
   local seccion_abierta = nil   -- id de la sección de semblanzas en curso (ajuste fino)
   local prog_ini = 0            -- posición en «out» donde empieza el programa
+  local logos_concierto = nil   -- logotipos del concierto en curso (para el programa)
+  local solo_programa = false   -- el concierto no tiene más secciones que el programa
   -- Compositores que aparecen más de una vez: la primera ficha con semblanza
   -- lleva la foto y el texto; las siguientes, solo «Ver pág. N».
   local bio_compositor = {}     -- clave del nombre → etiqueta de su primera semblanza
@@ -716,6 +769,20 @@ function Pandoc(doc)
           emit(raw(l))
         end
       end
+      -- Si la franja de logotipos no cabe al final del concierto (decisión
+      -- del ajuste fino), va al pie del programa.
+      if concierto_abierto and logos_concierto and logos_concierto ~= "" then
+        -- con el bloque de intérpretes al pie, la franja va debajo de él
+        -- («fil» cede ante su «fill»); sin él, la franja misma va al pie y
+        -- «pre» marca el fin de las obras para el ajuste fino
+        local orden = bloque_final and "fil" or "fill"
+        if solo_programa then
+          if not bloque_final then emit(raw("\\par\\marcapos{pre:" .. concierto_abierto .. "}")) end
+          emit(raw("\\logosalpie[" .. orden .. "]{" .. logos_concierto .. "}"))
+        else
+          emit(raw("\\logosprograma{" .. concierto_abierto .. "}{" .. orden .. "}{" .. logos_concierto .. "}"))
+        end
+      end
       if concierto_abierto then emit(raw("\\finprograma{" .. concierto_abierto .. "}")) end
       emit(raw("\\end{bloqueprograma}"))
       en_programa = false
@@ -803,7 +870,8 @@ function Pandoc(doc)
   while i <= n do
     local b = bloques[i]
     local siguiente = bloques[i + 1]
-    if saltando_bio and (b.t == "Header" or (b.t == "RawBlock" and not b.text:match("^%s*\\clearpage"))) then
+    if saltando_bio and (b.t == "Header" or b.t == "Div"
+                         or (b.t == "RawBlock" and not b.text:match("^%s*\\clearpage"))) then
       saltando_bio = false
     end
     if saltando_bio then
@@ -811,8 +879,33 @@ function Pandoc(doc)
       goto continuar
     end
 
+    -- ----------------------------------------------------------- LOGOS --
+    -- «::: logos» al final de un concierto: franja de logotipos al pie de su
+    -- última página (en las actividades académicas, a continuación).
+    if b.t == "Div" and b.classes:includes("logos") then
+      cerrar_semblanza()
+      cerrar_indice()
+      cerrar_programa()
+      local items = logos_latex(b)
+      if concierto_abierto and solo_programa then
+        -- ya se compuso al pie del programa
+      elseif items ~= "" and concierto_abierto then
+        -- el fin de la sección se marca antes de los logotipos: el ajuste
+        -- fino sigue viendo dónde acaba el texto, y aparte si la franja
+        -- quedó sola en otra página
+        local sid = seccion_abierta or ""
+        if seccion_abierta then
+          emit(raw("\\finseccion{" .. seccion_abierta .. "}"))
+          seccion_abierta = nil
+        end
+        emit(raw("\\logosconcierto{" .. sid .. "}{" .. items .. "}"))
+      elseif items ~= "" then
+        emit(raw("\\logosactividad{" .. items .. "}"))
+      end
+      i = i + 1
+
     -- ---------------------------------------------------------------- RAW --
-    if b.t == "RawBlock" and (b.format == "latex" or b.format == "tex") then
+    elseif b.t == "RawBlock" and (b.format == "latex" or b.format == "tex") then
       local t = trim(b.text)
       local titulo_parte = t:match("^\\part%*?{(.-)}$")
       local divisor = t:match("^\\portadacapitulo{(.-)}$")
@@ -899,6 +992,21 @@ function Pandoc(doc)
         if macro == "\\concierto" then
           concierto_abierto = num_concierto
           seccion_previa = nil
+          -- logotipos del concierto (el bloque «::: logos» va al final): se
+          -- preparan ya por si hay que ponerlos al pie del programa
+          logos_concierto = nil
+          solo_programa = true
+          local k = i + 1
+          while bloques[k] and not (bloques[k].t == "Header" and bloques[k].level <= 2)
+                and not (bloques[k].t == "RawBlock" and bloques[k].text:match("^\\part")) do
+            local bk = bloques[k]
+            if bk.t == "Div" and bk.classes:includes("logos") then
+              logos_concierto = logos_latex(bk)
+            elseif bk.t == "Header" and bk.level == 3 and clave_orden(stringify(bk.content)) ~= "programa" then
+              solo_programa = false
+            end
+            k = k + 1
+          end
           emit(raw("\\iniconcierto{" .. num_concierto .. "}"))
         end
         -- Lugar: primer párrafo tras el encabezado

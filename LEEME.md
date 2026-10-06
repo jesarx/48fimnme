@@ -12,6 +12,8 @@ resumen/compila.sh      # solo el programa resumido (la compilación completa ta
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
 tikz, microtype…), makeindex y Python 3 con Pillow. Con `opencv-python-headless`
 las fotos se recortan centradas en el rostro (si no está, el recorte es centrado).
+Para los logotipos en PDF, AI o SVG hace falta `pymupdf` (o, en su defecto,
+`pdftoppm` de poppler y `rsvg-convert`).
 Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 
 ## Cómo está organizado
@@ -20,12 +22,14 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 |---|---|
 | `fimnme2026-programa.md`, `fimnme2026-programa.yaml` | Contenido y metadatos del programa. |
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
+| `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `revision/` | Listas de correcciones para revisar (p. ej. el cotejo con los programas de mano). |
 | `resumen/` | Programa resumido (agenda en una página y programas condensados; ver `resumen/LEEME.md`). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
+| `automatizacion/preparar_logos.py` | Pasa a un solo color, recorta y separa los logotipos que usa el Markdown (en `build/logos/`). |
 | `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
 | `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
@@ -74,6 +78,23 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   cita (`> «…»`) junto con otros párrafos, la cita va sangrada dentro del
   recuadro. Si la misma nota de la misma obra ya apareció, sale su título con
   «Ver pág. N».
+- Logotipos de un concierto: un bloque al final del concierto, una imagen
+  por renglón (con `<…>` si la ruta tiene espacios):
+
+  ```markdown
+  ::: logos
+  ![](<logos/logos OSN/OSN-1.png>)
+  ![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.12 0.38 0.28 0.6"}
+  :::
+  ```
+
+  Van en una franja al pie de la última página del concierto (si ahí no
+  caben, al pie del programa), todos en el verde oscuro del diseño y con un
+  tamaño visual parejo. Se aceptan PNG, JPG, PDF, AI y SVG. Atributos
+  opcionales: `pagina=3` (página de un PDF/AI), `recorte="x0 y0 x1 y1"`
+  (parte de la página, en fracciones), `partir=si` (separa un cintillo en
+  logotipos sueltos) y `realce=0.3` (oscurece un logotipo muy pálido).
+  Detalles en `automatizacion/preparar_logos.py`.
 - Cada sección de un concierto (Programa, Personas compositoras,
   Intérpretes…) empieza en página nueva. Una sección que solo tenga
   referencias «Ver pág.» sigue en la página (salvo justo después del
