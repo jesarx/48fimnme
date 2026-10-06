@@ -1,0 +1,161 @@
+% =============================================================================
+%  Programa resumido del 48.º FIMNME
+%  Mismo formato (108 × 192 mm) y paleta que el Programa general, con
+%  Noto Sans SemiCondensed en cuerpo pequeño para concentrar la información.
+%  El contenido lo genera resumen/resumen.lua a partir del Markdown.
+% =============================================================================
+\documentclass[fontsize=7pt, parskip=false]{scrartcl}
+
+\usepackage[
+  paperwidth=108mm, paperheight=192mm,
+  top=5.5mm, bottom=8mm, left=4.8mm, right=4.8mm, footskip=4.4mm
+]{geometry}
+
+% ----------------------------------------------------------- Tipografía ------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\newcommand{\rutafuentes}{automatizacion/fuentes/}
+\setmainfont{NotoSans-SemiCondensed}[
+  Path=\rutafuentes, Extension=.ttf,
+  UprightFont=*, ItalicFont=*Italic,
+  BoldFont=*SemiBold, BoldItalicFont=*SemiBoldItalic,
+  Numbers=Lining
+]
+\IfFontExistsTF{Noto Sans CJK SC}
+  {\newfontfamily\fuentecjk{Noto Sans CJK SC}
+   \newcommand{\textocjk}[1]{{\fontshape{n}\fuentecjk #1}}}
+  {\newcommand{\textocjk}[1]{#1}}
+
+\usepackage[spanish, es-nodecimaldot, es-noquoting, es-noshorthands, es-nolayout]{babel}
+\usepackage[protrusion=true, expansion=true, tracking=true, final]{microtype}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\setlength{\columnsep}{3mm}
+\setlength{\multicolsep}{0pt}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=1em
+\setlength{\overfullrule}{0pt}
+
+% ---------------------------------------------------------------- Color ------
+\usepackage{xcolor}
+\usepackage{luacolor}
+\definecolor{verdeoscuro}{HTML}{172B20}
+\definecolor{acento}{HTML}{2F7F59}
+\definecolor{acentoclaro}{HTML}{3D9B6E}
+\definecolor{verdeclaro}{HTML}{D2E8DB}
+\definecolor{verdegris}{HTML}{546B5C}
+\definecolor{filete}{HTML}{B9CDBF}
+\definecolor{fondobeige}{HTML}{F4F1EA}
+\pagecolor{fondobeige}
+\color{verdeoscuro}
+
+\usepackage{tikz}
+\input{automatizacion/plantilla/logo-48.tex}
+\input{automatizacion/plantilla/logo-cnmo.tex}
+
+\usepackage[hidelinks, pdfusetitle]{hyperref}
+\hypersetup{
+  pdftitle={48.º FIMNME · Programa resumido},
+  pdfauthor={Coordinación Nacional de Música y Ópera},
+  pdflang={es-MX}}
+
+% ------------------------------------------------------- Pie de página -------
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\setkomafont{pagefoot}{\fontsize{5.6}{6.5}\selectfont\color{verdegris}}
+\ifoot{48.º Foro Internacional de Música Nueva Manuel Enríquez · Programa resumido}
+\ofoot{\thepage}
+\pagestyle{scrheadings}
+
+% ------------------------------------------------------- Piezas comunes ------
+\newcommand{\espaciado}[2][70]{\textls[#1]{#2}}
+% Clave de sede: letra blanca sobre verde
+\setlength{\fboxsep}{0.35pt}
+\newcommand{\letra}[1]{\ifx&#1&\else\kern0.15em{\colorbox{acento}{\makebox[1.05em]{%
+  \fontsize{5.2}{5.2}\selectfont\bfseries\color{white}\strut#1}}}\fi}
+\newcommand{\banda}[1]{\par\addvspace{2mm}%
+  {\fontsize{6.4}{7.6}\selectfont\bfseries\color{acento}\espaciado{\MakeUppercase{#1}}\par}%
+  \nopagebreak\vspace{0.5mm}{\color{filete}\hrule height 0.45pt}\nopagebreak\vspace{1mm}}
+
+% ------------------------------------------------------------- Agenda --------
+\newlength{\anchodia}\setlength{\anchodia}{3.15em}
+\newlength{\anchohora}\setlength{\anchohora}{2.3em}
+\newenvironment{agenda}{%
+  % la página 1 no lleva pie: aprovecha también el margen inferior
+  \newgeometry{top=5.5mm, bottom=4.6mm, left=4.8mm, right=4.8mm}\thispagestyle{empty}%
+  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{acento}\end{minipage}\hspace{2.5mm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-12.5mm\relax}\RaggedRight
+    {\fontsize{8.6}{10}\selectfont\bfseries 48.º Foro Internacional de Música Nueva
+      Manuel Enríquez\par}\vspace{0.6mm}
+    {\fontsize{6.6}{8}\selectfont\color{acento}\bfseries 6 al 21 de noviembre de 2026
+      \enspace·\enspace\color{verdegris}\mdseries Agenda y programas\par}\vspace{0.4mm}
+    {\fontsize{5.6}{6.6}\selectfont\color{verdegris}En cursiva, actividades académicas y
+      Coloquio Manuel Enríquez 100. La letra indica la sede.\par}
+  \end{minipage}\par\vspace{1.3mm}%
+  {\color{filete}\hrule height 0.6pt}\vspace{0.2mm}%
+  \fontsize{6}{6.95}\selectfont
+  \begin{multicols}{2}\raggedright
+  \clubpenalty=10000 \widowpenalty=10000
+  \let\agendaparte\banda}
+  {\end{multicols}\restoregeometry}
+\newcommand{\diaseparador}[1]{\ifx&#1&\else\addvspace{0.65mm}\fi}
+% #1 día  #2 hora  #3 título  #4 letra de la sede
+\newcommand{\ev}[4]{\par\diaseparador{#1}%
+  \hangindent=\dimexpr\anchodia+\anchohora\relax\hangafter=1
+  \makebox[\anchodia][l]{\bfseries\color{acento}#1}%
+  \makebox[\anchohora][l]{#2}%
+  #3\nobreak\hfill\letra{#4}\par}
+% Actividad académica o del Coloquio (en cursiva)
+\newcommand{\act}[4]{\par\diaseparador{#1}%
+  \hangindent=\dimexpr\anchodia+\anchohora\relax\hangafter=1
+  \makebox[\anchodia][l]{\bfseries\color{acento}#1}%
+  \makebox[\anchohora][l]{\color{verdegris}#2}%
+  {\itshape\color{verdegris}#3}\nobreak\hfill\letra{#4}\par}
+\newcommand{\region}[1]{\par\addvspace{0.8mm}%
+  {\bfseries\color{verdegris}\espaciado[50]{#1}\par}\nopagebreak\vspace{0.3mm}}
+% #1 letra  #2 sala y sede  #3 dirección
+\newcommand{\sede}[3]{\par\addvspace{0.3mm}%
+  {\fontsize{5.75}{6.6}\selectfont\hangindent=1.55em\hangafter=1
+  \makebox[1.55em][l]{\letra{#1}}{\bfseries #2}\ifx&#3&\else.
+  {\color{verdegris}#3}\fi\par}}
+
+% ----------------------------------------------------------- Programas -------
+\newenvironment{programas}{%
+  \fontsize{6.25}{7.3}\selectfont
+  \begin{multicols}{2}\RaggedRight
+  \clubpenalty=10000 \widowpenalty=10000
+  {\color{verdegris}\fontsize{5.8}{7}\selectfont * Estreno mundial\enspace
+   ** Estreno en México\enspace·\enspace Las letras remiten a las sedes de la
+   página~1.\par}%
+  \let\programaparte\banda}
+  {\par\vspace{2.5mm}{\color{filete}\hrule height 0.45pt}\vspace{1.6mm}%
+   \noindent\begin{minipage}[c]{11mm}\logocnmo{11mm}{verdegris}\end{minipage}\hspace{2mm}%
+   \begin{minipage}[c]{\dimexpr\linewidth-13mm\relax}\RaggedRight
+     \color{verdegris}\fontsize{5.6}{6.8}\selectfont Semblanzas y notas al programa en el
+     Programa general del 48.º FIMNME.\end{minipage}\par
+   \end{multicols}}
+% #1 fecha y hora  #2 letras de sede  #3 título
+\newcommand{\concierto}[3]{\par\addvspace{1.6mm}%
+  {\fontsize{5.9}{7}\selectfont\bfseries\color{acento}#1}\nobreak\hfill#2\par\nopagebreak
+  {\fontsize{7}{8.2}\selectfont\bfseries #3\par}\nopagebreak\vspace{0.25mm}}
+\newcommand{\obras}[1]{\par#1\par}
+\newcommand{\comp}[1]{{\bfseries #1}\nobreak\enspace}
+\newcommand{\sep}{\unskip\enspace{\color{acentoclaro}·}\enspace\ignorespaces}
+\newcommand{\solista}[1]{\ {\color{verdegris}(#1)}}
+\newcommand{\interpretes}[1]{\par\nopagebreak\vspace{0.35mm}%
+  \hangindent=0.75em\hangafter=1
+  \makebox[0.75em][l]{\color{acentoclaro}\rule[-0.25ex]{0.9pt}{1.75ex}}%
+  {\color{verdeoscuro}\itshape #1}\par}
+\newcommand{\mismoprograma}[1]{\par{\color{verdegris}\itshape Mismo programa que el
+  #1.}\par}
+% Actividad académica o sesión del Coloquio: #1 fecha  #2 sede  #3 título  #4 participantes
+\newcommand{\actividad}[4]{\par\addvspace{1mm}%
+  {\fontsize{5.9}{7}\selectfont\bfseries\color{acento}#1}\enspace{\bfseries #3}\nobreak\hfill#2\par
+  \ifx&#4&\else\nopagebreak{\color{verdegris}#4\par}\fi}
+
+
+\begin{document}
+$body$
+\end{document}
