@@ -7711,7 +7711,7 @@ Pabellón Escénico, Jardín Escénico
 
 **Ensamble Cepromusic**
 
-José Luis Castillo, director artístico
+Director invitado
 
 Maximiliano Trigo, **flauta** | Arielle Amezcua, **oboe** | Gabriel
 Padilla, **clarinete** | Pablo Ramírez, **clarinete bajo** | Ángel

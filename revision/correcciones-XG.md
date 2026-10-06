@@ -44,7 +44,7 @@ Generación Espontánea (94), SPEDIDAM (166), UNAM-San Ildefonso y Cepromusic
 
 | Pág. | Comentario | Qué falta |
 |---|---|---|
-| 265, 273 | Cepromusic (20 nov.): quién dirige; falta semblanza y foto del director | Hace falta el dato y, en su caso, la semblanza y la foto. Por ahora el programa dice «José Luis Castillo, director artístico», como en el programa de mano. |
+| 265, 273 | Cepromusic (20 nov.): quién dirige; falta semblanza y foto del director | Hace falta el nombre y, en su caso, la semblanza y la foto. Por ahora el programa dice «Director invitado». |
 
 ## Criterios
 
