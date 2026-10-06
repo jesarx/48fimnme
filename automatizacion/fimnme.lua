@@ -441,6 +441,8 @@ function Pandoc(doc)
   local tras_lista = false      -- el programa acaba de listar obras (intérpretes a continuación)
   local bloque_int = false      -- dentro de un bloque de intérpretes del programa
   local en_semblanza = false    -- dentro del texto de una semblanza (tras una ficha)
+  local en_nota = false         -- dentro de una nota al programa (recuadro verde)
+  local nota_solo_cita = false  -- la nota consiste solo en una cita
   local seccion_abierta = nil   -- id de la sección de semblanzas en curso (ajuste fino)
   local prog_ini = 0            -- posición en «out» donde empieza el programa
   local con_foto = {}           -- personas y fotos ya mostradas (la foto sale solo la primera vez)
@@ -468,7 +470,38 @@ function Pandoc(doc)
     end
   end
 
+  local function cerrar_nota()
+    if en_nota then
+      emit(raw("\\end{notaobratexto}"))
+      en_nota = false
+    end
+  end
+
+  local function es_firma(b)
+    return b and b.t == "Para" and b.content[1] and b.content[1].t == "RawInline"
+      and trim(b.content[1].text) == "\\hfill"
+  end
+
+  -- Abre el recuadro de una nota al programa (solo dentro de un concierto).
+  -- Si la nota es únicamente una cita, sus párrafos no se sangran.
+  local function abrir_nota(desde)
+    cerrar_nota()
+    if not concierto_abierto then return end
+    local solo, hay = true, false
+    local k = desde
+    while bloques[k] and bloques[k].t ~= "Header" and bloques[k].t ~= "HorizontalRule" do
+      local bk = bloques[k]
+      if bk.t == "BlockQuote" then hay = true
+      elseif not es_firma(bk) and not (bk.t == "RawBlock") then solo = false end
+      k = k + 1
+    end
+    nota_solo_cita = solo and hay
+    emit(raw("\\begin{notaobratexto}"))
+    en_nota = true
+  end
+
   local function cerrar_semblanza()
+    cerrar_nota()
     if en_semblanza then
       emit(raw("\\end{semblanza}"))
       en_semblanza = false
@@ -802,6 +835,7 @@ function Pandoc(doc)
         emit(raw("\\actividad{" .. table.concat(kicker, "\\quad/\\quad ") .. "}{" .. latex(der) .. "}"))
       else
         emit(raw("\\notaobra{" .. latex(b.content) .. "}"))
+        abrir_nota(i + 1)
       end
       i = i + 1
 
@@ -809,6 +843,7 @@ function Pandoc(doc)
       cerrar_semblanza()
       cerrar_programa()
       emit(raw("\\notaobra{" .. latex(envolver_cjk(b.content)) .. "}"))
+      abrir_nota(i + 1)
       i = i + 1
 
     -- Ficha cuyo nombre viene en negritas en lugar de «####»
@@ -879,8 +914,20 @@ function Pandoc(doc)
     elseif b.t == "HorizontalRule" then
       cerrar_semblanza()
       cerrar_bloque_int(false)
-      emit(raw("\\separador"))
+      -- antes de una sección o de un concierto sobra: estos empiezan página
+      local sig = bloques[i + 1]
+      if not (sig and sig.t == "Header" and sig.level <= 3) and sig then
+        emit(raw("\\separador"))
+      end
       tras_lista = false
+      i = i + 1
+
+    elseif b.t == "BlockQuote" and en_nota and nota_solo_cita then
+      -- la nota es solo una cita: sus párrafos van tal cual en el recuadro
+      for _, q in ipairs(b.content) do
+        if q.t == "Para" or q.t == "Plain" then q.content = envolver_cjk(strip_trailing_space(q.content)) end
+        emit(q)
+      end
       i = i + 1
 
     elseif imagen_sola(b) then

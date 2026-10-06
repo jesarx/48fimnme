@@ -171,7 +171,8 @@
 \newcommand{\finseccion}[1]{\par\marcapos{fin:#1}}
 \newcommand{\aplicamodobiografias}{%
   \ifcase\modobiografias\relax
-    \linespread{\interlineado}\or\linespread{1.055}\or\linespread{1.18}\or\linespread{1.24}\fi
+    \linespread{\interlineado}\or\linespread{1.055}\or\linespread{1.0}\or
+    \linespread{1.18}\or\linespread{1.24}\fi
   \selectfont}
 
 % ======================================================================
@@ -373,7 +374,7 @@
   \enspace{\footnotesize\bfseries\color{verdegris}\espaciado[120]{INTERMEDIO}}\enspace
   {\color{filete}\leaders\hrule height 0.5pt depth 0pt\hfill}\par\addvspace{1.2mm}}
 \newcommand{\leyenda}[1]{%
-  \par\removelastskip\nopagebreak[4]\vspace{1mm}\nopagebreak[4]%
+  \par\removelastskip\nopagebreak[4]\vspace{0.75\baselineskip}\nopagebreak[4]%
   {\footnotesize\color{verdegris}#1\par}}
 % Intérpretes de un grupo de obras: filete a la izquierda, un punto menos.
 % El bloque no se parte entre páginas.
@@ -394,16 +395,21 @@
 % Leyenda de estrenos como último renglón de la lista de obras
 \makeatletter
 \newcommand{\leyendaobras}[1]{%
-  \par\nopagebreak[4]\vspace{0.6mm}\nopagebreak[4]\@nobreaktrue
-  \item[]{\footnotesize\color{verdegris}#1}}
+  \par\nopagebreak[4]\vspace{0.75\baselineskip}\nopagebreak[4]%
+  \@itempenalty=\@M
+  \item[]\hspace*{-\leftmargin}{\footnotesize\color{verdegris}#1}}
 \makeatother
 \newenvironment{bloqueprograma}{\par\estilotitulos
   \ifnum\modoprograma=1
     \linespread{1.0}\selectfont\setlength{\anchoespaciocompositor}{0.4mm}%
     \setlength{\parskip}{0.12\baselineskip plus 1pt}%
+  \else\ifnum\modoprograma=2
+    \linespread{0.95}\selectfont\setlength{\anchoespaciocompositor}{0pt}%
+    \setlength{\parskip}{0pt plus 1pt}%
+    \renewcommand{\separadorgrupo}{\par\addvspace{2mm}}%
   \else
     \setlength{\parskip}{0.3\baselineskip plus 1pt minus 0.5pt}%
-  \fi}{\par}
+  \fi\fi}{\par}
 
 % ------------------------------------------------------- Fichas y notas ------
 \newcommand{\circulofoto}[2]{% #1 imagen  #2 diámetro
@@ -433,13 +439,29 @@
   \cabezaficha{#1}{#2}\par\nopagebreak\vspace{1.8mm}%
 }
 \newcommand{\notaobra}[1]{%
-  \par\necesito{4\baselineskip}\addvspace{2.6mm}%
-  {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.6mm}%
+  \par\necesito{5\baselineskip}\addvspace{3mm}%
+  {\estilotitulos\bfseries\color{acento}#1\par}\nopagebreak\vspace{0.4mm}%
 }
 \newcommand{\firma}[1]{\par\nopagebreak{\raggedleft\small\itshape\color{verdegris}#1\par}}
-% Las citas de las notas (textos de los compositores, entre «») se componen
-% igual que el resto de la nota: las comillas ya indican que es cita.
-\newenvironment{cita}{\par}{\par}
+% Notas al programa: recuadro con fondo y filete verdes, al tamaño del texto.
+% Las semblanzas, en cambio, van sin recuadro y un punto menos.
+\newenvironment{notaobratexto}{%
+  \par\nopagebreak
+  \begin{tcolorbox}[enhanced, breakable, frame hidden, boxrule=0pt, sharp corners,
+    colback=fondocita, borderline west={1.6pt}{0pt}{acentoclaro},
+    left=3mm, right=2.4mm, top=1.8mm, bottom=1.8mm, before skip=0.6mm, after skip=2.2mm,
+    parbox=false]
+  \setparsizes{0pt}{0.5\baselineskip plus 1pt}{0pt plus 1fil}}
+  {\end{tcolorbox}}
+% Citas (dentro de una nota con otros párrafos): sangradas, con filete fino.
+\newenvironment{cita}{%
+  \par\addvspace{0.4\baselineskip}%
+  \begin{tcolorbox}[enhanced, breakable, frame hidden, boxrule=0pt, sharp corners,
+    opacityback=0, borderline west={0.6pt}{0pt}{acentoclaro},
+    left=2.4mm, right=0mm, top=0mm, bottom=0mm, boxsep=0pt,
+    before skip=0pt, after skip=0pt, parbox=false]
+  \setparsizes{0pt}{0.5\baselineskip plus 1pt}{0pt plus 1fil}}
+  {\end{tcolorbox}\par\addvspace{0.4\baselineskip}}
 % Semblanzas: un punto menos que las notas al programa.
 \newenvironment{semblanza}{\par\small
   \setparsizes{0pt}{0.5\baselineskip plus 1pt minus 0.5pt}{0pt plus 1fil}}{\par}
@@ -460,7 +482,11 @@
   \par\necesito{4\baselineskip}\addvspace{5mm}%
   {\estilotitulos\fontsize{8.2}{10}\bfseries\color{acento}%
    \rule[-0.5mm]{2.2pt}{3.2mm}\hspace{1.8mm}\espaciado[70]{\MakeUppercase{#1}}\par}\nopagebreak\vspace{1mm}}
+\makeatletter
+\newcommand{\saltocredito}{\par\nobreak\vspace{-\parskip}\nobreak}
+\makeatother
 \newenvironment{creditos}{\par\centering\small
+  \let\\\saltocredito % el cargo no se separa del nombre
   \setlength{\parskip}{2.4mm plus 0.5mm}\hyphenpenalty=10000
   \renewcommand{\grupocreditos}[1]{%
     \par\necesito{4\baselineskip}\addvspace{6mm}%
