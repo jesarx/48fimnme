@@ -78,4 +78,6 @@ grep -E "^(Overfull|Underfull) \\\\hbox" "build/$NOMBRE.log" | sort | uniq -c | 
 if [[ "${1:-}" != "--rapido" ]]; then
   echo "▸ Programa resumido…"
   resumen/compila.sh
+  echo "▸ Postal de boletos…"
+  postal/compila.sh
 fi

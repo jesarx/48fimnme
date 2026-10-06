@@ -1,0 +1,134 @@
+% =============================================================================
+%  Postal para la venta de boletos · 48.º FIMNME
+%  Concierto inaugural y de clausura (Palacio de Bellas Artes, Sala Principal).
+%  Formato 4:5: 108 × 135 mm, que se exporta a 1080 × 1350 px (254 ppp).
+%  Mismo diseño que la portada del Programa general: fondo verde con la
+%  partitura, logotipo del Foro y Noto Sans.
+%
+%  Los textos vienen de «48_FIMNME_abono.docx» y coinciden con los
+%  programas del Markdown; si cambian allá, hay que cambiarlos aquí.
+% =============================================================================
+\documentclass{article}
+\usepackage[paperwidth=108mm, paperheight=135mm, margin=0pt]{geometry}
+\pagestyle{empty}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\newcommand{\rutafuentes}{automatizacion/fuentes/}
+\setmainfont{NotoSans}[
+  Path=\rutafuentes, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
+  FontFace={sb}{n}{*-SemiBold}, FontFace={sb}{it}{*-SemiBoldItalic},
+  FontFace={l}{n}{*-Light}, FontFace={l}{it}{*-LightItalic},
+  FontFace={eb}{n}{*-ExtraBold},
+  Numbers=Lining
+]
+\newcommand{\ligera}{\fontseries{l}\selectfont}
+\newcommand{\seminegrita}{\fontseries{sb}\selectfont}
+\newcommand{\negrita}{\fontseries{b}\selectfont}
+\newcommand{\extranegrita}{\fontseries{eb}\selectfont}
+\usepackage[spanish, es-nodecimaldot, es-noquoting, es-noshorthands, es-nolayout]{babel}
+\usepackage[protrusion=true, expansion=true, tracking=true, final]{microtype}
+\newcommand{\espaciado}[2][80]{\textls[#1]{#2}}
+
+\usepackage{xcolor}
+\usepackage{luacolor}
+\definecolor{verdeoscuro}{HTML}{172B20}
+\definecolor{portadabase}{HTML}{4E5F44}
+\definecolor{portadaluz}{HTML}{768F68}
+\definecolor{portadatexto}{HTML}{E2E6DF}
+\definecolor{portadalogo}{HTML}{C7D2C3}
+\definecolor{portadacaja}{HTML}{A5B9A8}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\input{automatizacion/plantilla/logo-48.tex}
+\input{automatizacion/plantilla/logo-cnmo.tex}
+\newcommand{\partitura}{automatizacion/plantilla/partitura-1x4.pdf}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ------------------------------------------------------------- Textos -------
+\newcommand{\precios}{\$250\enspace·\enspace\$200\enspace·\enspace\$120\enspace·\enspace\$100}
+\newcommand{\sede}{Palacio de Bellas Artes, Sala Principal}
+\newcommand{\direccion}{Av. Juárez y Eje Central, Centro Histórico}
+
+% ------------------------------------------------------------- Piezas -------
+% #1 qué concierto  #2 fecha  #3 conjunto  #4 dirección y solistas (o vacío)
+% #5 obras  #6 nota (o vacío). Los precios y la sede, comunes, van al pie.
+\newcommand{\concierto}[6]{%
+  {\fontsize{6.2}{7.4}\negrita\color{portadacaja}\espaciado[150]{\MakeUppercase{#1}}\par}
+  \vspace{1mm}
+  {\fontsize{8.4}{10}\seminegrita\color{portadatexto}#2\par}
+  \vspace{0.6mm}
+  {\fontsize{12.6}{14.6}\extranegrita\color{white}#3\par}
+  \ifx&#4&\else\vspace{0.6mm}{\fontsize{7.6}{9.4}\selectfont\color{portadatexto}#4\par}\fi
+  \vspace{1.8mm}
+  {\setlength{\fboxsep}{1.3mm}\colorbox{portadacaja}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+    \raggedright\fontsize{7.6}{9.4}\seminegrita\color{verdeoscuro}#5}}\par}
+  \ifx&#6&\else\vspace{1.2mm}{\fontsize{6.2}{7.6}\itshape\color{portadatexto}#6\par}\fi}
+\newcommand{\filete}{\par\vspace{4mm}{\color{portadacaja}\hrule width 12mm height 0.9pt}\vspace{3.6mm}}
+
+\newcommand{\fondopartitura}{%
+  \fill[portadabase] (current page.south west) rectangle (current page.north east);
+  \begin{scope}
+    \clip (current page.south west) rectangle (current page.north east);
+    \shade[inner color=portadaluz, outer color=portadabase]
+      ($(current page.north east)+(-10mm,-6mm)$) circle (110mm);
+    \node[anchor=north east, inner sep=0pt, opacity=0.11]
+      at ($(current page.north east)+(40mm,0mm)$)
+      {\includegraphics[height=\paperheight]{\partitura}};
+  \end{scope}}
+
+\begin{document}
+\begin{tikzpicture}[remember picture, overlay]
+  \fondopartitura
+  % Logotipo y nombre del Foro (como en la portada)
+  \node[anchor=north west, inner sep=0pt] (logo)
+    at ($(current page.north west)+(10mm,-9mm)$) {\logofimnme{14mm}{portadalogo}};
+  \node[anchor=north west, inner sep=0pt, text=portadatexto]
+    at ($(logo.north east)+(3mm,0.3mm)$) {%
+    \renewcommand{\arraystretch}{1}\setlength{\tabcolsep}{0pt}%
+    \begin{tabular}{l}
+      \fontsize{7.8}{8.6}\ligera FORO INTERNACIONAL\\
+      \fontsize{7.8}{8.6}\ligera DE MÚSICA NUEVA\\
+      \fontsize{7.8}{9}\seminegrita MANUEL ENRÍQUEZ\\[0.5mm]
+      \fontsize{5.6}{6.6}\negrita NOVIEMBRE 6 AL 21, 2026
+    \end{tabular}};
+  % Los dos conciertos
+  \node[anchor=north west, inner sep=0pt, text width=88mm, align=flush left]
+    at ($(current page.north west)+(10mm,-29.5mm)$) {%
+    \concierto{Concierto inaugural}{Viernes 6 de noviembre, 20 h}
+      {Orquesta Sinfónica Nacional}
+      {Ludwig Carrasco, director artístico\\
+       {\seminegrita Simon Höfele}, trompeta (Alemania)}
+      {Obras de Cristina García Islas, Bernd Alois Zimmermann\\ y Kaija Saariaho}
+      {En colaboración con el Patronato de la Industria Alemana para la Cultura}
+    \filete
+    \concierto{Concierto de clausura}{Sábado 21 de noviembre, 19 h}
+      {Tambuco Ensamble de Percusiones}
+      {}
+      {Obras de Marcela Rodríguez, Alejandro Cardona, Manuel Enríquez, Federico Ibarra
+       y Kaija Saariaho}
+      {}};
+  % Sede y boletos (los mismos para los dos conciertos)
+  \node[anchor=south west, inner sep=0pt, text width=88mm, align=flush left, text=portadatexto]
+    at ($(current page.south west)+(10mm,21mm)$) {%
+    {\color{portadacaja}\hrule width 88mm height 0.5pt}\vspace{3mm}
+    {\fontsize{8.8}{10.4}\negrita\color{white}\sede\par}
+    \vspace{0.3mm}{\fontsize{7.2}{8.6}\selectfont\direccion\par}
+    \vspace{2.4mm}
+    {\fontsize{6.2}{7.4}\negrita\color{portadacaja}\espaciado[150]{BOLETOS}\enspace
+     \fontsize{9.6}{11}\negrita\color{white}\precios\par}};
+  % Logotipos
+  \node[anchor=south west, inner sep=0pt] (cnmo)
+    at ($(current page.south west)+(10mm,7.5mm)$) {\logocnmo{11mm}{white}};
+  \node[anchor=west, inner sep=0pt] (osn) at ($(cnmo.east)+(6mm,0)$)
+    {\includegraphics[height=6.6mm]{build/postal/osn-blanco.png}};
+  \node[anchor=west, inner sep=0pt] at ($(osn.east)+(6mm,0)$)
+    {\includegraphics[height=4.8mm]{build/postal/patronato-blanco.png}};
+\end{tikzpicture}
+\end{document}

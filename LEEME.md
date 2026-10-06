@@ -7,6 +7,7 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 ./compila.sh            # compilación completa (3–10 pasadas, ~4 min)
 ./compila.sh --rapido   # una sola pasada, para revisar cambios
 resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
+postal/compila.sh       # solo la postal de boletos (también la genera la compilación completa)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -26,6 +27,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `revision/` | Listas de correcciones y comentarios recibidos (con sus PDF), y ejemplos de referencia (`ejemplos/`). |
 | `resumen/` | Programa resumido (agenda en una página y programas condensados; ver `resumen/LEEME.md`). |
+| `postal/` | Postal para la venta de boletos (concierto inaugural y de clausura), 1080 × 1350 px, en PNG y PDF. Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí. |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
