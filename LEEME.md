@@ -6,6 +6,7 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 ```bash
 ./compila.sh            # compilación completa (3–5 pasadas, ~2 min)
 ./compila.sh --rapido   # una sola pasada, para revisar cambios
+resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -21,6 +22,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `revision/` | Listas de correcciones para revisar (p. ej. el cotejo con los programas de mano). |
+| `resumen/` | Programa resumido (agenda en una página y programas condensados; ver `resumen/LEEME.md`). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
