@@ -12,6 +12,11 @@ cd "$(dirname "$0")/.."
 NOMBRE=fimnme2026-resumen
 mkdir -p build/resumen
 
+# Logotipos de la página final: los que prepara el programa general, en
+# copias ligeras (si aún no están preparados, se preparan aquí)
+[ -f build/logos/manifiesto.tsv ] || python3 automatizacion/preparar_logos.py
+python3 resumen/reducir_logos.py
+
 pandoc fimnme2026-programa.md \
   --from markdown \
   --template=resumen/resumen.latex \

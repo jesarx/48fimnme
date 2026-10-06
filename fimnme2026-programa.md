@@ -4076,7 +4076,7 @@ Carlos Blázquez
 
 **Aldo Aranda**, percusiones
 
-**Omán Kaminsky**, guitarra
+**Carlos Larrauri**, guitarra
 
 ### Personas compositoras
 
@@ -4486,25 +4486,6 @@ Secretaría de Cultura como Creador Artístico con Trayectoria, su trabajo
 se proyecta como un puente entre culturas, generaciones y lenguajes.
 Actualmente reside en Amberes, donde desarrolla nuevos proyectos
 interdisciplinarios y su próxima producción discográfica como solista.
-
-#### Omán Kaminsky
-
-![](int/Omán%20Kaminsky.jpeg)
-
-Estudió la Licenciatura en Guitarra en la Escuela Superior de Música del
-INBAL (ESM). Con apoyo de la beca holandesa HSP Huygens, realizó un
-posgrado en el Koninklijk Conservatorium de La Haya, especializándose en
-Guitarra y Música de cámara, y gracias al Programa de Becas para
-Estudios en el Extranjero del Fonca-Conacyt, estudió una segunda
-maestría con especialidad en Pedagogía musical en la misma institución.
-En México ha impartido cátedra de Guitarra en la Facultad de Música de
-la UNAM, la ESM y la Escuela Vida y Movimiento del Centro Cultural Ollin
-Yoliztli. Ha participado como solista con importantes orquestas de
-México y los Países Bajos. Ha sido galardonado con primeros premios en
-más de treinta concursos internacionales de guitarra en México, Estados
-Unidos, España, Bélgica, Países Bajos, Alemania, Austria, Bosnia
-Herzegovina y Serbia. Recientemente le fue concedido el reconocimiento
-Distinción Universidad Nacional para Jóvenes Académicos.
 
 ## SÁB | NOV 14, 13:00 h - Ensamble de Música Nueva (FaM-UNAM)
 
@@ -5033,7 +5014,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 
 ## SÁB | NOV 14, 19:00 h - Cepromusic: Saariaho
 
-Auditorio Simón Bolívar, Colegio de San Ildefonso, UNAM
+Anfiteatro Simón Bolívar, Colegio de San Ildefonso, UNAM
 
 **Monográfico Saariaho**
 
@@ -11072,7 +11053,7 @@ Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
 **Sala Nezahualcóyotl, Centro Cultural Universitario, UNAM**\
 Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
 
-**Auditorio Simón Bolívar, Colegio de San Ildefonso, UNAM**\
+**Anfiteatro Simón Bolívar, Colegio de San Ildefonso, UNAM**\
 Justo Sierra 16, Centro Histórico, Ciudad de México
 
 **Facultad de Música, UNAM**\

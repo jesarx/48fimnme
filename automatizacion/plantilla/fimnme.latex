@@ -311,6 +311,20 @@
   \encabezadoconcierto{#1}{#2}{#3}{#4}{#5}{#6}%
 }
 % Actividades académicas: entradas breves, sin salto de página
+% Bloque de una actividad académica: no se parte entre páginas (si no cabe,
+% pasa entera a la siguiente). Se compone primero en una caja y se mide; la
+% cabecera de página cambia solo cuando la caja ya está en su página.
+\makeatletter
+\newsavebox{\cajaactividad}
+\newenvironment{actividadentera}{\par\addvspace{6mm}%
+  \begin{lrbox}{\cajaactividad}\begin{minipage}[t]{\linewidth}\let\necesito\@gobble
+  \def\fijarcabecera##1{\gdef\cabecerapendiente{##1}}%
+  \setparsizes{0pt}{0.55\baselineskip plus 1pt minus 0.5pt}{0pt plus 1fil}}
+  {\par\end{minipage}\end{lrbox}%
+  \necesito{\dimexpr\ht\cajaactividad+\dp\cajaactividad+6mm\relax}%
+  \ifdefined\cabecerapendiente\global\let\cabeceraizq\cabecerapendiente\fi
+  \noindent\usebox{\cajaactividad}\par\addvspace{2mm}}
+\makeatother
 \newcommand{\actividadacademica}[6]{%
   \par\necesito{14\baselineskip}\addvspace{6mm}%
   \encabezadoconcierto{#1}{#2}{#3}{#4}{#5}{#6}%
@@ -373,8 +387,10 @@
   \item[]\hspace*{0.9em}{\small\color{verdegris}#1}}
 % Aire entre los movimientos de una obra y la obra siguiente
 \newcommand{\trasmovimientos}{\par\addvspace{1.6mm}}
+% Si el programa no cabe en una página ni compactado (modo 3), la segunda
+% parte empieza en la página siguiente: así no queda una obra suelta.
 \newcommand{\intermedio}{%
-  \par\addvspace{2mm}%
+  \par\ifnum\modoprograma=3 \newpage\fi\addvspace{2mm}%
   \noindent{\color{filete}\leaders\hrule height 0.5pt depth 0pt\hfill}%
   \enspace{\footnotesize\bfseries\color{verdegris}\espaciado[120]{INTERMEDIO}}\enspace
   {\color{filete}\leaders\hrule height 0.5pt depth 0pt\hfill}\par\addvspace{1.2mm}}
@@ -510,8 +526,10 @@
 % Conciertos que solo tienen programa: la franja siempre al pie del programa
 \newcommand{\logosalpie}[2][fill]{\par\vspace{0pt plus 1#1}\cajadelogos[3.5mm]{#2}%
   \vskip 3.5mm\box\cajalogos\par}
-\newcommand{\logosactividad}[1]{\par\addvspace{4mm}\nopagebreak\franjalogos{#1}%
-  \par\addvspace{3mm}}
+% En las actividades académicas la franja va más pegada al texto
+\newcommand{\logosactividad}[1]{\par\addvspace{1.5mm}\nopagebreak
+  {\centering\setlength{\baselineskip}{9mm}\setlength{\lineskiplimit}{1mm}%
+  \setlength{\lineskip}{2.5mm}#1\par}}
 % Página final con todos los logotipos de los conciertos (antes del colofón)
 \newcommand{\logosepancho}{\hskip 6mm plus 5mm minus 2mm\relax}
 \newcommand{\paginalogos}[1]{\clearpage\thispagestyle{empty}\fijarcabecera{}%

@@ -1,17 +1,23 @@
 # Programa resumido · 48.º FIMNME
 
 `fimnme2026-resumen.pdf` es la versión concentrada del Programa General:
-mismo formato (108 × 192 mm) y paleta, sin fotos, semblanzas ni notas.
+mismo formato (108 × 192 mm) y paleta, sin fotos, semblanzas ni notas, con
+letra de lectura (Noto Sans de 8 pt en los programas).
 
-- **Página 1 · Agenda.** Todos los conciertos, actividades académicas y
-  sesiones del Coloquio con día, hora, título y la letra de su sede, más la
-  clave de sedes con su dirección. Es lo necesario para llegar a cada
-  concierto.
-- **Páginas 2–5 · Programas.** Por concierto: compositores y obras (con las
-  marcas de estreno), intérpretes y solistas, en texto corrido y a dos
-  columnas. Se omiten años, duraciones, movimientos y las listas de
-  integrantes de los conjuntos (se dan su nombre y su dirección). Cuando un
-  concierto repite el programa de otro, se indica «Mismo programa que…».
+- **Páginas 1–2 · Agenda.** Todos los conciertos, actividades académicas y
+  sesiones del Coloquio, día por día, con hora, título y la letra de su sede,
+  más la clave de sedes con su dirección.
+- **Programas.** Un concierto por bloque (no se parte entre páginas): fecha,
+  título y sede; sus intérpretes y las personas compositoras («Obras de A, B
+  y C»), sin los títulos de las obras; y cuántos estrenos mundiales y en
+  México tiene. Al principio, el total de estrenos del Foro (cada obra una
+  sola vez). Cuando un concierto repite el programa de otro, se indica
+  «Mismo programa que…». Se omiten las listas de integrantes de los
+  conjuntos (se dan su nombre y su dirección).
+- **Actividades académicas y Coloquio**, con sus participantes.
+- **Última página · Logotipos.** Todos los logotipos del Programa general (los
+  bloques `::: logos` de cada concierto), sin repetir, en copias ligeras
+  para que el PDF siga pesando poco.
 
 No se edita a mano: se genera a partir del mismo `fimnme2026-programa.md`,
 así que cualquier corrección al programa general llega también aquí.
@@ -23,7 +29,8 @@ resumen/compila.sh      # unos segundos; ./compila.sh también lo regenera
 | Archivo | Para qué sirve |
 |---|---|
 | `resumen.lua` | Lee el Markdown y arma la agenda y los programas condensados. |
-| `resumen.latex` | Diseño: página, tipografía (Noto Sans SemiCondensed), colores, agenda, programas. |
+| `resumen.latex` | Diseño: página, tipografía (Noto Sans; la agenda en SemiCondensed), colores, agenda, programas. |
+| `reducir_logos.py` | Copias ligeras (300 ppp, 16 niveles) de los logotipos que prepara `automatizacion/preparar_logos.py`. |
 | `compila.sh` | Compila el PDF (en `build/resumen/`) y lo copia aquí. |
 
 Las sedes y sus direcciones salen de la sección `## Sedes` del Markdown; la

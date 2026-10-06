@@ -8,10 +8,13 @@
 --
 --   * programa desbordado (≤ 8 líneas): se compone ese programa con un
 --     interlineado algo más compacto;
---   * final suelto (≤ 4 líneas en la última página de una sección de
---     semblanzas): esa sección se compone con interlineado algo más compacto;
---     si aun así queda suelto, con uno algo más holgado, de modo que la última
---     página tenga suficientes líneas.
+--   * final suelto (unas 6 líneas o menos en la última página de una sección
+--     de semblanzas, o la franja de logotipos sola en su página): esa sección
+--     se compone con interlineado algo más compacto; si aun así queda suelto,
+--     con uno algo más holgado, de modo que la última página tenga suficientes
+--     líneas;
+--   * programa que ni compactado cabe en una página (modo 3): si tiene
+--     intermedio, la segunda parte empieza en la página siguiente.
 --
 -- Las decisiones se guardan en el .aux y son estables (no oscilan); los
 -- márgenes no se tocan.
@@ -65,11 +68,11 @@ local function modo_seccion(sid)
   local arriba, linea = medidas()
   local ini, fin = fimnme.pos["ini:" .. sid], fimnme.pos["fin:" .. sid]
   local prev = fimnme.previo["sec:" .. sid] or 0
-  local suelto = ini and fin and fin.page > ini.page and arriba - fin.y <= 6 * linea
-  -- Con franja de logotipos: unos renglones sueltos acompañados de la
-  -- franja están bien; lo que hay que evitar es la franja sola en una página.
+  local suelto = ini and fin and fin.page > ini.page and arriba - fin.y <= 8 * linea
+  -- Con franja de logotipos: también es suelto que la franja quede sola en
+  -- una página.
   local logos = fimnme.pos["logos:" .. sid]
-  if logos and fin then suelto = logos.page > fin.page end
+  if logos and fin and logos.page > fin.page then suelto = true end
   if not suelto then return prev end
   return math.min(prev + 1, 4)
 end

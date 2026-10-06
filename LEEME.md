@@ -4,7 +4,7 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 (contenido) y `fimnme2026-programa.yaml` (metadatos).
 
 ```bash
-./compila.sh            # compilación completa (3–5 pasadas, ~2 min)
+./compila.sh            # compilación completa (3–10 pasadas, ~4 min)
 ./compila.sh --rapido   # una sola pasada, para revisar cambios
 resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
 ```
@@ -55,7 +55,9 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   intérpretes, cada grupo va separado del siguiente y no se parte entre
   páginas; un `---` entre grupos también los separa. Si todo el programa lo
   tocan los mismos intérpretes, su bloque va al pie de la página; también
-  el de un grupo que queda solo en su página.
+  el de un grupo que queda solo en su página. Si un programa no cabe en una
+  página ni con el interlineado compacto y tiene intermedio, la segunda
+  parte empieza en la página siguiente.
 - Solista de una obra concreta (dentro de un grupo que tocan otros):
   `[**Nombre**, instrumento]{.solista}` justo después de la obra; sale como
   crédito bajo la obra.
@@ -102,6 +104,8 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 - Para remitir a la página de otro concierto: `` `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex} ``.
   La etiqueta se forma sola con la fecha y el título del encabezado, en
   minúsculas, sin acentos y con guiones.
+- Cada actividad académica (con sus participantes y logotipos) va en un
+  bloque que no se parte entre páginas.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.
