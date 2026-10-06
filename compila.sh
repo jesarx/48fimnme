@@ -45,6 +45,10 @@ firma_aux() {
   grep -h -E '^\\(fimnmeajuste|newlabel)' "build/$NOMBRE.aux" 2>/dev/null | md5sum
 }
 
+# Una compilación completa parte de cero: el ajuste fino solo escala dentro
+# de una misma compilación, así que no debe heredar decisiones de otra.
+if [[ "${1:-}" != "--rapido" ]]; then rm -f "build/$NOMBRE.aux"; fi
+
 echo "▸ LuaLaTeX (pasada 1)…"
 lualatex_pasada
 if [[ "${1:-}" != "--rapido" ]]; then

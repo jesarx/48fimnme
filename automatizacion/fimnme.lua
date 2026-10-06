@@ -40,17 +40,43 @@ local function rawi(s)
   return pandoc.RawInline("latex", s)
 end
 
--- Inlines → LaTeX
+-- Caracteres CJK: se envuelven para usar una fuente que los tenga.
+local function envolver_cjk(inlines)
+  return pandoc.Inlines(inlines):walk({
+    Str = function(el)
+      if not el.text:find("[\228-\233][\128-\191][\128-\191]") then return nil end
+      local out = pandoc.List()
+      local buf, cjk = "", false
+      for _, c in utf8.codes(el.text) do
+        local ch = utf8.char(c)
+        local es = c >= 0x2E80 and c <= 0x9FFF
+        if es ~= cjk and buf ~= "" then
+          out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
+          buf = ""
+        end
+        cjk = es
+        buf = buf .. ch
+      end
+      if buf ~= "" then
+        out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
+      end
+      return out
+    end,
+  })
+end
+
+-- Inlines → LaTeX (los caracteres CJK siempre van con su fuente)
 local function latex(inlines)
   if inlines == nil or #inlines == 0 then return "" end
-  local doc = pandoc.Pandoc({ pandoc.Plain(inlines) })
+  local doc = pandoc.Pandoc({ pandoc.Plain(envolver_cjk(inlines)) })
   local s = pandoc.write(doc, "latex", { wrap_text = "wrap-none" })
   return trim(s)
 end
 
 -- Bloques → LaTeX
 local function latex_blocks(blocks)
-  local s = pandoc.write(pandoc.Pandoc(blocks), "latex", { wrap_text = "wrap-none" })
+  local doc = pandoc.Pandoc(blocks):walk({ Inlines = function(il) return envolver_cjk(il) end })
+  local s = pandoc.write(doc, "latex", { wrap_text = "wrap-none" })
   return trim(s)
 end
 
@@ -106,30 +132,6 @@ local function clave_orden(s)
   return s
 end
 
--- Caracteres CJK: se envuelven para usar una fuente que los tenga.
-local function envolver_cjk(inlines)
-  return pandoc.Inlines(inlines):walk({
-    Str = function(el)
-      if not el.text:find("[\228-\233][\128-\191][\128-\191]") then return nil end
-      local out = pandoc.List()
-      local buf, cjk = "", false
-      for _, c in utf8.codes(el.text) do
-        local ch = utf8.char(c)
-        local es = c >= 0x2E80 and c <= 0x9FFF
-        if es ~= cjk and buf ~= "" then
-          out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
-          buf = ""
-        end
-        cjk = es
-        buf = buf .. ch
-      end
-      if buf ~= "" then
-        out:insert(cjk and rawi("\\textocjk{" .. buf .. "}") or pandoc.Str(buf))
-      end
-      return out
-    end,
-  })
-end
 
 -- -----------------------------------------------------------------------------
 -- Configuración
@@ -449,6 +451,13 @@ function Pandoc(doc)
   -- lleva la foto y el texto; las siguientes, solo «Ver pág. N».
   local bio_compositor = {}     -- clave del nombre → etiqueta de su primera semblanza
   local saltando_bio = false    -- omitiendo el texto de una semblanza repetida
+  -- Semblanzas de intérpretes y notas al programa que se repiten tal cual
+  -- (mismo nombre u obra y el mismo texto): las siguientes, «Ver pág. N».
+  local bio_persona = {}        -- clave del nombre → { {etiqueta, palabras, n}, ... }
+  local nota_vista = {}         -- compositor|obra → { {etiqueta, palabras, n}, ... }
+  local num_etiqueta = 0
+  local ultimo_comp = ""        -- compositor de la ficha en curso (para sus notas)
+  local seccion_previa = nil    -- «programa», «referencias» u «otra» (en el concierto)
   local num_seccion = 0
   local secciones_mayor = 0     -- secciones ### dentro de la sección ## sin fecha actual
   local dia_divisor = nil      -- último día con página divisoria
@@ -464,6 +473,49 @@ function Pandoc(doc)
     while bloques[k] and bloques[k].t == "RawBlock" do k = k + 1 end
     local bk = bloques[k]
     return bk ~= nil and (bk.t == "Para" or bk.t == "Plain" or bk.t == "BlockQuote")
+  end
+
+  -- Palabras del texto que sigue a un encabezado (hasta el siguiente)
+  local function palabras_desde(k)
+    local set, cuenta = {}, 0
+    while bloques[k] and bloques[k].t ~= "Header" do
+      local bk = bloques[k]
+      if bk.t ~= "RawBlock" and bk.t ~= "HorizontalRule" and not imagen_sola(bk) then
+        for w in stringify(bk):lower():gmatch("[%w\128-\255]+") do
+          if not set[w] then set[w] = true; cuenta = cuenta + 1 end
+        end
+      end
+      k = k + 1
+    end
+    return set, cuenta
+  end
+
+  -- ¿El texto que empieza en k ya se compuso bajo esta clave? (≥ 90 % de
+  -- palabras en común). Devuelve la etiqueta de la primera aparición.
+  local function ya_visto(tabla, clave, k)
+    local lista = tabla[clave]
+    if not lista then return nil end
+    local p, np = palabras_desde(k)
+    if np == 0 then return nil end
+    for _, v in ipairs(lista) do
+      local comun = 0
+      for w in pairs(p) do if v.palabras[w] then comun = comun + 1 end end
+      if comun / (np + v.n - comun) >= 0.9 then return v.etiqueta end
+    end
+    return nil
+  end
+
+  local function registrar(tabla, clave, k, prefijo)
+    num_etiqueta = num_etiqueta + 1
+    local p, np = palabras_desde(k)
+    local etiqueta = prefijo .. num_etiqueta
+    tabla[clave] = tabla[clave] or {}
+    table.insert(tabla[clave], { etiqueta = etiqueta, palabras = p, n = np })
+    return etiqueta
+  end
+
+  local function clave_nota(h)
+    return ultimo_comp .. "|" .. clave_orden(stringify(h.content))
   end
 
   local function cerrar_indice()
@@ -515,6 +567,24 @@ function Pandoc(doc)
     cerrar_semblanza()
     emit(raw("\\begin{semblanza}"))
     en_semblanza = true
+  end
+
+  -- Nota al programa (encabezado en b, texto desde i + 1). Si la misma nota
+  -- de la misma obra ya apareció, solo su título y «Ver pág. N».
+  local function emitir_nota(b, i)
+    local clave = clave_nota(b)
+    local ref = concierto_abierto and ya_visto(nota_vista, clave, i + 1)
+    if ref then
+      emit(raw("\\notaver{" .. latex(b.content) .. "}{" .. ref .. "}"))
+      saltando_bio = true
+    else
+      local marca = ""
+      if concierto_abierto and siguiente_es_texto(i) then
+        marca = "\\phantomsection\\label{" .. registrar(nota_vista, clave, i + 1, "nota:") .. "}"
+      end
+      emit(raw("\\notaobra{" .. latex(b.content) .. "}" .. marca))
+      abrir_nota(i + 1)
+    end
   end
 
   -- Cierra el bloque de intérpretes; «sigue» indica que el programa continúa
@@ -593,9 +663,30 @@ function Pandoc(doc)
             inicio = k + 1
           end
         end
+        -- Marcas para el ajuste fino: si un grupo queda solo en su página,
+        -- sus intérpretes van al pie (y, si es el último, la leyenda de
+        -- estrenos va antes, tras las obras).
+        local leyenda = leyenda_latex(marcas)
         for c = #cortes, 1, -1 do
-          local lineas = estimar(cortes[c][1], cortes[c][2])
-          if lineas < 30 then out:insert(cortes[c][1], raw("\\inigrupo{" .. lineas .. "}")) end
+          local a, z = cortes[c][1], cortes[c][2]
+          local lineas = estimar(a, z)
+          if concierto_abierto then
+            local id = concierto_abierto .. "}{" .. c
+            local bloque, comp
+            for k = a, z do
+              local e = out[k]
+              if e.t == "RawBlock" and e.text == "\\begin{interpretes}" then bloque = k end
+              if not comp and e.t == "RawBlock" and e.text:match("^\\compositor{") then comp = k end
+            end
+            out:insert(z + 1, raw("\\grupofin{" .. id .. "}"))
+            if bloque then
+              local ultimo = c == #cortes
+              out:insert(bloque, raw("\\grupoint{" .. id .. "}{" .. (ultimo and 1 or 0) .. "}{" ..
+                ((ultimo and leyenda) or "") .. "}"))
+            end
+            out:insert(comp and comp + 1 or a, raw("\\grupoini{" .. id .. "}"))
+          end
+          if lineas < 30 then out:insert(a, raw("\\inigrupo{" .. lineas .. "}")) end
         end
       end
       -- Si todo el programa lo tocan los mismos intérpretes, van al pie de la página
@@ -607,7 +698,8 @@ function Pandoc(doc)
       local l = leyenda_latex(marcas)
       if l and bloques_int > 1 then
         -- varios grupos: la leyenda cierra el programa, tras el último grupo
-        emit(raw((l:gsub("^\\leyenda", "\\leyendafinal"))))
+        -- (salvo que ese grupo vaya al pie de la página: entonces va antes)
+        emit(raw((l:gsub("^\\leyenda", concierto_abierto and "\\leyendagrupos" or "\\leyendafinal"))))
         l = nil
       end
       if l then
@@ -806,6 +898,7 @@ function Pandoc(doc)
           escape(fecha_texto(f) .. " · " .. titulo_txt), etiqueta, etiqueta)))
         if macro == "\\concierto" then
           concierto_abierto = num_concierto
+          seccion_previa = nil
           emit(raw("\\iniconcierto{" .. num_concierto .. "}"))
         end
         -- Lugar: primer párrafo tras el encabezado
@@ -844,26 +937,44 @@ function Pandoc(doc)
       if mayor and (SECCIONES_CENTRADAS[mayor] or SECCIONES_SEDES[mayor]) then
         emit(raw("\\grupocreditos{" .. latex(b.content) .. "}\\marcador{3}{" .. escape(texto) .. "}"))
       elseif seccion ~= "programa" and concierto_abierto then
-        -- Personas compositoras, Intérpretes...: cada sección en página nueva,
-        -- salvo que solo contenga referencias «Ver pág.» (compositores que ya
-        -- aparecieron y sin notas a sus obras): entonces sigue en la página.
-        local solo_referencias = SECCIONES_FICHA[seccion] == "comp"
+        -- Personas compositoras, Intérpretes...: cada sección en página nueva.
+        -- Una sección que solo tiene referencias «Ver pág.» (fichas y notas
+        -- que ya aparecieron) sigue en la página, salvo justo después del
+        -- programa; y la sección que viene tras ella también puede seguir.
+        local tipo_sec = SECCIONES_FICHA[seccion]
+        local solo_referencias = tipo_sec ~= nil
+        local comp_previo = ultimo_comp
         local k = i + 1
         while solo_referencias and bloques[k] and not (bloques[k].t == "Header" and bloques[k].level <= 3) do
           local bk = bloques[k]
           if bk.t == "Header" then
-            if bk.level ~= 4 then solo_referencias = false
-            else
-              local nom = partir_ficha(bk.content)
-              if not bio_compositor[clave_orden(stringify(nom))] then solo_referencias = false end
+            if bk.level == 4 then
+              local cl = clave_orden(stringify((partir_ficha(bk.content))))
+              local t = k + 1
+              if imagen_sola(bloques[t]) then t = t + 1 end
+              if tipo_sec == "comp" then
+                ultimo_comp = cl
+                if not bio_compositor[cl] then solo_referencias = false end
+              elseif not ya_visto(bio_persona, cl, t) then
+                solo_referencias = false
+              end
+            elseif not ya_visto(nota_vista, clave_nota(bk), k + 1) then
+              solo_referencias = false
             end
           end
           k = k + 1
         end
+        ultimo_comp = comp_previo
+        local inicio = "\\clearpage"
+        if solo_referencias and seccion_previa ~= "programa" then
+          inicio = "\\necesito{6\\baselineskip}\\par\\addvspace{7mm}"
+        elseif seccion_previa == "referencias" then
+          inicio = "\\necesito{14\\baselineskip}\\par\\addvspace{8mm}"
+        end
+        seccion_previa = solo_referencias and "referencias" or "otra"
         num_seccion = num_seccion + 1
         seccion_abierta = concierto_abierto .. "-" .. num_seccion
-        emit(raw((solo_referencias and "\\necesito{6\\baselineskip}\\par\\addvspace{7mm}" or "\\clearpage") ..
-          "\\iniseccion{" .. seccion_abierta .. "}"))
+        emit(raw(inicio .. "\\iniseccion{" .. seccion_abierta .. "}"))
         emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
       else
         -- en el Coloquio, cada sección después de la primera en página nueva
@@ -872,6 +983,7 @@ function Pandoc(doc)
       end
       if mayor then secciones_mayor = secciones_mayor + 1 end
       if seccion == "programa" then
+        seccion_previa = "programa"
         en_programa = true
         marcas = {}
         tras_lista = false
@@ -905,15 +1017,22 @@ function Pandoc(doc)
         end
         local clave = clave_orden(stringify(nombre))
         local tiene_bio = siguiente_es_texto(i)
-        if tipo == "comp" and bio_compositor[clave] then
-          -- ya apareció: nombre y referencia a la primera semblanza
+        if tipo == "comp" then ultimo_comp = clave end
+        -- ¿Ya apareció? Compositores: por el nombre; intérpretes: nombre y
+        -- la misma semblanza (puede haber aparecido antes como compositor).
+        local ref
+        if tipo == "comp" then ref = bio_compositor[clave]
+        elseif tiene_bio then ref = ya_visto(bio_persona, clave, i + 1) end
+        if ref then
+          -- nombre y referencia a la primera semblanza
           emit(raw(string.format("\\fichaver{%s}{%s}{%s}%s", nombre_tex, detalle,
-            bio_compositor[clave], marca)))
+            ref, marca)))
           saltando_bio = true
         else
-          if tipo == "comp" and tiene_bio then
-            bio_compositor[clave] = "bio:" .. clave:gsub("[^%w]", "")
-            marca = marca .. "\\label{" .. bio_compositor[clave] .. "}"
+          if tiene_bio then
+            local et = registrar(bio_persona, clave, i + 1, "bio:")
+            if tipo == "comp" then bio_compositor[clave] = et end
+            marca = marca .. "\\phantomsection\\label{" .. et .. "}"
           end
           if foto then
             emit(raw(string.format("\\ficha{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
@@ -928,16 +1047,14 @@ function Pandoc(doc)
         for _, ff in ipairs(fechas) do table.insert(kicker, escape(fecha_hora_texto(ff))) end
         emit(raw("\\actividad{" .. table.concat(kicker, "\\quad/\\quad ") .. "}{" .. latex(der) .. "}"))
       else
-        emit(raw("\\notaobra{" .. latex(b.content) .. "}"))
-        abrir_nota(i + 1)
+        emitir_nota(b, i)
       end
       i = i + 1
 
     elseif b.t == "Header" then
       cerrar_semblanza()
       cerrar_programa()
-      emit(raw("\\notaobra{" .. latex(envolver_cjk(b.content)) .. "}"))
-      abrir_nota(i + 1)
+      emitir_nota(b, i)
       i = i + 1
 
     -- Ficha cuyo nombre viene en negritas en lugar de «####»

@@ -44,7 +44,8 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   verde. Si el programa tiene varios grupos de obras con distintos
   intérpretes, cada grupo va separado del siguiente y no se parte entre
   páginas; un `---` entre grupos también los separa. Si todo el programa lo
-  tocan los mismos intérpretes, su bloque va al pie de la página.
+  tocan los mismos intérpretes, su bloque va al pie de la página; también
+  el de un grupo que queda solo en su página.
 - Solista de una obra concreta (dentro de un grupo que tocan otros):
   `[**Nombre**, instrumento]{.solista}` justo después de la obra; sale como
   crédito bajo la obra.
@@ -57,17 +58,20 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 - `#### Nombre (País, año)` seguido de `![](comp/Foto.jpg)` crea la ficha con
   foto circular (también para conjuntos: si los rostros no caben, la foto se
   muestra completa sobre un fondo difuminado). Las semblanzas se componen un
-  punto menos que las notas. Los intérpretes llevan su foto y semblanza cada
-  vez que aparecen; los compositores, solo la primera vez: en las siguientes
-  sale su nombre con «Ver pág. N» (enlace a la primera semblanza), y sus notas
-  a la obra se conservan.
+  punto menos que las notas. Foto y semblanza van solo la primera vez: en las
+  siguientes sale el nombre con «Ver pág. N» (enlace a la primera semblanza).
+  A los compositores les basta el nombre; a los intérpretes, el nombre y la
+  misma semblanza (si el texto es otro, p. ej. una semblanza como director,
+  se compone completa).
 - `##### *Obra*`: título de nota al programa. El texto de la nota va en un
   recuadro con fondo verde claro, al tamaño normal; si la nota incluye una
   cita (`> «…»`) junto con otros párrafos, la cita va sangrada dentro del
-  recuadro.
+  recuadro. Si la misma nota de la misma obra ya apareció, sale su título con
+  «Ver pág. N».
 - Cada sección de un concierto (Programa, Personas compositoras,
-  Intérpretes…) empieza en página nueva, salvo una sección que solo tenga
-  referencias «Ver pág.».
+  Intérpretes…) empieza en página nueva. Una sección que solo tenga
+  referencias «Ver pág.» sigue en la página (salvo justo después del
+  programa), y la sección siguiente puede seguir tras ella.
 - Para remitir a la página de otro concierto: `` `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex} ``.
   La etiqueta se forma sola con la fecha y el título del encabezado, en
   minúsculas, sin acentos y con guiones.

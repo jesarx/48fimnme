@@ -31,7 +31,8 @@ local function escribe_aux(clave, modo)
     clave, modo))
 end
 
--- Devuelve el modo del programa (0 normal, 1 compacto, 2 más compacto).
+-- Devuelve el modo del programa (0 normal, 1 compacto, 2 más compacto,
+-- 3 normal porque ni el más compacto cabe).
 -- «pre» marca el final de las obras, antes del bloque de intérpretes que va al
 -- pie de la página. Los modos solo escalan, así que no oscilan.
 local function modo_programa(n)
@@ -47,7 +48,12 @@ local function modo_programa(n)
       desbordado = ref.page == ini.page + 1 and arriba - ref.y <= 8 * linea
     end
   end
-  if desbordado then return math.min(prev + 1, 2) end
+  if desbordado then
+    -- si ni el modo más compacto basta, compactar no sirve: modo 3, que se
+    -- compone como el normal (y ya no cambia)
+    if prev >= 2 then return 3 end
+    return prev + 1
+  end
   return prev
 end
 
@@ -74,4 +80,22 @@ function fimnme.iniseccion(sid)
   local mb = modo_seccion(sid)
   escribe_aux("sec:" .. sid, mb)
   tex.sprint(string.format("\\def\\modobiografias{%d}", mb))
+end
+
+-- Grupo de obras de un programa con varios grupos de intérpretes: si quedó
+-- solo en su página (el grupo anterior terminó en otra página y el siguiente
+-- empieza en otra), sus intérpretes van al pie. No altera la paginación.
+function fimnme.grupofondo(n, g, ultimo)
+  local k = n .. "-" .. g
+  local fin = fimnme.pos["gf:" .. k]
+  local modo = 0
+  if fin then
+    local ant = fimnme.pos["gf:" .. n .. "-" .. (g - 1)]
+    local sig = fimnme.pos["gi:" .. n .. "-" .. (g + 1)]
+    local arriba = g == 1 or (ant ~= nil and ant.page < fin.page)
+    local abajo = ultimo == 1 or (sig ~= nil and sig.page > fin.page)
+    if arriba and abajo then modo = 1 end
+  end
+  escribe_aux("grp:" .. k, modo)
+  tex.sprint(string.format("\\def\\fondogrupo{%d}", modo))
 end
