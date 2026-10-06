@@ -6,8 +6,10 @@
 --
 --    * Agenda (una página): fecha, hora, título y sede de cada concierto y
 --      actividad, con una clave de sedes y sus direcciones.
---    * Programas: compositores, obras e intérpretes de cada concierto, en
---      texto corrido; sin semblanzas, notas, años ni duraciones.
+--    * Programas: intérpretes y personas compositoras de cada concierto
+--      («Obras de A, B y C», sin los títulos) y cuántos estrenos tiene; sin
+--      semblanzas ni notas.
+--    * Página final con todos los logotipos del programa general.
 --
 --  Sedes y direcciones salen de la sección «## Sedes» del Markdown.
 -- =============================================================================
@@ -164,7 +166,7 @@ local function titulo_corto(inlines)
     end
   end
   s = trim(s:gsub(",%s*$", ""))
-  return s .. marcas
+  return s, marcas
 end
 
 -- -----------------------------------------------------------------------------
@@ -328,11 +330,14 @@ function Pandoc(doc)
              and sig and sig.t == "BulletList" then
         -- compositor
         if not grupo or tras_obras then nuevo_grupo() end
-        table.insert(grupo.obras, { compositor = latex(b.content[1].content), titulos = {} })
+        table.insert(grupo.obras, { compositor = latex(b.content[1].content),
+          nombre = trim(stringify(b.content[1].content)), titulos = {} })
       elseif b.t == "BulletList" then
         -- obras sin compositor encabezándolas (p. ej. una improvisación)
         if not grupo or tras_obras then nuevo_grupo() end
-        if #grupo.obras == 0 then table.insert(grupo.obras, { compositor = "", titulos = {} }) end
+        if #grupo.obras == 0 then
+          table.insert(grupo.obras, { compositor = "", nombre = "", titulos = {} })
+        end
         local actual = grupo.obras[#grupo.obras]
         local hay_obra = #actual.titulos > 0
         for _, item in ipairs(b.content) do
@@ -345,7 +350,8 @@ function Pandoc(doc)
           elseif not con_dur and not tiene_anio(txt) and hay_obra then
             -- movimiento: se omite
           else
-            table.insert(actual.titulos, { texto = titulo_corto(titulo) })
+            local texto, marcas = titulo_corto(titulo)
+            table.insert(actual.titulos, { texto = texto, marcas = marcas })
             hay_obra = true
           end
         end
@@ -481,7 +487,7 @@ function Pandoc(doc)
   end)
   seccion_agenda("En los estados", function(e) return e.tipo == "concierto" and es("estados")(e) end)
   seccion_agenda("Ecos del Foro", function(e) return e.tipo == "concierto" and es("ecos")(e) end)
-  emit("\\agendaparte{Sedes}")
+  emit("\\agendaparte{Sedes}\\label{sedes}")
   for _, s in ipairs(sedes) do
     if #s.salas > 0 then
       local direccion = s.direccion:gsub(", Ciudad de México$", "")
@@ -496,31 +502,145 @@ function Pandoc(doc)
   emit("\\end{agenda}")
 
   -- ---------------------------------------------------------------------------
-  -- Programas
+  -- Programas: por concierto, sus intérpretes y las personas compositoras
+  -- («Obras de A, B y C»), sin los títulos; y cuántos estrenos tiene.
   -- ---------------------------------------------------------------------------
-  local function texto_grupo(g)
+  -- programa completo (con títulos), para reconocer los que se repiten
+  local function firma_grupo(g)
     local partes = {}
     for _, o in ipairs(g.obras) do
       local ts = {}
-      for _, t in ipairs(o.titulos) do
-        ts[#ts + 1] = t.texto .. (t.solista and ("\\solista{" .. t.solista .. "}") or "")
-      end
-      if #ts > 0 then
-        partes[#partes + 1] = (o.compositor ~= "" and ("\\comp{" .. o.compositor .. "}") or "") ..
-          table.concat(ts, ", ")
+      for _, t in ipairs(o.titulos) do ts[#ts + 1] = t.texto .. t.marcas end
+      if #ts > 0 then partes[#partes + 1] = o.compositor .. ":" .. table.concat(ts, ",") end
+    end
+    return table.concat(partes, ";")
+  end
+
+  -- «A, B y C»; «e» ante /i/ (Iván, Ignacio, Hilda; no Iannis)
+  local function unir(items)
+    if #items <= 1 then return items[1] and items[1].latex or "" end
+    local ult = items[#items].texto
+    local conj = "y"
+    local resto
+    if ult:sub(1, 1) == "I" then resto = ult:sub(2)
+    elseif ult:sub(1, 2) == "Í" then resto = ult:sub(3)
+    elseif ult:sub(1, 2) == "Hi" then resto = ult:sub(3)
+    elseif ult:sub(1, 3) == "Hí" then resto = ult:sub(4) end
+    if resto and not clave(resto):match("^[aeiou]") then conj = "e" end
+    local ls = {}
+    for k = 1, #items - 1 do ls[#ls + 1] = items[k].latex end
+    return table.concat(ls, ", ") .. " " .. conj .. " " .. items[#items].latex
+  end
+
+  local function texto_obras(g)
+    local comps, vistos_c, sin_comp, n = {}, {}, {}, 0
+    for _, o in ipairs(g.obras) do
+      n = n + #o.titulos
+      local generico = clave(o.nombre):find("tradicional") or clave(o.nombre):find("anonimo")
+        or clave(o.nombre):find("popular")
+      if generico and #o.titulos > 0 then
+        -- «Canciones tradicionales»: va aparte, en minúsculas
+        local t = o.compositor:gsub("^(\\%a+{)(%u)", function(a, b) return a .. b:lower() end)
+        t = t:gsub("^(%u)", function(b) return b:lower() end)
+        sin_comp[#sin_comp + 1] = { latex = t, texto = "" }
+      elseif o.compositor ~= "" then
+        if not vistos_c[o.nombre] and #o.titulos > 0 then
+          vistos_c[o.nombre] = true
+          comps[#comps + 1] = { latex = o.compositor, texto = o.nombre }
+        end
+      else
+        for _, t in ipairs(o.titulos) do sin_comp[#sin_comp + 1] = { latex = t.texto, texto = "" } end
       end
     end
-    return table.concat(partes, "\\sep ")
+    local partes = {}
+    if #comps > 0 then
+      partes[#partes + 1] = ((n - #sin_comp) <= 1 and "Obra de " or "Obras de ") .. unir(comps)
+    end
+    if #sin_comp > 0 then partes[#partes + 1] = unir(sin_comp) end
+    if #partes == 0 then return "" end
+    return table.concat(partes, "; ") .. "."
+  end
+
+  -- intérpretes del grupo y solistas de obras concretas
+  local function texto_interpretes(g)
+    local t = condensar_interpretes(g.interpretes)
+    local plano = clave(t)
+    for _, o in ipairs(g.obras) do
+      for _, ti in ipairs(o.titulos) do
+        for sol in (ti.solista or ""):gmatch("[^;]+") do
+          sol = trim(sol)
+          local nombre = clave(trim(sol:match("^([^,]+)") or sol))
+          if not plano:find(nombre, 1, true) then
+            t = (t ~= "" and t .. "; " or "") .. sol
+            plano = plano .. " " .. nombre
+          end
+        end
+      end
+    end
+    return t
+  end
+
+  local function contar_estrenos(e, total, vistas)
+    local mundiales, mexico = 0, 0
+    for _, g in ipairs(e.grupos) do
+      for _, o in ipairs(g.obras) do
+        for _, t in ipairs(o.titulos) do
+          local llave = clave(o.nombre .. "|" .. t.texto)
+          if t.marcas == "*" then mundiales = mundiales + 1
+          elseif t.marcas == "**" then mexico = mexico + 1 end
+          if t.marcas ~= "" and not vistas[llave] then
+            vistas[llave] = true
+            total[#t.marcas] = total[#t.marcas] + 1
+          end
+        end
+      end
+    end
+    return mundiales, mexico
+  end
+
+  local function frase_estrenos(mundiales, mexico)
+    local partes = {}
+    if mundiales > 0 then
+      partes[#partes + 1] = mundiales .. (mundiales == 1 and " estreno mundial" or " estrenos mundiales")
+    end
+    if mexico > 0 then
+      partes[#partes + 1] = mexico .. (mexico == 1 and " estreno" or " estrenos") .. " en México"
+    end
+    return table.concat(partes, " y ")
   end
 
   local function fecha_larga(e)
     local fs = {}
-    for _, f in ipairs(e.fechas) do fs[#fs + 1] = escape(etiqueta_dia(f)) .. " · " .. f.hora end
+    for _, f in ipairs(e.fechas) do fs[#fs + 1] = escape(etiqueta_dia(f)) .. " · " .. f.hora .. " h" end
     return table.concat(fs, " / ")
   end
 
-  local vistos = {}   -- programa (texto) → evento donde apareció primero
-  emit("\\begin{programas}")
+  local function lugares(e)
+    local ls = {}
+    for _, l in ipairs(e.lugares) do
+      if ls[#ls] ~= l then ls[#ls + 1] = l end
+    end
+    for k, l in ipairs(ls) do ls[k] = escape(l) end
+    return table.concat(ls, " / ")
+  end
+
+  -- primero se recorren para contar los estrenos del Foro (sin repetir)
+  local total, vistas_estreno, vistos = { 0, 0 }, {}, {}
+  for _, e in ipairs(eventos) do
+    if e.tipo == "concierto" then
+      local fs = {}
+      for _, g in ipairs(e.grupos) do fs[#fs + 1] = firma_grupo(g) end
+      e.firma = table.concat(fs, "|")
+      if e.firma ~= "" and vistos[e.firma] then
+        e.repite = vistos[e.firma]
+      else
+        if e.firma ~= "" then vistos[e.firma] = e end
+        e.mundiales, e.mexico = contar_estrenos(e, total, vistas_estreno)
+      end
+    end
+  end
+
+  emit("\\begin{programas}{" .. frase_estrenos(total[1], total[2]) .. "}")
   local parte_previa
   for _, e in ipairs(eventos) do
     if e.tipo == "concierto" then
@@ -538,28 +658,28 @@ function Pandoc(doc)
       end
       local ls = {}
       for _, l in ipairs(letras) do ls[#ls + 1] = "\\letra{" .. l .. "}" end
-      emit(string.format("\\concierto{%s}{%s}{%s}", fecha_larga(e), table.concat(ls, ""), escape(e.titulo)))
-      local completo = {}
-      for _, g in ipairs(e.grupos) do completo[#completo + 1] = texto_grupo(g) end
-      local firma = table.concat(completo, "|")
-      local previo = firma ~= "" and vistos[firma]
-      if previo then
-        emit(string.format("\\mismoprograma{%s (%s)}", fecha_larga(previo), escape(previo.titulo)))
+      emit(string.format("\\concierto{%s}{%s}{%s}{%s}", fecha_larga(e), table.concat(ls, ""),
+        escape(e.titulo), lugares(e)))
+      if e.repite then
+        emit(string.format("\\mismoprograma{%s (%s)}", fecha_larga(e.repite), escape(e.repite.titulo)))
         local ints = {}
         for _, g in ipairs(e.grupos) do
-          local t = condensar_interpretes(g.interpretes)
+          local t = texto_interpretes(g)
           if t ~= "" then ints[#ints + 1] = t end
         end
         if #ints > 0 then emit("\\interpretes{" .. table.concat(ints, "; ") .. "}") end
       else
-        if firma ~= "" then vistos[firma] = e end
-        for _, g in ipairs(e.grupos) do
-          local t = texto_grupo(g)
-          if t ~= "" then emit("\\obras{" .. t .. "}") end
-          local it = condensar_interpretes(g.interpretes)
-          if it ~= "" then emit("\\interpretes{" .. it .. "}") end
+        for k, g in ipairs(e.grupos) do
+          local it = texto_interpretes(g)
+          local ob = texto_obras(g)
+          if it ~= "" or ob ~= "" then
+            emit(string.format("\\grupo{%s}{%s}", it, ob))
+          end
         end
+        local fe = frase_estrenos(e.mundiales, e.mexico)
+        if fe ~= "" then emit("\\estrenos{" .. fe .. "}") end
       end
+      emit("\\finconcierto")
     end
   end
   -- Actividades académicas y Coloquio
@@ -579,6 +699,8 @@ function Pandoc(doc)
   local logos = logos_de(doc)
   if #logos > 0 then
     emit("\\paginalogos{" .. table.concat(logos, "\\logosep ") .. "}")
+  else
+    emit("\\cierre")
   end
 
   local bl = {}

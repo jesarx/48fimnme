@@ -1,21 +1,28 @@
 % =============================================================================
 %  Programa resumido del 48.º FIMNME
-%  Mismo formato (108 × 192 mm) y paleta que el Programa general, con
-%  Noto Sans SemiCondensed en cuerpo pequeño para concentrar la información.
+%  Mismo formato (108 × 192 mm) y paleta que el Programa general. La agenda
+%  va en Noto Sans SemiCondensed a dos columnas; los programas, en Noto Sans
+%  a una columna, con cuerpo de lectura.
 %  El contenido lo genera resumen/resumen.lua a partir del Markdown.
 % =============================================================================
-\documentclass[fontsize=7pt, parskip=false]{scrartcl}
+\documentclass[fontsize=8pt, parskip=false]{scrartcl}
 
 \usepackage[
   paperwidth=108mm, paperheight=192mm,
-  top=5.5mm, bottom=8mm, left=4.8mm, right=4.8mm, footskip=4.4mm
+  top=7mm, bottom=11mm, left=7mm, right=7mm, footskip=5.5mm
 ]{geometry}
 
 % ----------------------------------------------------------- Tipografía ------
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 \newcommand{\rutafuentes}{automatizacion/fuentes/}
-\setmainfont{NotoSans-SemiCondensed}[
+\setmainfont{NotoSans}[
+  Path=\rutafuentes, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic,
+  Numbers=Lining
+]
+\newfontfamily\condensada{NotoSans-SemiCondensed}[
   Path=\rutafuentes, Extension=.ttf,
   UprightFont=*, ItalicFont=*Italic,
   BoldFont=*SemiBold, BoldItalicFont=*SemiBoldItalic,
@@ -30,7 +37,7 @@
 \usepackage[protrusion=true, expansion=true, tracking=true, final]{microtype}
 \usepackage{ragged2e}
 \usepackage{multicol}
-\setlength{\columnsep}{3mm}
+\setlength{\columnsep}{4mm}
 \setlength{\multicolsep}{0pt}
 \raggedbottom
 \setlength{\parindent}{0pt}
@@ -65,7 +72,7 @@
 % ------------------------------------------------------- Pie de página -------
 \usepackage[automark]{scrlayer-scrpage}
 \clearpairofpagestyles
-\setkomafont{pagefoot}{\fontsize{5.6}{6.5}\selectfont\color{verdegris}}
+\setkomafont{pagefoot}{\fontsize{6.4}{7.5}\selectfont\color{verdegris}}
 \ifoot{48.º Foro Internacional de Música Nueva Manuel Enríquez · Programa resumido}
 \ofoot{\thepage}
 \pagestyle{scrheadings}
@@ -73,100 +80,114 @@
 % ------------------------------------------------------- Piezas comunes ------
 \newcommand{\espaciado}[2][70]{\textls[#1]{#2}}
 % Clave de sede: letra blanca sobre verde
-\setlength{\fboxsep}{0.35pt}
-\newcommand{\letra}[1]{\ifx&#1&\else\kern0.15em{\colorbox{acento}{\makebox[1.05em]{%
-  \fontsize{5.2}{5.2}\selectfont\bfseries\color{white}\strut#1}}}\fi}
-\newcommand{\banda}[1]{\par\addvspace{2mm}%
-  {\fontsize{6.4}{7.6}\selectfont\bfseries\color{acento}\espaciado{\MakeUppercase{#1}}\par}%
-  \nopagebreak\vspace{0.5mm}{\color{filete}\hrule height 0.45pt}\nopagebreak\vspace{1mm}}
+\setlength{\fboxsep}{0.5pt}
+\newcommand{\letra}[1]{\ifx&#1&\else\kern0.2em{\colorbox{acento}{\makebox[1.25em]{%
+  \fontsize{6.4}{6.4}\selectfont\bfseries\color{white}\strut#1}}}\fi}
+\newcommand{\banda}[1]{\par\addvspace{3.2mm}%
+  {\fontsize{7.6}{9}\selectfont\bfseries\color{acento}\espaciado{\MakeUppercase{#1}}\par}%
+  \nopagebreak\vspace{0.7mm}{\color{filete}\hrule height 0.5pt}\nopagebreak\vspace{1.4mm}}
 
 % ------------------------------------------------------------- Agenda --------
-\newlength{\anchodia}\setlength{\anchodia}{3.15em}
-\newlength{\anchohora}\setlength{\anchohora}{2.3em}
+\newlength{\anchohora}\setlength{\anchohora}{2.6em}
 \newenvironment{agenda}{%
-  % la página 1 no lleva pie: aprovecha también el margen inferior
-  \newgeometry{top=5.5mm, bottom=4.6mm, left=4.8mm, right=4.8mm}\thispagestyle{empty}%
-  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{acento}\end{minipage}\hspace{2.5mm}%
-  \begin{minipage}[c]{\dimexpr\linewidth-12.5mm\relax}\RaggedRight
-    {\fontsize{8.6}{10}\selectfont\bfseries 48.º Foro Internacional de Música Nueva
-      Manuel Enríquez\par}\vspace{0.6mm}
-    {\fontsize{6.6}{8}\selectfont\color{acento}\bfseries 6 al 21 de noviembre de 2026
-      \enspace·\enspace\color{verdegris}\mdseries Agenda y programas\par}\vspace{0.4mm}
-    {\fontsize{5.6}{6.6}\selectfont\color{verdegris}En cursiva, actividades académicas y
-      Coloquio Manuel Enríquez 100. La letra indica la sede.\par}
-  \end{minipage}\par\vspace{1.3mm}%
-  {\color{filete}\hrule height 0.6pt}\vspace{0.2mm}%
-  \fontsize{6}{6.95}\selectfont
+  \thispagestyle{empty}%
+  \noindent\begin{minipage}[c]{12mm}\logofimnme{12mm}{acento}\end{minipage}\hspace{3mm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-15mm\relax}\RaggedRight
+    {\fontsize{9.6}{11.4}\selectfont\bfseries 48.º Foro Internacional de Música Nueva\\
+      Manuel Enríquez\par}\vspace{0.8mm}
+    {\fontsize{8}{9.6}\selectfont\color{acento}\bfseries 6 al 21 de noviembre de 2026
+      \enspace·\enspace\color{verdegris}\mdseries Agenda y programas\par}
+  \end{minipage}\par\vspace{1.8mm}%
+  {\color{filete}\hrule height 0.6pt}\vspace{1mm}%
+  {\fontsize{6.8}{8.2}\selectfont\color{verdegris}En cursiva, actividades académicas y
+    sesiones del Coloquio Manuel Enríquez 100. La letra indica la sede (al final de la
+    agenda, con su dirección).\par}\vspace{0.6mm}%
+  \condensada\fontsize{7.4}{8.9}\selectfont
   \begin{multicols}{2}\raggedright
-  \clubpenalty=10000 \widowpenalty=10000
+  \clubpenalty=10000 \widowpenalty=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000
   \let\agendaparte\banda}
-  {\end{multicols}\restoregeometry}
-\newcommand{\diaseparador}[1]{\ifx&#1&\else\addvspace{0.65mm}\fi}
+  {\end{multicols}\clearpage}
+% El día, en su propio renglón (solo en la primera entrada de cada día)
+\newcommand{\dia}[1]{\ifx&#1&\else\par\addvspace{1.3mm}%
+  {\bfseries\color{acento}\espaciado[40]{#1}\par}\nopagebreak\vspace{0.2mm}\fi}
 % #1 día  #2 hora  #3 título  #4 letra de la sede
-\newcommand{\ev}[4]{\par\diaseparador{#1}%
-  \hangindent=\dimexpr\anchodia+\anchohora\relax\hangafter=1
-  \makebox[\anchodia][l]{\bfseries\color{acento}#1}%
-  \makebox[\anchohora][l]{#2}%
-  #3\nobreak\hfill\letra{#4}\par}
+\newcommand{\ev}[4]{\dia{#1}\par
+  \hangindent=\anchohora\hangafter=1
+  \makebox[\anchohora][l]{#2}#3\nobreak\hskip 0.5em plus 1fill\letra{#4}\par}
 % Actividad académica o del Coloquio (en cursiva)
-\newcommand{\act}[4]{\par\diaseparador{#1}%
-  \hangindent=\dimexpr\anchodia+\anchohora\relax\hangafter=1
-  \makebox[\anchodia][l]{\bfseries\color{acento}#1}%
+\newcommand{\act}[4]{\dia{#1}\par
+  \hangindent=\anchohora\hangafter=1
   \makebox[\anchohora][l]{\color{verdegris}#2}%
-  {\itshape\color{verdegris}#3}\nobreak\hfill\letra{#4}\par}
-\newcommand{\region}[1]{\par\addvspace{0.8mm}%
-  {\bfseries\color{verdegris}\espaciado[50]{#1}\par}\nopagebreak\vspace{0.3mm}}
+  {\itshape\color{verdegris}#3}\nobreak\hskip 0.5em plus 1fill\letra{#4}\par}
+\newcommand{\region}[1]{\par\addvspace{1mm}%
+  {\bfseries\color{verdegris}\espaciado[50]{#1}\par}\nopagebreak\vspace{0.4mm}}
 % #1 letra  #2 sala y sede  #3 dirección
-\newcommand{\sede}[3]{\par\addvspace{0.3mm}%
-  {\fontsize{5.75}{6.6}\selectfont\hangindent=1.55em\hangafter=1
-  \makebox[1.55em][l]{\letra{#1}}{\bfseries #2}\ifx&#3&\else.
+\newcommand{\sede}[3]{\par\addvspace{0.6mm}%
+  {\fontsize{7}{8.3}\selectfont\hangindent=1.75em\hangafter=1
+  \makebox[1.75em][l]{\letra{#1}}{\bfseries #2}\ifx&#3&\else.
   {\color{verdegris}#3}\fi\par}}
 
 % ----------------------------------------------------------- Programas -------
-\newenvironment{programas}{%
-  \fontsize{6.25}{7.3}\selectfont
-  \begin{multicols}{2}\RaggedRight
-  \clubpenalty=10000 \widowpenalty=10000
-  {\color{verdegris}\fontsize{5.8}{7}\selectfont * Estreno mundial\enspace
-   ** Estreno en México\enspace·\enspace Las letras remiten a las sedes de la
-   página~1.\par}%
+% Cada concierto (y cada actividad) se compone en una caja: no se parte
+% entre páginas.
+\newlength{\sangria}\setlength{\sangria}{1em}
+\newbox\cajaconcierto
+% #1 total de estrenos del Foro
+\newenvironment{programas}[1]{%
+  \fontsize{8}{10.2}\selectfont\raggedright
+  \clubpenalty=10000 \widowpenalty=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000
+  {\fontsize{10}{11.8}\selectfont\bfseries Programas\par}\vspace{1mm}%
+  {\color{verdegris}\fontsize{7.2}{8.8}\selectfont Por concierto: intérpretes y personas
+   compositoras. La letra remite a la sede (pág.~\pageref{sedes}).%
+   \ifx&#1&\else\ En total, el Foro presenta #1.\fi\par}%
   \let\programaparte\banda}
-  {\par\vspace{2.5mm}{\color{filete}\hrule height 0.45pt}\vspace{1.6mm}%
-   \noindent\begin{minipage}[c]{11mm}\logocnmo{11mm}{verdegris}\end{minipage}\hspace{2mm}%
-   \begin{minipage}[c]{\dimexpr\linewidth-13mm\relax}\RaggedRight
-     \color{verdegris}\fontsize{5.6}{6.8}\selectfont Semblanzas y notas al programa en el
-     Programa general del 48.º FIMNME.\end{minipage}\par
-   \end{multicols}}
-% #1 fecha y hora  #2 letras de sede  #3 título
-\newcommand{\concierto}[3]{\par\addvspace{1.6mm}%
-  {\fontsize{5.9}{7}\selectfont\bfseries\color{acento}#1}\nobreak\hfill#2\par\nopagebreak
-  {\fontsize{7}{8.2}\selectfont\bfseries #3\par}\nopagebreak\vspace{0.25mm}}
-\newcommand{\obras}[1]{\par#1\par}
-\newcommand{\comp}[1]{{\bfseries #1}\nobreak\enspace}
-\newcommand{\sep}{\unskip\enspace{\color{acentoclaro}·}\enspace\ignorespaces}
-\newcommand{\solista}[1]{\ {\color{verdegris}(#1)}}
-\newcommand{\interpretes}[1]{\par\nopagebreak\vspace{0.35mm}%
-  \hangindent=0.75em\hangafter=1
-  \makebox[0.75em][l]{\color{acentoclaro}\rule[-0.25ex]{0.9pt}{1.75ex}}%
-  {\color{verdeoscuro}\itshape #1}\par}
-\newcommand{\mismoprograma}[1]{\par{\color{verdegris}\itshape Mismo programa que el
-  #1.}\par}
+  {\par}
+% Cierre: logotipo de la CNMO y remisión al Programa general
+\newcommand{\cierre}{\par\vspace{4mm}{\color{filete}\hrule height 0.5pt}\vspace{2.2mm}%
+  \noindent\begin{minipage}[c]{12mm}\logocnmo{12mm}{verdegris}\end{minipage}\hspace{2.5mm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-14.5mm\relax}\RaggedRight
+    \color{verdegris}\fontsize{7}{8.6}\selectfont Obras, semblanzas y notas al programa
+    en el Programa general del 48.º FIMNME.\end{minipage}\par}
+% #1 fecha y hora  #2 letras de sede  #3 título  #4 sede
+\newcommand{\concierto}[4]{\par\addvspace{3.4mm}%
+  \setbox\cajaconcierto=\vbox\bgroup
+  {\fontsize{7.2}{8.8}\selectfont\bfseries\color{acento}\espaciado[30]{#1}}\nobreak\hfill#2\par
+  \vspace{0.3mm}%
+  {\fontsize{9.6}{11.4}\selectfont\bfseries #3\par}%
+  \ifx&#4&\else{\fontsize{7.2}{8.8}\selectfont\color{verdegris}#4\par}\fi
+  \vspace{0.8mm}}
+\newcommand{\finconcierto}{\par\egroup\box\cajaconcierto\relax}
+% Un grupo de obras: #1 intérpretes  #2 «Obras de…»
+\newcommand{\grupo}[2]{\par\addvspace{0.9mm}%
+  \ifx&#1&\else
+    \hangindent=\sangria\hangafter=1
+    \makebox[\sangria][l]{\color{acentoclaro}\rule[-0.3ex]{1pt}{2ex}}#1\par
+  \fi
+  \ifx&#2&\else{\leftskip=\sangria\relax#2\par}\fi}
+\newcommand{\estrenos}[1]{\par\vspace{0.6mm}%
+  {\leftskip=\sangria\relax\fontsize{7.2}{8.8}\selectfont\itshape\color{acento}#1\par}}
+\newcommand{\interpretes}[1]{\grupo{#1}{}}
+\newcommand{\mismoprograma}[1]{\par{\leftskip=\sangria\relax\color{verdegris}\itshape
+  Mismo programa que el #1.\par}}
 % Actividad académica o sesión del Coloquio: #1 fecha  #2 sede  #3 título  #4 participantes
-\newcommand{\actividad}[4]{\par\addvspace{1mm}%
-  {\fontsize{5.9}{7}\selectfont\bfseries\color{acento}#1}\enspace{\bfseries #3}\nobreak\hfill#2\par
-  \ifx&#4&\else\nopagebreak{\color{verdegris}#4\par}\fi}
+\newcommand{\actividad}[4]{\par\addvspace{2.6mm}%
+  \setbox\cajaconcierto=\vbox{%
+  {\fontsize{7.2}{8.8}\selectfont\bfseries\color{acento}\espaciado[30]{#1}}\nobreak\hfill#2\par
+  {\fontsize{8.6}{10.4}\selectfont\bfseries #3\par}%
+  \ifx&#4&\else\vspace{0.3mm}{\fontsize{7.4}{9}\selectfont\color{verdegris}#4\par}\fi}%
+  \box\cajaconcierto\relax}
 
 % ------------------------------------------------------ Logotipos (final) ----
 % Todos los logotipos del Programa general, en una página, como allá.
 \newcommand{\logo}[3]{\raisebox{-0.5\height}{\includegraphics[width=#2,height=#3]{#1}}}
 \newcommand{\logosep}{\hskip 5mm plus 5mm minus 2mm\relax}
-\newcommand{\paginalogos}[1]{\clearpage
+\newcommand{\paginalogos}[1]{\clearpage\thispagestyle{empty}
   \vspace*{\fill}%
-  {\centering{\fontsize{6.6}{8}\selectfont\bfseries\color{verdegris}%
+  {\centering{\fontsize{7.6}{9}\selectfont\bfseries\color{verdegris}%
     \espaciado[120]{CON LA COLABORACIÓN DE}\par}\vspace{2mm}%
    \setlength{\baselineskip}{12.5mm}\setlength{\lineskiplimit}{2mm}%
    \setlength{\lineskip}{3.5mm}#1\par}%
-  \vspace*{\fill}}
+  \vspace*{\fill}\cierre}
 
 \begin{document}
 $body$
