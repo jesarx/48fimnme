@@ -51,6 +51,7 @@
 \pagecolor{fondobeige}
 \color{verdeoscuro}
 
+\usepackage{graphicx}
 \usepackage{tikz}
 \input{automatizacion/plantilla/logo-48.tex}
 \input{automatizacion/plantilla/logo-cnmo.tex}
@@ -155,6 +156,17 @@
   {\fontsize{5.9}{7}\selectfont\bfseries\color{acento}#1}\enspace{\bfseries #3}\nobreak\hfill#2\par
   \ifx&#4&\else\nopagebreak{\color{verdegris}#4\par}\fi}
 
+% ------------------------------------------------------ Logotipos (final) ----
+% Todos los logotipos del Programa general, en una página, como allá.
+\newcommand{\logo}[3]{\raisebox{-0.5\height}{\includegraphics[width=#2,height=#3]{#1}}}
+\newcommand{\logosep}{\hskip 5mm plus 5mm minus 2mm\relax}
+\newcommand{\paginalogos}[1]{\clearpage
+  \vspace*{\fill}%
+  {\centering{\fontsize{6.6}{8}\selectfont\bfseries\color{verdegris}%
+    \espaciado[120]{CON LA COLABORACIÓN DE}\par}\vspace{2mm}%
+   \setlength{\baselineskip}{12.5mm}\setlength{\lineskiplimit}{2mm}%
+   \setlength{\lineskip}{3.5mm}#1\par}%
+  \vspace*{\fill}}
 
 \begin{document}
 $body$

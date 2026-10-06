@@ -185,6 +185,52 @@ local function condensar_interpretes(lineas)
 end
 
 -- -----------------------------------------------------------------------------
+-- Logotipos (página final): los mismos bloques «::: logos» del programa
+-- general, sin repetir y en orden de aparición. Se usan las copias ligeras
+-- que deja resumen/reducir_logos.py en build/resumen/logos/.
+-- -----------------------------------------------------------------------------
+local function logos_de(doc)
+  local manifiesto = {}
+  local f = io.open("build/logos/manifiesto.tsv", "r")
+  if not f then
+    io.stderr:write("Aviso: falta build/logos/manifiesto.tsv; ejecute preparar_logos.py\n")
+    return {}
+  end
+  for linea in f:lines() do
+    local k, ruta, w, h = linea:match("^(.-)\t(.-)\t(%d+)\t(%d+)$")
+    if k then
+      manifiesto[k] = manifiesto[k] or {}
+      table.insert(manifiesto[k], { ruta = ruta, w = tonumber(w), h = tonumber(h) })
+    end
+  end
+  f:close()
+  local items, vistos = {}, {}
+  doc.blocks:walk({ Div = function(div)
+    if not div.classes:includes("logos") then return nil end
+    div:walk({ Image = function(img)
+      local partes = {}
+      for _, k in ipairs({ "pagina", "partir", "realce", "recorte" }) do
+        if img.attributes[k] then partes[#partes + 1] = k .. "=" .. img.attributes[k] end
+      end
+      for _, p in ipairs(manifiesto[img.src .. "|" .. table.concat(partes, ";")] or {}) do
+        if not vistos[p.ruta] then
+          vistos[p.ruta] = true
+          -- mismo tamaño visual que en el programa general, un poco menor
+          local r = p.w / p.h
+          local alto = math.max(4.6, math.min(10.5 * r ^ -0.45, 11.5))
+          local ancho = alto * r
+          if ancho > 32 then ancho, alto = 32, 32 / r end
+          local ligera = p.ruta:gsub("^build/logos/", "build/resumen/logos/")
+          items[#items + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}",
+            ligera, ancho * 0.8, alto * 0.8)
+        end
+      end
+    end })
+  end })
+  return items
+end
+
+-- -----------------------------------------------------------------------------
 -- Lectura del documento
 -- -----------------------------------------------------------------------------
 function Pandoc(doc)
@@ -529,6 +575,11 @@ function Pandoc(doc)
     end
   end
   emit("\\end{programas}")
+
+  local logos = logos_de(doc)
+  if #logos > 0 then
+    emit("\\paginalogos{" .. table.concat(logos, "\\logosep ") .. "}")
+  end
 
   local bl = {}
   for _, s in ipairs(out) do bl[#bl + 1] = raw(s) end

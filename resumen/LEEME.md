@@ -12,6 +12,9 @@ mismo formato (108 × 192 mm) y paleta, sin fotos, semblanzas ni notas.
   columnas. Se omiten años, duraciones, movimientos y las listas de
   integrantes de los conjuntos (se dan su nombre y su dirección). Cuando un
   concierto repite el programa de otro, se indica «Mismo programa que…».
+- **Página 6 · Logotipos.** Todos los logotipos del Programa general (los
+  bloques `::: logos` de cada concierto), sin repetir, en copias ligeras
+  para que el PDF siga pesando poco.
 
 No se edita a mano: se genera a partir del mismo `fimnme2026-programa.md`,
 así que cualquier corrección al programa general llega también aquí.
@@ -24,6 +27,7 @@ resumen/compila.sh      # unos segundos; ./compila.sh también lo regenera
 |---|---|
 | `resumen.lua` | Lee el Markdown y arma la agenda y los programas condensados. |
 | `resumen.latex` | Diseño: página, tipografía (Noto Sans SemiCondensed), colores, agenda, programas. |
+| `reducir_logos.py` | Copias ligeras (300 ppp, 16 niveles) de los logotipos que prepara `automatizacion/preparar_logos.py`. |
 | `compila.sh` | Compila el PDF (en `build/resumen/`) y lo copia aquí. |
 
 Las sedes y sus direcciones salen de la sección `## Sedes` del Markdown; la
