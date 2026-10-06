@@ -17,6 +17,10 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 
 | Archivo | Para qué sirve |
 |---|---|
+| `fimnme2026-programa.md`, `fimnme2026-programa.yaml` | Contenido y metadatos del programa. |
+| `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
+| `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
+| `revision/` | Listas de correcciones para revisar (p. ej. el cotejo con los programas de mano). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
