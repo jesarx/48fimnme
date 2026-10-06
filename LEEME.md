@@ -41,24 +41,33 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   año se componen como movimientos.
 - Después de un grupo de obras, los párrafos que no van en negrita inicial
   ni en cursivas son sus intérpretes: se componen en un bloque con filete
-  verde, separado del siguiente grupo de obras. El último bloque de
-  intérpretes del programa se coloca al pie de la página.
+  verde. Si el programa tiene varios grupos de obras con distintos
+  intérpretes, cada grupo va separado del siguiente y no se parte entre
+  páginas; un `---` entre grupos también los separa. Si todo el programa lo
+  tocan los mismos intérpretes, su bloque va al pie de la página.
+- Solista de una obra concreta (dentro de un grupo que tocan otros):
+  `[**Nombre**, instrumento]{.solista}` justo después de la obra; sale como
+  crédito bajo la obra.
 - Un párrafo entero en cursivas dentro del programa (`*Duración: 50 minutos*`,
   patrocinios…) es una nota breve, en gris.
 - La leyenda «\* Estreno mundial / \*\* Estreno en México» se genera sola con
-  las marcas que aparezcan en cada programa y va debajo de la última obra,
-  separada por un renglón y alineada al margen; no hay que escribirla.
+  las marcas que aparezcan en cada programa y va debajo de la última obra
+  (o al final del programa, si tiene varios grupos), alineada al margen; no
+  hay que escribirla.
 - `#### Nombre (País, año)` seguido de `![](comp/Foto.jpg)` crea la ficha con
   foto circular (también para conjuntos: si los rostros no caben, la foto se
-  muestra completa sobre un fondo difuminado). La foto de cada persona o
-  conjunto sale solo la primera vez que aparece; las siguientes fichas van
-  sin foto. Las semblanzas se componen un punto menos que las notas.
+  muestra completa sobre un fondo difuminado). Las semblanzas se componen un
+  punto menos que las notas. Los intérpretes llevan su foto y semblanza cada
+  vez que aparecen; los compositores, solo la primera vez: en las siguientes
+  sale su nombre con «Ver pág. N» (enlace a la primera semblanza), y sus notas
+  a la obra se conservan.
 - `##### *Obra*`: título de nota al programa. El texto de la nota va en un
   recuadro con fondo verde claro, al tamaño normal; si la nota incluye una
   cita (`> «…»`) junto con otros párrafos, la cita va sangrada dentro del
   recuadro.
 - Cada sección de un concierto (Programa, Personas compositoras,
-  Intérpretes…) empieza en página nueva.
+  Intérpretes…) empieza en página nueva, salvo una sección que solo tenga
+  referencias «Ver pág.».
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.

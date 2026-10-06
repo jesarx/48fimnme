@@ -445,14 +445,10 @@ function Pandoc(doc)
   local nota_solo_cita = false  -- la nota consiste solo en una cita
   local seccion_abierta = nil   -- id de la sección de semblanzas en curso (ajuste fino)
   local prog_ini = 0            -- posición en «out» donde empieza el programa
-  local con_foto = {}           -- personas y fotos ya mostradas (la foto sale solo la primera vez)
-  local function foto_nueva(nombre, foto)
-    if not foto then return nil end
-    local k = clave_orden(nombre)
-    if con_foto[k] or con_foto[foto] then return nil end
-    con_foto[k], con_foto[foto] = true, true
-    return foto
-  end
+  -- Compositores que aparecen más de una vez: la primera ficha con semblanza
+  -- lleva la foto y el texto; las siguientes, solo «Ver pág. N».
+  local bio_compositor = {}     -- clave del nombre → etiqueta de su primera semblanza
+  local saltando_bio = false    -- omitiendo el texto de una semblanza repetida
   local num_seccion = 0
   local secciones_mayor = 0     -- secciones ### dentro de la sección ## sin fecha actual
   local dia_divisor = nil      -- último día con página divisoria
@@ -462,6 +458,13 @@ function Pandoc(doc)
   -- también en el índice general bajo ese día.
   local secundarias = {}       -- clave de día → lista de {hora, titulo, etiqueta}
   local pendientes = {}        -- secundarias del día en curso aún no escritas
+
+  local function siguiente_es_texto(k)
+    k = k + 1
+    while bloques[k] and bloques[k].t == "RawBlock" do k = k + 1 end
+    local bk = bloques[k]
+    return bk ~= nil and (bk.t == "Para" or bk.t == "Plain" or bk.t == "BlockQuote")
+  end
 
   local function cerrar_indice()
     if indice_abierto then
@@ -548,13 +551,65 @@ function Pandoc(doc)
       for k = (ultima_lista or #out) + 1, #out do
         if out[k].t == "RawBlock" and out[k].text == "\\begin{interpretes}" then bloque_final = k; break end
       end
-      -- Los intérpretes de todo el programa van al pie de la página
+      -- ¿Cuántos bloques de intérpretes tiene el programa?
+      local bloques_int = 0
+      for k = prog_ini + 1, #out do
+        if out[k].t == "RawBlock" and out[k].text == "\\begin{interpretes}" then bloques_int = bloques_int + 1 end
+      end
+      if bloques_int > 1 then
+        -- Varios grupos de obras con distintos intérpretes: cada grupo se
+        -- mantiene entero en una página (si cabe) y sus intérpretes junto a él.
+        bloque_final = nil
+        local function estimar(desde, hasta)
+          local r = 0
+          for k = desde, hasta do
+            local e = out[k]
+            local t = (e.t == "RawBlock") and e.text or stringify(e)
+            if e.t == "RawBlock" then
+              for _ in t:gmatch("\\compositor{") do r = r + 1.35 end
+              for titulo in t:gmatch("\\obra{(.-)}{") do r = r + (#titulo > 70 and 2 or 1) + 0.1 end
+              for _ in t:gmatch("\\movimiento{") do r = r + 0.9 end
+              for _ in t:gmatch("\\solista{") do r = r + 1.1 end
+              for _ in t:gmatch("\\leyendaobras{") do r = r + 1.6 end
+              if t == "\\begin{interpretes}" then r = r + 0.8 end
+            else
+              local lineas = 1
+              for _ in t:gmatch("\n") do lineas = lineas + 1 end
+              if e.t == "Para" then
+                lineas = 1
+                for _, x in ipairs(e.content) do if x.t == "LineBreak" then lineas = lineas + 1 end end
+              end
+              r = r + lineas * 0.95 + 0.3
+            end
+          end
+          return math.ceil(r)
+        end
+        local inicio = prog_ini + 1
+        local cortes = {}
+        for k = prog_ini + 1, #out + 1 do
+          local e = out[k]
+          if k == #out + 1 or (e.t == "RawBlock" and e.text == "\\separadorgrupo") then
+            table.insert(cortes, { inicio, k - 1 })
+            inicio = k + 1
+          end
+        end
+        for c = #cortes, 1, -1 do
+          local lineas = estimar(cortes[c][1], cortes[c][2])
+          if lineas < 30 then out:insert(cortes[c][1], raw("\\inigrupo{" .. lineas .. "}")) end
+        end
+      end
+      -- Si todo el programa lo tocan los mismos intérpretes, van al pie de la página
       if bloque_final then
         local marca = concierto_abierto and ("\\marcapos{pre:" .. concierto_abierto .. "}") or ""
         out:insert(bloque_final, raw("\\par" .. marca .. "\\vspace*{\\fill}"))
       end
       -- La leyenda de estrenos cierra la lista de obras
       local l = leyenda_latex(marcas)
+      if l and bloques_int > 1 then
+        -- varios grupos: la leyenda cierra el programa, tras el último grupo
+        emit(raw((l:gsub("^\\leyenda", "\\leyendafinal"))))
+        l = nil
+      end
       if l then
         local k = ultima_lista and ultima_lista + 1
         if k and out[k] and out[k].t == "RawBlock" and out[k].text:match("^\\notaprograma") then
@@ -656,6 +711,13 @@ function Pandoc(doc)
   while i <= n do
     local b = bloques[i]
     local siguiente = bloques[i + 1]
+    if saltando_bio and (b.t == "Header" or (b.t == "RawBlock" and not b.text:match("^%s*\\clearpage"))) then
+      saltando_bio = false
+    end
+    if saltando_bio then
+      i = i + 1
+      goto continuar
+    end
 
     -- ---------------------------------------------------------------- RAW --
     if b.t == "RawBlock" and (b.format == "latex" or b.format == "tex") then
@@ -779,10 +841,26 @@ function Pandoc(doc)
       if mayor and (SECCIONES_CENTRADAS[mayor] or SECCIONES_SEDES[mayor]) then
         emit(raw("\\grupocreditos{" .. latex(b.content) .. "}\\marcador{3}{" .. escape(texto) .. "}"))
       elseif seccion ~= "programa" and concierto_abierto then
-        -- Personas compositoras, Intérpretes...: cada sección en página nueva
+        -- Personas compositoras, Intérpretes...: cada sección en página nueva,
+        -- salvo que solo contenga referencias «Ver pág.» (compositores que ya
+        -- aparecieron y sin notas a sus obras): entonces sigue en la página.
+        local solo_referencias = SECCIONES_FICHA[seccion] == "comp"
+        local k = i + 1
+        while solo_referencias and bloques[k] and not (bloques[k].t == "Header" and bloques[k].level <= 3) do
+          local bk = bloques[k]
+          if bk.t == "Header" then
+            if bk.level ~= 4 then solo_referencias = false
+            else
+              local nom = partir_ficha(bk.content)
+              if not bio_compositor[clave_orden(stringify(nom))] then solo_referencias = false end
+            end
+          end
+          k = k + 1
+        end
         num_seccion = num_seccion + 1
         seccion_abierta = concierto_abierto .. "-" .. num_seccion
-        emit(raw("\\clearpage\\iniseccion{" .. seccion_abierta .. "}"))
+        emit(raw((solo_referencias and "\\necesito{6\\baselineskip}\\par\\addvspace{7mm}" or "\\clearpage") ..
+          "\\iniseccion{" .. seccion_abierta .. "}"))
         emit(raw("\\seccion{" .. latex(b.content) .. "}{3}"))
       else
         -- en el Coloquio, cada sección después de la primera en página nueva
@@ -814,7 +892,7 @@ function Pandoc(doc)
         local img = imagen_sola(siguiente)
         local foto
         if img then
-          foto = foto_nueva(stringify(nombre), resolver_foto(img.src))
+          foto = resolver_foto(img.src)
           i = i + 1
         end
         local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
@@ -822,12 +900,25 @@ function Pandoc(doc)
           indice_abierto = stringify(nombre)
           marca = marca .. entrada_indice(indice_abierto, "|(")
         end
-        if foto then
-          emit(raw(string.format("\\ficha{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
+        local clave = clave_orden(stringify(nombre))
+        local tiene_bio = siguiente_es_texto(i)
+        if tipo == "comp" and bio_compositor[clave] then
+          -- ya apareció: nombre y referencia a la primera semblanza
+          emit(raw(string.format("\\fichaver{%s}{%s}{%s}%s", nombre_tex, detalle,
+            bio_compositor[clave], marca)))
+          saltando_bio = true
         else
-          emit(raw(string.format("\\fichasola{%s}{%s}%s", nombre_tex, detalle, marca)))
+          if tipo == "comp" and tiene_bio then
+            bio_compositor[clave] = "bio:" .. clave:gsub("[^%w]", "")
+            marca = marca .. "\\label{" .. bio_compositor[clave] .. "}"
+          end
+          if foto then
+            emit(raw(string.format("\\ficha{%s}{%s}{%s}%s", foto, nombre_tex, detalle, marca)))
+          else
+            emit(raw(string.format("\\fichasola{%s}{%s}%s", nombre_tex, detalle, marca)))
+          end
+          abrir_semblanza()
         end
-        abrir_semblanza()
       elseif fechas then
         local _, der = partir_inlines(b.content)
         local kicker = {}
@@ -852,7 +943,7 @@ function Pandoc(doc)
       cerrar_semblanza()
       cerrar_indice()
       local nombre = b.content[1].content
-      local foto = foto_nueva(stringify(nombre), resolver_foto(imagen_sola(siguiente).src))
+      local foto = resolver_foto(imagen_sola(siguiente).src)
       local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
       if SECCIONES_FICHA[seccion] == "comp" then
         indice_abierto = stringify(nombre)
@@ -871,6 +962,12 @@ function Pandoc(doc)
       cerrar_bloque_int(true)
       emit(lista_obras(b, marcas))
       tras_lista = true
+      i = i + 1
+
+    elseif en_programa and (b.t == "Para" or b.t == "Plain") and #b.content == 1
+           and b.content[1].t == "Span" and b.content[1].classes:includes("solista") then
+      -- [**Nombre**, instrumento]{.solista}: solista de la obra anterior
+      emit(raw("\\solista{" .. latex(b.content[1].content) .. "}"))
       i = i + 1
 
     elseif en_programa and (b.t == "Para" or b.t == "Plain") then
@@ -911,6 +1008,15 @@ function Pandoc(doc)
       i = i + 1
 
     -- -------------------------------------------------------------- OTROS --
+    elseif b.t == "HorizontalRule" and en_programa then
+      -- «---» en el programa: separa grupos de obras con distintos intérpretes
+      -- (si va justo después de las obras, los intérpretes vienen a continuación)
+      if bloque_int then
+        cerrar_bloque_int(true)
+        tras_lista = false
+      end
+      i = i + 1
+
     elseif b.t == "HorizontalRule" then
       cerrar_semblanza()
       cerrar_bloque_int(false)
@@ -959,6 +1065,7 @@ function Pandoc(doc)
       emit(b)
       i = i + 1
     end
+    ::continuar::
   end
 
   cerrar_mayor()

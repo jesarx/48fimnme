@@ -18,7 +18,7 @@ Sala Principal, Palacio de Bellas Artes
 
 - *Nobody knows the trouble I see* (1954)\*\* \hfill 16'
 
-**Simon Höfele**, trompeta
+[**Simon Höfele**, trompeta]{.solista}
 
 \
 INTERMEDIO\
@@ -3962,7 +3962,7 @@ Pabellón Escénico, Jardín Escénico
 -   *Medio tiempo*
 -   *Segundo tiempo*
 
-**Juanmanuel Flores**, violín
+[**Juanmanuel Flores**, violín]{.solista}
 
 **Manuel Enríquez**
 
@@ -4460,7 +4460,7 @@ Sala Xochipilli, Facultad de Música, UNAM
     A Marisa Canales (1994) `\hfill `{=tex}4'
     -   *I*
 
-**Miguel Ángel Villanueva**, flauta
+[**Miguel Ángel Villanueva**, flauta]{.solista}
 
 **Carlos Chávez**
 
@@ -4469,13 +4469,13 @@ Sala Xochipilli, Facultad de Música, UNAM
     -   *Adagio*
     -   *Rondo*
 
-**Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio**, solistas
+[**Mario Sánchez, Eileen Castillo, Carlos Frausto, Pedro Antonio**, solistas]{.solista}
 
 **Gustavo Larrea**
 
 -   *Voces* (2018) `\hfill `{=tex}22'
 
-**José del Mar**, barítono
+[**José del Mar**, barítono]{.solista}
 
 **Andrea Sarahí**
 
@@ -4738,8 +4738,9 @@ Sala Manuel M. Ponce, Palacio de Bellas Artes
 -   *Sequenza III* para voz femenina solista (1965) `\hfill`{=tex}7'
 -   *Sequenza VIII* para violín solo (1976) `\hfill`{=tex}13'
 
-**Canciones tradicionales** (Arreglo de Noemi Gasparini)
-`\hfill`{=tex}10'
+**Canciones tradicionales**
+
+-   Arreglo de Noemi Gasparini `\hfill`{=tex}10'
 
 INTERMEDIO\
 

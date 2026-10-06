@@ -317,15 +317,15 @@
   \phantomsection\addcontentsline{toc}{concierto}{\protect\numberline{#4}#5}%
   \marcador{2}{#6}%
   \begingroup\estilotitulos
-  {\fontsize{8.4}{10}\bfseries\color{acento}\espaciado[40]{#1}\par}%
-  \vspace{0.8mm}%
-  {\fontsize{15.5}{18.5}\negrita\color{verdeoscuro}#2\par}%
+  {\fontsize{7.8}{9.4}\bfseries\color{acento}\espaciado[40]{#1}\par}%
+  \vspace{0.5mm}%
+  {\fontsize{12}{14.4}\negrita\color{verdeoscuro}#2\par}%
   \endgroup
-  \nopagebreak\vspace{1.2mm}%
+  \nopagebreak\vspace{0.8mm}%
 }
 \newcommand{\lugar}[1]{%
-  {\estilotitulos\small\color{verdegris}#1\par}\nopagebreak
-  \vspace{1.2mm}{\color{filete}\rule{\linewidth}{0.6pt}}\par\vspace{0.4mm}%
+  {\estilotitulos\footnotesize\color{verdegris}#1\par}\nopagebreak
+  \vspace{1mm}{\color{filete}\rule{\linewidth}{0.6pt}}\par\vspace{0.2mm}%
 }
 % Sección genérica de nivel concierto (Coloquio, Sedes, Directorio...)
 \newcommand{\seccionmayor}[3]{% #1 título  #2 cabecera  #3 marcador/índice
@@ -388,7 +388,18 @@
   \setlength{\parskip}{0.8mm}\estilotitulos}
   {\end{tcolorbox}\par}
 % Separación entre grupos de obras con distintos intérpretes
-\newcommand{\separadorgrupo}{\par\addvspace{4mm}}
+\newcommand{\separadorgrupo}{\par\addvspace{6.5mm}}
+% Al empezar un grupo: si no cabe entero en lo que queda de página, pasa a
+% la siguiente (el filtro estima su altura en renglones).
+\newcommand{\inigrupo}[1]{\necesito{#1\baselineskip}}
+% Leyenda de estrenos al final de un programa con varios grupos
+\newcommand{\leyendafinal}[1]{%
+  \par\nopagebreak[4]\vspace{4mm}%
+  {\footnotesize\color{verdegris}#1\par}}
+% Solista de una obra concreta (crédito bajo la obra, dentro del grupo)
+\newcommand{\solista}[1]{%
+  \par\nopagebreak\vspace{0.6mm}%
+  {\estilotitulos\small\leftskip=1.05em\color{verdeoscuro}#1\par}\nopagebreak[3]}
 % Nota breve dentro del programa (duración, patrocinio...)
 \newcommand{\notaprograma}[1]{%
   \par\addvspace{0.8mm}{\estilotitulos\small\itshape\color{verdegris}#1\par}}
@@ -437,6 +448,14 @@
 \newcommand{\fichasola}[2]{%
   \par\necesito{6\baselineskip}\addvspace{4mm}%
   \cabezaficha{#1}{#2}\par\nopagebreak\vspace{1.8mm}%
+}
+% Compositor que ya apareció: nombre, datos y «Ver pág. N» (con enlace)
+\newcommand{\fichaver}[3]{% #1 nombre  #2 detalle  #3 etiqueta de la semblanza
+  \par\necesito{4\baselineskip}\addvspace{4mm}%
+  {\estilotitulos\fontsize{10.6}{12.8}\negrita\color{verdeoscuro}#1\par}%
+  \vspace{0.6mm}{\estilotitulos\small\color{verdegris}\ifblank{#2}{}{#2\enspace·\enspace}%
+    \hyperref[#3]{\color{acento}\bfseries Ver pág.~\pageref*{#3}}\par}%
+  \nopagebreak\vspace{1.4mm}%
 }
 \newcommand{\notaobra}[1]{%
   \par\necesito{5\baselineskip}\addvspace{3mm}%
