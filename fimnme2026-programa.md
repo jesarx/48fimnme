@@ -7983,7 +7983,7 @@ interpretado más de ochocientas obras y trescientos estrenos.
 
 ## VIE | NOV 20, 19:00 h - Cuarteto Ruvalcaba
 
-Antigua Sede del Senado. Casona de Xicoténcatl
+Xico. Antigua Sede del Senado
 
 ### Programa
 
@@ -8561,7 +8561,7 @@ Sala Principal, Palacio de Bellas Artes
 
 **Kaija Saariaho**
 
--   *Trois rivières* (1994)\*\* `\hfill `{=tex}15'
+-   *Trois rivières* (1994) `\hfill `{=tex}15'
 
 **Tambuco Ensamble de Percusiones**\
 Ricardo Gallardo, director artístico\
@@ -8863,7 +8863,8 @@ Meister Music, ambos merecedores del reconocimiento Record Geijutsu.
 
 ## VIE | NOV 6, 20:00 h - Xalapa: OSX
 
-Sala Principal, Centro Cultural Tlaqná, Xalapa, Veracruz
+Sala Principal, Centro Cultural Tlaqná\
+Xalapa, Veracruz
 
 ### Programa
 
@@ -9593,9 +9594,12 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
 :::
 
-## JUE | NOV 12, 19:00 h - CMMAS: Compositoras en música electrónica
+## JUE | NOV 12, 19:00 h - CMMAS: Asako Arai, flauta
 
-Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
+Centro Mexicano para la Música y las Artes Sonoras\
+Morelia, Michoacán
+
+**Compositoras en música electrónica**
 
 ---
 
@@ -10030,7 +10034,8 @@ Coparmex 2019.
 
 ## VIE | NOV 13, 19:00 h - Eusebio Sánchez, percusiones
 
-Sala Chopin, Escuela Superior de Música y Danza, Monterrey, Nuevo León
+Sala Chopin, Escuela Superior de Música y Danza\
+Monterrey, Nuevo León
 
 ### Programa
 
@@ -10130,7 +10135,8 @@ Es percusionista, concertista y productor, originario de Monterrey. Graduado con
 
 ## VIE | NOV 13, 19:30 h - Carmen Maldonado, percusión teatral
 
-Universidad de las Artes de Yucatán, Mérida, Yucatán
+Universidad de las Artes de Yucatán\
+Mérida, Yucatán
 
 ### Programa
 
@@ -10225,7 +10231,8 @@ Percusionista mexicana interesada en entender el mundo mediante el arte y otras 
 
 ## SÁB | NOV 14, 17:00 h - Acapulco: Fabián Rangel
 
-Centro Cultural Domingo Soler, Acapulco, Guerrero
+Centro Cultural Domingo Soler\
+Acapulco, Guerrero
 
 ### Programa
 
@@ -10375,7 +10382,8 @@ Violinista que se desenvuelve principalmente en la música contemporánea y expe
 
 ## MIÉ | NOV 18, 19:00 h - Morelia: Electroacústica I
 
-Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
+Centro Mexicano para la Música y las Artes Sonoras\
+Morelia, Michoacán
 
 ### Programa
 
@@ -10419,7 +10427,6 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 -   *Phi\$hing* (2023) `\hfill `{=tex}5'
 
-*Programa idéntico al del MIÉ | NOV 18 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:mie-nov-18-electroacustica-i}`{=latex}.*
 
 ::: logos
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
@@ -10427,7 +10434,8 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 ## JUE | NOV 19, 19:00 h - Morelia: Electroacústica II
 
-Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
+Centro Mexicano para la Música y las Artes Sonoras\
+Morelia, Michoacán
 
 ### Programa
 
@@ -10459,7 +10467,6 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 -   *Interlude* (2022)\*\* `\hfill `{=tex}11'
 
-*Programa idéntico al del JUE | NOV 19 en la Casa Rafael Galván, UAM. Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:jue-nov-19-electroacustica-ii}`{=latex}.*
 
 ::: logos
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
@@ -10467,56 +10474,58 @@ Centro Mexicano para la Música y las Artes Sonoras, Morelia, Michoacán
 
 \part{ACTIVIDADES ACADÉMICAS}
 
-## SÁB | NOV 7, 12:00 h - Simon Höfele, taller de trompeta
+## SÁB | NOV 7, 12:00 h - Taller de trompeta
 
 Laboratorio Escénico, Jardín Escénico
 
-**Taller de trompeta**
-
-**Simon Höfele**, ponente
+**Simon Höfele** (Alemania), ponente
 
 ---
 
-## MAR | NOV 10, 11:00 h - Alberto Rosado: el piano contemporáneo
+## MAR | NOV 10, 11:00 h - Conferencia: El piano contemporáneo
 
 Conservatorio Nacional de Música
 
-**Conferencia**
-
-**El piano contemporáneo**\
 *Estéticas y obras emblemáticas del siglo XX\
-y primeras décadas del siglo XXI*\
+y primeras décadas del siglo XXI*
 
-**Alberto Rosado**, ponente
+**Alberto Rosado** (España), ponente
 
 ---
 
-## MAR | NOV 10, 17:00 h - Instalaciones sonoras. Apuntes para el futuro
+## MAR | NOV 10, 17:00 h - Mesa redonda: Instalaciones sonoras. Apuntes para el futuro
 
 Casa Rafael Galván, UAM
-
-**Mesa redonda: *Instalaciones sonoras. Apuntes para el futuro*. **
 
 **Valeria Macías Rodríguez, Andrés Nuño de Buen y Hugo Solís**, ponentes
 
 **Tito Rivas**, moderador
+
+---
+
+## MAR | NOV 17, 17:00 h - Presentación de libro
+
+Lobby del Pabellón Escénico, Jardín Escénico
+
+**Ana Lara** (autora) y **Dario Calderone** (Italia), participantes
+
+**José Wolffer**, moderador
+
+---
+
+## JUE | NOV 19, 10:00 h - Clase magistral: contrabajo y técnicas extendidas
+
+Escuela Superior de Música
+
+**Dario Calderone y Stefano Bassanese** (Italia), ponentes
 
 ::: logos
 ![](<logos/logos UAM/variacion5.png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+![](<logos/logos ESM/logo ESM.jpg>)
 :::
-
----
-
-## JUE | NOV 19, 10:00 h - Calderone / Bassanese: clase magistral
-
-Escuela Superior de Música
-
-**Clase magistral**, contrabajo y técnicas extendidas
-
-**Dario Calderone y Stefano Bassanese** (Italia), ponentes
 
 \part{ECOS DEL FORO}
 
@@ -10623,9 +10632,11 @@ región, formando nuevos públicos y rompiendo brechas generacionales a través 
 la diversidad de sus propuestas. La orquesta ha colaborado con destacados
 solistas, agrupaciones y directores invitados.
 
-### Dirección y solistas
+### Dirección
 
 #### Alfredo Ibarra
+
+![](int/Alfredo%20Ibarra.png)
 
 Cuenta con una sólida y respetada trayectoria nacional e internacional. Ha sido
 director artístico de la Sinfónica de Naucalpan, la Orquesta de la Escuela
@@ -10643,7 +10654,8 @@ Autónoma de San Luis Potosí.
 
 ## SÁB | NOV 28, 20:00 h - Ocotlán: Dúo Gasparini-Monnet
 
-Fundación Cultural Rodolfo Morales, Ocotlán de Morelos, Oaxaca
+Fundación Cultural Rodolfo Morales\
+Ocotlán de Morelos, Oaxaca
 
 ### Programa
 
@@ -10757,7 +10769,8 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 
 ## MAR | DIC 1, 20:00 h - Oaxaca: Dúo Gasparini-Monnet
 
-Centro Cultural San Pablo, Oaxaca, Oaxaca
+Centro Cultural San Pablo\
+Oaxaca, Oaxaca
 
 ### Programa
 
@@ -11062,7 +11075,7 @@ Xicoténcatl 126, Del Carmen, Coyoacán, Ciudad de México
 **Casa Rafael Galván, UAM**\
 Zacatecas 94, Roma Norte, Ciudad de México
 
-**Antigua Sede del Senado. Casona de Xicoténcatl**\
+**Xico. Antigua Sede del Senado**\
 Xicoténcatl 9, Centro Histórico, Ciudad de México
 
 **Universidad del Claustro de Sor Juana**\
@@ -11196,32 +11209,7 @@ María Isabel Grañén Porrúa, *presidenta*
 
 ## Directorio
 
-### Secretaría de Cultura
-
-**Claudia Curiel de Icaza**\
-*Secretaria de Cultura*
-
-**Marina Núñez Bespalova**\
-*Subsecretaria de Desarrollo Cultural*
-
-### Instituto Nacional de Bellas Artes y Literatura
-
-**Alejandra de la Paz**\
-*Directora General*
-
-**Haydeé Boetto Bárcena**\
-*Subdirectora General de Bellas Artes*
-
-**Aarón Polo López**\
-*Director de Difusión y Relaciones Públicas*
-
-**Silvia Carreño y Figueras**\
-*Gerente del Palacio de Bellas Artes*
-
 ### Coordinación Nacional de Música y Ópera
-
-**José María Serralde Ruiz**\
-*Coordinador Nacional*
 
 **Graciela Martínez Corona**\
 *Subcoordinadora*
@@ -11239,7 +11227,7 @@ María Isabel Grañén Porrúa, *presidenta*
 *Jefa de Logística*
 
 **Javier González Gómez**\
-*Gestión de información*
+*Editorial*
 
 **Luigi Amara**\
 *Cuidado editorial*
@@ -11267,10 +11255,41 @@ octubre de 2026.
 Se empleó la fuente tipográfica libre Noto Sans, en un flujo de texto
 propuesto para lectura en dispositivos móviles, con proporción de página 9:16.
 
-La revisión editorial corrió a cargo de Eduardo Partida y Luigi Amara.
+La revisión editorial corrió a cargo de Eduardo Partida, Luigi Amara y
+Javier González Gómez.
 
 © INBAL. Ciudad de México, 2026.
 
 ```{=tex}
 \end{colofon}
 ```
+
+<!-- Contraportada: directorio de la Secretaría de Cultura y del INBAL (va
+siempre en la última página, con la pleca institucional al pie) -->
+
+::: contraportada
+### Secretaría de Cultura
+
+**Claudia Curiel de Icaza**\
+*Secretaria de Cultura*
+
+**Marina Núñez Bespalova**\
+*Subsecretaria de Desarrollo Cultural*
+
+### Instituto Nacional de Bellas Artes y Literatura
+
+**Alejandra de la Paz**\
+*Directora General*
+
+**Haydeé Boetto Bárcena**\
+*Subdirectora General de Bellas Artes*
+
+**Aarón Polo López**\
+*Director de Difusión y Relaciones Públicas*
+
+**José María Serralde Ruiz**\
+*Coordinador Nacional de Música y Ópera*
+
+**Silvia Carreño y Figueras**\
+*Gerente del Palacio de Bellas Artes*
+:::

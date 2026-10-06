@@ -166,11 +166,8 @@
   \ifx&#2&\else{\leftskip=\sangria\relax#2\par}\fi}
 \newcommand{\estrenos}[1]{\par\vspace{0.6mm}%
   {\leftskip=\sangria\relax\fontsize{7.2}{8.8}\selectfont\itshape\color{acento}#1\par}}
-\newcommand{\interpretes}[1]{\grupo{#1}{}}
-\newcommand{\mismoprograma}[1]{\par{\leftskip=\sangria\relax\color{verdegris}\itshape
-  Mismo programa que el #1.\par}}
 % Actividad académica o sesión del Coloquio: #1 fecha  #2 sede  #3 título  #4 participantes
-\newcommand{\actividad}[4]{\par\addvspace{2.6mm}%
+\newcommand{\actividad}[4]{\par\addvspace{2mm}%
   \setbox\cajaconcierto=\vbox{%
   {\fontsize{7.2}{8.8}\selectfont\bfseries\color{acento}\espaciado[30]{#1}}\nobreak\hfill#2\par
   {\fontsize{8.6}{10.4}\selectfont\bfseries #3\par}%
@@ -188,6 +185,25 @@
    \setlength{\baselineskip}{12.5mm}\setlength{\lineskiplimit}{2mm}%
    \setlength{\lineskip}{3.5mm}#1\par}%
   \vspace*{\fill}\cierre}
+
+% ---------------------------------------------------- Contraportada ------
+% Directorio de la Secretaría de Cultura y del INBAL, y la pleca al pie
+\makeatletter
+\newcommand{\saltodirectorio}{\par\nobreak\vspace{-\parskip}\nobreak}
+\makeatother
+\newcommand{\grupodirectorio}[1]{\par\addvspace{5mm}%
+  {\fontsize{7.4}{9}\selectfont\bfseries\color{acento}\espaciado[80]{\MakeUppercase{#1}}\par}%
+  \nopagebreak\vspace{0.6mm}}
+\newcommand{\contraportada}[1]{\clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  {\centering\fontsize{8}{9.8}\selectfont\let\\\saltodirectorio
+   \setlength{\parskip}{2.2mm}\hyphenpenalty=10000 #1\par}%
+  \vspace{8mm}{\centering\logocnmo{14mm}{verdegris}\par}%
+  \vspace*{\fill}\vspace*{22mm}%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=south, inner sep=0pt] at (current page.south)
+      {\includegraphics[width=\paperwidth]{build/resumen/pleca.png}};
+  \end{tikzpicture}}
 
 \begin{document}
 $body$
