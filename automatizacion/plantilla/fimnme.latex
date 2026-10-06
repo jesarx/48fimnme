@@ -526,10 +526,6 @@
 % Conciertos que solo tienen programa: la franja siempre al pie del programa
 \newcommand{\logosalpie}[2][fill]{\par\vspace{0pt plus 1#1}\cajadelogos[3.5mm]{#2}%
   \vskip 3.5mm\box\cajalogos\par}
-% En las actividades académicas la franja va más pegada al texto
-\newcommand{\logosactividad}[1]{\par\addvspace{1.5mm}\nopagebreak
-  {\centering\setlength{\baselineskip}{9mm}\setlength{\lineskiplimit}{1mm}%
-  \setlength{\lineskip}{2.5mm}#1\par}}
 % Página final con todos los logotipos de los conciertos (antes del colofón)
 \newcommand{\logosepancho}{\hskip 6mm plus 5mm minus 2mm\relax}
 \newcommand{\paginalogos}[1]{\clearpage\thispagestyle{empty}\fijarcabecera{}%
