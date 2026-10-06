@@ -512,6 +512,15 @@
   \vskip 3.5mm\box\cajalogos\par}
 \newcommand{\logosactividad}[1]{\par\addvspace{4mm}\nopagebreak\franjalogos{#1}%
   \par\addvspace{3mm}}
+% Página final con todos los logotipos de los conciertos (antes del colofón)
+\newcommand{\logosepancho}{\hskip 6mm plus 5mm minus 2mm\relax}
+\newcommand{\paginalogos}[1]{\clearpage\thispagestyle{empty}\fijarcabecera{}%
+  \vspace*{\fill}%
+  {\centering{\estilotitulos\footnotesize\bfseries\color{verdegris}%
+    \espaciado[120]{CON LA COLABORACIÓN DE}\par}\vspace{9mm}%
+   \setlength{\baselineskip}{13.5mm}\setlength{\lineskiplimit}{2mm}%
+   \setlength{\lineskip}{4mm}#1\par}%
+  \vspace*{\fill}}
 % Nota que ya apareció (misma obra, mismo texto): título y «Ver pág. N»
 \newcommand{\notaver}[2]{% #1 título  #2 etiqueta de la nota
   \par\necesito{2\baselineskip}\addvspace{2.6mm}%

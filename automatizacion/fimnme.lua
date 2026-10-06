@@ -444,6 +444,10 @@ local function medida_logo(w, h)
   return ancho, alto
 end
 
+-- Todos los logotipos usados (sin repetir, en orden de aparición), para la
+-- página final de logotipos
+local TODOS_LOGOS, VISTOS_LOGOS = {}, {}
+
 -- Bloque «::: logos» → \logo{...}\logosep \logo{...}
 local function logos_latex(div)
   local items = {}
@@ -458,7 +462,14 @@ local function logos_latex(div)
     else
       for _, p in ipairs(piezas) do
         local ancho, alto = medida_logo(p.w, p.h)
-        items[#items + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}", p.ruta, ancho, alto)
+        local item = string.format("\\logo{%s}{%.2fmm}{%.2fmm}", p.ruta, ancho, alto)
+        items[#items + 1] = item
+        if not VISTOS_LOGOS[p.ruta] then
+          VISTOS_LOGOS[p.ruta] = true
+          -- en la página de logotipos van un poco más chicos (caben todos)
+          TODOS_LOGOS[#TODOS_LOGOS + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}",
+            p.ruta, ancho * 0.85, alto * 0.85)
+        end
       end
     end
   end })
@@ -913,6 +924,11 @@ function Pandoc(doc)
     elseif b.t == "RawBlock" and (b.format == "latex" or b.format == "tex") then
       local t = trim(b.text)
       local titulo_parte = t:match("^\\part%*?{(.-)}$")
+      if t:match("^\\begin{colofon}") and #TODOS_LOGOS > 0 then
+        -- página con todos los logotipos de los conciertos, antes del colofón
+        cerrar_mayor()
+        emit(raw("\\paginalogos{" .. table.concat(TODOS_LOGOS, "\\logosepancho ") .. "}"))
+      end
       local divisor = t:match("^\\portadacapitulo{(.-)}$")
       if t == "\\clearpage" or t == "\\newpage" or t == "\\pagebreak" then
         -- la paginación la decide la plantilla

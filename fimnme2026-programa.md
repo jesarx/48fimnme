@@ -5189,7 +5189,10 @@ Roberto Kolb y es director musical del Ensamble Cepromusic.
 
 ::: logos
 ![](<logos/logos cepromusic/LOGO CEPRO black.svg>)
-![](<logos/logos cepromusic/2.1 Logos Musica UNAM_San Ildefonso.ai>){partir=si}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.12 0.38 0.28 0.6"}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.28 0.38 0.52 0.6"}
+![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.52 0.38 0.752 0.6"}
+![](<logos/logos cepromusic/2.1 Logos Musica UNAM_San Ildefonso.ai>){recorte="0.73 0.38 0.9 0.6"}
 :::
 
 ## DOM | NOV 15, 17:00 h - Vicente Moronta, oboe
