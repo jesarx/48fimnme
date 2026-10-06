@@ -311,6 +311,20 @@
   \encabezadoconcierto{#1}{#2}{#3}{#4}{#5}{#6}%
 }
 % Actividades académicas: entradas breves, sin salto de página
+% Bloque de una actividad académica: no se parte entre páginas (si no cabe,
+% pasa entera a la siguiente). Se compone primero en una caja y se mide; la
+% cabecera de página cambia solo cuando la caja ya está en su página.
+\makeatletter
+\newsavebox{\cajaactividad}
+\newenvironment{actividadentera}{\par\addvspace{6mm}%
+  \begin{lrbox}{\cajaactividad}\begin{minipage}[t]{\linewidth}\let\necesito\@gobble
+  \def\fijarcabecera##1{\gdef\cabecerapendiente{##1}}%
+  \setparsizes{0pt}{0.55\baselineskip plus 1pt minus 0.5pt}{0pt plus 1fil}}
+  {\par\end{minipage}\end{lrbox}%
+  \necesito{\dimexpr\ht\cajaactividad+\dp\cajaactividad\relax}%
+  \ifdefined\cabecerapendiente\global\let\cabeceraizq\cabecerapendiente\fi
+  \noindent\usebox{\cajaactividad}\par\addvspace{2mm}}
+\makeatother
 \newcommand{\actividadacademica}[6]{%
   \par\necesito{14\baselineskip}\addvspace{6mm}%
   \encabezadoconcierto{#1}{#2}{#3}{#4}{#5}{#6}%

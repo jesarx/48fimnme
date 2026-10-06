@@ -613,7 +613,8 @@ function Pandoc(doc)
     if not concierto_abierto then return end
     local solo, hay = true, false
     local k = desde
-    while bloques[k] and bloques[k].t ~= "Header" and bloques[k].t ~= "HorizontalRule" do
+    while bloques[k] and bloques[k].t ~= "Header" and bloques[k].t ~= "HorizontalRule"
+          and bloques[k].t ~= "Div" do
       local bk = bloques[k]
       if bk.t == "BlockQuote" then hay = true
       elseif not es_firma(bk) and not (bk.t == "RawBlock") then solo = false end
@@ -816,7 +817,18 @@ function Pandoc(doc)
     seccion = nil
   end
 
+  -- Cada actividad académica va en un bloque que no se parte entre páginas
+  local actividad_abierta = false
+  local function cerrar_actividad()
+    if actividad_abierta then
+      cerrar_semblanza()
+      emit(raw("\\end{actividadentera}"))
+      actividad_abierta = false
+    end
+  end
+
   local function cerrar_concierto()
+    cerrar_actividad()
     concierto_abierto = nil
   end
 
@@ -1005,6 +1017,10 @@ function Pandoc(doc)
         -- etiqueta estable para referencias desde el Markdown:
         -- \pageref{conc:mie-nov-18-electroacustica-i}
         local estable = "conc:" .. clave_orden(fecha_texto(f) .. " " .. titulo_txt):gsub("[^%w]+", "-"):gsub("^-+", ""):gsub("-+$", "")
+        if macro == "\\actividadacademica" then
+          emit(raw("\\begin{actividadentera}"))
+          actividad_abierta = true
+        end
         emit(raw(string.format("%s{%s}{%s}{%s}{%s}{%s}{%s}\\hypertarget{%s}{}\\label{%s}\\label{" .. estable .. "}",
           macro,
           table.concat(kicker, "\\quad/\\quad "), titulo, cabecera,
