@@ -236,7 +236,7 @@
 \newsavebox{\cajadirectorio}
 \newenvironment{directoriocontraportada}{%
   \global\setbox\cajadirectorio=\vbox\bgroup\hsize=84mm\parindent=0pt
-  \centering\estilotitulos\fontsize{7.6}{9.3}\selectfont\color{portadatexto}%
+  \estilotitulos\centering\fontsize{7.6}{9.3}\selectfont\color{portadatexto}%
   \let\\\saltocredito\setlength{\parskip}{2mm}\hyphenpenalty=10000}
   {\par\egroup}
 \newcommand{\grupodirectorio}[1]{\par\addvspace{4.5mm}%
