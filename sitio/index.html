@@ -111,7 +111,7 @@ clase: pagina-inicio
       {%- assign f = ev.fechas | first %}
     <a class="abono-concierto" href="{{ ev.url | relative_url }}">
       <span class="abono-etiqueta">{{ etiqueta }}</span>
-      <span class="abono-fecha">{{ f.dia }}, {{ f.hora }} h</span>
+      <span class="abono-fecha">{{ f.dia }}, {{ f.hora }}&nbsp;h</span>
       <span class="abono-titulo">{{ ev.interpretes }}</span>
       <span class="abono-obras">{{ ev.obras }}</span>
     </a>

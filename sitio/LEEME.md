@@ -18,10 +18,13 @@ el contenido; Ruby con Jekyll 4.4 para compilarlo (`cd sitio && bundle install`)
 El contenido generado se guarda en el repositorio, así que para compilar el
 sitio basta Jekyll.
 
-Para publicarlo se sube el contenido de `sitio/_site/` al servidor (son
-archivos estáticos). Si va en una subcarpeta del dominio (p. ej.
-`/fimnme`), se indica en `baseurl` de `_config.yml`; `url` es el dominio, que
-se usa en los enlaces para compartir en redes.
+Para publicarlo se copia el contenido de `sitio/_site/` al servidor (son
+archivos estáticos): `sitio/publicar.sh CARPETA` lo compila y lo copia, en el
+mismo servidor o por SSH. **Cómo montarlo en un VPS con su dominio y HTTPS:
+[`DESPLIEGUE.md`](DESPLIEGUE.md).** En `_config.yml`, `url` es el dominio
+(se usa en los enlaces para compartir en redes; ahora el de prueba,
+`fimnme.qumran.cc`), `indexar: false` pide a los buscadores que no lo indexen
+mientras es de prueba, y `baseurl` va solo si el sitio queda en una subcarpeta.
 
 ## Páginas
 
@@ -49,9 +52,10 @@ versalitas espaciadas.
 | `sitio.lua` | Filtro de pandoc: lee el Markdown y escribe el contenido (abajo). |
 | `recursos.py` | Fotos y logotipos ligeros, logotipos «48» y CNMO en SVG, partitura, ícono, imagen para redes, precios del abono y descargas. |
 | `genera.sh` | Ejecuta los dos anteriores y compila con Jekyll. |
+| `publicar.sh`, `DESPLIEGUE.md` | Compila y copia el sitio al servidor; guía para montarlo en un VPS. |
 | `_config.yml`, `Gemfile` | Configuración de Jekyll. |
 | `_layouts/`, `_includes/` | Plantillas: `base` (encabezado y pie), `pagina` (bandas de título), `evento` (cada concierto), `tarjeta` (evento en la agenda). |
-| `index.html`, `programacion.html`, `sedes.html`, `coloquio.html`, `creditos.html`, `descargas.html`, `404.html` | Páginas. |
+| `index.html`, `programacion.html`, `sedes.html`, `coloquio.html`, `creditos.html`, `descargas.html`, `404.html`, `robots.txt` | Páginas. |
 | `assets/css/sitio.css`, `assets/js/sitio.js` | Estilos y comportamiento (sin dependencias; sin JavaScript el sitio muestra todo). |
 | `assets/img/cultura.svg`, `inbal.svg` | Logotipos oficiales del pie (del sitio del Palacio de Bellas Artes). |
 
@@ -68,6 +72,8 @@ Generado (no editar: lo reescribe `genera.sh`):
 
 ## Notas
 
+- Los logotipos de cada actividad académica son los de su bloque `::: logos`
+  (en el programa general se juntan en una sola franja).
 - Las cifras de estrenos cuentan cada estreno una vez (como el Programa
   resumido): una obra que se repite en otra sede no vuelve a contar.
 - En las tarjetas de la agenda, de un conjunto se dan el nombre y quien lo

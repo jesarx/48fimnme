@@ -23,6 +23,9 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#172B20">
+  {%- unless site.indexar %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endunless %}
   <link rel="icon" href="{{ '/assets/img/icono.svg' | relative_url }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/assets/img/icono-180.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">

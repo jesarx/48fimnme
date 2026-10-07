@@ -27,7 +27,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
-| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas y notas, sedes, Coloquio, descargas), generado del mismo Markdown; ver `sitio/LEEME.md`. |
+| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas y notas, sedes, Coloquio, descargas), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
 | `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) y `.svg` (editable en Inkscape o Illustrator, con los textos como texto en Noto Sans y el fondo y los logotipos en otra capa; Illustrator también abre el PDF). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
@@ -114,9 +114,10 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   minúsculas, sin acentos y con guiones.
 - Cada actividad académica va en un bloque que no se parte entre páginas.
   En el título de la actividad va lo que es (*Conferencia: …*, *Taller de
-  trompeta*) y debajo solo quiénes participan, sin repetir datos. Los
-  logotipos de todas las actividades van en un solo bloque `::: logos` al
-  final de la parte, y salen al pie de la última página de actividades.
+  trompeta*) y debajo solo quiénes participan, sin repetir datos. Cada
+  actividad lleva su bloque `::: logos` al final (el sitio web los muestra en
+  la página de cada una); en el programa general se juntan, sin repetir, en
+  una sola franja al pie de la última página de actividades.
 - `::: contraportada` (al final del Markdown): directorio de la Secretaría
   de Cultura y del INBAL. Va en la última página, con la pleca institucional
   al pie; el programa resumido también la lleva.

@@ -16,7 +16,7 @@ clase: pagina-evento
             <span class="fecha-semana">{{ f.semana }}</span>
             <span class="fecha-numero">{{ f.numero }}</span>
             <span class="fecha-mes">{{ f.mes }}</span>
-            <span class="fecha-hora">{{ f.hora }} h</span>
+            <span class="fecha-hora">{{ f.hora }}&nbsp;h</span>
           </a>
           {%- endfor %}
         </div>
@@ -38,7 +38,7 @@ clase: pagina-evento
     <aside class="evento-lateral">
       {%- for f in page.fechas %}
       <section class="dato" aria-label="Fecha y lugar">
-        <p class="dato-cuando"><b>{{ f.dia }}</b> · {{ f.hora }} h</p>
+        <p class="dato-cuando"><b>{{ f.dia }}</b> · {{ f.hora }}&nbsp;h</p>
         <p class="dato-lugar">{{ f.lugar }}</p>
         {%- if f.direccion != "" %}
         <p class="dato-direccion">{{ f.direccion }}</p>

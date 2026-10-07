@@ -21,7 +21,7 @@ description: Sedes del 48.º Foro Internacional de Música Nueva Manuel Enríque
       <p><a class="boton boton-claro" href="https://www.google.com/maps/search/?api=1&amp;query={{ consulta | url_encode }}" target="_blank" rel="noopener">Ver en el mapa</a></p>
       <ul class="sede-eventos">
         {%- for e in s.eventos %}
-        <li><a href="{{ e.url | relative_url }}"><span class="sede-fecha">{{ e.fecha }} · {{ e.hora }} h</span> {{ e.titulo_html }}</a></li>
+        <li><a href="{{ e.url | relative_url }}"><span class="sede-fecha">{{ e.fecha }} · {{ e.hora }}&nbsp;h</span> {{ e.titulo_html }}</a></li>
         {%- endfor %}
       </ul>
     </article>

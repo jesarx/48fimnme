@@ -415,6 +415,7 @@ p { margin: 0 0 .85em; }
 .seccion { margin-bottom: 46px; }
 .seccion-titulo { margin-bottom: 1.2rem; }
 .evento-logos { margin-top: 10px; padding-top: 26px; border-top: 1px solid var(--filete); }
+.evento-previo + .evento-logos { border-top: 0; padding-top: 6px; }
 
 /* Programa: compositores, obras y duraciones (como en el programa de mano) */
 .seccion-programa { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 26px 28px 20px; }

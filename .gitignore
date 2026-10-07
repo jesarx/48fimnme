@@ -9,3 +9,4 @@ sitio/.jekyll-cache/
 sitio/.jekyll-metadata
 sitio/.bundle/
 sitio/vendor/
+sitio/Gemfile.lock
