@@ -11255,6 +11255,85 @@ Aguilar, Manuel César Rojas, Nahomi Rojas, Jessica García, Sandro Valdés,
 Juan José Reyes**\
 *Personal operativo*
 
+### Gerencia del Palacio de Bellas Artes
+
+**Jesús José Sánchez Herrera**\
+*Coordinador de administración*
+
+**Mariana Hernández Hernández**\
+*Coordinadora de programación y proyectos especiales*
+
+**José Rojas Patiño**\
+*Coordinador editorial y de difusión*
+
+**Federico Emery Othón**\
+*Coordinador técnico*
+
+**Silvia Gil Rivera**\
+*Coordinadora de control de espectáculos*
+
+**José López Quintero**\
+*Coordinador de conservación y obras*
+
+**Martha Marlenne Chávez Brizuela**\
+*Coordinadora de relaciones públicas*
+
+**Arturo Ricardo Murguía García**\
+*Coordinador de seguridad y vigilancia*
+
+### Coordinación técnica del Palacio de Bellas Artes
+
+**Carlos Yañez Estrada**\
+*Jefe de foro*
+
+**Cristopher Arturo González Flores**, jefe de taller. **Sinohé Martínez
+Paredes**\
+*Taller de traspunte*
+
+**Julio César Guerra Picazo**, jefe de taller. **Jesús Dionisio Salinas del
+Castillo, Gabriel García Hernández, Sergio Meléndez Ensástiga, Luis Alejandro
+García Herrera, Daniel Samaniego Alvarado, Karla Magali Gutiérrez Cervantes,
+Carlos Flores López, Héctor Reyes Montero, Carlos Jafeth Campos Lara, Ricardo
+Lugo Acevedo, Felipe Sosa Rodríguez, Emerson Escander Guerrero Peña, Claudio
+Mateo Sánchez**\
+*Taller de tramoya*
+
+**Dolores Amparo Vargas Ayala**, jefe de taller. **Azalia Martínez López,
+Bibiana Eva Vázquez Rivera**\
+*Taller de maquillaje*
+
+**Ernesto Farías Pérez**, jefe de taller. **Elvia Patricia Aceves García,
+Ricardo Castro Carrasco, María de los Ángeles Vargas Arellano, Fortino Pinzón
+Herácleo, Erik Daniel Ramírez Aceves, Laura Cedeño Castro, Fernando Aguilar
+Gutiérrez, Miriam Regina Legorreta Soria, Elvia Paola Andrade Márquez**\
+*Taller de vestuario*
+
+**José Amado Castillo Barreto**, jefe de taller. **Javier Márquez Bernabé,
+José Luis Olivares Aguirre, Luis Alfredo Alejandro Durán Alvarado, Julián
+Gerardo González Contreras, Sergio Armando Pérez Velazco, Alexis Efraín Correa
+Altamirano**\
+*Taller mecánico*
+
+**Roberto Carlos Arellano Ramos**, jefe de taller. **José Aníbal Castro Reyes,
+David Méndez Cruz, Juvenal Orozco Medina, Félix Jesús Galván Alonso, César
+Jesús Salinas Hernández, Joseline Hurtado Olivera**\
+*Taller de iluminación*
+
+**Martín Fernando Jiménez Páramo**, jefe de taller. **Julio Cárdenas García,
+José Luis Román Pedraza, Saúl Martínez Cadena**; multimedia: **Viridiana
+González Vázquez**\
+*Taller de audio*
+
+**Luciano Noé Alarcón Estrada**, jefe de taller. **Miguel Gustavo Andrade
+Márquez, Mariana Fernández Sánchez, Rubén Martín Sánchez Reyes, Federico Flores
+Fuentes**\
+*Taller de utilería*
+
+**José Joel García Maldonado**, encargado de área. **Jorge Mejía Nieto,
+Guadalupe Cejudo Sánchez, Martín Antonio Alarcón Hernández, Patricia Sandoval
+Sotelo, Elena del Carmen Briseño Gómez de la Llata, Sandra Rodríguez Maturano**\
+*Atención artística*
+
 ```{=tex}
 \begin{colofon}
 ```
