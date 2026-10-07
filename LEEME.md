@@ -8,6 +8,7 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 ./compila.sh --rapido   # una sola pasada, para revisar cambios
 resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
 postal/compila.sh       # solo la postal del abono (también la genera la compilación completa)
+sitio/genera.sh         # solo el sitio web (también lo genera la compilación completa)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -26,7 +27,8 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
-| `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) y `.svg` (editable en Inkscape o Illustrator, con los textos como texto en Noto Sans y el fondo y los logotipos en otra capa; Illustrator también abre el PDF). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí. |
+| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas y notas, sedes, Coloquio, descargas), generado del mismo Markdown; ver `sitio/LEEME.md`. |
+| `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) y `.svg` (editable en Inkscape o Illustrator, con los textos como texto en Noto Sans y el fondo y los logotipos en otra capa; Illustrator también abre el PDF). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |

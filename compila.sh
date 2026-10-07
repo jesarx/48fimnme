@@ -74,10 +74,12 @@ cp "build/$NOMBRE.pdf" "$NOMBRE.pdf"
 echo "✓ Listo: $NOMBRE.pdf ($(pdfinfo "$NOMBRE.pdf" 2>/dev/null | awk '/^Pages/{print $2}') páginas)"
 grep -E "^(Overfull|Underfull) \\\\hbox" "build/$NOMBRE.log" | sort | uniq -c | sort -rn | head -5 || true
 
-# El programa resumido sale del mismo Markdown
+# El programa resumido, la postal y el sitio web salen del mismo Markdown
 if [[ "${1:-}" != "--rapido" ]]; then
   echo "▸ Programa resumido…"
   resumen/compila.sh
   echo "▸ Postal del abono…"
   postal/compila.sh
+  echo "▸ Sitio web…"
+  sitio/genera.sh
 fi

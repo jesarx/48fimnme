@@ -3,3 +3,9 @@ build/
 __pycache__/
 *.pyc
 .DS_Store
+# Sitio web compilado por Jekyll (se regenera con sitio/genera.sh)
+sitio/_site/
+sitio/.jekyll-cache/
+sitio/.jekyll-metadata
+sitio/.bundle/
+sitio/vendor/
