@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila la postal para la venta de boletos del 48.º FIMNME (inauguración y
+# Compila la postal para la venta del abono del 48.º FIMNME (inauguración y
 # clausura) y la exporta en PNG de 1080 × 1350 px.
 #
 #   postal/compila.sh
