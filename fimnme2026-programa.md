@@ -10529,12 +10529,13 @@ Escuela Superior de Música
 **Dario Calderone y Stefano Bassanese** (Italia), ponentes
 
 ::: logos
+![](<logos/logos CNM/CNM 160 años.png>)
 ![](<logos/logos UAM/variacion5.png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
-![](<logos/logos ESM/logo ESM.jpg>)
 ![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
+![](<logos/logos ESM/logo ESM.jpg>)
 :::
 
 \part{ECOS DEL FORO}
