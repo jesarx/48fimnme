@@ -1901,7 +1901,7 @@ INTERMEDIO\
 
 **Black Noise Ensamble**
 
-Victoria Eugenia Olguín Amaro, dirección y voz\
+Victoria Amaro, dirección y voz\
 María Alejandra Granados Medina, viola\
 José Alejandro Martínez Sánchez, contrabajo\
 Mariana Aurora Chávez Lara, flauta\
@@ -10495,6 +10495,10 @@ y primeras décadas del siglo XXI*
 
 **Alberto Rosado** (España), ponente
 
+::: logos
+![](<logos/logos CNM/CNM 160 años.png>)
+:::
+
 ---
 
 ## MAR | NOV 10, 17:00 h - Mesa redonda: Instalaciones sonoras
@@ -10507,13 +10511,24 @@ Casa Rafael Galván, UAM
 
 **Tito Rivas**, moderador
 
+::: logos
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaGalvánNegro (1).png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
+:::
+
 ---
 
 ## MIÉ | NOV 11, 10:00 h - Clase magistral: piano
 
 Conservatorio Nacional de Música
 
-**Alberto Rosado** (España), ponente
+**Alberto Rosado** (España), imparte
+
+::: logos
+![](<logos/logos CNM/CNM 160 años.png>)
+:::
 
 ---
 
@@ -10528,6 +10543,10 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 
 **José Wolffer**, moderador
 
+::: logos
+![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
+:::
+
 ---
 
 ## JUE | NOV 19, 10:00 h - Clase magistral: contrabajo y técnicas extendidas
@@ -10537,12 +10556,6 @@ Escuela Superior de Música
 **Dario Calderone y Stefano Bassanese** (Italia), ponentes
 
 ::: logos
-![](<logos/logos CNM/CNM 160 años.png>)
-![](<logos/logos UAM/variacion5.png>)
-![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
-![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
-![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
 ![](<logos/logos ESM/logo ESM.jpg>)
 :::
 
@@ -11025,7 +11038,7 @@ Luis Jaime Cortez, **moderador**
 
 ---
 
-#### JUE | NOV 19, 11:30 h - Mesa 4: Entre disciplinas
+#### JUE | NOV 19, 11:30 h - Mesa 3: Entre disciplinas
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -11035,7 +11048,7 @@ José María Serralde, **moderador**
 
 ---
 
-#### JUE | NOV 19, 13:00 h - Mesa 3: El gestor
+#### JUE | NOV 19, 13:00 h - Mesa 4: El gestor
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
