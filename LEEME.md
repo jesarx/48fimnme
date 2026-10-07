@@ -95,7 +95,11 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 
   Van en una franja al pie de la última página del concierto (si ahí no
   caben, al pie del programa), todos en el verde oscuro del diseño y con un
-  tamaño visual parejo. Se aceptan PNG, JPG, PDF, AI y SVG. Atributos
+  tamaño visual parejo. Ningún logotipo es mayor que los de Cultura e INBAL
+  de la pleca de la contraportada (Cultura mide 29 × 7,5 mm): como máximo,
+  6,5 mm de alto y 20 mm de ancho (`medida_logo` en
+  `automatizacion/fimnme.lua`; el resumen usa la misma medida). Se aceptan
+  PNG, JPG, PDF, AI y SVG. Atributos
   opcionales: `pagina=3` (página de un PDF/AI), `recorte="x0 y0 x1 y1"`
   (parte de la página, en fracciones), `partir=si` (separa un cintillo en
   logotipos sueltos) y `realce=0.3` (oscurece un logotipo muy pálido).
