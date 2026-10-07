@@ -1,0 +1,132 @@
+---
+layout: base
+title: Inicio
+clase: pagina-inicio
+---
+{%- assign foro = site.data.foro -%}
+<section class="portada">
+  <div class="contenedor portada-filas">
+    <div class="portada-marca">
+      <span class="portada-logo" aria-hidden="true">{% include generado/logo-48.svg %}</span>
+      <h1 class="portada-nombre">
+        <span class="visualmente-oculto">48.º</span>
+        <span>Foro Internacional</span>
+        <span>de Música Nueva</span>
+        <b>Manuel Enríquez</b>
+        <small>Noviembre 6 al 21, 2026</small>
+      </h1>
+    </div>
+    <p class="portada-contenido"><b>Conciertos</b> <span>Actividades académicas</span> <b>Coloquio Enríquez&nbsp;|&nbsp;100</b></p>
+    <p class="portada-acciones">
+      <a class="boton boton-caja" href="{{ '/programacion/' | relative_url }}">Ver la programación</a>
+      <a class="boton boton-contorno" href="{{ '/descargas/' | relative_url }}">Descargar el programa de mano</a>
+    </p>
+    <p class="portada-estados">{{ foro.estados | join: " · " }}</p>
+  </div>
+</section>
+
+<section class="cifras" aria-label="El Foro en cifras">
+  <ul class="contenedor">
+    <li><b>{{ foro.conciertos }}</b> conciertos</li>
+    <li><b>{{ foro.mundiales }}</b> estrenos mundiales</li>
+    <li><b>{{ foro.mexico }}</b> estrenos en México</li>
+    <li><b>{{ foro.actividades | plus: foro.coloquio }}</b> actividades académicas</li>
+    <li><b>{{ foro.sedes }}</b> sedes en {{ foro.estados.size }} entidades</li>
+  </ul>
+</section>
+
+<section class="inicio-bloque proximos" data-proximos hidden>
+  <div class="contenedor">
+    <h2 class="titulo-seccion" data-proximos-titulo>Próximos eventos</h2>
+    <div class="proximos-lista">
+      {%- for d in site.data.agenda %}
+        {%- capture dia_corto %}{{ d.semana | slice: 0, 3 }} {{ d.numero }} {{ d.mes | slice: 0, 3 }}{% endcapture %}
+        {%- for e in d.eventos %}
+      {% include tarjeta.html evento=e fecha=d.fecha dia=dia_corto %}
+        {%- endfor %}
+      {%- endfor %}
+    </div>
+    <p class="mas"><a class="boton boton-acento" href="{{ '/programacion/' | relative_url }}">Toda la programación</a></p>
+  </div>
+</section>
+
+<section class="inicio-bloque calendario-bloque">
+  <div class="contenedor calendario-filas">
+    <div>
+      <h2 class="titulo-seccion">Noviembre 2026</h2>
+      {%- assign blancos = "2026-11-01" | date: "%u" | minus: 1 %}
+      <div class="calendario" role="grid" aria-label="Días con actividades en noviembre de 2026">
+        <div class="calendario-semana" role="row">
+          {%- assign semana = "L,M,M,J,V,S,D" | split: "," %}
+          {%- for nombre in semana %}<span role="columnheader">{{ nombre }}</span>{% endfor %}
+        </div>
+        <div class="calendario-dias" role="row">
+          {%- for i in (1..blancos) %}<span class="vacio"></span>{% endfor %}
+          {%- for n in (1..30) %}
+            {%- capture iso %}2026-11-{% if n < 10 %}0{% endif %}{{ n }}{% endcapture %}
+            {%- assign cuantos = 0 %}{% assign ecos = false %}
+            {%- for d in site.data.agenda %}{% if d.fecha == iso %}{% assign cuantos = d.eventos.size %}{% assign primero = d.eventos | first %}{% if primero.seccion == "ecos" %}{% assign ecos = true %}{% endif %}{% endif %}{% endfor %}
+            {%- if cuantos > 0 %}
+          <a role="gridcell" class="con-eventos{% if ecos %} dia-ecos{% endif %}" href="{{ '/programacion/' | relative_url }}#dia-{{ iso }}" data-fecha="{{ iso }}" title="{{ cuantos }} {% if cuantos == 1 %}evento{% else %}eventos{% endif %}"><b>{{ n }}</b><small>{{ cuantos }}</small></a>
+            {%- else %}
+          <span role="gridcell">{{ n }}</span>
+            {%- endif %}
+          {%- endfor %}
+        </div>
+      </div>
+      {%- assign ecos = "" | split: "" %}
+      {%- for d in site.data.agenda %}{% for e in d.eventos %}{% if e.seccion == "ecos" %}{% capture x %}<a href="{{ e.url | relative_url }}">{{ d.numero }} de {{ d.mes }}</a> ({{ e.titulo | split: ":" | first }}){% endcapture %}{% assign ecos = ecos | push: x %}{% endif %}{% endfor %}{% endfor %}
+      {%- if ecos.size > 0 %}
+      <p class="calendario-nota"><b>Ecos del Foro:</b> {{ ecos | join: " · " }}.</p>
+      {%- endif %}
+    </div>
+    <div class="secciones-lista">
+      {%- for s in site.data.secciones %}
+        {%- assign urls = "" | split: "" %}{% assign lugares = "" | split: "" %}
+        {%- for d in site.data.agenda %}{% for e in d.eventos %}{% if e.seccion == s.id %}{% assign urls = urls | push: e.url %}{% if s.id == "estados" or s.id == "ecos" %}{% assign ciudad = e.titulo | split: ":" | first %}{% assign lugares = lugares | push: ciudad %}{% endif %}{% endif %}{% endfor %}{% endfor %}
+        {%- assign n = urls | uniq | size %}
+      <a class="seccion-tarjeta seccion-{{ s.id }}" href="{% if s.id == 'coloquio' %}{{ '/coloquio/' | relative_url }}{% else %}{{ '/programacion/' | relative_url }}?seccion={{ s.id }}{% endif %}">
+        <span class="seccion-numero">{{ n }}</span>
+        <span class="seccion-nombre">{{ s.nombre }}</span>
+        <span class="seccion-detalle">{% if lugares.size > 0 %}{{ lugares | uniq | join: " · " }}{% elsif s.id == "cdmx" %}conciertos{% elsif s.id == "coloquio" %}conferencias y mesas · 18 y 19 de noviembre{% else %}talleres, conferencias, clase magistral{% endif %}</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{%- assign inauguracion = site.conciertos | where_exp: "c", "c.title contains 'INAUGURACIÓN'" | first %}
+{%- assign clausura = site.conciertos | where_exp: "c", "c.title contains 'CLAUSURA'" | first %}
+{%- if inauguracion and clausura %}
+<section class="inicio-bloque abono">
+  <div class="contenedor abono-filas">
+    <div class="abono-texto">
+      <p class="abono-distintivo"><b>Abono</b> <span>2 conciertos</span></p>
+      <h2>Inauguración y clausura en el Palacio de Bellas Artes</h2>
+      <p class="abono-precios" aria-label="Precios del abono">{{ site.data.abono.precios | join: " · " }}</p>
+      <p class="abono-sede">Abono para ambos conciertos · {{ site.data.abono.sede }}<br>{{ site.data.abono.direccion }}</p>
+    </div>
+    {%- for c in (1..2) %}
+      {%- if c == 1 %}{% assign ev = inauguracion %}{% assign etiqueta = "Concierto inaugural" %}{% else %}{% assign ev = clausura %}{% assign etiqueta = "Concierto de clausura" %}{% endif %}
+      {%- assign f = ev.fechas | first %}
+    <a class="abono-concierto" href="{{ ev.url | relative_url }}">
+      <span class="abono-etiqueta">{{ etiqueta }}</span>
+      <span class="abono-fecha">{{ f.dia }}, {{ f.hora }} h</span>
+      <span class="abono-titulo">{{ ev.interpretes }}</span>
+      <span class="abono-obras">{{ ev.obras }}</span>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+<section class="inicio-bloque logos-bloque" aria-labelledby="titulo-logos">
+  <div class="contenedor">
+    <h2 class="titulo-seccion" id="titulo-logos">Con la colaboración de</h2>
+    <div class="logos-todos">
+      {%- for l in site.data.logos %}
+      <img src="{{ '/assets/logos/' | append: l.archivo | relative_url }}" alt="" width="{{ l.ancho }}" height="{{ l.alto }}" loading="lazy">
+      {%- endfor %}
+    </div>
+  </div>
+</section>

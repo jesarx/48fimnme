@@ -1,0 +1,26 @@
+---
+title: Coloquio Manuel Enríquez 100
+antetitulo: Enríquez | 100
+entrada: Conferencias y mesas en el centenario de Manuel Enríquez (1926-1994), 18 y 19 de noviembre.
+clase: pagina-coloquio
+description: Coloquio Manuel Enríquez 100, actividades académicas in memoriam en el marco del 48.º Foro Internacional de Música Nueva Manuel Enríquez.
+---
+<div class="coloquio-filas">
+  <section class="coloquio-programa" aria-labelledby="programa-coloquio">
+    <h2 class="titulo-seccion" id="programa-coloquio">Programa del Coloquio</h2>
+    <div class="texto">{% include generado/coloquio-programa.html %}</div>
+    {%- for d in site.data.agenda %}
+      {%- assign sesiones = d.eventos | where: "seccion", "coloquio" %}
+      {%- if sesiones.size > 0 %}
+    <h3 class="coloquio-dia">{{ d.dia }}</h3>
+    <div class="coloquio-sesiones">
+      {%- for e in sesiones %}{% include tarjeta.html evento=e %}{% endfor %}
+    </div>
+      {%- endif %}
+    {%- endfor %}
+  </section>
+  <section class="coloquio-presentacion texto-largo" aria-labelledby="presentacion-coloquio">
+    <h2 class="titulo-seccion" id="presentacion-coloquio">Presentación</h2>
+    {% include generado/coloquio-presentacion.html %}
+  </section>
+</div>

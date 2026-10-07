@@ -1,0 +1,25 @@
+{%- comment -%}
+  Tarjeta de un evento de la agenda (site.data.agenda): {% include tarjeta.html evento=e %}
+  Opcional: dia=true para mostrar también la fecha.
+{%- endcomment -%}
+{%- assign e = include.evento -%}
+<article class="tarjeta tarjeta-{{ e.seccion }}" data-seccion="{{ e.seccion }}" data-buscar="{{ e.buscar | escape }}"{% if include.fecha %} data-inicio="{{ include.fecha }}T{{ e.hora }}"{% endif %}>
+  <p class="tarjeta-hora">{% if include.dia %}<span class="tarjeta-dia">{{ include.dia }}</span>{% endif %}{{ e.hora }}&nbsp;h</p>
+  <div class="tarjeta-cuerpo">
+    <p class="tarjeta-seccion">{{ e.seccion_nombre }}</p>
+    <h3 class="tarjeta-titulo"><a href="{{ e.url | relative_url }}">{{ e.titulo_html }}</a></h3>
+    {%- if e.subtitulo != "" %}
+    <p class="tarjeta-subtitulo">{{ e.subtitulo }}</p>
+    {%- endif %}
+    <p class="tarjeta-lugar">{{ e.lugar }}</p>
+    {%- if e.interpretes != "" %}
+    <p class="tarjeta-interpretes">{{ e.interpretes }}</p>
+    {%- endif %}
+    {%- if e.obras != "" %}
+    <p class="tarjeta-obras">{{ e.obras }}</p>
+    {%- endif %}
+    {%- if e.estrenos != "" %}
+    <p class="distintivo">{{ e.estrenos }}</p>
+    {%- endif %}
+  </div>
+</article>

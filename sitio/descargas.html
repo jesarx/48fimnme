@@ -1,0 +1,17 @@
+---
+title: Programa de mano
+antetitulo: Descargas
+entrada: El programa del 48.º Foro para leer en el teléfono, imprimir o compartir.
+clase: pagina-descargas
+description: Descargue el Programa general y el Programa resumido del 48.º Foro Internacional de Música Nueva Manuel Enríquez.
+---
+<div class="descargas">
+  {%- for d in site.data.descargas %}
+  <a class="descarga descarga-{{ d.id }}" href="{{ '/descargas/' | append: d.archivo | relative_url }}" download>
+    <span class="descarga-icono" aria-hidden="true">{% if d.archivo contains ".pdf" %}PDF{% else %}PNG{% endif %}</span>
+    <span class="descarga-titulo">{{ d.titulo }}</span>
+    <span class="descarga-texto">{{ d.descripcion }}</span>
+    <span class="descarga-detalle">{{ d.detalle }}</span>
+  </a>
+  {%- endfor %}
+</div>
