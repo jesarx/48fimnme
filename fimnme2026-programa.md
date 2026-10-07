@@ -11275,9 +11275,6 @@ Javier González Gómez.
 \end{colofon}
 ```
 
-<!-- Contraportada: directorio de la Secretaría de Cultura y del INBAL (va
-siempre en la última página, con la pleca institucional al pie) -->
-
 ::: contraportada
 ### Secretaría de Cultura
 

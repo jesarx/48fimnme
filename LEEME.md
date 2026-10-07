@@ -25,9 +25,8 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
-| `revision/` | Listas de correcciones y comentarios recibidos (con sus PDF), y ejemplos de referencia (`ejemplos/`). |
-| `resumen/` | Programa resumido (agenda en una página y programas condensados; ver `resumen/LEEME.md`). |
-| `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px, en PNG y PDF. Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí. |
+| `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
+| `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) y `.svg` (editable en Inkscape o Illustrator, con los textos como texto en Noto Sans y el fondo y los logotipos en otra capa; Illustrator también abre el PDF). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí. |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
@@ -35,7 +34,7 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 | `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
 | `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
-| `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial; tomada de `revision/ejemplos/directorio y pleca.pdf`. |
+| `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial, tomada de la plantilla institucional. |
 
 ## Convenciones del Markdown
 
