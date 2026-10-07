@@ -338,6 +338,7 @@
   \begin{lrbox}{\cajaactividad}\begin{minipage}[t]{\linewidth}\let\necesito\@gobble
   \def\fijarcabecera##1{\gdef\cabecerapendiente{##1}}%
   \hyphenpenalty=10000 % sin dividir palabras (nombres de personas)
+  \raggedright % listas de nombres: sin justificar (no quedan huecos grandes)
   \setparsizes{0pt}{0.55\baselineskip plus 1pt minus 0.5pt}{0pt plus 1fil}}
   {\par\end{minipage}\end{lrbox}%
   \necesito{\dimexpr\ht\cajaactividad+\dp\cajaactividad+6mm\relax}%
