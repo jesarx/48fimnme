@@ -91,8 +91,8 @@
 \newlength{\anchohora}\setlength{\anchohora}{2.6em}
 \newenvironment{agenda}{%
   \thispagestyle{empty}%
-  \noindent\begin{minipage}[c]{12mm}\logofimnme{12mm}{acento}\end{minipage}\hspace{3mm}%
-  \begin{minipage}[c]{\dimexpr\linewidth-15mm\relax}\RaggedRight
+  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{acento}\end{minipage}\hspace{3mm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-13mm\relax}\RaggedRight
     {\fontsize{9.6}{11.4}\selectfont\bfseries 48.º Foro Internacional de Música Nueva\\
       Manuel Enríquez\par}\vspace{0.8mm}
     {\fontsize{8}{9.6}\selectfont\color{acento}\bfseries 6 al 21 de noviembre de 2026
@@ -144,8 +144,8 @@
   {\par}
 % Cierre: logotipo de la CNMO y remisión al Programa general
 \newcommand{\cierre}{\par\vspace{4mm}{\color{filete}\hrule height 0.5pt}\vspace{2.2mm}%
-  \noindent\begin{minipage}[c]{12mm}\logocnmo{12mm}{verdegris}\end{minipage}\hspace{2.5mm}%
-  \begin{minipage}[c]{\dimexpr\linewidth-14.5mm\relax}\RaggedRight
+  \noindent\begin{minipage}[c]{8mm}\logocnmo{8mm}{verdegris}\end{minipage}\hspace{2.5mm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-10.5mm\relax}\RaggedRight
     \color{verdegris}\fontsize{7}{8.6}\selectfont Obras, semblanzas y notas al programa
     en el Programa general del 48.º FIMNME.\end{minipage}\par}
 % #1 fecha y hora  #2 letras de sede  #3 título  #4 sede
@@ -182,7 +182,7 @@
   \vspace*{\fill}%
   {\centering{\fontsize{7.6}{9}\selectfont\bfseries\color{verdegris}%
     \espaciado[120]{CON LA COLABORACIÓN DE}\par}\vspace{2mm}%
-   \setlength{\baselineskip}{12.5mm}\setlength{\lineskiplimit}{2mm}%
+   \setlength{\baselineskip}{11mm}\setlength{\lineskiplimit}{2mm}%
    \setlength{\lineskip}{3.5mm}#1\par}%
   \vspace*{\fill}\cierre}
 
@@ -198,7 +198,7 @@
   \vspace*{\fill}%
   {\centering\fontsize{8}{9.8}\selectfont\let\\\saltodirectorio
    \setlength{\parskip}{2.2mm}\hyphenpenalty=10000 #1\par}%
-  \vspace{8mm}{\centering\logocnmo{14mm}{verdegris}\par}%
+  \vspace{8mm}{\centering\logocnmo{8mm}{verdegris}\par}%
   \vspace*{\fill}\vspace*{22mm}%
   \begin{tikzpicture}[remember picture, overlay]
     \node[anchor=south, inner sep=0pt] at (current page.south)

@@ -436,11 +436,14 @@ end
 
 -- Tamaño de un logotipo (mm) según su proporción, para que todos se vean
 -- del mismo tamaño: los cuadrados, más altos; los alargados, más bajos.
+-- Ninguno debe ser mayor que los de Cultura e INBAL de la pleca de la
+-- contraportada (Cultura: 29 × 7,5 mm): como máximo, 6,5 mm de alto y
+-- 20 mm de ancho.
 local function medida_logo(w, h)
   local r = w / h
-  local alto = math.max(4.6, math.min(10.5 * r ^ -0.45, 11.5))
+  local alto = math.max(3.2, math.min(6.5 * r ^ -0.45, 6.5))
   local ancho = alto * r
-  if ancho > 32 then ancho, alto = 32, 32 / r end
+  if ancho > 20 then ancho, alto = 20, 20 / r end
   return ancho, alto
 end
 
@@ -466,9 +469,8 @@ local function logos_latex(div)
         items[#items + 1] = item
         if not VISTOS_LOGOS[p.ruta] then
           VISTOS_LOGOS[p.ruta] = true
-          -- en la página de logotipos van un poco más chicos (caben todos)
-          TODOS_LOGOS[#TODOS_LOGOS + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}",
-            p.ruta, ancho * 0.85, alto * 0.85)
+          -- en la página de logotipos, del mismo tamaño que en las franjas
+          TODOS_LOGOS[#TODOS_LOGOS + 1] = item
         end
       end
     end
