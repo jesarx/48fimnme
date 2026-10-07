@@ -835,6 +835,18 @@ function Pandoc(doc)
     concierto_abierto = nil
   end
 
+  -- Logotipos de las actividades académicas: cada actividad trae su bloque
+  -- «::: logos» (el sitio web los muestra en cada una); aquí se juntan, sin
+  -- repetir, en una sola franja al pie de la última página de actividades.
+  local logos_actividades, vistos_logos_actividad = {}, {}
+  local function franja_actividades()
+    if #logos_actividades > 0 then
+      cerrar_actividad()
+      emit(raw("\\logosconcierto{}{" .. table.concat(logos_actividades, "\\logosep ") .. "}"))
+      logos_actividades, vistos_logos_actividad = {}, {}
+    end
+  end
+
   local function cerrar_mayor()
     cerrar_seccion()
     cerrar_concierto()
@@ -929,8 +941,8 @@ function Pandoc(doc)
 
     -- ----------------------------------------------------------- LOGOS --
     -- «::: logos» al final de un concierto: franja de logotipos al pie de su
-    -- última página. En las actividades académicas, un solo bloque al final
-    -- de la parte: la franja va al pie de la última página de actividades.
+    -- última página. En las actividades académicas, los bloques de todas se
+    -- juntan en una franja al pie de la última página de actividades.
     if b.t == "Div" and b.classes:includes("logos") then
       cerrar_semblanza()
       cerrar_indice()
@@ -948,6 +960,13 @@ function Pandoc(doc)
           seccion_abierta = nil
         end
         emit(raw("\\logosconcierto{" .. sid .. "}{" .. items .. "}"))
+      elseif items ~= "" and clave_orden(parte or "") == "actividades academicas" then
+        for item in (items .. "\\logosep "):gmatch("(.-)\\logosep ") do
+          if not vistos_logos_actividad[item] then
+            vistos_logos_actividad[item] = true
+            logos_actividades[#logos_actividades + 1] = item
+          end
+        end
       elseif items ~= "" then
         cerrar_actividad()
         emit(raw("\\logosconcierto{}{" .. items .. "}"))
@@ -971,9 +990,11 @@ function Pandoc(doc)
       elseif t == "\\par" then
         -- nada
       elseif t == "\\printindex" then
+        franja_actividades()
         cerrar_mayor()
         emit(b)
       elseif titulo_parte then
+        franja_actividades()
         cerrar_mayor()
         dia_divisor = nil
         escribir_pendientes(nil)
