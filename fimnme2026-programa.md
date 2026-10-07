@@ -456,7 +456,7 @@ para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 ![](<logos/logos OSN/Logo-Patronato Industria Alemana Cultura.PNG>)
 :::
 
-## SÁB | NOV 7, 12:00 h - Ortiz / Artificios / Tetraktys / Ibarra
+## SÁB | NOV 7, 12:00 h - Maratón de guitarras
 
 Pabellón Escénico, Jardín Escénico
 
@@ -3999,7 +3999,7 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
-## SÁB | NOV 14, 12:00 h - Sesión de percusiones
+## SÁB | NOV 14, 12:00 h - Maratón de percusiones
 
 Pabellón Escénico, Jardín Escénico
 
@@ -8944,7 +8944,7 @@ se ha propuesto acrecentar el acervo y el prestigio musical de la orquesta,
 invitando a nuevos y reconocidos talentos artísticos y directores huéspedes que
 brinden frescura y dinamismo a la organización.
 
-### Dirección y solistas
+### Dirección
 
 #### Martin Lebel
 
@@ -10509,11 +10509,14 @@ Casa Rafael Galván, UAM
 
 ---
 
-## MAR | NOV 17, 17:00 h - Presentación de libro
+## MAR | NOV 17, 17:00 h - Presentación del libro *No me basta*
 
 Lobby del Pabellón Escénico, Jardín Escénico
 
-**Ana Lara** (autora) y **Dario Calderone** (Italia), participantes
+De Stefano Scodanibbio, con traducción de Sharbel Pimentel
+(Ediciones Mexicanas de Música)
+
+**Ana Lara** y **Dario Calderone** (Italia), participantes
 
 **José Wolffer**, moderador
 
@@ -10531,6 +10534,7 @@ Escuela Superior de Música
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos ESM/logo ESM.jpg>)
+![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
 :::
 
 \part{ECOS DEL FORO}

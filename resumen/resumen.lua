@@ -101,6 +101,19 @@ local function partir_encabezado(texto)
   return fechas, titulo
 end
 
+-- Título del encabezado con su formato (cursivas): lo que sigue a « - »
+local function titulo_latex(inlines, titulo)
+  for k = 2, #inlines - 1 do
+    local el = inlines[k]
+    if el.t == "Str" and el.text == "-" and inlines[k - 1].t == "Space" and inlines[k + 1].t == "Space" then
+      local resto = pandoc.List()
+      for j = k + 2, #inlines do resto:insert(inlines[j]) end
+      return latex(resto)
+    end
+  end
+  return escape(titulo)
+end
+
 local function etiqueta_dia(f)
   if f.mes ~= "NOV" then return f.num .. " " .. f.mes end
   return f.dia .. " " .. f.num
@@ -288,6 +301,7 @@ function Pandoc(doc)
         if mayor == "coloquio" then tipo = "coloquio"
         elseif clave(parte or ""):find("actividades") then tipo = "actividad" end
         ev = { parte = parte, fechas = fechas, titulo = titulo, tipo = tipo,
+               titulo_tex = titulo_latex(b.content, titulo),
                grupos = {}, extra = {}, n = #eventos + 1 }
         -- sedes: párrafo(s) que siguen al encabezado (uno por fecha)
         local parrafos, k = {}, i + 1
@@ -323,10 +337,15 @@ function Pandoc(doc)
                             palabra = palabra_sede(stringify(rs[1])), salas = {} }
 
     elseif ev and ev.tipo ~= "concierto" and (b.t == "Para" or b.t == "Plain") then
-      -- actividades y coloquio: solo los párrafos con participantes
+      -- actividades académicas: sus párrafos breves (subtítulo, libro,
+      -- participantes); coloquio: solo los párrafos con participantes
       local t = clave(stringify(b.content))
-      if #t < 300 and (t:find("ponente") or t:find("moderador") or t:find("participantes")) then
-        table.insert(ev.extra, latex(b.content))
+      if #t < 300 and (ev.tipo == "actividad" or t:find("ponente") or t:find("moderador")
+                       or t:find("participantes")) then
+        local sin_saltos = pandoc.Inlines(b.content):walk({
+          LineBreak = function() return pandoc.Space() end,
+          SoftBreak = function() return pandoc.Space() end })
+        table.insert(ev.extra, latex(sin_saltos))
       end
 
     elseif en_programa and ev then
@@ -481,7 +500,7 @@ function Pandoc(doc)
       local dia = etiqueta_dia(r.f)
       local macro = r.e.tipo == "concierto" and "\\ev" or "\\act"
       emit(string.format("%s{%s}{%s}{%s}{%s}", macro,
-        dia ~= dia_previo and escape(dia) or "", r.f.hora, escape(r.e.titulo), letra_de(r.e, r.k)))
+        dia ~= dia_previo and escape(dia) or "", r.f.hora, r.e.titulo_tex, letra_de(r.e, r.k)))
       dia_previo = dia
     end
   end
@@ -648,7 +667,7 @@ function Pandoc(doc)
       local ls = {}
       for _, l in ipairs(letras) do ls[#ls + 1] = "\\letra{" .. l .. "}" end
       emit(string.format("\\concierto{%s}{%s}{%s}{%s}", fecha_larga(e), table.concat(ls, ""),
-        escape(e.titulo), lugares(e)))
+        e.titulo_tex, lugares(e)))
       for _, g in ipairs(e.grupos) do
         local it = texto_interpretes(g)
         local ob = texto_obras(g)
@@ -670,7 +689,7 @@ function Pandoc(doc)
         hay = true
       end
       emit(string.format("\\actividad{%s}{%s}{%s}{%s}", fecha_larga(e),
-        "\\letra{" .. letra_de(e, 1) .. "}", escape(e.titulo), table.concat(e.extra, "; ")))
+        "\\letra{" .. letra_de(e, 1) .. "}", e.titulo_tex, table.concat(e.extra, "; ")))
     end
   end
   emit("\\end{programas}")
