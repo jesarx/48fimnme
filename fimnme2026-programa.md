@@ -11345,8 +11345,9 @@ octubre de 2026.
 Se empleó la fuente tipográfica libre Noto Sans, en un flujo de texto
 propuesto para lectura en dispositivos móviles, con proporción de página 9:16.
 
-La revisión editorial corrió a cargo de Eduardo Partida, Luigi Amara y
-Javier González Gómez.
+El proceso de formación fue programado por el Coordinador Nacional de Música
+y Ópera, y la revisión editorial corrió a cargo de Eduardo Partida, Luigi
+Amara y Javier González Gómez.
 
 © INBAL. Ciudad de México, 2026.
 
