@@ -436,11 +436,14 @@ end
 
 -- Tamaño de un logotipo (mm) según su proporción, para que todos se vean
 -- del mismo tamaño: los cuadrados, más altos; los alargados, más bajos.
+-- Ninguno debe ser mayor que los de Cultura e INBAL de la pleca de la
+-- contraportada (Cultura: 29 × 7,5 mm): como máximo, 6,5 mm de alto y
+-- 20 mm de ancho.
 local function medida_logo(w, h)
   local r = w / h
-  local alto = math.max(4.6, math.min(10.5 * r ^ -0.45, 11.5))
+  local alto = math.max(3.2, math.min(6.5 * r ^ -0.45, 6.5))
   local ancho = alto * r
-  if ancho > 32 then ancho, alto = 32, 32 / r end
+  if ancho > 20 then ancho, alto = 20, 20 / r end
   return ancho, alto
 end
 
@@ -466,9 +469,8 @@ local function logos_latex(div)
         items[#items + 1] = item
         if not VISTOS_LOGOS[p.ruta] then
           VISTOS_LOGOS[p.ruta] = true
-          -- en la página de logotipos van un poco más chicos (caben todos)
-          TODOS_LOGOS[#TODOS_LOGOS + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}",
-            p.ruta, ancho * 0.85, alto * 0.85)
+          -- en la página de logotipos, del mismo tamaño que en las franjas
+          TODOS_LOGOS[#TODOS_LOGOS + 1] = item
         end
       end
     end
@@ -507,6 +509,7 @@ function Pandoc(doc)
   local indice_abierto = nil   -- compositor con rango de índice abierto
   local mayor = nil            -- sección ## sin fecha en curso (sedes, créditos...)
   local concierto_abierto = nil -- número del concierto en curso (para el ajuste fino)
+  local concierto_estable = nil -- su etiqueta estable («conc:…»)
   local tras_lista = false      -- el programa acaba de listar obras (intérpretes a continuación)
   local bloque_int = false      -- dentro de un bloque de intérpretes del programa
   local en_semblanza = false    -- dentro del texto de una semblanza (tras una ficha)
@@ -882,8 +885,7 @@ function Pandoc(doc)
             table.insert(secundarias[clave], {
               hora = fs[k].hora or "",
               clave = fecha_clave(fs[k]),
-              titulo = latex(envolver_cjk(der)) .. " {\\color{verdegris}(también " ..
-                       escape(fecha_texto(fs[1])) .. ")}",
+              titulo = latex(envolver_cjk(der)),
               etiqueta = "concierto:" .. num_concierto,
             })
           end
@@ -1037,6 +1039,7 @@ function Pandoc(doc)
         -- etiqueta estable para referencias desde el Markdown:
         -- \pageref{conc:mie-nov-18-electroacustica-i}
         local estable = "conc:" .. clave_orden(fecha_texto(f) .. " " .. titulo_txt):gsub("[^%w]+", "-"):gsub("^-+", ""):gsub("-+$", "")
+        concierto_estable = estable
         if macro == "\\actividadacademica" then
           emit(raw("\\begin{actividadentera}"))
           actividad_abierta = true
@@ -1151,6 +1154,12 @@ function Pandoc(doc)
           if fichas == 1 then titulo_sec = "Intérprete" end
         end
         emit(raw("\\seccion{" .. titulo_sec .. "}{3}"))
+        -- etiqueta de la sección para remitir a ella desde el Markdown:
+        -- \pageref{conc:mie-nov-18-electroacustica-i:personas-compositoras}
+        if concierto_estable then
+          emit(raw("\\phantomsection\\label{" .. concierto_estable .. ":" ..
+            (seccion:gsub("[^%w]+", "-")) .. "}"))
+        end
         -- «Notas al programa» generales del concierto: en el recuadro verde
         if seccion == "notas al programa" then abrir_nota(i + 1) end
       else

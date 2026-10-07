@@ -217,14 +217,15 @@ local function logos_de(doc)
       for _, p in ipairs(manifiesto[img.src .. "|" .. table.concat(partes, ";")] or {}) do
         if not vistos[p.ruta] then
           vistos[p.ruta] = true
-          -- mismo tamaño visual que en el programa general, un poco menor
+          -- el mismo tamaño que en el programa general: ninguno mayor que
+          -- los de Cultura e INBAL de la pleca (máx. 6,5 mm de alto, 20 de ancho)
           local r = p.w / p.h
-          local alto = math.max(4.6, math.min(10.5 * r ^ -0.45, 11.5))
+          local alto = math.max(3.2, math.min(6.5 * r ^ -0.45, 6.5))
           local ancho = alto * r
-          if ancho > 32 then ancho, alto = 32, 32 / r end
+          if ancho > 20 then ancho, alto = 20, 20 / r end
           local ligera = p.ruta:gsub("^build/logos/", "build/resumen/logos/")
           items[#items + 1] = string.format("\\logo{%s}{%.2fmm}{%.2fmm}",
-            ligera, ancho * 0.8, alto * 0.8)
+            ligera, ancho, alto)
         end
       end
     end })

@@ -248,14 +248,14 @@
   \begin{tikzpicture}[remember picture, overlay]
     \fondopartitura[0.10]
     \node[anchor=north, inner sep=0pt] at ($$(current page.north)+(0,-20mm)$$)
-      {\logofimnme{17mm}{portadalogo}};
+      {\logofimnme{10mm}{portadalogo}};
     \ifvoid\cajadirectorio\else
       \node[inner sep=0pt] at ($$(current page.center)+(0,4mm)$$) {\usebox{\cajadirectorio}};
     \fi
     \node[anchor=south, inner sep=0pt] (pleca) at (current page.south)
       {\includegraphics[width=\paperwidth]{\pleca}};
     \node[anchor=south, inner sep=0pt] at ($$(pleca.north)+(0,7mm)$$)
-      {\logocnmo{14mm}{white}};
+      {\logocnmo{8mm}{white}};
   \end{tikzpicture}%
   \null
 }
@@ -270,7 +270,7 @@
   \begin{tikzpicture}[remember picture, overlay]
     \fondopartitura[0.09]
     \node[anchor=north west, inner sep=0pt] at ($$(current page.north west)+(10mm,-16mm)$$)
-      {\logofimnme{11mm}{portadalogo}};
+      {\logofimnme{10mm}{portadalogo}};
     \node[anchor=south west, text width=86mm, align=left, inner sep=0pt, text=portadatexto,
       font=\fontsize{20}{23.5}\negrita]
       (t) at ($$(current page.south west)+(10mm,48mm)$$) {\estilotitulos\hbadness=10000 #1\par};
@@ -515,9 +515,9 @@
 % actividades académicas, a continuación del texto). Llegan en un solo color
 % (preparar_logos.py) y el filtro les da un tamaño visual parejo.
 \newcommand{\logo}[3]{\raisebox{-0.5\height}{\includegraphics[width=#2,height=#3]{#1}}}
-\newcommand{\logosep}{\hskip 5.5mm plus 4mm minus 1.5mm\relax}
-\newcommand{\franjalogos}[1]{{\centering\setlength{\baselineskip}{14mm}%
-  \setlength{\lineskiplimit}{2mm}\setlength{\lineskip}{3.5mm}#1\par}}
+\newcommand{\logosep}{\hskip 5mm plus 4mm minus 1.5mm\relax}
+\newcommand{\franjalogos}[1]{{\centering\setlength{\baselineskip}{10mm}%
+  \setlength{\lineskiplimit}{1.5mm}\setlength{\lineskip}{3mm}#1\par}}
 % #1 sección (para el ajuste fino)  #2 logotipos. La franja (filete y
 % logotipos) va en una caja que no se parte; si no cabe, pasa entera a la
 % página siguiente.
@@ -550,8 +550,8 @@
   \vspace*{\fill}%
   {\centering{\estilotitulos\footnotesize\bfseries\color{verdegris}%
     \espaciado[120]{CON LA COLABORACIÓN DE}\par}\vspace{9mm}%
-   \setlength{\baselineskip}{13.5mm}\setlength{\lineskiplimit}{2mm}%
-   \setlength{\lineskip}{4mm}#1\par}%
+   \setlength{\baselineskip}{11mm}\setlength{\lineskiplimit}{2mm}%
+   \setlength{\lineskip}{3.5mm}#1\par}%
   \vspace*{\fill}}
 % Nota que ya apareció (misma obra, mismo texto): título y «Ver pág. N»
 \newcommand{\notaver}[2]{% #1 título  #2 etiqueta de la nota
@@ -618,7 +618,7 @@
   \clearpage\thispagestyle{empty}\fijarcabecera{}%
   \vspace*{\fill}\begingroup\centering\footnotesize\color{verdegris}%
   \setlength{\parskip}{2.6mm}\hyphenpenalty=10000
-  {\logofimnme{11mm}{verdegris}\par}\vspace{4mm}}
+  {\logofimnme{10mm}{verdegris}\par}\vspace{4mm}}
   {\par\endgroup\vspace*{\fill}}
 \newcommand{\credito}[2]{% #1 nombre  #2 cargo
   \par\addvspace{1.6mm}{\estilotitulos\bfseries #1\par}%

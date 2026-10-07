@@ -1,6 +1,6 @@
 \part{CONCIERTOS EN CIUDAD DE MÉXICO}
  
-## VIE | NOV 6, 20:00 h - OSN: Carrasco / Höfele
+## VIE | NOV 6, 20:00 h - INAUGURACIÓN: OSN, Carrasco / Höfele
 
 Sala Principal, Palacio de Bellas Artes
 
@@ -3327,7 +3327,7 @@ proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
 
-## VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h - Madrigalistas: Cadet
+## VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h - Coro de Madrigalistas de Bellas Artes: Cadet
 
 Viernes 13 de noviembre, 19:00 h\
 Pabellón Escénico, Jardín Escénico
@@ -8173,7 +8173,7 @@ compositor mexicano, integrante del Cuarteto Léner.
 ![](<logos/logo xico/xico_senado.jpg>)
 :::
 
-## SÁB | NOV 21, 12:00 h - Cuarteto de BA: Enríquez 100
+## SÁB | NOV 21, 12:00 h - Cuarteto de Bellas Artes: Enríquez 100
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -9594,7 +9594,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
 :::
 
-## JUE | NOV 12, 19:00 h - CMMAS: Asako Arai, flauta
+## JUE | NOV 12, 19:00 h - Morelia: Asako Arai, flauta
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -9695,7 +9695,7 @@ Doctora en artes musicales, es flautista del Quinteto de Alientos de la Ciudad d
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## VIE | NOV 13, 19:00 h - Julio I. Cervantes, guitarra
+## VIE | NOV 13, 19:00 h - Morelia: Julio I. Cervantes, guitarra
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -10032,7 +10032,7 @@ Coparmex 2019.
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## VIE | NOV 13, 19:00 h - Eusebio Sánchez, percusiones
+## VIE | NOV 13, 19:00 h - Monterrey: Eusebio Sánchez, percusiones
 
 Sala Chopin, Escuela Superior de Música y Danza\
 Monterrey, Nuevo León
@@ -10133,7 +10133,7 @@ Es percusionista, concertista y productor, originario de Monterrey. Graduado con
 ![](<logos/logos monterrey/LaSuperiorMonterrey-LogoInstitucional-01.png>)
 :::
 
-## VIE | NOV 13, 19:30 h - Carmen Maldonado, percusión teatral
+## VIE | NOV 13, 19:30 h - Mérida: Carmen Maldonado, percusión teatral
 
 Universidad de las Artes de Yucatán\
 Mérida, Yucatán
@@ -10427,6 +10427,8 @@ Morelia, Michoacán
 
 -   *Phi\$hing* (2023) `\hfill `{=tex}5'
 
+*Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:mie-nov-18-electroacustica-i:personas-compositoras}`{=latex}.*
+
 
 ::: logos
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
@@ -10467,6 +10469,8 @@ Morelia, Michoacán
 
 -   *Interlude* (2022)\*\* `\hfill `{=tex}11'
 
+*Las semblanzas de las personas compositoras y las notas al programa están en la pág. `\pageref{conc:jue-nov-19-electroacustica-ii:personas-compositoras}`{=latex}.*
+
 
 ::: logos
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
@@ -10493,9 +10497,11 @@ y primeras décadas del siglo XXI*
 
 ---
 
-## MAR | NOV 10, 17:00 h - Mesa redonda: Instalaciones sonoras. Apuntes para el futuro
+## MAR | NOV 10, 17:00 h - Mesa redonda: Instalaciones sonoras
 
 Casa Rafael Galván, UAM
+
+*Apuntes para el futuro*
 
 **Valeria Macías Rodríguez, Andrés Nuño de Buen y Hugo Solís**, ponentes
 
