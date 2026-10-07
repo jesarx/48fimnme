@@ -507,6 +507,7 @@ function Pandoc(doc)
   local indice_abierto = nil   -- compositor con rango de índice abierto
   local mayor = nil            -- sección ## sin fecha en curso (sedes, créditos...)
   local concierto_abierto = nil -- número del concierto en curso (para el ajuste fino)
+  local concierto_estable = nil -- su etiqueta estable («conc:…»)
   local tras_lista = false      -- el programa acaba de listar obras (intérpretes a continuación)
   local bloque_int = false      -- dentro de un bloque de intérpretes del programa
   local en_semblanza = false    -- dentro del texto de una semblanza (tras una ficha)
@@ -882,8 +883,7 @@ function Pandoc(doc)
             table.insert(secundarias[clave], {
               hora = fs[k].hora or "",
               clave = fecha_clave(fs[k]),
-              titulo = latex(envolver_cjk(der)) .. " {\\color{verdegris}(también " ..
-                       escape(fecha_texto(fs[1])) .. ")}",
+              titulo = latex(envolver_cjk(der)),
               etiqueta = "concierto:" .. num_concierto,
             })
           end
@@ -1037,6 +1037,7 @@ function Pandoc(doc)
         -- etiqueta estable para referencias desde el Markdown:
         -- \pageref{conc:mie-nov-18-electroacustica-i}
         local estable = "conc:" .. clave_orden(fecha_texto(f) .. " " .. titulo_txt):gsub("[^%w]+", "-"):gsub("^-+", ""):gsub("-+$", "")
+        concierto_estable = estable
         if macro == "\\actividadacademica" then
           emit(raw("\\begin{actividadentera}"))
           actividad_abierta = true
@@ -1151,6 +1152,12 @@ function Pandoc(doc)
           if fichas == 1 then titulo_sec = "Intérprete" end
         end
         emit(raw("\\seccion{" .. titulo_sec .. "}{3}"))
+        -- etiqueta de la sección para remitir a ella desde el Markdown:
+        -- \pageref{conc:mie-nov-18-electroacustica-i:personas-compositoras}
+        if concierto_estable then
+          emit(raw("\\phantomsection\\label{" .. concierto_estable .. ":" ..
+            (seccion:gsub("[^%w]+", "-")) .. "}"))
+        end
         -- «Notas al programa» generales del concierto: en el recuadro verde
         if seccion == "notas al programa" then abrir_nota(i + 1) end
       else
