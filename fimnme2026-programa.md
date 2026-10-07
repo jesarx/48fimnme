@@ -10534,7 +10534,7 @@ Escuela Superior de Música
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos ESM/logo ESM.jpg>)
-![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>)
+![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
 :::
 
 \part{ECOS DEL FORO}
