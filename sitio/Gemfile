@@ -1,0 +1,5 @@
+# Para compilar el sitio: cd sitio && bundle install && bundle exec jekyll build
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.4"
+gem "webrick", "~> 1.8"   # para «jekyll serve» con Ruby ≥ 3

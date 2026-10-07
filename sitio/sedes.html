@@ -1,0 +1,31 @@
+---
+title: Sedes
+antetitulo: Dónde
+entrada: Las salas, museos y centros culturales del 48.º Foro, con su dirección y lo que se presenta en cada uno.
+clase: pagina-sedes
+description: Sedes del 48.º Foro Internacional de Música Nueva Manuel Enríquez en la Ciudad de México y en los estados, con su dirección y programación.
+---
+{%- assign regiones = site.data.sedes | group_by: "region" %}
+<nav class="saltos" aria-label="Regiones">
+  {%- for r in regiones %}<a href="#{{ r.name | slugify }}">{{ r.name }}</a>{% endfor %}
+</nav>
+{%- for r in regiones %}
+<section class="region" id="{{ r.name | slugify }}">
+  <h2 class="titulo-seccion">{{ r.name }}</h2>
+  <div class="sedes">
+    {%- for s in r.items %}
+    <article class="sede" id="{{ s.id }}">
+      <h3 class="sede-nombre">{{ s.nombre }}</h3>
+      <p class="sede-direccion">{{ s.direccion }}</p>
+      {%- capture consulta %}{{ s.nombre }}, {{ s.direccion }}{% endcapture %}
+      <p><a class="boton boton-claro" href="https://www.google.com/maps/search/?api=1&amp;query={{ consulta | url_encode }}" target="_blank" rel="noopener">Ver en el mapa</a></p>
+      <ul class="sede-eventos">
+        {%- for e in s.eventos %}
+        <li><a href="{{ e.url | relative_url }}"><span class="sede-fecha">{{ e.fecha }} · {{ e.hora }}&nbsp;h</span> {{ e.titulo_html }}</a></li>
+        {%- endfor %}
+      </ul>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+{%- endfor %}

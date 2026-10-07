@@ -1,0 +1,31 @@
+{%- comment -%}
+  Pie con la misma estructura que el del sitio del Palacio de Bellas Artes:
+  datos y enlaces a la izquierda, logotipos de la Secretaría de Cultura y del
+  INBAL a la derecha, y una franja final con el aviso de derechos.
+{%- endcomment -%}
+<footer class="pie">
+  <div class="contenedor pie-filas">
+    <div class="pie-datos">
+      <p class="pie-titulo">48.º Foro Internacional de Música Nueva Manuel Enríquez</p>
+      <p class="pie-texto">{{ site.data.foro.fechas | capitalize }}<br>
+        {{ site.data.foro.estados_nombres | join: "&nbsp;· " }}</p>
+      <a class="pie-cnmo" href="{{ '/creditos/' | relative_url }}" aria-label="Coordinación Nacional de Música y Ópera">{% include generado/logo-cnmo.svg %}</a>
+      <ul class="pie-extras">
+        <li><a href="{{ '/programacion/' | relative_url }}">Programación</a></li>
+        <li><a href="{{ '/sedes/' | relative_url }}">Sedes</a></li>
+        <li><a href="{{ '/creditos/' | relative_url }}">Créditos</a></li>
+        <li><a href="{{ '/descargas/' | relative_url }}">Descargas</a></li>
+      </ul>
+    </div>
+    <div class="pie-logos">
+      <a href="https://www.gob.mx/cultura" target="_blank" rel="noopener"><img src="{{ '/assets/img/cultura.svg' | relative_url }}" alt="Secretaría de Cultura" width="270" height="80"></a>
+      <a href="https://inba.gob.mx/" target="_blank" rel="noopener"><img src="{{ '/assets/img/inbal.svg' | relative_url }}" alt="Instituto Nacional de Bellas Artes y Literatura" width="250" height="80"></a>
+    </div>
+  </div>
+</footer>
+<div class="pie2">
+  <div class="contenedor">
+    <p>© Instituto Nacional de Bellas Artes y Literatura. México, 2026.</p>
+    <p><a href="{{ '/creditos/' | relative_url }}">Créditos y directorio</a></p>
+  </div>
+</div>

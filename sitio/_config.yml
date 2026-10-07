@@ -1,0 +1,48 @@
+# Sitio web del 48.º Foro Internacional de Música Nueva Manuel Enríquez.
+#
+# El contenido (conciertos, agenda, sedes, Coloquio, créditos) lo genera
+# sitio/genera.sh a partir de fimnme2026-programa.md, el mismo Markdown del
+# Programa general: no se edita aquí, sino en el Markdown.
+
+title: "48.º Foro Internacional de Música Nueva Manuel Enríquez"
+titulo_corto: "48.º FIMNME"
+description: >-
+  Programación completa del 48.º Foro Internacional de Música Nueva Manuel
+  Enríquez: conciertos, actividades académicas y Coloquio Enríquez | 100.
+  Del 6 al 21 de noviembre de 2026.
+lang: es-MX
+# Dominio donde se publica (se usa en los enlaces para compartir en redes).
+# Por ahora, el de prueba; el definitivo será el que anuncia el sitio del
+# Palacio de Bellas Artes: https://forodemusicanueva.inba.gob.mx (ver
+# DESPLIEGUE.md). Si el sitio va en una subcarpeta, se indica en baseurl
+# (p. ej. "/fimnme").
+url: "https://fimnme.qumran.cc"
+baseurl: ""
+# false mientras es de prueba: pide a los buscadores que no lo indexen
+# (robots.txt y <meta name="robots">). En el dominio definitivo: true.
+indexar: false
+timezone: America/Mexico_City
+permalink: pretty
+
+collections:
+  conciertos:
+    output: true
+    permalink: /conciertos/:name/
+    sort_by: orden
+
+defaults:
+  - scope: { path: "", type: conciertos }
+    values: { layout: evento }
+  - scope: { path: "" }
+    values: { layout: pagina }
+
+exclude:
+  - genera.sh
+  - sitio.lua
+  - recursos.py
+  - Gemfile
+  - Gemfile.lock
+  - LEEME.md
+  - DESPLIEGUE.md
+  - publicar.sh
+  - vendor

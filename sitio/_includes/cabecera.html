@@ -1,0 +1,26 @@
+{%- comment -%}
+  Encabezado con la misma estructura que el del sitio del Palacio de Bellas
+  Artes (palacio.inba.gob.mx): barra oscura fija, logotipo a la izquierda y
+  menú en versalitas a la derecha.
+{%- endcomment -%}
+{%- assign seccion_actual = page.url | split: "/" | slice: 1 | first -%}
+<header class="cabecera">
+  <div class="contenedor cabecera-barra">
+    <a class="marca" href="{{ '/' | relative_url }}">
+      <span class="marca-logo" aria-hidden="true">{% include generado/logo-48.svg %}</span>
+      <span class="marca-texto"><span>Foro Internacional</span> <span>de Música Nueva</span> <b>Manuel Enríquez</b></span>
+    </a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="visualmente-oculto">Menú</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <ul>
+        <li><a href="{{ '/programacion/' | relative_url }}"{% if seccion_actual == "programacion" or seccion_actual == "conciertos" %} aria-current="page"{% endif %}>Programación</a></li>
+        <li><a href="{{ '/sedes/' | relative_url }}"{% if seccion_actual == "sedes" %} aria-current="page"{% endif %}>Sedes</a></li>
+        <li><a href="{{ '/coloquio/' | relative_url }}"{% if seccion_actual == "coloquio" %} aria-current="page"{% endif %}>Coloquio Enríquez | 100</a></li>
+        <li><a href="{{ '/descargas/' | relative_url }}"{% if seccion_actual == "descargas" %} aria-current="page"{% endif %}>Programa de mano</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

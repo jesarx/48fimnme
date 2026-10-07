@@ -1,0 +1,112 @@
+---
+layout: base
+clase: pagina-evento
+---
+{%- assign primera = page.fechas | first -%}
+<article class="evento evento-{{ page.tipo }}">
+  <header class="evento-cabeza">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta">
+        <a href="{{ '/programacion/' | relative_url }}">Programación</a><span aria-hidden="true">›</span><a href="{{ '/programacion/' | relative_url }}?seccion={{ page.seccion }}">{{ page.seccion_nombre }}</a>
+      </nav>
+      <div class="evento-cabeza-filas">
+        <div class="evento-fechas">
+          {%- for f in page.fechas %}
+          <a class="fecha-ficha" href="{{ '/programacion/' | relative_url }}#dia-{{ f.iso }}" title="Todo lo del {{ f.dia | downcase }}">
+            <span class="fecha-semana">{{ f.semana }}</span>
+            <span class="fecha-numero">{{ f.numero }}</span>
+            <span class="fecha-mes">{{ f.mes }}</span>
+            <span class="fecha-hora">{{ f.hora }}&nbsp;h</span>
+          </a>
+          {%- endfor %}
+        </div>
+        <div class="evento-titulos">
+          <h1 class="evento-titulo">{{ page.titulo_html }}</h1>
+          {%- if page.subtitulo != "" %}
+          <p class="evento-subtitulo">{{ page.subtitulo }}</p>
+          {%- endif %}
+          <p class="evento-lugar">{{ page.lugares | join: " · " }}</p>
+          {%- if page.estrenos != "" %}
+          <p class="distintivo">{{ page.estrenos }}</p>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="contenedor evento-filas">
+    <aside class="evento-lateral">
+      {%- for f in page.fechas %}
+      <section class="dato" aria-label="Fecha y lugar">
+        <p class="dato-cuando"><b>{{ f.dia }}</b> · {{ f.hora }}&nbsp;h</p>
+        <p class="dato-lugar">{{ f.lugar }}</p>
+        {%- if f.direccion != "" %}
+        <p class="dato-direccion">{{ f.direccion }}</p>
+        {%- endif %}
+        <p class="dato-acciones">
+          {%- if f.direccion != "" %}
+          {%- capture consulta %}{{ f.sede_nombre }}, {{ f.direccion }}{% endcapture %}
+          <a class="boton boton-claro" href="https://www.google.com/maps/search/?api=1&amp;query={{ consulta | url_encode }}" target="_blank" rel="noopener">Cómo llegar</a>
+          {%- endif %}
+          <a class="boton boton-claro calendario" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text={{ page.title | url_encode }}&amp;dates={{ f.inicio }}/{{ f.fin }}&amp;ctz=America/Mexico_City&amp;location={{ f.lugar | append: ', ' | append: f.direccion | url_encode }}&amp;details={{ page.url | absolute_url | url_encode }}"
+             data-titulo="{{ page.title | escape }}" data-inicio="{{ f.inicio }}" data-fin="{{ f.fin }}"
+             data-lugar="{{ f.lugar | escape }}{% if f.direccion != '' %}, {{ f.direccion | escape }}{% endif %}" data-url="{{ page.url | absolute_url }}"
+             target="_blank" rel="noopener">Agregar a mi calendario</a>
+        </p>
+      </section>
+      {%- endfor %}
+
+      {%- if page.secciones.size > 1 %}
+      <nav class="indice" aria-label="En esta página">
+        <p class="indice-titulo">En esta página</p>
+        <ul>
+          {%- for s in page.secciones %}
+          <li><a href="#{{ s.id }}">{{ s.titulo }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+      {%- endif %}
+
+      {%- for dia in site.data.agenda %}
+        {%- if dia.fecha == primera.iso and dia.eventos.size > 1 %}
+      <nav class="mismo-dia" aria-label="El mismo día">
+        <p class="indice-titulo">También el {{ dia.dia | downcase }}</p>
+        <ul>
+          {%- for e in dia.eventos %}{% if e.url != page.url %}
+          <li><a href="{{ e.url | relative_url }}"><span class="hora">{{ e.hora }}</span> {{ e.titulo_html }}</a></li>
+          {%- endif %}{% endfor %}
+        </ul>
+      </nav>
+        {%- endif %}
+      {%- endfor %}
+    </aside>
+
+    <div class="evento-cuerpo">
+      {{ content }}
+      {%- if page.logos.size > 0 %}
+      <section class="evento-logos" aria-label="Con la colaboración de">
+        {%- for l in page.logos %}
+        <img src="{{ '/assets/logos/' | append: l.archivo | relative_url }}" alt="" width="{{ l.ancho }}" height="{{ l.alto }}" loading="lazy">
+        {%- endfor %}
+      </section>
+      {%- endif %}
+    </div>
+  </div>
+
+  <nav class="contenedor evento-vecinos" aria-label="Otros eventos del programa">
+    {%- if page.previous %}
+    <a class="vecino vecino-anterior" href="{{ page.previous.url | relative_url }}">
+      <span class="vecino-etiqueta">← Anterior en el programa</span>
+      <span class="vecino-fecha">{{ page.previous.fechas[0].corto }} · {{ page.previous.fechas[0].hora }} h</span>
+      <span class="vecino-titulo">{{ page.previous.titulo_html }}</span>
+    </a>
+    {%- else %}<span></span>{% endif %}
+    {%- if page.next %}
+    <a class="vecino vecino-siguiente" href="{{ page.next.url | relative_url }}">
+      <span class="vecino-etiqueta">Siguiente en el programa →</span>
+      <span class="vecino-fecha">{{ page.next.fechas[0].corto }} · {{ page.next.fechas[0].hora }} h</span>
+      <span class="vecino-titulo">{{ page.next.titulo_html }}</span>
+    </a>
+    {%- endif %}
+  </nav>
+</article>

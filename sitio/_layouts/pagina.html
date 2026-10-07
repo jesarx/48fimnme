@@ -1,0 +1,13 @@
+---
+layout: base
+---
+<header class="banda">
+  <div class="contenedor">
+    {%- if page.antetitulo %}<p class="banda-ante">{{ page.antetitulo }}</p>{% endif %}
+    <h1 class="banda-titulo">{{ page.title }}</h1>
+    {%- if page.entrada %}<p class="banda-entrada">{{ page.entrada }}</p>{% endif %}
+  </div>
+</header>
+<div class="contenedor pagina-cuerpo">
+  {{ content }}
+</div>
