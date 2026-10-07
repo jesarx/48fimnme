@@ -10539,9 +10539,9 @@ Lobby del Pabellón Escénico, Jardín Escénico
 De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 (Ediciones Mexicanas de Música)
 
-**Ana Lara** y **Dario Calderone** (Italia), participantes
+**Sharbel Pimentel**, **Ana Lara** y **Julio Estrada**, presentadores
 
-**José Wolffer**, moderador
+**Luis Jaime Cortez**, moderador
 
 ::: logos
 ![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
