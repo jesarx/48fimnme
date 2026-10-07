@@ -10509,6 +10509,14 @@ Casa Rafael Galván, UAM
 
 ---
 
+## MIÉ | NOV 11, 10:00 h - Clase magistral: piano
+
+Conservatorio Nacional de Música
+
+**Alberto Rosado** (España), ponente
+
+---
+
 ## MAR | NOV 17, 17:00 h - Presentación del libro *No me basta*
 
 Lobby del Pabellón Escénico, Jardín Escénico
