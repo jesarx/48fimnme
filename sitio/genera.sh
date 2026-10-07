@@ -33,7 +33,8 @@ python3 sitio/recursos.py
 [[ "${1:-}" == "--contenido" ]] && exit 0
 
 cd sitio
-if command -v bundle > /dev/null && [ -f Gemfile.lock ] && bundle check > /dev/null 2>&1; then
+# Jekyll del Gemfile (bundle install) o, si no, el que esté instalado
+if command -v bundle > /dev/null && bundle exec jekyll --version > /dev/null 2>&1; then
   JEKYLL=(bundle exec jekyll)
 elif command -v jekyll > /dev/null; then
   JEKYLL=(jekyll)
