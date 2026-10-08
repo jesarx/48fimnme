@@ -88,6 +88,10 @@
 \definecolor{portadatexto}{HTML}{E2E6DF}
 \definecolor{portadalogo}{HTML}{C7D2C3}
 \definecolor{portadacaja}{HTML}{A5B9A8}
+% Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
+% INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
+\definecolor{dorado}{HTML}{D2BD86}
+\definecolor{doradooscuro}{HTML}{A88B4C}
 \pagecolor{fondobeige}
 \AtBeginDocument{\color{verdeoscuro}}
 
@@ -199,7 +203,7 @@
     \fondopartitura
     % Logotipo y nombre del Foro
     \node[anchor=north west, inner sep=0pt] (logo)
-      at ($$(current page.north west)+(11.5mm,-17mm)$$) {\logofimnme{23mm}{portadalogo}};
+      at ($$(current page.north west)+(11.5mm,-17mm)$$) {\logofimnme{23mm}{dorado}};
     \node[anchor=north west, inner sep=0pt, text=portadatexto]
       (titulo) at ($$(logo.north east)+(3.2mm,0.4mm)$$) {%
       \renewcommand{\arraystretch}{1}\setlength{\tabcolsep}{0pt}%
@@ -248,7 +252,7 @@
   \begin{tikzpicture}[remember picture, overlay]
     \fondopartitura[0.10]
     \node[anchor=north, inner sep=0pt] at ($$(current page.north)+(0,-20mm)$$)
-      {\logofimnme{10mm}{portadalogo}};
+      {\logofimnme{10mm}{dorado}};
     \ifvoid\cajadirectorio\else
       \node[inner sep=0pt] at ($$(current page.center)+(0,4mm)$$) {\usebox{\cajadirectorio}};
     \fi
@@ -270,7 +274,7 @@
   \begin{tikzpicture}[remember picture, overlay]
     \fondopartitura[0.09]
     \node[anchor=north west, inner sep=0pt] at ($$(current page.north west)+(10mm,-16mm)$$)
-      {\logofimnme{10mm}{portadalogo}};
+      {\logofimnme{10mm}{dorado}};
     \node[anchor=south west, text width=86mm, align=left, inner sep=0pt, text=portadatexto,
       font=\fontsize{20}{23.5}\negrita]
       (t) at ($$(current page.south west)+(10mm,48mm)$$) {\estilotitulos\hbadness=10000 #1\par};
@@ -626,7 +630,7 @@
   \clearpage\thispagestyle{empty}\fijarcabecera{}%
   \vspace*{\fill}\begingroup\centering\footnotesize\color{verdegris}%
   \setlength{\parskip}{2.6mm}\hyphenpenalty=10000
-  {\logofimnme{10mm}{verdegris}\par}\vspace{4mm}}
+  {\logofimnme{10mm}{doradooscuro}\par}\vspace{4mm}}
   {\par\endgroup\vspace*{\fill}}
 \newcommand{\credito}[2]{% #1 nombre  #2 cargo
   \par\addvspace{1.6mm}{\estilotitulos\bfseries #1\par}%

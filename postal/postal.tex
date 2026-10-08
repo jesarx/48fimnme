@@ -41,6 +41,10 @@
 \definecolor{portadatexto}{HTML}{E2E6DF}
 \definecolor{portadalogo}{HTML}{C7D2C3}
 \definecolor{portadacaja}{HTML}{A5B9A8}
+% Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
+% INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
+\definecolor{dorado}{HTML}{D2BD86}
+\definecolor{doradooscuro}{HTML}{A88B4C}
 
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -89,7 +93,7 @@
   \fondopartitura
   % Logotipo y nombre del Foro (como en la portada)
   \node[anchor=north west, inner sep=0pt] (logo)
-    at ($(current page.north west)+(10mm,-9mm)$) {\logofimnme{14mm}{portadalogo}};
+    at ($(current page.north west)+(10mm,-9mm)$) {\logofimnme{14mm}{dorado}};
   \node[anchor=north west, inner sep=0pt, text=portadatexto]
     at ($(logo.north east)+(3mm,0.3mm)$) {%
     \renewcommand{\arraystretch}{1}\setlength{\tabcolsep}{0pt}%

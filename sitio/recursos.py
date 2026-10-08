@@ -119,7 +119,7 @@ def logotipos_vectoriales():
     trazo = re.search(r'<path d="([^"]+)"', logo).group(1)
     icono = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {lado:.2f} {lado:.2f}">'
              f'<rect width="{lado:.2f}" height="{lado:.2f}" rx="{lado * 0.16:.2f}" fill="#4E5F44"/>'
-             f'<path transform="translate({dx:.2f} {dy:.2f})" fill="#E2E6DF" d="{trazo}"/></svg>\n')
+             f'<path transform="translate({dx:.2f} {dy:.2f})" fill="#D2BD86" d="{trazo}"/></svg>\n')
     (img / "icono.svg").write_text(icono, encoding="utf-8")
     pix = pymupdf.open(stream=icono.encode(), filetype="svg")[0].get_pixmap(
         matrix=pymupdf.Matrix(180 / lado, 180 / lado))
@@ -155,7 +155,7 @@ def imagen_redes(textura):
     im = base.convert("RGB")
     # logotipo «48»
     logo_svg = (ASSETS / "img/logo-48.svg").read_text(encoding="utf-8").replace(
-        'fill="currentColor"', 'fill="#C7D2C3"')
+        'fill="currentColor"', 'fill="#D2BD86"')   # el logotipo, en dorado
     doc = pymupdf.open(stream=logo_svg.encode(), filetype="svg")[0]
     alto_logo = 230
     pix = doc.get_pixmap(matrix=pymupdf.Matrix(alto_logo / doc.rect.height,
