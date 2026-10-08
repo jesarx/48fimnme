@@ -10522,11 +10522,9 @@ esta conferencia.
 
 ---
 
-## MAR | NOV 10, 17 h - Mesa redonda: Instalaciones sonoras
+## MAR | NOV 10, 17 h - Mesa redonda «De la escucha al espacio: la instalación como nuevo territorio»
 
 Casa Rafael Galván, UAM
-
-*Apuntes para el futuro*
 
 **Valeria Macías Rodríguez, Andrés Nuño de Buen y Hugo Solís**, ponentes
 

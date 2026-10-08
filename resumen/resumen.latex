@@ -106,7 +106,7 @@
   \let\agendaparte\banda}
   {\end{multicols}\clearpage}
 % El día, en su propio renglón (solo en la primera entrada de cada día)
-\newcommand{\dia}[1]{\ifx&#1&\else\par\addvspace{1.3mm}%
+\newcommand{\dia}[1]{\ifx&#1&\else\par\addvspace{1.15mm}%
   {\bfseries\color{acento}\espaciado[40]{#1}\par}\nopagebreak\vspace{0.2mm}\fi}
 % #1 día  #2 hora  #3 título  #4 letra de la sede
 \newcommand{\ev}[4]{\dia{#1}\par
@@ -120,7 +120,7 @@
 \newcommand{\region}[1]{\par\addvspace{1mm}%
   {\bfseries\color{verdegris}\espaciado[50]{#1}\par}\nopagebreak\vspace{0.4mm}}
 % #1 letra  #2 sala y sede  #3 dirección
-\newcommand{\sede}[3]{\par\addvspace{0.6mm}%
+\newcommand{\sede}[3]{\par\addvspace{0.35mm}%
   {\fontsize{7}{8.3}\selectfont\hangindent=1.75em\hangafter=1
   \makebox[1.75em][l]{\letra{#1}}{\bfseries #2}\ifx&#3&\else.
   {\color{verdegris}#3}\fi\par}}
