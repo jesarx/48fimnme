@@ -2,7 +2,16 @@
 
 El sitio es **estático**: Jekyll lo compila a la carpeta `sitio/_site/`, que
 son solo archivos HTML, CSS, JavaScript, imágenes y PDF. No usa base de datos
-ni PHP. En el servidor hace falta:
+ni PHP.
+
+Todas las direcciones llevan el año de la edición:
+`https://fimnme.qumran.cc/2026/`, `…/2026/programacion/`,
+`…/2026/conciertos/…/`. Así, en el mismo dominio pueden convivir varias
+ediciones (`/2026/`, `/2027/`…). La raíz (`https://fimnme.qumran.cc/`) solo
+redirige a la edición actual. El año sale de `baseurl` en
+`sitio/_config.yml`.
+
+En el servidor hace falta:
 
 1. que el dominio apunte al VPS;
 2. un servidor web con HTTPS;
@@ -77,8 +86,10 @@ sudo chown "$USER": /var/www/fimnme.qumran.cc
 ~/48fimnme/sitio/publicar.sh /var/www/fimnme.qumran.cc
 ```
 
-`publicar.sh` compila el sitio y lo copia con `rsync --delete`: la carpeta
-queda idéntica a `sitio/_site/`.
+`publicar.sh` compila el sitio y lo copia en `/var/www/fimnme.qumran.cc/2026/`
+con `rsync --delete`: esa carpeta queda idéntica a `sitio/_site/2026/`. En la
+raíz deja la redirección a `/2026/` (`index.html`) y el `robots.txt`. No toca
+nada más de la raíz, así que otras ediciones no se ven afectadas.
 
 ## 5. Servidor web con HTTPS
 
@@ -100,9 +111,9 @@ fimnme.qumran.cc {
 	root * /var/www/fimnme.qumran.cc
 	encode zstd gzip
 	file_server
-	header /assets/* Cache-Control "public, max-age=604800"
+	header /2026/assets/* Cache-Control "public, max-age=604800"
 	handle_errors {
-		rewrite * /{err.status_code}.html
+		rewrite * /2026/{err.status_code}.html
 		file_server
 	}
 }
@@ -126,12 +137,12 @@ server {
 
     root /var/www/fimnme.qumran.cc;
     index index.html;
-    error_page 404 /404.html;
+    error_page 404 /2026/404.html;
 
     location / {
         try_files $uri $uri/ =404;
     }
-    location /assets/ {
+    location /2026/assets/ {
         expires 7d;
         add_header Cache-Control "public";
     }
@@ -155,12 +166,13 @@ sudo ufw allow 80,443/tcp
 
 ## 6. Comprobar
 
-Abre <https://fimnme.qumran.cc> y revisa la portada, la programación, una
+Abre <https://fimnme.qumran.cc>: debe llevarte a
+<https://fimnme.qumran.cc/2026/>. Revisa la portada, la programación, una
 página de concierto y las descargas. Desde la terminal:
 
 ```bash
-curl -I https://fimnme.qumran.cc/programacion/   # debe responder 200
-curl -I https://fimnme.qumran.cc/no-existe/      # debe responder 404 (con la página de error del sitio)
+curl -I https://fimnme.qumran.cc/2026/programacion/   # debe responder 200
+curl -I https://fimnme.qumran.cc/2026/no-existe/      # debe responder 404 (con la página de error del sitio)
 ```
 
 Mientras sea de prueba, el sitio pide a los buscadores que **no lo indexen**
@@ -189,7 +201,24 @@ sitio/publicar.sh usuario@IP-del-VPS:/var/www/fimnme.qumran.cc
 ```
 
 Para revisar los cambios antes de publicarlos: `sitio/genera.sh --servir`
-(los muestra en <http://localhost:4000>).
+(los muestra en <http://localhost:4000/2026/>).
+
+Si ya habías publicado una versión anterior **sin el año** en la dirección,
+borra de la raíz lo que quedó de ella (todo menos `2026/`, `index.html` y
+`robots.txt`):
+
+```bash
+cd /var/www/fimnme.qumran.cc
+rm -rf 404.html assets coloquio conciertos creditos descargas programacion sedes
+```
+
+## Una nueva edición
+
+Para la edición de 2027, en `sitio/_config.yml` cambia `baseurl` a `"/2027"`
+y publica igual. El sitio nuevo queda en `/2027/` y la raíz pasa a redirigir
+ahí. `/2026/` se queda como está, mientras no se vuelva a publicar con
+`baseurl: "/2026"`. En Caddy o Nginx, cambia `2026` por `2027` en la página de
+error y en la caché de `assets`.
 
 ## Pasar al dominio definitivo
 
@@ -204,8 +233,9 @@ Cuando el sitio quede aprobado en `forodemusicanueva.inba.gob.mx`:
      `server_name` y `certbot -d`). Publica con `publicar.sh` en la carpeta
      nueva.
    - **Si el sitio lo aloja el INBAL:** basta entregar el contenido de
-     `sitio/_site/` ya compilado. Son archivos estáticos que sirve cualquier
-     servidor (Apache, Nginx, IIS).
+     `sitio/_site/` ya compilado (la carpeta `2026/` y la redirección de la
+     raíz). Son archivos estáticos que sirve cualquier servidor (Apache,
+     Nginx, IIS).
 3. Opcional: redirige el dominio de prueba al definitivo.
    - En Caddy:
 
@@ -223,6 +253,6 @@ Cuando el sitio quede aprobado en `forodemusicanueva.inba.gob.mx`:
 |---|---|
 | `bundle install` falla al compilar extensiones | Faltan `build-essential` o `zlib1g-dev` (paso 2). |
 | El certificado no se emite | El DNS aún no apunta al VPS (`dig +short fimnme.qumran.cc`), o los puertos 80 y 443 están cerrados. |
-| `/programacion/` da 404 pero la portada abre | El servidor no busca `index.html` dentro de las carpetas: en Nginx falta `try_files $uri $uri/ =404;`. |
-| Páginas sin estilos | El sitio se publicó en una subcarpeta sin indicarla en `baseurl` de `_config.yml`. |
+| `/2026/programacion/` da 404 pero la portada abre | El servidor no busca `index.html` dentro de las carpetas: en Nginx falta `try_files $uri $uri/ =404;`. |
+| Páginas sin estilos o enlaces rotos | El contenido de `sitio/_site/2026/` se copió en la raíz del dominio y no en `/2026/`. `publicar.sh` lo copia bien. |
 | `publicar.sh` dice que no encuentra Jekyll | Falta `bundle install` en `sitio/` (paso 3). |

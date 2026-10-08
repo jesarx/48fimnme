@@ -14,10 +14,12 @@ lang: es-MX
 # Dominio donde se publica (se usa en los enlaces para compartir en redes).
 # Por ahora, el de prueba; el definitivo será el que anuncia el sitio del
 # Palacio de Bellas Artes: https://forodemusicanueva.inba.gob.mx (ver
-# DESPLIEGUE.md). Si el sitio va en una subcarpeta, se indica en baseurl
-# (p. ej. "/fimnme").
+# DESPLIEGUE.md).
 url: "https://fimnme.qumran.cc"
-baseurl: ""
+# El año de la edición va en todas las direcciones (…/2026/programacion/): así
+# las ediciones pueden convivir en el mismo dominio. genera.sh compila el
+# sitio en _site/2026/ y deja en la raíz una redirección a esta edición.
+baseurl: "/2026"
 # false mientras es de prueba: pide a los buscadores que no lo indexen
 # (robots.txt y <meta name="robots">). En el dominio definitivo: true.
 indexar: false

@@ -5,10 +5,10 @@ contenido sale del mismo `fimnme2026-programa.md` que el Programa general y el
 resumido: **no se edita a mano**, se corrige el Markdown y se regenera.
 
 ```bash
-sitio/genera.sh              # contenido + recursos + compilación (sitio/_site)
-sitio/genera.sh --servir     # además lo sirve en http://localhost:4000 para revisarlo
+sitio/genera.sh              # contenido + recursos + compilación (sitio/_site/2026)
+sitio/genera.sh --servir     # además lo sirve en http://localhost:4000/2026/ para revisarlo
 sitio/genera.sh --contenido  # solo regenera el contenido (sin Jekyll)
-cd sitio && jekyll build     # solo compila (el contenido generado ya está en el repo)
+sitio/genera.sh --compilar   # solo compila (el contenido generado ya está en el repo)
 ```
 
 `./compila.sh` (compilación completa) también regenera el sitio al final.
@@ -18,13 +18,24 @@ el contenido; Ruby con Jekyll 4.4 para compilarlo (`cd sitio && bundle install`)
 El contenido generado se guarda en el repositorio, así que para compilar el
 sitio basta Jekyll.
 
+Las direcciones llevan el año de la edición: `…/2026/`,
+`…/2026/programacion/`, `…/2026/conciertos/…/`. Así las ediciones pueden
+convivir en el mismo dominio. El sitio se compila en `sitio/_site/2026/`. En
+`sitio/_site/` quedan además una página que redirige de la raíz del dominio a
+`/2026/` y el `robots.txt`.
+
 Para publicarlo se copia el contenido de `sitio/_site/` al servidor (son
 archivos estáticos): `sitio/publicar.sh CARPETA` lo compila y lo copia, en el
 mismo servidor o por SSH. **Cómo montarlo en un VPS con su dominio y HTTPS:
-[`DESPLIEGUE.md`](DESPLIEGUE.md).** En `_config.yml`, `url` es el dominio
-(se usa en los enlaces para compartir en redes; ahora el de prueba,
-`fimnme.qumran.cc`), `indexar: false` pide a los buscadores que no lo indexen
-mientras es de prueba, y `baseurl` va solo si el sitio queda en una subcarpeta.
+[`DESPLIEGUE.md`](DESPLIEGUE.md).**
+
+En `_config.yml`:
+
+- `url` es el dominio. Se usa en los enlaces para compartir en redes; ahora es
+  el de prueba, `fimnme.qumran.cc`.
+- `baseurl` es la carpeta de la edición (`"/2026"`).
+- `indexar: false` pide a los buscadores que no lo indexen mientras es de
+  prueba.
 
 ## Páginas
 
@@ -32,7 +43,7 @@ mientras es de prueba, y `baseurl` va solo si el sitio queda en una subcarpeta.
 |---|---|
 | Inicio | Portada (como la del programa), cifras del Foro, próximos eventos (según la fecha del día), calendario de noviembre, partes del programa, abono de inauguración y clausura, logotipos. |
 | Programación | Agenda día por día con filtros por parte (Ciudad de México, En los estados, Actividades académicas, Ecos del Foro, Coloquio) y búsqueda por obra, compositor, intérprete o sede. El filtro queda en la dirección (`?seccion=estados`, `?q=saariaho`) para compartirla. |
-| Cada evento (`/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), programa, semblanzas con foto, notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
+| Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), programa, semblanzas con foto, notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
 | Sedes | Sedes con dirección, mapa y lo que se presenta en cada una. |
 | Coloquio Enríquez &#124; 100 | Presentación y programa del Coloquio. |
 | Programa de mano | Descargas: Programa general, Programa resumido y postal del abono. |
