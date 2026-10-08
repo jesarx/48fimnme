@@ -134,7 +134,7 @@ local function logos_de(div)
 end
 
 -- -----------------------------------------------------------------------------
--- Fechas: «VIE | NOV 6, 20:00 h - Título»
+-- Fechas: «VIE | NOV 6, 20 h - Título»
 -- -----------------------------------------------------------------------------
 local MESES = { OCT = 10, NOV = 11, DIC = 12 }
 local NOMBRE_MES = { [10] = "octubre", [11] = "noviembre", [12] = "diciembre" }
@@ -738,7 +738,7 @@ function Pandoc(doc)
         else actual:insert(el) end
       end
       if #actual > 0 then lineas[#lineas + 1] = trim(stringify(actual)) end
-      -- con varias fechas, cada sede va precedida de la suya: «Viernes 13 de noviembre, 19:00 h»
+      -- con varias fechas, cada sede va precedida de la suya: «Viernes 13 de noviembre, 19 h»
       if #lineas > 1 and lineas[1]:match("%d h$") then table.remove(lineas, 1) end
       e.lugares[#e.lugares + 1] = lineas
       k = k + 1
@@ -760,9 +760,14 @@ function Pandoc(doc)
     -- subtítulo («Concierto inaugural», «Monográfico Saariaho»…; va en la
     -- cabecera de la página) y, en actividades y Coloquio, quienes participan
     local subtitulos, participantes, resto = {}, {}, {}
+    e.descripcion, e.descripcion_txt = "", ""
     for _, b in ipairs(previo) do
       local t = texto_plano({ b })
-      if t ~= "" then
+      if b.t == "Div" and b.classes:includes("descripcion") then
+        -- «::: descripcion» de una actividad: de qué trata, a quién va dirigida…
+        e.descripcion = html_texto(b.content)
+        e.descripcion_txt = t
+      elseif t ~= "" then
         if e.tipo == "concierto" or solo_cursiva(b) then subtitulos[#subtitulos + 1] = t
         else
           participantes[#participantes + 1] = t
@@ -863,6 +868,9 @@ function Pandoc(doc)
     for _, l in ipairs(e.logos) do fm.logos[#fm.logos + 1] = l end
     local cuerpo = {}
     if e.previo ~= "" then cuerpo[#cuerpo + 1] = '<div class="evento-previo">' .. e.previo .. "</div>" end
+    if e.descripcion ~= "" then
+      cuerpo[#cuerpo + 1] = '<div class="evento-descripcion">' .. e.descripcion .. "</div>"
+    end
     for _, s in ipairs(e.secciones) do
       cuerpo[#cuerpo + 1] = '<section class="seccion seccion-' .. s.id .. '" id="' .. s.id .. '">' ..
         '<h2 class="seccion-titulo">' .. esc(s.titulo) .. "</h2>\n" .. s.html .. "</section>"
@@ -885,7 +893,7 @@ function Pandoc(doc)
         estrenos = e.estrenos, orden = e.orden, subtitulo = e.subtitulo,
         buscar = clave(table.concat({ e.titulo_txt, e.subtitulo, table.concat(lugar, " "),
                                       e.resumen_interpretes, e.resumen_obras,
-                                      table.concat(e.titulos_obras, " ") }, " ")):gsub("[*]", ""),
+                                      table.concat(e.titulos_obras, " "), e.descripcion_txt }, " ")):gsub("[*]", ""),
       }
     end
   end

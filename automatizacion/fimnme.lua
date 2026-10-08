@@ -6,7 +6,7 @@
 --
 --    \part{...}                      → página de parte
 --    \portadacapitulo{VIE | NOV 6}   → página divisoria del día
---    ## VIE | NOV 6, 20:00 h - Título → encabezado de concierto (+ índice,
+--    ## VIE | NOV 6, 20 h - Título → encabezado de concierto (+ índice,
 --                                       marcador PDF y cabecera de página)
 --    ### Programa / Personas compositoras / Intérpretes ...  → secciones
 --    **Compositor** + lista de obras → programa con duraciones alineadas
@@ -947,6 +947,22 @@ function Pandoc(doc)
         end
       end
       emit(raw("\\end{directoriocontraportada}"))
+      i = i + 1
+      goto continuar
+    end
+
+    -- ----------------------------------------------------- DESCRIPCIÓN --
+    -- «::: descripcion» en una actividad académica: de qué trata, a quién va
+    -- dirigida, módulos… (el Programa resumido no la lleva)
+    if b.t == "Div" and b.classes:includes("descripcion") then
+      emit(raw("\\begin{descripcionactividad}"))
+      for _, c in ipairs(b.content) do
+        if c.t == "Para" or c.t == "Plain" then
+          c.content = envolver_cjk(strip_trailing_space(c.content))
+        end
+        emit(c)
+      end
+      emit(raw("\\end{descripcionactividad}"))
       i = i + 1
       goto continuar
     end
