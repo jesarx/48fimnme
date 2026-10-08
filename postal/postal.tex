@@ -39,7 +39,6 @@
 \definecolor{portadabase}{HTML}{4E5F44}
 \definecolor{portadaluz}{HTML}{768F68}
 \definecolor{portadatexto}{HTML}{E2E6DF}
-\definecolor{portadalogo}{HTML}{C7D2C3}
 \definecolor{portadacaja}{HTML}{A5B9A8}
 % Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
 % INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
@@ -50,7 +49,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \input{automatizacion/plantilla/logo-48.tex}
-\input{automatizacion/plantilla/logo-cnmo.tex}
+\input{automatizacion/plantilla/logo-cnmo-horizontal.tex}
 \newcommand{\partitura}{automatizacion/plantilla/partitura-1x4.pdf}
 
 \setlength{\parindent}{0pt}
@@ -74,8 +73,8 @@
   \vspace{1.8mm}
   {\setlength{\fboxsep}{1.3mm}\colorbox{portadacaja}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
     \raggedright\fontsize{7.6}{9.4}\seminegrita\color{verdeoscuro}#5}}\par}
-  \ifx&#6&\else\vspace{1.2mm}{\fontsize{6.2}{7.6}\itshape\color{portadatexto}#6\par}\fi}
-\newcommand{\filete}{\par\vspace{4mm}{\color{portadacaja}\hrule width 12mm height 0.9pt}\vspace{3.6mm}}
+  \ifx&#6&\else\vspace{1.2mm}{\fontsize{6.2}{7.6}\ligera\color{portadatexto}#6\par}\fi}
+\newcommand{\filete}{\par\vspace{3mm}{\color{portadacaja}\hrule width 12mm height 0.9pt}\vspace{2.8mm}}
 
 \newcommand{\fondopartitura}{%
   \fill[portadabase] (current page.south west) rectangle (current page.north east);
@@ -93,7 +92,7 @@
   \fondopartitura
   % Logotipo y nombre del Foro (como en la portada)
   \node[anchor=north west, inner sep=0pt] (logo)
-    at ($(current page.north west)+(10mm,-9mm)$) {\logofimnme{14mm}{dorado}};
+    at ($(current page.north west)+(10mm,-7mm)$) {\logofimnme{14mm}{dorado}};
   \node[anchor=north west, inner sep=0pt, text=portadatexto]
     at ($(logo.north east)+(3mm,0.3mm)$) {%
     \renewcommand{\arraystretch}{1}\setlength{\tabcolsep}{0pt}%
@@ -106,12 +105,12 @@
   % Distintivo: es un abono (dos conciertos)
   \node[anchor=north east, fill=portadacaja, text=verdeoscuro, inner xsep=3.2mm,
     inner ysep=2.2mm, align=center]
-    at ($(current page.north east)+(-10mm,-9.6mm)$) {%
+    at ($(current page.north east)+(-10mm,-7.6mm)$) {%
     {\fontsize{21}{22}\extranegrita\espaciado[60]{ABONO}}\\[0.6mm]
     {\fontsize{6.6}{7.6}\negrita\espaciado[120]{2 CONCIERTOS}}};
   % Los dos conciertos
   \node[anchor=north west, inner sep=0pt, text width=88mm, align=flush left]
-    at ($(current page.north west)+(10mm,-29mm)$) {%
+    at ($(current page.north west)+(10mm,-25mm)$) {%
     \concierto{Concierto inaugural}{Viernes 6 de noviembre, 20 h}
       {Orquesta Sinfónica Nacional}
       {Ludwig Carrasco, director artístico\\
@@ -127,20 +126,23 @@
       {}};
   % Sede y precios del abono (por los dos conciertos)
   \node[anchor=south west, inner sep=0pt, text width=88mm, align=flush left, text=portadatexto]
-    at ($(current page.south west)+(10mm,20mm)$) {%
-    {\color{portadacaja}\hrule width 88mm height 0.5pt}\vspace{2.6mm}
+    at ($(current page.south west)+(10mm,26.5mm)$) {%
     {\fontsize{8.8}{10.4}\negrita\color{white}\sede\par}
     \vspace{0.3mm}{\fontsize{7.2}{8.6}\selectfont\direccion\par}
     \vspace{2.4mm}
     {\fontsize{6.4}{7.6}\negrita\color{portadacaja}\espaciado[150]{ABONO PARA AMBOS CONCIERTOS}\par}
     \vspace{0.8mm}
     {\fontsize{11}{12.6}\extranegrita\color{white}\precios\par}};
-  % Logotipos
-  \node[anchor=south west, inner sep=0pt] (cnmo)
-    at ($(current page.south west)+(10mm,7mm)$) {\logocnmo{11mm}{white}};
-  \node[anchor=west, inner sep=0pt] (osn) at ($(cnmo.east)+(6mm,0)$)
-    {\includegraphics[height=6.6mm]{build/postal/osn-blanco.png}};
-  \node[anchor=west, inner sep=0pt] at ($(osn.east)+(6mm,0)$)
-    {\includegraphics[height=4.8mm]{build/postal/patronato-blanco.png}};
+  % Franja negra al pie, como en las postales de los conciertos: logotipos
+  % (ninguno más grande que los de Cultura e INBAL; los mismos tamaños que
+  % calcula postales/genera.py) y pleca de Cultura e INBAL
+  \fill[black] (current page.south west) rectangle ($(current page.south east)+(0,24mm)$);
+  \node[anchor=center, inner sep=0pt] at ($(current page.north)+(0,-116.2mm)$) {%
+    \raisebox{-0.5\height}{\logocnmohorizontal{15.5mm}{white}}\hspace{5mm}%
+    \raisebox{-0.5\height}{\includegraphics[height=4.5mm]{build/postal/osn-blanco.png}}\hspace{5mm}%
+    \raisebox{-0.5\height}{\includegraphics[width=13mm]{build/postal/patronato-blanco.png}}};
+  \node[anchor=north west, inner sep=0pt]
+    at ($(current page.north west)+(30mm,-121.5mm)$)
+    {\includegraphics[width=48mm]{postales/recursos/pleca-cultura-inbal80.png}};
 \end{tikzpicture}
 \end{document}
