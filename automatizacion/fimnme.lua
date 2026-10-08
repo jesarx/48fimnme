@@ -1178,6 +1178,15 @@ function Pandoc(doc)
             elseif not ya_visto(nota_vista, clave_nota(bk), k + 1) then
               solo_referencias = false
             end
+          elseif (bk.t == "Para" or bk.t == "Plain") and #bk.content == 1 and bk.content[1].t == "Strong"
+                 and imagen_sola(bloques[k + 1]) then
+            -- ficha con el nombre en negritas (en lugar de «####»)
+            local cl = clave_orden(stringify(bk.content))
+            if tipo_sec == "comp" then
+              if not bio_compositor[cl] then solo_referencias = false end
+            elseif not ya_visto(bio_persona, cl, k + 2) then
+              solo_referencias = false
+            end
           end
           k = k + 1
         end
