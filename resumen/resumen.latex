@@ -1,8 +1,8 @@
 % =============================================================================
 %  Programa resumido del 48.º FIMNME
-%  Mismo formato (108 × 192 mm) y paleta que el Programa general. La agenda
-%  va en Noto Sans SemiCondensed a dos columnas; los programas, en Noto Sans
-%  a una columna, con cuerpo de lectura.
+%  Mismo formato (108 × 192 mm) y paleta que el Programa general. Todo en
+%  Noto Sans (sin versiones condensadas): la agenda a dos columnas; los
+%  programas a una columna, con cuerpo de lectura.
 %  El contenido lo genera resumen/resumen.lua a partir del Markdown.
 % =============================================================================
 \documentclass[fontsize=8pt, parskip=false]{scrartcl}
@@ -20,12 +20,6 @@
   Path=\rutafuentes, Extension=.ttf,
   UprightFont=*-Regular, ItalicFont=*-Italic,
   BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic,
-  Numbers=Lining
-]
-\newfontfamily\condensada{NotoSans-SemiCondensed}[
-  Path=\rutafuentes, Extension=.ttf,
-  UprightFont=*, ItalicFont=*Italic,
-  BoldFont=*SemiBold, BoldItalicFont=*SemiBoldItalic,
   Numbers=Lining
 ]
 \IfFontExistsTF{Noto Sans CJK SC}
@@ -88,7 +82,7 @@
   \nopagebreak\vspace{0.7mm}{\color{filete}\hrule height 0.5pt}\nopagebreak\vspace{1.4mm}}
 
 % ------------------------------------------------------------- Agenda --------
-\newlength{\anchohora}\setlength{\anchohora}{2.6em}
+\newlength{\anchohora}\setlength{\anchohora}{3.25em}% «19 h», «19:30 h»
 \newenvironment{agenda}{%
   \thispagestyle{empty}%
   \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{acento}\end{minipage}\hspace{3mm}%
@@ -102,7 +96,7 @@
   {\fontsize{6.8}{8.2}\selectfont\color{verdegris}En cursiva, actividades académicas y
     sesiones del Coloquio Manuel Enríquez 100. La letra indica la sede (al final de la
     agenda, con su dirección).\par}\vspace{0.6mm}%
-  \condensada\fontsize{7.4}{8.9}\selectfont
+  \fontsize{7}{8.45}\selectfont
   \begin{multicols}{2}\raggedright
   \clubpenalty=10000 \widowpenalty=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000
   \let\agendaparte\banda}

@@ -30,7 +30,7 @@ resumen/compila.sh      # unos segundos; ./compila.sh también lo regenera
 | Archivo | Para qué sirve |
 |---|---|
 | `resumen.lua` | Lee el Markdown y arma la agenda y los programas condensados. |
-| `resumen.latex` | Diseño: página, tipografía (Noto Sans; la agenda en SemiCondensed), colores, agenda, programas. |
+| `resumen.latex` | Diseño: página, tipografía (Noto Sans, sin versiones condensadas), colores, agenda, programas. |
 | `reducir_logos.py` | Copias ligeras (300 ppp, 16 niveles) de los logotipos que prepara `automatizacion/preparar_logos.py`. |
 | `compila.sh` | Compila el PDF (en `build/resumen/`) y lo copia aquí. |
 
