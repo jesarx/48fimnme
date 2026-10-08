@@ -10478,22 +10478,6 @@ Morelia, Michoacán
 
 \part{ACTIVIDADES ACADÉMICAS}
 
-## SÁB | NOV 7, 12 h - Charla con el trompetista Simon Höfele
-
-Laboratorio Escénico, Jardín Escénico
-
-::: descripcion
-Simon Höfele (Alemania) hablará sobre las particularidades y la importancia de *Nobody
-Knows the Trouble I See* de Bernd Alois Zimmermann, obra clave del
-repertorio moderno para trompeta y orquesta que interpreta con la Orquesta
-Sinfónica Nacional en el concierto inaugural del 48.º FIMNME.
-
-**Dirigido a:** estudiantes de trompeta, de composición y de música en
-general.
-:::
-
----
-
 ## MAR | NOV 10, 11 h - Conferencia: El piano contemporáneo
 
 Conservatorio Nacional de Música
