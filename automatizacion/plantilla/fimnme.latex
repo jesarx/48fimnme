@@ -347,9 +347,9 @@
 \makeatother
 % Descripción de una actividad académica (bloque «::: descripcion»): un
 % punto menor, tras un filete corto
-\newenvironment{descripcionactividad}{\par\addvspace{1.2mm}%
-  {\color{filete}\rule{14mm}{0.6pt}}\par\addvspace{0.8mm}%
-  \small\setlength{\parskip}{0.5\baselineskip plus 1pt minus 0.5pt}}
+\newenvironment{descripcionactividad}{\par\addvspace{0.6mm}%
+  {\color{filete}\rule{14mm}{0.6pt}}\par\nointerlineskip\vspace{1.6mm}%
+  \small\setlength{\parskip}{0.35\baselineskip plus 1pt minus 0.5pt}}
   {\par}
 \newcommand{\actividadacademica}[6]{%
   \par\necesito{14\baselineskip}\addvspace{6mm}%

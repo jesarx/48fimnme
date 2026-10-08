@@ -96,7 +96,7 @@
   {\fontsize{6.8}{8.2}\selectfont\color{verdegris}En cursiva, actividades académicas y
     sesiones del Coloquio Manuel Enríquez 100. La letra indica la sede (al final de la
     agenda, con su dirección).\par}\vspace{0.6mm}%
-  \fontsize{7}{8.45}\selectfont
+  \fontsize{7}{8.3}\selectfont
   \begin{multicols}{2}\raggedright
   \clubpenalty=10000 \widowpenalty=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000
   \let\agendaparte\banda}
