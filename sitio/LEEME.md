@@ -43,7 +43,7 @@ En `_config.yml`:
 |---|---|
 | Inicio | Portada (como la del programa), cifras del Foro, próximos eventos (según la fecha del día), calendario de noviembre, partes del programa, abono de inauguración y clausura, logotipos. |
 | Programación | Agenda día por día con filtros por parte (Ciudad de México, En los estados, Actividades académicas, Ecos del Foro, Coloquio) y búsqueda por obra, compositor, intérprete o sede. El filtro queda en la dirección (`?seccion=estados`, `?q=saariaho`) para compartirla. |
-| Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), programa, semblanzas con foto, notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
+| Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), programa, semblanzas con foto (con un clic, la foto completa), notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
 | Sedes | Sedes con dirección, mapa y lo que se presenta en cada una. |
 | Coloquio Enríquez &#124; 100 | Presentación y programa del Coloquio. |
 | Programa de mano | Descargas: Programa general, Programa resumido y postal del abono. |
@@ -79,7 +79,9 @@ Generado (no editar: lo reescribe `genera.sh`):
 | `_data/abono.json` | Precios y sede del abono: los de `postal/postal.tex`. |
 | `_data/descargas.json`, `descargas/` | Copias del Programa general, del resumido y de la postal. |
 | `_includes/generado/` | Coloquio, créditos, directorio y logotipos en SVG. |
-| `assets/fotos/`, `assets/logos/`, `assets/img/` (salvo `cultura.svg` e `inbal.svg`) | Fotos, logotipos e imágenes. |
+| `assets/fotos/comp/`, `assets/fotos/int/` | Las fotos de las fichas: el recorte en círculo del Programa general (240 px). |
+| `assets/fotos/completas/` | Cada foto del Markdown entera, sin recortar (hasta 1000 px), para verla en grande. |
+| `assets/logos/`, `assets/img/` (salvo `cultura.svg` e `inbal.svg`) | Logotipos e imágenes. |
 
 ## Notas
 
@@ -93,6 +95,11 @@ Generado (no editar: lo reescribe `genera.sh`):
   indica la hora de término).
 - Las remisiones del Markdown a otra página (`\pageref{conc:…}`) se vuelven
   enlaces.
+- Están todas las fotos del Markdown, cada una en dos versiones: el recorte en
+  círculo centrado en el rostro (el del Programa general) y, con un clic sobre
+  él, la foto completa. Conservan la carpeta del Markdown (`comp/` e `int/`),
+  porque hay nombres que están en las dos con fotos distintas (Rodrigo Cadet
+  e Iracema de Andrade, como compositores y como intérpretes).
 - Cada evento muestra completas sus semblanzas (con foto) y notas al programa,
   aunque ya hayan salido en otro (en los PDF, las repetidas remiten a su
   página): si el Markdown no las repite, se toman de su primera aparición.

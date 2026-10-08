@@ -1,6 +1,7 @@
 /* Sitio del 48.º FIMNME: menú, filtros de la agenda, «hoy», próximos eventos,
-   archivo de calendario (.ics) y botón para volver arriba. Todo es una
-   mejora: sin JavaScript el sitio muestra la programación completa. */
+   archivo de calendario (.ics), botón para volver arriba y fotos en grande.
+   Todo es una mejora: sin JavaScript el sitio muestra la programación
+   completa. */
 (function () {
   "use strict";
 
@@ -190,4 +191,35 @@
   }
   window.addEventListener("hashchange", abrirNota);
   abrirNota();
+
+  /* --- Fotos: la de cada ficha, completa y en grande ------------------------
+     El recorte en círculo enlaza a la foto entera; aquí se muestra encima de
+     la página (sin JavaScript, el enlace abre la imagen). */
+  var visor = null;
+  function abrirFoto(enlace) {
+    if (!visor) {
+      visor = document.createElement("dialog");
+      visor.className = "visor";
+      visor.innerHTML = '<figure><img alt=""><figcaption></figcaption></figure>' +
+        '<button type="button" class="visor-cerrar" aria-label="Cerrar">×</button>';
+      // se cierra con Esc, con el botón o con un clic en cualquier parte
+      visor.addEventListener("click", function () { visor.close(); });
+      visor.addEventListener("close", function () { visor.querySelector("img").removeAttribute("src"); });
+      document.body.appendChild(visor);
+    }
+    var nombre = enlace.querySelector("img").getAttribute("alt");
+    var img = visor.querySelector("img");
+    img.alt = nombre;
+    img.src = enlace.getAttribute("href");
+    visor.querySelector("figcaption").textContent = nombre;
+    visor.showModal();
+  }
+  if (typeof HTMLDialogElement === "function") {
+    document.addEventListener("click", function (e) {
+      var enlace = e.target.closest && e.target.closest("a[data-ampliar]");
+      if (!enlace || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      abrirFoto(enlace);
+    });
+  }
 })();
