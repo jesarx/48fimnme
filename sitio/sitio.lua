@@ -134,21 +134,27 @@ local function logos_de(div)
 end
 
 -- -----------------------------------------------------------------------------
--- Fechas: «VIE | NOV 6, 20:00 h - Título»
+-- Fechas: «VIE | NOV 6, 20 h - Título»
 -- -----------------------------------------------------------------------------
 local MESES = { OCT = 10, NOV = 11, DIC = 12 }
 local NOMBRE_MES = { [10] = "octubre", [11] = "noviembre", [12] = "diciembre" }
 local NOMBRE_DIA = { LUN = "Lunes", MAR = "Martes", ["MIÉ"] = "Miércoles", JUE = "Jueves",
   VIE = "Viernes", ["SÁB"] = "Sábado", DOM = "Domingo" }
 
+-- Horas: «12 h» y, si no son en punto, «13:30 h» (también se acepta «12:00 h»).
+-- Dentro: «hora» = «12:00» (para ordenar y para el calendario) y «hora_txt» =
+-- «12» o «13:30» (lo que se muestra, seguido de « h»).
 local function partir_encabezado(texto)
-  local izq, titulo = texto:match("^(.-%d%d?:%d%d h) %- (.*)$")
+  local izq, titulo = texto:match("^(.-%d h) %- (.*)$")
   if not izq then return nil end
   local fechas = {}
-  for dia, mes, num, hora in izq:gmatch("(%S+) | (%u+) (%d+), (%d%d?:%d%d) h") do
+  for dia, mes, num, h in izq:gmatch("(%S+) | (%u+) (%d+), (%d[%d:]*) h") do
     local m = MESES[mes] or 11
+    local hh, mm = h:match("^(%d+):?(%d*)$")
+    local hora = string.format("%02d:%02d", tonumber(hh), tonumber(mm ~= "" and mm or "0"))
     fechas[#fechas + 1] = {
       dia = dia, mes = mes, num = tonumber(num), hora = hora,
+      hora_txt = tonumber(hh) .. ((mm ~= "" and mm ~= "00") and (":" .. mm) or ""),
       iso = string.format("2026-%02d-%02d", m, tonumber(num)),
       texto_dia = (NOMBRE_DIA[dia] or dia) .. " " .. num .. " de " .. NOMBRE_MES[m],
       semana = NOMBRE_DIA[dia] or dia, nombre_mes = NOMBRE_MES[m],
@@ -496,7 +502,7 @@ end
 -- -----------------------------------------------------------------------------
 -- Fichas (compositores, intérpretes) y notas
 -- -----------------------------------------------------------------------------
-local VISTAS = { bio = {}, nota = {} }   -- primera aparición: clave → enlace
+local VISTAS = { bio = {}, nota = {} }   -- primera aparición: semblanza, foto y nota
 
 local function partir_ficha(inlines)
   local n = #inlines
@@ -524,38 +530,38 @@ end
 local function ficha_html(f, ev)
   local nombre_txt = trim(stringify(f.nombre))
   local id = "ficha-" .. etiqueta(nombre_txt)
-  local bio_txt = texto_plano(f.bio)
-  local clave_bio = f.tipo == "comp" and clave(nombre_txt) or (clave(nombre_txt) .. "|" .. bio_txt)
+  local clave_bio = clave(nombre_txt)
+  -- En el sitio cada evento muestra completas las semblanzas y notas (en los
+  -- PDF, las repetidas remiten a su página): si el Markdown no las repite, se
+  -- toman de su primera aparición.
+  local previa = VISTAS.bio[clave_bio]
+  local foto_f = f.foto or (previa and previa.foto)
   local h = {}
-  local ref = (#f.bio > 0 or f.tipo == "comp") and VISTAS.bio[clave_bio]
   h[#h + 1] = '<article class="ficha" id="' .. id .. '">'
   h[#h + 1] = '<div class="ficha-cabeza">'
-  if f.foto then
-    h[#h + 1] = '<img class="ficha-foto' .. (f.foto.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
-      '" src="../../assets/fotos/' .. f.foto.archivo .. '" alt="' .. esc(nombre_txt) ..
+  if foto_f then
+    h[#h + 1] = '<img class="ficha-foto' .. (foto_f.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
+      '" src="../../assets/fotos/' .. foto_f.archivo .. '" alt="' .. esc(nombre_txt) ..
       '" loading="lazy" width="120" height="120">'
   end
   h[#h + 1] = '<div><h3 class="ficha-nombre">' .. html_inl(f.nombre) .. "</h3>"
   if f.detalle ~= "" then h[#h + 1] = '<p class="ficha-detalle">' .. esc(f.detalle) .. "</p>" end
   h[#h + 1] = "</div></div>"
-  if ref and ref.url ~= ev.url then
-    h[#h + 1] = '<p class="ficha-ver"><a href="' .. ref.enlace .. '">Ver semblanza</a></p>'
-  elseif #f.bio > 0 then
-    h[#h + 1] = '<div class="ficha-texto">' .. html_texto(f.bio) .. "</div>"
-    if not ref then VISTAS.bio[clave_bio] = { url = ev.url, enlace = "../" .. ev.slug .. "/#" .. id } end
+  local bio_html = #f.bio > 0 and html_texto(f.bio) or (previa and previa.html)
+  if bio_html then
+    h[#h + 1] = '<div class="ficha-texto">' .. bio_html .. "</div>"
+    if not previa then VISTAS.bio[clave_bio] = { html = bio_html, foto = f.foto } end
   end
   for _, n in ipairs(f.notas) do
     local titulo_txt = trim(stringify(n.titulo))
     local nid = "nota-" .. etiqueta(titulo_txt)
-    local clave_nota = clave(titulo_txt) .. "|" .. texto_plano(n.bloques)
-    local nref = VISTAS.nota[clave_nota]
-    if nref and nref.url ~= ev.url then
-      h[#h + 1] = '<p class="nota-ver">Nota al programa: <em>' .. html_inl(n.titulo):gsub("</?em>", "") ..
-        '</em> · <a href="' .. nref.enlace .. '">Ver nota</a></p>'
-    elseif #n.bloques > 0 then
+    local clave_nota = clave(titulo_txt)
+    local nprevia = VISTAS.nota[clave_nota]
+    local nota_html = #n.bloques > 0 and html_texto(n.bloques) or (nprevia and nprevia.html)
+    if nota_html then
       h[#h + 1] = '<details class="nota" id="' .. nid .. '"><summary><span class="nota-etiqueta">Nota al programa</span> ' ..
-        html_inl(n.titulo) .. "</summary>" .. '<div class="nota-texto">' .. html_texto(n.bloques) .. "</div></details>"
-      if not nref then VISTAS.nota[clave_nota] = { url = ev.url, enlace = "../" .. ev.slug .. "/#" .. nid } end
+        html_inl(n.titulo) .. "</summary>" .. '<div class="nota-texto">' .. nota_html .. "</div></details>"
+      if not nprevia then VISTAS.nota[clave_nota] = { html = nota_html } end
     end
   end
   h[#h + 1] = "</article>"
@@ -732,8 +738,8 @@ function Pandoc(doc)
         else actual:insert(el) end
       end
       if #actual > 0 then lineas[#lineas + 1] = trim(stringify(actual)) end
-      -- con varias fechas, cada sede va precedida de la suya: «Viernes 13 de noviembre, 19:00 h»
-      if #lineas > 1 and lineas[1]:match("%d%d?:%d%d h$") then table.remove(lineas, 1) end
+      -- con varias fechas, cada sede va precedida de la suya: «Viernes 13 de noviembre, 19 h»
+      if #lineas > 1 and lineas[1]:match("%d h$") then table.remove(lineas, 1) end
       e.lugares[#e.lugares + 1] = lineas
       k = k + 1
     end
@@ -754,9 +760,14 @@ function Pandoc(doc)
     -- subtítulo («Concierto inaugural», «Monográfico Saariaho»…; va en la
     -- cabecera de la página) y, en actividades y Coloquio, quienes participan
     local subtitulos, participantes, resto = {}, {}, {}
+    e.descripcion, e.descripcion_txt = "", ""
     for _, b in ipairs(previo) do
       local t = texto_plano({ b })
-      if t ~= "" then
+      if b.t == "Div" and b.classes:includes("descripcion") then
+        -- «::: descripcion» de una actividad: de qué trata, a quién va dirigida…
+        e.descripcion = html_texto(b.content)
+        e.descripcion_txt = t
+      elseif t ~= "" then
         if e.tipo == "concierto" or solo_cursiva(b) then subtitulos[#subtitulos + 1] = t
         else
           participantes[#participantes + 1] = t
@@ -845,7 +856,7 @@ function Pandoc(doc)
     }
     for k, f in ipairs(e.fechas) do
       local s = e.sedes[k] or {}
-      fm.fechas[#fm.fechas + 1] = { iso = f.iso, hora = f.hora, dia = f.texto_dia, corto = f.corto,
+      fm.fechas[#fm.fechas + 1] = { iso = f.iso, hora = f.hora_txt, dia = f.texto_dia, corto = f.corto,
         semana = f.semana, numero = f.num, mes = f.nombre_mes,
         -- para «Agregar al calendario» (duración supuesta: dos horas)
         inicio = f.iso:gsub("-", "") .. "T" .. string.format("%04d", tonumber((f.hora:gsub(":", "")))) .. "00",
@@ -857,6 +868,9 @@ function Pandoc(doc)
     for _, l in ipairs(e.logos) do fm.logos[#fm.logos + 1] = l end
     local cuerpo = {}
     if e.previo ~= "" then cuerpo[#cuerpo + 1] = '<div class="evento-previo">' .. e.previo .. "</div>" end
+    if e.descripcion ~= "" then
+      cuerpo[#cuerpo + 1] = '<div class="evento-descripcion">' .. e.descripcion .. "</div>"
+    end
     for _, s in ipairs(e.secciones) do
       cuerpo[#cuerpo + 1] = '<section class="seccion seccion-' .. s.id .. '" id="' .. s.id .. '">' ..
         '<h2 class="seccion-titulo">' .. esc(s.titulo) .. "</h2>\n" .. s.html .. "</section>"
@@ -872,13 +886,14 @@ function Pandoc(doc)
       end
       local lugar = e.lugares[k] or e.lugares[1] or {}
       dia.eventos[#dia.eventos + 1] = {
-        hora = f.hora, titulo = e.titulo_txt, titulo_html = e.titulo, url = e.url, tipo = e.tipo,
+        hora = f.hora_txt, momento = f.iso .. "T" .. f.hora, titulo = e.titulo_txt,
+        titulo_html = e.titulo, url = e.url, tipo = e.tipo,
         seccion = e.seccion.id, seccion_nombre = e.seccion.nombre, lugar = table.concat(lugar, ", "),
         sede = e.sedes[k] and e.sedes[k].id or "", interpretes = e.resumen_interpretes, obras = e.resumen_obras,
         estrenos = e.estrenos, orden = e.orden, subtitulo = e.subtitulo,
         buscar = clave(table.concat({ e.titulo_txt, e.subtitulo, table.concat(lugar, " "),
                                       e.resumen_interpretes, e.resumen_obras,
-                                      table.concat(e.titulos_obras, " ") }, " ")):gsub("[*]", ""),
+                                      table.concat(e.titulos_obras, " "), e.descripcion_txt }, " ")):gsub("[*]", ""),
       }
     end
   end
@@ -889,10 +904,7 @@ function Pandoc(doc)
   table.sort(dias, function(a, b) return a.fecha < b.fecha end)
   for _, d in ipairs(dias) do
     table.sort(d.eventos, function(a, b)
-      if a.hora ~= b.hora then
-        local function minutos(h) local hh, mm = h:match("(%d+):(%d+)"); return tonumber(hh) * 60 + tonumber(mm) end
-        return minutos(a.hora) < minutos(b.hora)
-      end
+      if a.momento ~= b.momento then return a.momento < b.momento end
       return a.orden < b.orden
     end)
   end
@@ -909,7 +921,7 @@ function Pandoc(doc)
       end)
       for _, x in ipairs(s.eventos) do
         evs[#evs + 1] = { titulo = x.evento.titulo_txt, titulo_html = x.evento.titulo, url = x.evento.url,
-                          fecha = x.fecha.corto, hora = x.fecha.hora, tipo = x.evento.tipo }
+                          fecha = x.fecha.corto, hora = x.fecha.hora_txt, tipo = x.evento.tipo }
       end
       datos_sedes[#datos_sedes + 1] = { id = s.id, nombre = s.nombre, direccion = s.direccion,
                                         region = s.region, eventos = evs }

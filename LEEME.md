@@ -42,8 +42,10 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 
 - `\part{TÍTULO}` abre una parte (página verde). Si le sigue un párrafo, se usa
   como subtítulo de la parte.
-- `## VIE | NOV 6, 20:00 h - Título` abre un concierto (siempre en página nueva).
-  Dos fechas: `## VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h - Título`.
+- `## VIE | NOV 6, 20 h - Título` abre un concierto (siempre en página nueva).
+  Dos fechas: `## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Título`. Las horas
+  van sin «:00» (`12 h`), salvo si no son en punto (`13:30 h`); así salen en
+  el programa general, el resumen y el sitio.
   El primer párrafo después del encabezado es la sede.
 - En «Conciertos en Ciudad de México» la página divisoria de cada día se genera
   sola; no hace falta escribirla. El orden de los conciertos es el del archivo.
@@ -114,7 +116,10 @@ Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
   minúsculas, sin acentos y con guiones.
 - Cada actividad académica va en un bloque que no se parte entre páginas.
   En el título de la actividad va lo que es (*Conferencia: …*, *Taller de
-  trompeta*) y debajo solo quiénes participan, sin repetir datos. Cada
+  trompeta*) y debajo solo quiénes participan, sin repetir datos. Lo que
+  describe la actividad (de qué trata, a quién va dirigida, módulos con su
+  hora) va en un bloque `::: descripcion`: sale en el programa general (un
+  punto menor, tras un filete) y en el sitio web, no en el resumen. Cada
   actividad lleva su bloque `::: logos` al final (el sitio web los muestra en
   la página de cada una); en el programa general se juntan, sin repetir, en
   una sola franja al pie de la última página de actividades.

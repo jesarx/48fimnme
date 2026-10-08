@@ -345,6 +345,12 @@
   \ifdefined\cabecerapendiente\global\let\cabeceraizq\cabecerapendiente\fi
   \noindent\usebox{\cajaactividad}\par\addvspace{2mm}}
 \makeatother
+% Descripción de una actividad académica (bloque «::: descripcion»): un
+% punto menor, tras un filete corto
+\newenvironment{descripcionactividad}{\par\addvspace{0.6mm}%
+  {\color{filete}\rule{14mm}{0.6pt}}\par\nointerlineskip\vspace{1.6mm}%
+  \small\setlength{\parskip}{0.35\baselineskip plus 1pt minus 0.5pt}}
+  {\par}
 \newcommand{\actividadacademica}[6]{%
   \par\necesito{14\baselineskip}\addvspace{6mm}%
   \encabezadoconcierto{#1}{#2}{#3}{#4}{#5}{#6}%
@@ -641,7 +647,7 @@
 \newcommand*{\l@dia}[2]{%
   \par\addvspace{2.2mm}\necesito{3\baselineskip}%
   {\estilotitulos\fontsize{7.8}{9.6}\bfseries\color{acento}\espaciado[50]{#1}\par}\nopagebreak[4]}
-\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{3.05em}}
+\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{3.75em}}% hora: «19 h», «19:30 h»
 \newcommand*{\l@seccionmayor}{\@dottedtocline{1}{0pt}{0pt}}
 \renewcommand*{\@dotsep}{2.2}
 \newcommand{\indicegeneral}{%

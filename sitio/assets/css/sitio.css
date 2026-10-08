@@ -412,10 +412,13 @@ p { margin: 0 0 .85em; }
 .evento-cuerpo { max-width: 760px; }
 .evento-previo { font-size: 1.05rem; margin-bottom: 28px; padding-bottom: 6px; border-bottom: 1px solid var(--filete); }
 .evento-previo p strong { font-weight: 700; }
+.evento-descripcion { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 22px 26px 10px; margin-bottom: 28px; }
+.evento-descripcion p strong { color: var(--acento); }
+.evento-previo + .evento-descripcion { margin-top: -6px; }
 .seccion { margin-bottom: 46px; }
 .seccion-titulo { margin-bottom: 1.2rem; }
 .evento-logos { margin-top: 10px; padding-top: 26px; border-top: 1px solid var(--filete); }
-.evento-previo + .evento-logos { border-top: 0; padding-top: 6px; }
+.evento-previo + .evento-logos, .evento-descripcion + .evento-logos { border-top: 0; padding-top: 6px; }
 
 /* Programa: compositores, obras y duraciones (como en el programa de mano) */
 .seccion-programa { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 26px 28px 20px; }
@@ -441,6 +444,7 @@ p.solista { margin: .2em 0 .6em 1.15em; font-size: .96rem; }
 .interpretes p:last-child { margin-bottom: 0; }
 p.nota-breve { font-style: italic; color: var(--verdegris); font-size: .94rem; }
 hr.separador-grupo { border: 0; border-top: 1px solid var(--filete); margin: 1.6em 0; }
+hr.separador-grupo:last-child { display: none; }
 .leyenda-estrenos { font-size: .82rem; color: var(--verdegris); margin-top: 1.2em; padding-top: .8em; border-top: 1px solid var(--filete); }
 
 /* Fichas de personas compositoras e intérpretes */
@@ -453,7 +457,6 @@ hr.separador-grupo { border: 0; border-top: 1px solid var(--filete); margin: 1.6
 .ficha-nombre { font-size: 1.22rem; font-weight: 700; margin: 0; }
 .ficha-detalle { margin: .15em 0 0; color: var(--verdegris); font-size: .94rem; }
 .ficha-texto { font-size: 1rem; hyphens: auto; }
-.ficha-ver, .nota-ver { font-size: .92rem; color: var(--verdegris); margin: 0 0 .6em; }
 .firma { text-align: right; font-style: italic; color: var(--verdegris); }
 
 /* Notas al programa (desplegables) */

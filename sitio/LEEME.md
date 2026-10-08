@@ -81,4 +81,7 @@ Generado (no editar: lo reescribe `genera.sh`):
 - La duración en «Agregar a mi calendario» es de dos horas (el programa no
   indica la hora de término).
 - Las remisiones del Markdown a otra página (`\pageref{conc:…}`) se vuelven
-  enlaces; las semblanzas y notas repetidas enlazan a su primera aparición.
+  enlaces.
+- Cada evento muestra completas sus semblanzas (con foto) y notas al programa,
+  aunque ya hayan salido en otro (en los PDF, las repetidas remiten a su
+  página): si el Markdown no las repite, se toman de su primera aparición.

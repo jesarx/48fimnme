@@ -6,7 +6,7 @@
 --
 --    \part{...}                      → página de parte
 --    \portadacapitulo{VIE | NOV 6}   → página divisoria del día
---    ## VIE | NOV 6, 20:00 h - Título → encabezado de concierto (+ índice,
+--    ## VIE | NOV 6, 20 h - Título → encabezado de concierto (+ índice,
 --                                       marcador PDF y cabecera de página)
 --    ### Programa / Personas compositoras / Intérpretes ...  → secciones
 --    **Compositor** + lista de obras → programa con duraciones alineadas
@@ -168,7 +168,9 @@ local SECCIONES_FICHA = {
 }
 
 -- -----------------------------------------------------------------------------
--- Fechas:  "VIE | NOV 6, 20:00 h"  /  "VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h"
+-- Fechas:  "VIE | NOV 6, 20 h"  /  "VIE | NOV 13, 19 h / DOM | NOV 15, 12 h"
+-- Las horas se escriben «12 h» y, si no son en punto, «13:30 h» (también se
+-- aceptan «12:00 h»); dentro se guardan como «12:00».
 -- -----------------------------------------------------------------------------
 
 local MES_NUM = { OCT = 10, NOV = 11, DIC = 12 }
@@ -190,6 +192,10 @@ local function parse_una_fecha(s, mes_defecto)
   end
   if not dia then return nil end
   local hora = resto and resto:match("(%d%d?:%d%d)")
+  if not hora and resto then
+    local h = resto:match("(%d%d?)%s*h")
+    hora = h and (h .. ":00")
+  end
   return { dia = dia, mes = mes or "NOV", num = num, hora = hora }
 end
 
@@ -208,9 +214,15 @@ local function fecha_texto(f)        -- VIE | NOV 6
   return f.dia .. " | " .. f.mes .. " " .. f.num
 end
 
-local function fecha_hora_texto(f)   -- VIE | NOV 6 · 20:00 h
+-- «20:00» → «20 h»; «13:30» → «13:30 h»
+local function hora_texto(h)
+  if not h or h == "" then return "" end
+  return (h:gsub(":00$", "")) .. " h"
+end
+
+local function fecha_hora_texto(f)   -- VIE | NOV 6 · 20 h
   local s = fecha_texto(f)
-  if f.hora then s = s .. " · " .. f.hora .. " h" end
+  if f.hora then s = s .. " · " .. hora_texto(f.hora) end
   return s
 end
 
@@ -895,7 +907,7 @@ function Pandoc(doc)
             local clave = fs[k].mes .. fs[k].num
             secundarias[clave] = secundarias[clave] or {}
             table.insert(secundarias[clave], {
-              hora = fs[k].hora or "",
+              hora = hora_texto(fs[k].hora),
               clave = fecha_clave(fs[k]),
               titulo = latex(envolver_cjk(der)),
               etiqueta = "concierto:" .. num_concierto,
@@ -935,6 +947,22 @@ function Pandoc(doc)
         end
       end
       emit(raw("\\end{directoriocontraportada}"))
+      i = i + 1
+      goto continuar
+    end
+
+    -- ----------------------------------------------------- DESCRIPCIÓN --
+    -- «::: descripcion» en una actividad académica: de qué trata, a quién va
+    -- dirigida, módulos… (el Programa resumido no la lleva)
+    if b.t == "Div" and b.classes:includes("descripcion") then
+      emit(raw("\\begin{descripcionactividad}"))
+      for _, c in ipairs(b.content) do
+        if c.t == "Para" or c.t == "Plain" then
+          c.content = envolver_cjk(strip_trailing_space(c.content))
+        end
+        emit(c)
+      end
+      emit(raw("\\end{descripcionactividad}"))
       i = i + 1
       goto continuar
     end
@@ -1068,7 +1096,7 @@ function Pandoc(doc)
         emit(raw(string.format("%s{%s}{%s}{%s}{%s}{%s}{%s}\\hypertarget{%s}{}\\label{%s}\\label{" .. estable .. "}",
           macro,
           table.concat(kicker, "\\quad/\\quad "), titulo, cabecera,
-          f.hora or "", toc_titulo,
+          hora_texto(f.hora), toc_titulo,
           escape(fecha_texto(f) .. " · " .. titulo_txt), etiqueta, etiqueta)))
         if macro == "\\concierto" then
           concierto_abierto = num_concierto
