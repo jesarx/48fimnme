@@ -444,6 +444,7 @@ p.solista { margin: .2em 0 .6em 1.15em; font-size: .96rem; }
 .interpretes p:last-child { margin-bottom: 0; }
 p.nota-breve { font-style: italic; color: var(--verdegris); font-size: .94rem; }
 hr.separador-grupo { border: 0; border-top: 1px solid var(--filete); margin: 1.6em 0; }
+hr.separador-grupo:last-child { display: none; }
 .leyenda-estrenos { font-size: .82rem; color: var(--verdegris); margin-top: 1.2em; padding-top: .8em; border-top: 1px solid var(--filete); }
 
 /* Fichas de personas compositoras e intérpretes */
