@@ -16,7 +16,9 @@
 --    sitio/_includes/generado/*.html     Coloquio (presentación), créditos y
 --                                        directorio
 --    build/sitio/recursos.tsv            fotos y logotipos que usa (los copia,
---                                        reducidos, sitio/recursos.py)
+--                                        reducidos, sitio/recursos.py): de cada
+--                                        foto del Markdown, el recorte del
+--                                        programa y la imagen completa
 --
 --  Las etiquetas de las páginas son las mismas que usa el Programa general para
 --  sus referencias (vie-nov-6-inauguracion-osn-carrasco-hofele…), y las
@@ -95,20 +97,25 @@ local function cargar_manifiestos()
   end
 end
 
--- nombre del archivo en el sitio para un recurso de build/
-local function recurso(tipo, ruta)
-  local nombre = ruta:match("([^/]+)$")
+-- nombre del archivo en el sitio para un recurso de build/ (las fotos
+-- conservan su carpeta, comp/ o int/: hay nombres que están en las dos con
+-- fotos distintas, p. ej. comp/Rodrigo Cadet.jpg e int/Rodrigo Cadet.jpg)
+local function recurso(tipo, ruta, nombre)
+  nombre = nombre or (tipo == "foto" and ruta:match("([^/]+/[^/]+)$") or ruta:match("([^/]+)$"))
   RECURSOS[tipo .. "\t" .. ruta] = nombre
   return nombre
 end
 
+-- Foto del Markdown: el recorte del programa (en círculo) y la imagen completa
 local function foto(src)
-  local m = FOTOS[urldecode(src)]
+  local original = urldecode(src)
+  local m = FOTOS[original]
   if not m then
     io.stderr:write("Aviso (sitio): foto sin preparar: " .. src .. "\n")
     return nil
   end
-  return { archivo = recurso("foto", m.ruta), tipo = m.tipo }
+  local archivo = recurso("foto", m.ruta)
+  return { archivo = archivo, completa = recurso("completa", original, archivo), tipo = m.tipo }
 end
 
 -- Bloque «::: logos» → lista de logotipos (archivo y proporción)
@@ -540,9 +547,12 @@ local function ficha_html(f, ev)
   h[#h + 1] = '<article class="ficha" id="' .. id .. '">'
   h[#h + 1] = '<div class="ficha-cabeza">'
   if foto_f then
-    h[#h + 1] = '<img class="ficha-foto' .. (foto_f.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
+    -- el recorte enlaza a la foto completa (sitio.js la muestra encima de la página)
+    h[#h + 1] = '<a class="ficha-foto-enlace" href="../../assets/fotos/completas/' .. foto_f.completa ..
+      '" data-ampliar title="Ver la foto completa">' ..
+      '<img class="ficha-foto' .. (foto_f.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
       '" src="../../assets/fotos/' .. foto_f.archivo .. '" alt="' .. esc(nombre_txt) ..
-      '" loading="lazy" width="120" height="120">'
+      '" loading="lazy" width="120" height="120"></a>'
   end
   h[#h + 1] = '<div><h3 class="ficha-nombre">' .. html_inl(f.nombre) .. "</h3>"
   if f.detalle ~= "" then h[#h + 1] = '<p class="ficha-detalle">' .. esc(f.detalle) .. "</p>" end

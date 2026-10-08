@@ -8,9 +8,11 @@
 #   concierto     etiqueta del concierto (la del Programa general y del sitio)
 #   antetitulo    renglón pequeño sobre el título
 #   titulo        título grande
-#   subtitulo     (opcional) bajo el título, en cursiva
+#   subtitulo     (opcional) bajo el título
 #   interpretes   lista de [nombre, papel]
-#   obras         (opcional) en lugar de «Obras de…» del programa; admite *cursivas*
+#   obras         (opcional) en lugar de «Obras de…» del programa; *cursivas* solo
+#                 para los títulos de las obras (las postales del INBAL no llevan
+#                 otras). Los nombres de compositores e intérpretes no se parten.
 #   nota          (opcional) colaboración, patrocinio…
 #   precio        (opcional) p. ej. «$75 boleto general»
 #   direccion     (opcional) en lugar de la dirección de la sede
@@ -52,7 +54,7 @@ postales:
     interpretes:
       - [Dario Calderone, contrabajo (Italia)]
       - [Stefano Bassanese, electrónica (Italia)]
-    obras: "*Voyage That Never Ends* y *Oltracuidansa*, de Stefano Scodanibbio"
+    obras: "*Voyage That Never Ends* y *Oltracuidansa* de Stefano Scodanibbio"
     direccion: Paseo de la Reforma 111, Bosque de Chapultepec
     fotos:
       - int/Dario Calderone.jpg

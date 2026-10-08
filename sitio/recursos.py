@@ -3,7 +3,10 @@
 
 Prepara, a partir de lo que ya usan el Programa general y la postal:
 
-* sitio/assets/fotos/   fotos de las fichas (las de build/fotos, ligeras)
+* sitio/assets/fotos/   fotos de las fichas: en comp/ e int/ (como en el
+                        Markdown), el recorte en círculo del programa (los de
+                        build/fotos, ligeros), y en completas/ cada foto del
+                        Markdown entera (sin recortar), para verla en grande
 * sitio/assets/logos/   logotipos de los conciertos (los de build/logos, ligeros)
 * sitio/assets/img/     logo «48» y de la CNMO en SVG (de los trazos de la
                         plantilla; copia en _includes/generado), textura de la
@@ -23,7 +26,7 @@ from pathlib import Path
 
 import numpy as np
 import pymupdf
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
 SITIO = RAIZ / "sitio"
@@ -41,37 +44,59 @@ VERDEOSCURO = (0x17, 0x2B, 0x20)
 
 
 def limpiar_directorio(d, conservar):
+    """Borra de d (y sus subcarpetas) lo que no esté en conservar (rutas relativas)."""
     d.mkdir(parents=True, exist_ok=True)
-    for f in d.iterdir():
-        if f.is_file() and f.name not in conservar:
+    for f in sorted(d.rglob("*"), reverse=True):
+        if f.is_file() and str(f.relative_to(d)) not in conservar:
             f.unlink()
+        elif f.is_dir() and not any(f.iterdir()):
+            f.rmdir()
+
+
+def al_dia(destino, origen):
+    return destino.exists() and destino.stat().st_mtime >= origen.stat().st_mtime
+
+
+def foto_web(origen, destino, lado, calidad):
+    """Imagen → JPEG de como máximo lado × lado px (transparencia sobre blanco)."""
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    im = ImageOps.exif_transpose(Image.open(origen))
+    if im.mode in ("RGBA", "LA", "P"):
+        im = im.convert("RGBA")
+        fondo = Image.new("RGB", im.size, (255, 255, 255))
+        fondo.paste(im, mask=im.getchannel("A"))
+        im = fondo
+    im = im.convert("RGB")
+    im.thumbnail((lado, lado), Image.LANCZOS)
+    im.save(destino, "JPEG", quality=calidad, optimize=True, progressive=True)
 
 
 def fotos_y_logos():
     lista = RAIZ / "build/sitio/recursos.tsv"
-    fotos, logos = {}, {}
+    fotos, completas, logos = {}, {}, {}
     for linea in lista.read_text(encoding="utf-8").splitlines():
         if not linea.strip():
             continue
         tipo, origen, nombre = linea.split("\t")
-        (fotos if tipo == "foto" else logos)[nombre] = RAIZ / origen
-    limpiar_directorio(ASSETS / "fotos", fotos)
+        {"foto": fotos, "completa": completas}.get(tipo, logos)[nombre] = RAIZ / origen
+    limpiar_directorio(ASSETS / "fotos", set(fotos) | {f"completas/{n}" for n in completas})
     limpiar_directorio(ASSETS / "logos", logos)
-    for nombre, origen in fotos.items():
+    for nombre, origen in fotos.items():          # recortes: se muestran a 96-120 px
         destino = ASSETS / "fotos" / nombre
-        if destino.exists() and destino.stat().st_mtime >= origen.stat().st_mtime:
-            continue
-        im = Image.open(origen).convert("RGB")
-        im.thumbnail((240, 240), Image.LANCZOS)   # se muestran a 96-120 px
-        im.save(destino, "JPEG", quality=82, optimize=True, progressive=True)
+        if not al_dia(destino, origen):
+            foto_web(origen, destino, 240, 82)
+    for nombre, origen in completas.items():      # completas: para verlas en grande
+        destino = ASSETS / "fotos/completas" / nombre
+        if not al_dia(destino, origen):
+            foto_web(origen, destino, 1000, 80)
     for nombre, origen in logos.items():
         destino = ASSETS / "logos" / nombre
-        if destino.exists() and destino.stat().st_mtime >= origen.stat().st_mtime:
+        if al_dia(destino, origen):
             continue
         im = Image.open(origen).convert("RGBA")
         im.thumbnail((300, 84), Image.LANCZOS)    # se muestran a 28-42 px de alto
         im.save(destino, "PNG", optimize=True)
-    print(f"  {len(fotos)} fotos y {len(logos)} logotipos")
+    print(f"  {len(fotos)} fotos (y sus versiones completas) y {len(logos)} logotipos")
 
 
 # -----------------------------------------------------------------------------
@@ -119,7 +144,7 @@ def logotipos_vectoriales():
     trazo = re.search(r'<path d="([^"]+)"', logo).group(1)
     icono = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {lado:.2f} {lado:.2f}">'
              f'<rect width="{lado:.2f}" height="{lado:.2f}" rx="{lado * 0.16:.2f}" fill="#4E5F44"/>'
-             f'<path transform="translate({dx:.2f} {dy:.2f})" fill="#E2E6DF" d="{trazo}"/></svg>\n')
+             f'<path transform="translate({dx:.2f} {dy:.2f})" fill="#D2BD86" d="{trazo}"/></svg>\n')
     (img / "icono.svg").write_text(icono, encoding="utf-8")
     pix = pymupdf.open(stream=icono.encode(), filetype="svg")[0].get_pixmap(
         matrix=pymupdf.Matrix(180 / lado, 180 / lado))
@@ -155,7 +180,7 @@ def imagen_redes(textura):
     im = base.convert("RGB")
     # logotipo «48»
     logo_svg = (ASSETS / "img/logo-48.svg").read_text(encoding="utf-8").replace(
-        'fill="currentColor"', 'fill="#C7D2C3"')
+        'fill="currentColor"', 'fill="#D2BD86"')   # el logotipo, en dorado
     doc = pymupdf.open(stream=logo_svg.encode(), filetype="svg")[0]
     alto_logo = 230
     pix = doc.get_pixmap(matrix=pymupdf.Matrix(alto_logo / doc.rect.height,

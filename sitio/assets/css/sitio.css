@@ -20,7 +20,9 @@
   --portadabase: #4E5F44;
   --portadaluz: #768F68;
   --portadatexto: #E2E6DF;
-  --portadalogo: #C7D2C3;
+  /* logotipo del Foro, siempre en dorado (el de los 80 años del INBAL) */
+  --dorado: #D2BD86;
+  --doradooscuro: #A88B4C;
   --portadacaja: #A5B9A8;
   --blanco: #FFFFFF;
   --sombra: 0 1px 2px rgba(23, 43, 32, .06), 0 4px 14px rgba(23, 43, 32, .06);
@@ -109,7 +111,7 @@ p { margin: 0 0 .85em; }
 .cabecera-barra { display: flex; align-items: center; min-height: var(--alto-cabecera); gap: 16px; }
 .marca { display: flex; align-items: center; gap: 12px; color: var(--blanco); text-decoration: none; margin-right: auto; }
 .marca:hover { color: var(--blanco); }
-.marca-logo { display: block; width: 44px; color: var(--portadalogo); line-height: 0; }
+.marca-logo { display: block; width: 44px; color: var(--dorado); line-height: 0; }
 .marca-logo svg { width: 100%; height: auto; }
 .marca-texto { display: flex; flex-direction: column; font-size: 11px; line-height: 1.22; letter-spacing: .06em; text-transform: uppercase; font-weight: 400; }
 .marca-texto b { font-weight: 700; }
@@ -195,7 +197,7 @@ p { margin: 0 0 .85em; }
 .portada { padding: 72px 0 60px; }
 .portada-filas { display: flex; flex-direction: column; gap: 26px; }
 .portada-marca { display: flex; align-items: flex-start; gap: clamp(14px, 2.6vw, 26px); }
-.portada-logo { width: clamp(92px, 16vw, 168px); color: var(--portadalogo); line-height: 0; flex: none; }
+.portada-logo { width: clamp(92px, 16vw, 168px); color: var(--dorado); line-height: 0; flex: none; }
 .portada-logo svg { width: 100%; height: auto; }
 .portada-nombre { margin: 0; display: flex; flex-direction: column; font-weight: 300; font-size: clamp(1.45rem, 4.3vw, 2.75rem); line-height: 1.08; letter-spacing: .005em; text-transform: uppercase; color: var(--portadatexto); }
 .portada-nombre b { font-weight: 600; }
@@ -454,6 +456,24 @@ hr.separador-grupo:last-child { display: none; }
 .ficha-cabeza { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
 .ficha-foto { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none; background: var(--fondocita); }
 .ficha-foto-completa { border-radius: var(--radio); object-fit: contain; width: auto; max-width: 150px; height: 96px; background: transparent; }
+/* el recorte enlaza a la foto completa */
+.ficha-foto-enlace { flex: none; display: block; border-radius: 50%; cursor: zoom-in; }
+.ficha-foto-enlace .ficha-foto { display: block; transition: box-shadow .15s; }
+.ficha-foto-enlace:hover .ficha-foto, .ficha-foto-enlace:focus-visible .ficha-foto { box-shadow: 0 0 0 3px var(--dorado); }
+.ficha-foto-enlace:focus-visible { outline: none; }
+
+/* Visor de fotos (sitio.js) */
+dialog.visor { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; cursor: zoom-out; }
+dialog.visor::backdrop { background: rgba(14, 26, 19, .9); }
+.visor figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.visor img { display: block; width: auto; height: auto; max-width: min(92vw, 1000px); max-height: calc(100vh - 110px); border-radius: var(--radio); box-shadow: 0 10px 40px rgba(0, 0, 0, .45); background: var(--fondocita); }
+.visor figcaption { color: #fff; font-weight: 600; font-size: 1rem; text-align: center; padding: 0 16px; }
+.visor-cerrar {
+  position: fixed; top: 14px; right: 16px; width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .35); background: rgba(0, 0, 0, .35); color: #fff;
+  font-size: 1.6rem; line-height: 1; cursor: pointer;
+}
+.visor-cerrar:hover, .visor-cerrar:focus-visible { background: var(--acento); border-color: var(--acento); outline: none; }
 .ficha-nombre { font-size: 1.22rem; font-weight: 700; margin: 0; }
 .ficha-detalle { margin: .15em 0 0; color: var(--verdegris); font-size: .94rem; }
 .ficha-texto { font-size: 1rem; hyphens: auto; }
