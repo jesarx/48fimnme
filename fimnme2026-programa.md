@@ -7393,11 +7393,11 @@ Claustro de Sor Juana
 -   *Ráfaga* (2023)\* `\hfill `{=tex}8'
 
 **Ónix Ensamble**\
-Alejandro Escuer, flauta\
+Ernesto Díez, flauta\
 Fernando Domínguez, clarinete\
 Abel Romero, violín\
 Edgardo Espinosa, violonchelo\
-Diego Sánchez-Villa, piano\
+Israel Barrios, piano\
 Felipe Pérez Santiago, director
 
 ### Personas compositoras
