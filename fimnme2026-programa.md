@@ -10478,11 +10478,19 @@ Morelia, Michoacán
 
 \part{ACTIVIDADES ACADÉMICAS}
 
-## SÁB | NOV 7, 12 h - Taller de trompeta
+## SÁB | NOV 7, 12 h - Charla con el trompetista Simon Höfele
 
 Laboratorio Escénico, Jardín Escénico
 
-**Simon Höfele** (Alemania), ponente
+::: descripcion
+Simon Höfele (Alemania) hablará sobre las particularidades y la importancia de *Nobody
+Knows the Trouble I See* de Bernd Alois Zimmermann, obra clave del
+repertorio moderno para trompeta y orquesta que interpreta con la Orquesta
+Sinfónica Nacional en el concierto inaugural del 48.º FIMNME.
+
+**Dirigido a:** estudiantes de trompeta, de composición y de música en
+general.
+:::
 
 ---
 
@@ -10494,6 +10502,19 @@ Conservatorio Nacional de Música
 y primeras décadas del siglo XXI*
 
 **Alberto Rosado** (España), ponente
+
+::: descripcion
+Un recorrido por las diferentes estéticas y obras emblemáticas de los
+siglos XX y XXI, desde las obras expresionistas de Schoenberg y Webern
+hasta la música con electrónica de Fuentes o Perales, pasando por Cage,
+Boulez, Crumb, Lachenmann o Kurtág, que explora el piano preparado, el
+piano tocado por dentro y las tendencias más importantes en la música para
+teclado.
+
+**Dirigido a:** estudiantes de piano y de música en general. Es importante
+que quienes participen en la clase maestra del 11 de noviembre asistan a
+esta conferencia.
+:::
 
 ::: logos
 ![](<logos/logos CNM/CNM 160 años.png>)
@@ -10520,11 +10541,21 @@ Casa Rafael Galván, UAM
 
 ---
 
-## MIÉ | NOV 11, 10 h - Clase magistral: piano
+## MIÉ | NOV 11, 10 h - Clase maestra de piano
 
 Conservatorio Nacional de Música
 
 **Alberto Rosado** (España), imparte
+
+::: descripcion
+Alberto Rosado trabajará de forma individual con cada alumno el repertorio
+que haya preparado para la clase, media hora con cada uno (de 10 a 14:15 h,
+con una pausa a las 12 h).
+
+**Dirigido a:** un máximo de ocho estudiantes de nivel avanzado, de
+preferencia con obras compuestas a partir de 1950, aunque no es limitativo.
+La obra que se presente deberá ser aprobada previamente por Alberto Rosado.
+:::
 
 ::: logos
 ![](<logos/logos CNM/CNM 160 años.png>)
@@ -10549,11 +10580,38 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 
 ---
 
-## JUE | NOV 19, 10 h - Clase magistral: contrabajo y técnicas extendidas
+## JUE | NOV 19, 10 h - Tres acercamientos a *Oltracuidansa* de Scodanibbio
 
 Escuela Superior de Música
 
-**Dario Calderone y Stefano Bassanese** (Italia), ponentes
+**Dario Calderone y Stefano Bassanese** (Italia), imparten
+
+::: descripcion
+**10 h · Módulo 1: Las 52 técnicas extendidas de *Oltracuidansa***\
+Imparte Dario Calderone
+
+Revisión de las distintas técnicas extendidas que Scodanibbio utilizó en
+*Oltracuidansa* y que en conjunto representan un compendio de las formas en
+las que pueden ampliarse los recursos expresivos del contrabajo.
+
+**11:30 h · Módulo 2: Música de Bassanese y colaboraciones**\
+Imparte Stefano Bassanese
+
+Revisión de obras escritas por Bassanese, compositor y realizador sonoro,
+así como de sus colaboraciones con Luigi Nono, Mauricio Kagel y Stefano
+Scodanibbio para la composición de *Oltracuidansa*.
+
+**13 h · Módulo 3: Génesis y recuperación de *Oltracuidansa***\
+Imparten Dario Calderone y Stefano Bassanese
+
+Calderone y Bassanese abordarán su particular relación con Scodanibbio a
+propósito de *Oltracuidansa* y el trabajo que realizaron para poder
+presentar de nuevo una obra que quedó sin registrarse en una partitura tras
+la muerte de su autor.
+
+**Dirigido a:** estudiantes de contrabajo, de composición y de música en
+general.
+:::
 
 ::: logos
 ![](<logos/logos ESM/logo ESM.jpg>)
