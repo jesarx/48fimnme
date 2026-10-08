@@ -19,6 +19,43 @@ Para los logotipos en PDF, AI o SVG hace falta `pymupdf` (o, en su defecto,
 `pdftoppm` de poppler y `rsvg-convert`).
 Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
 
+### Paquetes de TeX Live
+
+Con TeX Live completo ya está todo. En Debian o Ubuntu bastan estos paquetes:
+
+```bash
+sudo apt install texlive-luatex texlive-latex-recommended texlive-latex-extra \
+  texlive-pictures texlive-lang-spanish
+```
+
+Los dos paquetes de LaTeX menos comunes son estos:
+
+- `truncate` (de `texlive-latex-extra`) recorta el encabezado de página
+  cuando el título del concierto no cabe. Hoy lo hace en dos: la mesa
+  redonda del 10 de noviembre y «Tres acercamientos a *Oltracuidansa* de
+  Scodanibbio».
+- `luacolor` (viene con `texlive-luatex`) se encarga del color en LuaLaTeX.
+
+Ninguno pide instalar algo más: `texlive-latex-extra` ya hace falta para
+`tcolorbox`, `enumitem` y `xurl`, y `texlive-luatex` para LuaLaTeX.
+
+### Cómo funciona (para reutilizarlo)
+
+No se usa una plantilla de pandoc convencional. El filtro
+`automatizacion/fimnme.lua` reconoce las convenciones del Markdown (ver
+«Convenciones del Markdown») y escribe directamente las macros del diseño:
+conciertos, fichas, actividades, logotipos. La plantilla
+`automatizacion/plantilla/fimnme.latex` define esas macros, es decir, el
+aspecto del programa. El resumido funciona igual (`resumen/resumen.lua` y
+`resumen/resumen.latex`). El sitio también: `sitio/sitio.lua` escribe las
+páginas de Jekyll.
+
+Para otra edición hacen falta tres cosas:
+
+- un Markdown que siga las mismas convenciones;
+- cambiar el diseño en las plantillas y en `sitio/assets/`;
+- poner el año en `baseurl` de `sitio/_config.yml`.
+
 ## Cómo está organizado
 
 | Archivo | Para qué sirve |
