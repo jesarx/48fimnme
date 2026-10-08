@@ -641,7 +641,7 @@
 \newcommand*{\l@dia}[2]{%
   \par\addvspace{2.2mm}\necesito{3\baselineskip}%
   {\estilotitulos\fontsize{7.8}{9.6}\bfseries\color{acento}\espaciado[50]{#1}\par}\nopagebreak[4]}
-\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{3.05em}}
+\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{3.75em}}% hora: «19 h», «19:30 h»
 \newcommand*{\l@seccionmayor}{\@dottedtocline{1}{0pt}{0pt}}
 \renewcommand*{\@dotsep}{2.2}
 \newcommand{\indicegeneral}{%

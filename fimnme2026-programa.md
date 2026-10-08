@@ -1,6 +1,6 @@
 \part{CONCIERTOS EN CIUDAD DE MÉXICO}
  
-## VIE | NOV 6, 20:00 h - INAUGURACIÓN: OSN, Carrasco / Höfele
+## VIE | NOV 6, 20 h - INAUGURACIÓN: OSN, Carrasco / Höfele
 
 Sala Principal, Palacio de Bellas Artes
 
@@ -456,7 +456,7 @@ para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 ![](<logos/logos OSN/Logo-Patronato Industria Alemana Cultura.PNG>)
 :::
 
-## SÁB | NOV 7, 12:00 h - Maratón de guitarras
+## SÁB | NOV 7, 12 h - Maratón de guitarras
 
 Pabellón Escénico, Jardín Escénico
 
@@ -1008,7 +1008,7 @@ discográficas: *Marañón: música para guitarra de ocho cuerdas de Ernesto
 García de León* y *The Dream of a Shadow: Phillip Houghton complete
 works*.
 
-## SÁB | NOV 7, 17:00 h - Instalación sonora: Nuño de Buen
+## SÁB | NOV 7, 17 h - Instalación sonora: Nuño de Buen
 
 Casa Rafael Galván, UAM
 
@@ -1088,7 +1088,7 @@ del INBAL.
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
-## SÁB | NOV 7, 19:00 h - Gonzalo Gutiérrez, piano
+## SÁB | NOV 7, 19 h - Gonzalo Gutiérrez, piano
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -1342,7 +1342,7 @@ internacional, se ha presentado en diversas salas como el Tokyo Opera
 City Recital Hall, el New York Americas Society y el Boston University
 Concert Hall, entre muchos otros recintos.
 
-## DOM | NOV 8, 12:00 h - Instalación sonora: Nuño de Buen / Vigueras
+## DOM | NOV 8, 12 h - Instalación sonora: Nuño de Buen / Vigueras
 
 Casa Rafael Galván, UAM
 
@@ -1675,7 +1675,7 @@ sin cordura*, que incluye obras de jóvenes compositores mexicanos.
 ![](<logos/logo muac/MUAC-LOGO-COLAB.png>)
 :::
 
-## DOM | NOV 8, 18:00 h - OJUEM: Areán / Rosado
+## DOM | NOV 8, 18 h - OJUEM: Areán / Rosado
 
 Sala Nezahualcóyotl, CCU, UNAM
 
@@ -1853,7 +1853,7 @@ música contemporánea.
 ![](<logos/logos OJUEM/02.CintilloLogos_OJUEM.ai>){recorte="0.752 0.38 0.88 0.6"}
 :::
 
-## LUN | NOV 9, 19:00 h - Black Noise & Victoria Amaro
+## LUN | NOV 9, 19 h - Black Noise & Victoria Amaro
 
 Pabellón Escénico, Jardín Escénico
 
@@ -2219,7 +2219,7 @@ proyecto ganador del Programa de Fomento a Proyectos y Coinversiones
 Culturales con Black Noise, así como un integral del compositor potosino
 Julián Carrillo con Liminar.
 
-## MAR | NOV 10, 19:00 h - Alberto Rosado, piano
+## MAR | NOV 10, 19 h - Alberto Rosado, piano
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -2481,7 +2481,7 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
-## MIÉ | NOV 11, 19:00 h - Generación Espontánea
+## MIÉ | NOV 11, 19 h - Generación Espontánea
 
 Museo de Arte Carrillo Gil
 
@@ -2544,7 +2544,7 @@ público y la intervención sonora de los más diversos espacios.
 ![](<logos/logos carrillo gil/logo Generación Espontanea.jpg>)
 :::
 
-## MIÉ | NOV 11, 19:00 h - Piccolegio / Trío LaMN
+## MIÉ | NOV 11, 19 h - Piccolegio / Trío LaMN
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -2829,7 +2829,7 @@ ganó el apoyo de Fomento a Proyectos y Coinversiones Culturales 2023
 para grabar la obra integral para cuerdas del compositor mexicano José
 Luis Hurtado.
 
-## JUE | NOV 12, 19:00 h - Alberto Rosado, piano
+## JUE | NOV 12, 19 h - Alberto Rosado, piano
 
 Museo Universitario Arte Contemporáneo, UNAM
 
@@ -3041,7 +3041,7 @@ música contemporánea.
 ![](<logos/logo muac/MUAC-LOGO-COLAB.png>)
 :::
 
-## VIE | NOV 13, 17:00 h - Dirén Checa, violín
+## VIE | NOV 13, 17 h - Dirén Checa, violín
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -3327,12 +3327,12 @@ proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
 
-## VIE | NOV 13, 19:00 h / DOM | NOV 15, 12:00 h - Coro de Madrigalistas de Bellas Artes: Cadet
+## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Coro de Madrigalistas de Bellas Artes: Cadet
 
-Viernes 13 de noviembre, 19:00 h\
+Viernes 13 de noviembre, 19 h\
 Pabellón Escénico, Jardín Escénico
 
-Domingo 15 de noviembre, 12:00 h\
+Domingo 15 de noviembre, 12 h\
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
 ### Programa
@@ -3999,7 +3999,7 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
-## SÁB | NOV 14, 12:00 h - Maratón de percusiones
+## SÁB | NOV 14, 12 h - Maratón de percusiones
 
 Pabellón Escénico, Jardín Escénico
 
@@ -4487,7 +4487,7 @@ se proyecta como un puente entre culturas, generaciones y lenguajes.
 Actualmente reside en Amberes, donde desarrolla nuevos proyectos
 interdisciplinarios y su próxima producción discográfica como solista.
 
-## SÁB | NOV 14, 13:00 h - Ensamble de Música Nueva (FaM-UNAM)
+## SÁB | NOV 14, 13 h - Ensamble de Música Nueva (FaM-UNAM)
 
 Sala Xochipilli, Facultad de Música, UNAM
 
@@ -4772,7 +4772,7 @@ casa Powell Flutes.
 ![](<logos/logos fam nov14/logo Facultad de Música de la UNAM.jpg>)
 :::
 
-## SÁB | NOV 14, 17:00 h - Dúo Gasparini-Monnet
+## SÁB | NOV 14, 17 h - Dúo Gasparini-Monnet
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -5012,7 +5012,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
 :::
 
-## SÁB | NOV 14, 19:00 h - Cepromusic: Saariaho
+## SÁB | NOV 14, 19 h - Cepromusic: Saariaho
 
 Anfiteatro Simón Bolívar, Colegio de San Ildefonso, UNAM
 
@@ -5182,7 +5182,7 @@ Roberto Kolb y es director musical del Ensamble Cepromusic.
 ![](<logos/logos cepromusic/2.1 Logos Musica UNAM_San Ildefonso.ai>){recorte="0.73 0.38 0.9 0.6"}
 :::
 
-## DOM | NOV 15, 17:00 h - Vicente Moronta, oboe
+## DOM | NOV 15, 17 h - Vicente Moronta, oboe
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -5576,7 +5576,7 @@ contemporánea del Teatro Teresa Carreño y director artístico del
 Ensamble Contemporáneo de Caracas. Es cofundador del Ensamble
 Iberoamericano, OboesMigrantes Dúo y del Khyma Dúo.
 
-## DOM | NOV 15, 18:00 h - Dúo Arco y Teclas / Trío Siqueiros
+## DOM | NOV 15, 18 h - Dúo Arco y Teclas / Trío Siqueiros
 
 Pabellón Escénico, Jardín Escénico
 
@@ -5793,7 +5793,7 @@ como un ensamble representativo y estandarte contando con
 interpretaciones y actividad musical de una alta calidad para beneficio,
 no solo de la comunidad artística y musical, sino de todo el público.
 
-## DOM | NOV 15, 19:00 h - Ehecatl Flores, fagot contrabajo
+## DOM | NOV 15, 19 h - Ehecatl Flores, fagot contrabajo
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -5962,7 +5962,7 @@ solo y con electroacústica. Es pasante de la Maestría en Música mexicana
 de concierto en el Conservatorio Nacional de Música y residente del
 ensamble Cepromusic.
 
-## MAR | NOV 17, 19:00 h - Calderone / Bassanese: Scodanibbio
+## MAR | NOV 17, 19 h - Calderone / Bassanese: Scodanibbio
 
 Pabellón Escénico, Jardín Escénico
 
@@ -6066,7 +6066,7 @@ Musicale Italiana y actualmente es profesor de Composición
 Electroacústica en el Conservatorio de Turín, coordinador de la Escuela
 de Música Electrónica y director artístico del festival To Listen To.
 
-## MIÉ | NOV 18, 19:00 h - Electroacústica I
+## MIÉ | NOV 18, 19 h - Electroacústica I
 
 Casa Rafael Galván, UAM
 
@@ -6401,7 +6401,7 @@ cumplir tus sueños! phishing.alejandroviramontes.com
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
-## MIÉ | NOV 18, 19:00 h - Francisco García Torres: Enríquez 100
+## MIÉ | NOV 18, 19 h - Francisco García Torres: Enríquez 100
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -6583,7 +6583,7 @@ pianista residente del Ensamble Cepromusic, con el que mantiene una
 presencia constante en el Foro Internacional de Música Nueva Manuel
 Enríquez.
 
-## JUE | NOV 19, 19:00 h - Russek: concierto electroacústico
+## JUE | NOV 19, 19 h - Russek: concierto electroacústico
 
 Casa Rafael Galván, UAM
 
@@ -6909,7 +6909,7 @@ países. Pertenece al Sistema Nacional de Creadores de Arte.
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
-## JUE | NOV 19, 19:00 h - OCBA
+## JUE | NOV 19, 19 h - OCBA
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -7097,7 +7097,7 @@ música de cámara a nivel licenciatura en la Escuela Ollin Yoliztli.
 ![](<logos/logo OCBA/logo OCBA.pdf>)
 :::
 
-## JUE | NOV 19, 20:00 h - Electroacústica II
+## JUE | NOV 19, 20 h - Electroacústica II
 
 Casa Rafael Galván, UAM
 
@@ -7352,7 +7352,7 @@ paisajes sonoros turbulentos.
 ![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
-## VIE | NOV 20, 17:00 h - Iracema de Andrade / ÓNIX
+## VIE | NOV 20, 17 h - Iracema de Andrade / ÓNIX
 
 Claustro de Sor Juana
 
@@ -7679,7 +7679,7 @@ constante.
 ![](<logos/logo el claustro/EL-CLAUSTRO-LOGO-blanco-1.png>)
 :::
 
-## VIE | NOV 20, 19:00 h - Cepromusic
+## VIE | NOV 20, 19 h - Cepromusic
 
 Pabellón Escénico, Jardín Escénico
 
@@ -7981,7 +7981,7 @@ interpretado más de ochocientas obras y trescientos estrenos.
 ![](<logos/logos cepromusic/LOGO CEPRO black.svg>)
 :::
 
-## VIE | NOV 20, 19:00 h - Cuarteto Ruvalcaba
+## VIE | NOV 20, 19 h - Cuarteto Ruvalcaba
 
 Xico. Antigua Sede del Senado
 
@@ -8173,7 +8173,7 @@ compositor mexicano, integrante del Cuarteto Léner.
 ![](<logos/logo xico/xico_senado.jpg>)
 :::
 
-## SÁB | NOV 21, 12:00 h - Cuarteto de Bellas Artes: Enríquez 100
+## SÁB | NOV 21, 12 h - Cuarteto de Bellas Artes: Enríquez 100
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -8290,7 +8290,7 @@ independientes y cortometrajes.
 ![](<logos/logos sacm 21nov/logo sacm Ai.ai>)
 :::
 
-## SÁB | NOV 21, 17:00 h - Ensamble Sonus
+## SÁB | NOV 21, 17 h - Ensamble Sonus
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -8529,7 +8529,7 @@ Pablo Miró es Doctor en Música por la Universidad de Montreal, pianista
 con trayectoria en Europa y América y profesor de Piano y Música de
 Cámara en la ESM.
 
-## SÁB | NOV 21, 19:00 h - CLAUSURA: Tambuco
+## SÁB | NOV 21, 19 h - CLAUSURA: Tambuco
 
 Sala Principal, Palacio de Bellas Artes
 
@@ -8861,7 +8861,7 @@ Meister Music, ambos merecedores del reconocimiento Record Geijutsu.
 
 \part{CONCIERTOS EN LOS ESTADOS}
 
-## VIE | NOV 6, 20:00 h - Xalapa: OSX
+## VIE | NOV 6, 20 h - Xalapa: OSX
 
 Sala Principal, Centro Cultural Tlaqná\
 Xalapa, Veracruz
@@ -8972,7 +8972,7 @@ múltiples obras de memoria le otorga una versatilidad única en el podio.
 ![](<logos/Logotipos Institucionales Orquesta Sinfónica de Xalapa/Logotipos OSX (1).ai>){pagina=3 recorte="0 0 0.45 0.5"}
 :::
 
-## LUN | NOV 9, 19:00 h - Morelia: Ensamble Danaus
+## LUN | NOV 9, 19 h - Morelia: Ensamble Danaus
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -9164,7 +9164,7 @@ Internacional de Música Nueva *Manuel Enríquez*, entre otros.
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## MAR | NOV 10, 17:00 h - Monterrey: Q-SION, percusiones
+## MAR | NOV 10, 17 h - Monterrey: Q-SION, percusiones
 
 Sala Chopin, Escuela Superior de Música y Danza\
 Monterrey, Nuevo León
@@ -9594,7 +9594,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
 :::
 
-## JUE | NOV 12, 19:00 h - Morelia: Asako Arai, flauta
+## JUE | NOV 12, 19 h - Morelia: Asako Arai, flauta
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -9695,7 +9695,7 @@ Doctora en artes musicales, es flautista del Quinteto de Alientos de la Ciudad d
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## VIE | NOV 13, 19:00 h - Morelia: Julio I. Cervantes, guitarra
+## VIE | NOV 13, 19 h - Morelia: Julio I. Cervantes, guitarra
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -10032,7 +10032,7 @@ Coparmex 2019.
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## VIE | NOV 13, 19:00 h - Monterrey: Eusebio Sánchez, percusiones
+## VIE | NOV 13, 19 h - Monterrey: Eusebio Sánchez, percusiones
 
 Sala Chopin, Escuela Superior de Música y Danza\
 Monterrey, Nuevo León
@@ -10229,7 +10229,7 @@ Percusionista mexicana interesada en entender el mundo mediante el arte y otras 
 ![](<logos/logos yucatan/Logos Yucatán CONVIVENCIA B Y N.jpg>){recorte="0.74 0 1 1"}
 :::
 
-## SÁB | NOV 14, 17:00 h - Acapulco: Fabián Rangel
+## SÁB | NOV 14, 17 h - Acapulco: Fabián Rangel
 
 Centro Cultural Domingo Soler\
 Acapulco, Guerrero
@@ -10380,7 +10380,7 @@ Violinista que se desenvuelve principalmente en la música contemporánea y expe
 ![](<logos/logo acapulco/logo centro cultural Domingo Soler.jpg>)
 :::
 
-## MIÉ | NOV 18, 19:00 h - Morelia: Electroacústica I
+## MIÉ | NOV 18, 19 h - Morelia: Electroacústica I
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -10434,7 +10434,7 @@ Morelia, Michoacán
 ![](<logos/Logos CMMAS 20 años/CMMAS20_Logo-01.png>)
 :::
 
-## JUE | NOV 19, 19:00 h - Morelia: Electroacústica II
+## JUE | NOV 19, 19 h - Morelia: Electroacústica II
 
 Centro Mexicano para la Música y las Artes Sonoras\
 Morelia, Michoacán
@@ -10478,7 +10478,7 @@ Morelia, Michoacán
 
 \part{ACTIVIDADES ACADÉMICAS}
 
-## SÁB | NOV 7, 12:00 h - Taller de trompeta
+## SÁB | NOV 7, 12 h - Taller de trompeta
 
 Laboratorio Escénico, Jardín Escénico
 
@@ -10486,7 +10486,7 @@ Laboratorio Escénico, Jardín Escénico
 
 ---
 
-## MAR | NOV 10, 11:00 h - Conferencia: El piano contemporáneo
+## MAR | NOV 10, 11 h - Conferencia: El piano contemporáneo
 
 Conservatorio Nacional de Música
 
@@ -10501,7 +10501,7 @@ y primeras décadas del siglo XXI*
 
 ---
 
-## MAR | NOV 10, 17:00 h - Mesa redonda: Instalaciones sonoras
+## MAR | NOV 10, 17 h - Mesa redonda: Instalaciones sonoras
 
 Casa Rafael Galván, UAM
 
@@ -10520,7 +10520,7 @@ Casa Rafael Galván, UAM
 
 ---
 
-## MIÉ | NOV 11, 10:00 h - Clase magistral: piano
+## MIÉ | NOV 11, 10 h - Clase magistral: piano
 
 Conservatorio Nacional de Música
 
@@ -10532,7 +10532,7 @@ Conservatorio Nacional de Música
 
 ---
 
-## MAR | NOV 17, 17:00 h - Presentación del libro *No me basta*
+## MAR | NOV 17, 17 h - Presentación del libro *No me basta*
 
 Lobby del Pabellón Escénico, Jardín Escénico
 
@@ -10549,7 +10549,7 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 
 ---
 
-## JUE | NOV 19, 10:00 h - Clase magistral: contrabajo y técnicas extendidas
+## JUE | NOV 19, 10 h - Clase magistral: contrabajo y técnicas extendidas
 
 Escuela Superior de Música
 
@@ -10563,7 +10563,7 @@ Escuela Superior de Música
 
 Conciertos fuera de las fechas del FIMNME 2026.
 
-## VIE | OCT 30, 20:00 h - San Luis Potosí: OSLP
+## VIE | OCT 30, 20 h - San Luis Potosí: OSLP
 
 Centro Cultural Universitario Bicentenario\
 San Luis Potosí
@@ -10684,7 +10684,7 @@ Autónoma de San Luis Potosí.
 ![](<logos/logos san luis potosi/LOGOS Orquesta Universitaria San Luis Potosí l difusion l orquesta (1).pdf>){recorte="0.58 0.27 0.96 0.73"}
 :::
 
-## SÁB | NOV 28, 20:00 h - Ocotlán: Dúo Gasparini-Monnet
+## SÁB | NOV 28, 20 h - Ocotlán: Dúo Gasparini-Monnet
 
 Fundación Cultural Rodolfo Morales\
 Ocotlán de Morelos, Oaxaca
@@ -10799,7 +10799,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 ![](<logos/logos gasparini-monet/SPEDIDAM-LOGO-RVB_Positif.jpg.jpeg>)
 :::
 
-## MAR | DIC 1, 20:00 h - Oaxaca: Dúo Gasparini-Monnet
+## MAR | DIC 1, 20 h - Oaxaca: Dúo Gasparini-Monnet
 
 Centro Cultural San Pablo\
 Oaxaca, Oaxaca
@@ -10998,7 +10998,7 @@ Actividades académicas *in memoriam* en el marco del 48.º FIMNME.
 
 **Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Literatum*
 
-#### MIÉ | NOV 18, 10:00 h - Conferencia: Luis Jaime Cortez
+#### MIÉ | NOV 18, 10 h - Conferencia: Luis Jaime Cortez
 
 Biblioteca de las Artes, Cenart
 
@@ -11018,7 +11018,7 @@ Ana Lara, **moderadora**
 
 ---
 
-#### MIÉ | NOV 18, 13:00 h - Mesa 2: Sus intérpretes
+#### MIÉ | NOV 18, 13 h - Mesa 2: Sus intérpretes
 
 Biblioteca de las Artes, Cenart
 
@@ -11028,7 +11028,7 @@ Maby Muñoz, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 10:00 h - Conferencia: Iracema de Andrade
+#### JUE | NOV 19, 10 h - Conferencia: Iracema de Andrade
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 
@@ -11048,7 +11048,7 @@ José María Serralde, **moderador**
 
 ---
 
-#### JUE | NOV 19, 13:00 h - Mesa 4: El gestor
+#### JUE | NOV 19, 13 h - Mesa 4: El gestor
 
 Sala Manuel M. Ponce, Palacio de Bellas Artes
 

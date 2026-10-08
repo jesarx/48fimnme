@@ -3,7 +3,7 @@
   Opcional: dia=true para mostrar también la fecha.
 {%- endcomment -%}
 {%- assign e = include.evento -%}
-<article class="tarjeta tarjeta-{{ e.seccion }}" data-seccion="{{ e.seccion }}" data-buscar="{{ e.buscar | escape }}"{% if include.fecha %} data-inicio="{{ include.fecha }}T{{ e.hora }}"{% endif %}>
+<article class="tarjeta tarjeta-{{ e.seccion }}" data-seccion="{{ e.seccion }}" data-buscar="{{ e.buscar | escape }}"{% if include.fecha %} data-inicio="{{ e.momento }}"{% endif %}>
   <p class="tarjeta-hora">{% if include.dia %}<span class="tarjeta-dia">{{ include.dia }}</span>{% endif %}{{ e.hora }}&nbsp;h</p>
   <div class="tarjeta-cuerpo">
     <p class="tarjeta-seccion">{{ e.seccion_nombre }}</p>

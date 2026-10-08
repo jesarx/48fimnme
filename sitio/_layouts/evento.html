@@ -73,7 +73,7 @@ clase: pagina-evento
         <p class="indice-titulo">También el {{ dia.dia | downcase }}</p>
         <ul>
           {%- for e in dia.eventos %}{% if e.url != page.url %}
-          <li><a href="{{ e.url | relative_url }}"><span class="hora">{{ e.hora }}</span> {{ e.titulo_html }}</a></li>
+          <li><a href="{{ e.url | relative_url }}"><span class="hora">{{ e.hora }}&nbsp;h</span> {{ e.titulo_html }}</a></li>
           {%- endif %}{% endfor %}
         </ul>
       </nav>
@@ -97,14 +97,14 @@ clase: pagina-evento
     {%- if page.previous %}
     <a class="vecino vecino-anterior" href="{{ page.previous.url | relative_url }}">
       <span class="vecino-etiqueta">← Anterior en el programa</span>
-      <span class="vecino-fecha">{{ page.previous.fechas[0].corto }} · {{ page.previous.fechas[0].hora }} h</span>
+      <span class="vecino-fecha">{{ page.previous.fechas[0].corto }} · {{ page.previous.fechas[0].hora }}&nbsp;h</span>
       <span class="vecino-titulo">{{ page.previous.titulo_html }}</span>
     </a>
     {%- else %}<span></span>{% endif %}
     {%- if page.next %}
     <a class="vecino vecino-siguiente" href="{{ page.next.url | relative_url }}">
       <span class="vecino-etiqueta">Siguiente en el programa →</span>
-      <span class="vecino-fecha">{{ page.next.fechas[0].corto }} · {{ page.next.fechas[0].hora }} h</span>
+      <span class="vecino-fecha">{{ page.next.fechas[0].corto }} · {{ page.next.fechas[0].hora }}&nbsp;h</span>
       <span class="vecino-titulo">{{ page.next.titulo_html }}</span>
     </a>
     {%- endif %}

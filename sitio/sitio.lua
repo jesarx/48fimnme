@@ -141,14 +141,20 @@ local NOMBRE_MES = { [10] = "octubre", [11] = "noviembre", [12] = "diciembre" }
 local NOMBRE_DIA = { LUN = "Lunes", MAR = "Martes", ["MIÉ"] = "Miércoles", JUE = "Jueves",
   VIE = "Viernes", ["SÁB"] = "Sábado", DOM = "Domingo" }
 
+-- Horas: «12 h» y, si no son en punto, «13:30 h» (también se acepta «12:00 h»).
+-- Dentro: «hora» = «12:00» (para ordenar y para el calendario) y «hora_txt» =
+-- «12» o «13:30» (lo que se muestra, seguido de « h»).
 local function partir_encabezado(texto)
-  local izq, titulo = texto:match("^(.-%d%d?:%d%d h) %- (.*)$")
+  local izq, titulo = texto:match("^(.-%d h) %- (.*)$")
   if not izq then return nil end
   local fechas = {}
-  for dia, mes, num, hora in izq:gmatch("(%S+) | (%u+) (%d+), (%d%d?:%d%d) h") do
+  for dia, mes, num, h in izq:gmatch("(%S+) | (%u+) (%d+), (%d[%d:]*) h") do
     local m = MESES[mes] or 11
+    local hh, mm = h:match("^(%d+):?(%d*)$")
+    local hora = string.format("%02d:%02d", tonumber(hh), tonumber(mm ~= "" and mm or "0"))
     fechas[#fechas + 1] = {
       dia = dia, mes = mes, num = tonumber(num), hora = hora,
+      hora_txt = tonumber(hh) .. ((mm ~= "" and mm ~= "00") and (":" .. mm) or ""),
       iso = string.format("2026-%02d-%02d", m, tonumber(num)),
       texto_dia = (NOMBRE_DIA[dia] or dia) .. " " .. num .. " de " .. NOMBRE_MES[m],
       semana = NOMBRE_DIA[dia] or dia, nombre_mes = NOMBRE_MES[m],
@@ -733,7 +739,7 @@ function Pandoc(doc)
       end
       if #actual > 0 then lineas[#lineas + 1] = trim(stringify(actual)) end
       -- con varias fechas, cada sede va precedida de la suya: «Viernes 13 de noviembre, 19:00 h»
-      if #lineas > 1 and lineas[1]:match("%d%d?:%d%d h$") then table.remove(lineas, 1) end
+      if #lineas > 1 and lineas[1]:match("%d h$") then table.remove(lineas, 1) end
       e.lugares[#e.lugares + 1] = lineas
       k = k + 1
     end
@@ -845,7 +851,7 @@ function Pandoc(doc)
     }
     for k, f in ipairs(e.fechas) do
       local s = e.sedes[k] or {}
-      fm.fechas[#fm.fechas + 1] = { iso = f.iso, hora = f.hora, dia = f.texto_dia, corto = f.corto,
+      fm.fechas[#fm.fechas + 1] = { iso = f.iso, hora = f.hora_txt, dia = f.texto_dia, corto = f.corto,
         semana = f.semana, numero = f.num, mes = f.nombre_mes,
         -- para «Agregar al calendario» (duración supuesta: dos horas)
         inicio = f.iso:gsub("-", "") .. "T" .. string.format("%04d", tonumber((f.hora:gsub(":", "")))) .. "00",
@@ -872,7 +878,8 @@ function Pandoc(doc)
       end
       local lugar = e.lugares[k] or e.lugares[1] or {}
       dia.eventos[#dia.eventos + 1] = {
-        hora = f.hora, titulo = e.titulo_txt, titulo_html = e.titulo, url = e.url, tipo = e.tipo,
+        hora = f.hora_txt, momento = f.iso .. "T" .. f.hora, titulo = e.titulo_txt,
+        titulo_html = e.titulo, url = e.url, tipo = e.tipo,
         seccion = e.seccion.id, seccion_nombre = e.seccion.nombre, lugar = table.concat(lugar, ", "),
         sede = e.sedes[k] and e.sedes[k].id or "", interpretes = e.resumen_interpretes, obras = e.resumen_obras,
         estrenos = e.estrenos, orden = e.orden, subtitulo = e.subtitulo,
@@ -889,10 +896,7 @@ function Pandoc(doc)
   table.sort(dias, function(a, b) return a.fecha < b.fecha end)
   for _, d in ipairs(dias) do
     table.sort(d.eventos, function(a, b)
-      if a.hora ~= b.hora then
-        local function minutos(h) local hh, mm = h:match("(%d+):(%d+)"); return tonumber(hh) * 60 + tonumber(mm) end
-        return minutos(a.hora) < minutos(b.hora)
-      end
+      if a.momento ~= b.momento then return a.momento < b.momento end
       return a.orden < b.orden
     end)
   end
@@ -909,7 +913,7 @@ function Pandoc(doc)
       end)
       for _, x in ipairs(s.eventos) do
         evs[#evs + 1] = { titulo = x.evento.titulo_txt, titulo_html = x.evento.titulo, url = x.evento.url,
-                          fecha = x.fecha.corto, hora = x.fecha.hora, tipo = x.evento.tipo }
+                          fecha = x.fecha.corto, hora = x.fecha.hora_txt, tipo = x.evento.tipo }
       end
       datos_sedes[#datos_sedes + 1] = { id = s.id, nombre = s.nombre, direccion = s.direccion,
                                         region = s.region, eventos = evs }

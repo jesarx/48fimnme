@@ -85,15 +85,22 @@ local function renglones(inlines)
 end
 
 -- -----------------------------------------------------------------------------
--- Fechas: «VIE | NOV 6, 20:00 h - Título» (una o dos fechas)
+-- Fechas: «VIE | NOV 6, 20 h - Título» (una o dos fechas). Las horas se
+-- escriben «12 h» y, si no son en punto, «13:30 h»; dentro se guardan como
+-- «12:00».
 -- -----------------------------------------------------------------------------
 local MESES = { OCT = 10, NOV = 11, DIC = 12 }
 
+local function hora_texto(h)   -- «20:00» → «20 h»; «13:30» → «13:30 h»
+  return (h:gsub(":00$", "")) .. " h"
+end
+
 local function partir_encabezado(texto)
-  local izq, titulo = texto:match("^(.-%d%d?:%d%d h) %- (.*)$")
+  local izq, titulo = texto:match("^(.-%d h) %- (.*)$")
   if not izq then return nil end
   local fechas = {}
-  for dia, mes, num, hora in izq:gmatch("(%S+) | (%u+) (%d+), (%d%d?:%d%d) h") do
+  for dia, mes, num, hora in izq:gmatch("(%S+) | (%u+) (%d+), (%d[%d:]*) h") do
+    if not hora:find(":") then hora = hora .. ":00" end
     fechas[#fechas + 1] = { dia = dia, mes = mes, num = tonumber(num), hora = hora,
       orden = (MESES[mes] or 0) * 1000000 + tonumber(num) * 10000 + tonumber((hora:gsub(":", ""))) }
   end
@@ -500,7 +507,7 @@ function Pandoc(doc)
       local dia = etiqueta_dia(r.f)
       local macro = r.e.tipo == "concierto" and "\\ev" or "\\act"
       emit(string.format("%s{%s}{%s}{%s}{%s}", macro,
-        dia ~= dia_previo and escape(dia) or "", r.f.hora, r.e.titulo_tex, letra_de(r.e, r.k)))
+        dia ~= dia_previo and escape(dia) or "", hora_texto(r.f.hora), r.e.titulo_tex, letra_de(r.e, r.k)))
       dia_previo = dia
     end
   end
@@ -625,7 +632,7 @@ function Pandoc(doc)
 
   local function fecha_larga(e)
     local fs = {}
-    for _, f in ipairs(e.fechas) do fs[#fs + 1] = escape(etiqueta_dia(f)) .. " · " .. f.hora .. " h" end
+    for _, f in ipairs(e.fechas) do fs[#fs + 1] = escape(etiqueta_dia(f)) .. " · " .. hora_texto(f.hora) end
     return table.concat(fs, " / ")
   end
 
