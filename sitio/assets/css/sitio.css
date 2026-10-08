@@ -453,7 +453,6 @@ hr.separador-grupo { border: 0; border-top: 1px solid var(--filete); margin: 1.6
 .ficha-nombre { font-size: 1.22rem; font-weight: 700; margin: 0; }
 .ficha-detalle { margin: .15em 0 0; color: var(--verdegris); font-size: .94rem; }
 .ficha-texto { font-size: 1rem; hyphens: auto; }
-.ficha-ver, .nota-ver { font-size: .92rem; color: var(--verdegris); margin: 0 0 .6em; }
 .firma { text-align: right; font-style: italic; color: var(--verdegris); }
 
 /* Notas al programa (desplegables) */

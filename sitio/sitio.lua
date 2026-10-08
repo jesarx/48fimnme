@@ -502,7 +502,7 @@ end
 -- -----------------------------------------------------------------------------
 -- Fichas (compositores, intérpretes) y notas
 -- -----------------------------------------------------------------------------
-local VISTAS = { bio = {}, nota = {} }   -- primera aparición: clave → enlace
+local VISTAS = { bio = {}, nota = {} }   -- primera aparición: semblanza, foto y nota
 
 local function partir_ficha(inlines)
   local n = #inlines
@@ -530,38 +530,38 @@ end
 local function ficha_html(f, ev)
   local nombre_txt = trim(stringify(f.nombre))
   local id = "ficha-" .. etiqueta(nombre_txt)
-  local bio_txt = texto_plano(f.bio)
-  local clave_bio = f.tipo == "comp" and clave(nombre_txt) or (clave(nombre_txt) .. "|" .. bio_txt)
+  local clave_bio = clave(nombre_txt)
+  -- En el sitio cada evento muestra completas las semblanzas y notas (en los
+  -- PDF, las repetidas remiten a su página): si el Markdown no las repite, se
+  -- toman de su primera aparición.
+  local previa = VISTAS.bio[clave_bio]
+  local foto_f = f.foto or (previa and previa.foto)
   local h = {}
-  local ref = (#f.bio > 0 or f.tipo == "comp") and VISTAS.bio[clave_bio]
   h[#h + 1] = '<article class="ficha" id="' .. id .. '">'
   h[#h + 1] = '<div class="ficha-cabeza">'
-  if f.foto then
-    h[#h + 1] = '<img class="ficha-foto' .. (f.foto.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
-      '" src="../../assets/fotos/' .. f.foto.archivo .. '" alt="' .. esc(nombre_txt) ..
+  if foto_f then
+    h[#h + 1] = '<img class="ficha-foto' .. (foto_f.tipo ~= "circulo" and " ficha-foto-completa" or "") ..
+      '" src="../../assets/fotos/' .. foto_f.archivo .. '" alt="' .. esc(nombre_txt) ..
       '" loading="lazy" width="120" height="120">'
   end
   h[#h + 1] = '<div><h3 class="ficha-nombre">' .. html_inl(f.nombre) .. "</h3>"
   if f.detalle ~= "" then h[#h + 1] = '<p class="ficha-detalle">' .. esc(f.detalle) .. "</p>" end
   h[#h + 1] = "</div></div>"
-  if ref and ref.url ~= ev.url then
-    h[#h + 1] = '<p class="ficha-ver"><a href="' .. ref.enlace .. '">Ver semblanza</a></p>'
-  elseif #f.bio > 0 then
-    h[#h + 1] = '<div class="ficha-texto">' .. html_texto(f.bio) .. "</div>"
-    if not ref then VISTAS.bio[clave_bio] = { url = ev.url, enlace = "../" .. ev.slug .. "/#" .. id } end
+  local bio_html = #f.bio > 0 and html_texto(f.bio) or (previa and previa.html)
+  if bio_html then
+    h[#h + 1] = '<div class="ficha-texto">' .. bio_html .. "</div>"
+    if not previa then VISTAS.bio[clave_bio] = { html = bio_html, foto = f.foto } end
   end
   for _, n in ipairs(f.notas) do
     local titulo_txt = trim(stringify(n.titulo))
     local nid = "nota-" .. etiqueta(titulo_txt)
-    local clave_nota = clave(titulo_txt) .. "|" .. texto_plano(n.bloques)
-    local nref = VISTAS.nota[clave_nota]
-    if nref and nref.url ~= ev.url then
-      h[#h + 1] = '<p class="nota-ver">Nota al programa: <em>' .. html_inl(n.titulo):gsub("</?em>", "") ..
-        '</em> · <a href="' .. nref.enlace .. '">Ver nota</a></p>'
-    elseif #n.bloques > 0 then
+    local clave_nota = clave(titulo_txt)
+    local nprevia = VISTAS.nota[clave_nota]
+    local nota_html = #n.bloques > 0 and html_texto(n.bloques) or (nprevia and nprevia.html)
+    if nota_html then
       h[#h + 1] = '<details class="nota" id="' .. nid .. '"><summary><span class="nota-etiqueta">Nota al programa</span> ' ..
-        html_inl(n.titulo) .. "</summary>" .. '<div class="nota-texto">' .. html_texto(n.bloques) .. "</div></details>"
-      if not nref then VISTAS.nota[clave_nota] = { url = ev.url, enlace = "../" .. ev.slug .. "/#" .. nid } end
+        html_inl(n.titulo) .. "</summary>" .. '<div class="nota-texto">' .. nota_html .. "</div></details>"
+      if not nprevia then VISTAS.nota[clave_nota] = { html = nota_html } end
     end
   end
   h[#h + 1] = "</article>"
