@@ -1,0 +1,59 @@
+# Postales de los conciertos del 48.º FIMNME (1080 × 1350 px, para redes).
+#
+# Cada postal toma del Markdown (a través de sitio/_conciertos/<concierto>.html,
+# que genera sitio/genera.sh) la fecha, la hora, la sede, la dirección, las
+# obras, los estrenos y los logotipos del concierto. Aquí van los datos
+# editoriales y, si hace falta, lo que se quiera cambiar de lo anterior.
+#
+#   concierto     etiqueta del concierto (la del Programa general y del sitio)
+#   antetitulo    renglón pequeño sobre el título
+#   titulo        título grande
+#   subtitulo     (opcional) bajo el título, en cursiva
+#   interpretes   lista de [nombre, papel]
+#   obras         (opcional) en lugar de «Obras de…» del programa; admite *cursivas*
+#   nota          (opcional) colaboración, patrocinio…
+#   precio        (opcional) p. ej. «$75 boleto general»
+#   direccion     (opcional) en lugar de la dirección de la sede
+#   fotos         una o varias (lado a lado), a todo lo ancho de la parte de arriba
+#   retratos      (opcional) fotos en círculo, como en las fichas del programa
+#   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
+#                 si no se indica, se centra en los rostros
+
+postales:
+  - concierto: vie-nov-6-inauguracion-osn-carrasco-hofele
+    antetitulo: Concierto inaugural
+    titulo: Orquesta Sinfónica Nacional
+    interpretes:
+      - [Ludwig Carrasco, director artístico]
+      - [Simon Höfele, trompeta (Alemania)]
+    nota: En colaboración con el Patronato de la Industria Alemana para la Cultura
+    direccion: Av. Juárez y Eje Central, Centro Histórico
+    fotos:
+      - int/OSN 1.jpg
+    foco:
+      int/OSN 1.jpg: [0.5, 0.62]
+    retratos:
+      - int/carrasco.jpg
+      - int/Simon Hofele.jpg
+
+  - concierto: mar-nov-10-alberto-rosado-piano
+    antetitulo: Concierto
+    titulo: Resonancias de ida y vuelta
+    subtitulo: La vanguardia pianística a ambos lados del Atlántico
+    interpretes:
+      - [Alberto Rosado, piano (España)]
+    direccion: Av. Juárez y Eje Central, Centro Histórico
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - concierto: mar-nov-17-calderone-bassanese-scodanibbio
+    antetitulo: Concierto
+    titulo: Scodanibbio
+    interpretes:
+      - [Dario Calderone, contrabajo (Italia)]
+      - [Stefano Bassanese, electrónica (Italia)]
+    obras: "*Voyage That Never Ends* y *Oltracuidansa*, de Stefano Scodanibbio"
+    direccion: Paseo de la Reforma 111, Bosque de Chapultepec
+    fotos:
+      - int/Dario Calderone.jpg
+      - int/Stefano Bassanese.jpg

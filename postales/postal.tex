@@ -1,0 +1,143 @@
+% =============================================================================
+%  Postal de un concierto · 48.º FIMNME
+%  La compila postales/genera.py con los datos de cada concierto
+%  (build/postales/<concierto>/datos.tex): no se edita a mano.
+%
+%  Formato 4:5: 108 × 135 mm, que se exporta a 1080 × 1350 px (254 ppp).
+%  Estructura de las postales del INBAL (fotos, título, intérpretes, obras,
+%  fecha, sede, logotipos y pleca de Cultura e INBAL al pie) con el diseño
+%  del Programa general: fondo verde con la partitura, logotipo del Foro y
+%  Noto Sans.
+% =============================================================================
+\documentclass{article}
+\usepackage[paperwidth=108mm, paperheight=135mm, margin=0pt]{geometry}
+\pagestyle{empty}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\newcommand{\rutafuentes}{automatizacion/fuentes/}
+\setmainfont{NotoSans}[
+  Path=\rutafuentes, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
+  FontFace={sb}{n}{*-SemiBold}, FontFace={sb}{it}{*-SemiBoldItalic},
+  FontFace={l}{n}{*-Light}, FontFace={l}{it}{*-LightItalic},
+  FontFace={eb}{n}{*-ExtraBold},
+  Numbers=Lining
+]
+\newcommand{\ligera}{\fontseries{l}\selectfont}
+\newcommand{\seminegrita}{\fontseries{sb}\selectfont}
+\newcommand{\negrita}{\fontseries{b}\selectfont}
+\newcommand{\extranegrita}{\fontseries{eb}\selectfont}
+\usepackage[spanish, es-nodecimaldot, es-noquoting, es-noshorthands, es-nolayout]{babel}
+\usepackage[protrusion=true, expansion=true, tracking=true, final]{microtype}
+\newcommand{\espaciado}[2][80]{\textls[#1]{#2}}
+
+\usepackage{xcolor}
+\usepackage{luacolor}
+\definecolor{verdeoscuro}{HTML}{172B20}
+\definecolor{portadabase}{HTML}{4E5F44}
+\definecolor{portadaluz}{HTML}{768F68}
+\definecolor{portadatexto}{HTML}{E2E6DF}
+\definecolor{portadalogo}{HTML}{C7D2C3}
+\definecolor{portadacaja}{HTML}{A5B9A8}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc, fadings}
+\input{automatizacion/plantilla/logo-48.tex}
+\input{automatizacion/plantilla/logo-cnmo.tex}
+\newcommand{\partitura}{automatizacion/plantilla/partitura-1x4.pdf}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Medidas (desde arriba): fotos, contenido y franja negra con los logotipos
+\newcommand{\altofotos}{42mm}
+\newcommand{\altofranja}{25mm}
+
+% Un intérprete: nombre y papel, como en las postales del INBAL
+\newcommand{\interprete}[2]{%
+  {\fontsize{10.6}{13.2}\selectfont\color{white}#1\enspace
+   {\ligera\fontsize{8.6}{13.2}\selectfont\color{portadatexto}#2}\par}}
+
+% Datos de la postal: \fotos, \retratos, \antetitulo, \titulo, \subtitulo,
+% \interpretes, \obras, \estrenos, \nota, \precio, \fecha, \sede,
+% \direccion, \logos
+\input{\datos}
+
+\begin{document}
+\begin{tikzpicture}[remember picture, overlay]
+  % Fondo: verde con luz y la partitura de «1 x 4» (como la portada)
+  \fill[portadabase] (current page.south west) rectangle (current page.north east);
+  \begin{scope}
+    \clip (current page.south west) rectangle (current page.north east);
+    % la luz, abajo a la derecha: arriba el verde es parejo y empata con
+    % el degradado de las fotos
+    \shade[inner color=portadaluz, outer color=portadabase]
+      ($(current page.south east)+(-8mm,\altofranja+14mm)$) circle (72mm);
+    \node[anchor=south east, inner sep=0pt, opacity=0.10]
+      at ($(current page.south east)+(36mm,\altofranja)$)
+      {\includegraphics[height=95mm]{\partitura}};
+  \end{scope}
+
+  % Fotos de los intérpretes, a todo lo ancho
+  \coordinate (fotoNO) at (current page.north west);
+  \coordinate (fotoSE) at ($(current page.north east)+(0,-\altofotos)$);
+  \fotos
+  % degradados: oscuro arriba (para el encabezado) y al verde abajo
+  \fill[black, opacity=0.55, path fading=south]
+    (current page.north west) rectangle ($(current page.north east)+(0,-26mm)$);
+  \fill[portadabase, path fading=north]
+    ($(current page.north west)+(0,-\altofotos+18mm)$) rectangle ($(fotoSE)+(0,-0.6mm)$);
+
+  % Encabezado: logotipo y nombre del Foro
+  \node[anchor=north west, inner sep=0pt] (logo)
+    at ($(current page.north west)+(9mm,-7mm)$) {\logofimnme{12mm}{white}};
+  \node[anchor=north west, inner sep=0pt, text=white, align=left,
+    font=\fontsize{7}{8.2}\selectfont]
+    at ($(logo.north east)+(2.6mm,0.4mm)$) {%
+      {\ligera FORO INTERNACIONAL}\\
+      {\ligera DE MÚSICA NUEVA}\\
+      {\seminegrita MANUEL ENRÍQUEZ}\\[0.4mm]
+      {\fontsize{5.2}{6.2}\negrita NOVIEMBRE 6 AL 21, 2026}};
+
+  % Retratos en círculo (como en las fichas del programa)
+  \retratos
+
+  % Contenido: título e intérpretes arriba; fecha y sede abajo
+  \node[anchor=north west, inner sep=0pt]
+    at ($(current page.north west)+(9mm,-\altofotos-2mm)$) {%
+    \begin{minipage}[t][\dimexpr135mm-\altofotos-\altofranja-6mm\relax][t]{90mm}
+      \raggedright
+      {\fontsize{6.8}{8}\negrita\color{portadacaja}\espaciado[150]{\MakeUppercase{\antetitulo}}\par}
+      \vspace{1.4mm}
+      {\fontsize{16}{18.6}\extranegrita\color{white}\titulo\par}
+      \ifx\subtitulo\empty\else
+        \vspace{1mm}{\fontsize{8.6}{10.6}\itshape\color{portadatexto}\subtitulo\par}\fi
+      \vspace{2.6mm}
+      \interpretes
+      \vspace{2.8mm}
+      {\setlength{\fboxsep}{1.6mm}\colorbox{portadacaja}{\parbox{\dimexpr90mm-2\fboxsep\relax}{%
+        \raggedright\fontsize{8.6}{10.6}\seminegrita\color{verdeoscuro}\obras
+        \ifx\estrenos\empty\else\par\vspace{0.6mm}{\fontsize{6.8}{8.2}\negrita\estrenos\par}\fi}}\par}
+      \ifx\nota\empty\else
+        \vspace{1.4mm}{\fontsize{6.6}{8}\itshape\color{portadatexto}\nota\par}\fi
+      \vfill
+      \ifx\precio\empty\else
+        {\fontsize{9.6}{11.6}\negrita\color{white}\precio\par}\vspace{0.6mm}\fi
+      {\fontsize{11.4}{13.6}\extranegrita\color{white}\fecha\par}
+      \vspace{0.4mm}
+      {\fontsize{8.8}{10.6}\seminegrita\color{portadatexto}\sede\par}
+      {\fontsize{7.8}{9.4}\selectfont\color{portadacaja}\direccion\par}
+    \end{minipage}};
+
+  % Franja negra al pie: logotipos y pleca de Cultura e INBAL (como en las
+  % postales del INBAL: misma posición y tamaño)
+  \fill[black] (current page.south west) rectangle ($(current page.south east)+(0,\altofranja)$);
+  \node[anchor=center, inner sep=0pt] at ($(current page.south)+(0,\altofranja-5.6mm)$) {\logos};
+  \node[anchor=north west, inner sep=0pt]
+    at ($(current page.north west)+(30mm,-121.5mm)$)
+    {\includegraphics[width=48mm]{postales/recursos/pleca-cultura-inbal80.png}};
+\end{tikzpicture}
+\end{document}
