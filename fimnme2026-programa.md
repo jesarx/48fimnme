@@ -2,7 +2,7 @@
  
 ## VIE | NOV 6, 20 h - INAUGURACIÓN: OSN, Carrasco / Höfele
 
-Sala Principal, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Principal
 
 ---
 
@@ -458,7 +458,7 @@ para trompeta de Detlev Glanert con la Staatsphilharmonie Nürnberg.
 
 ## SÁB | NOV 7, 12 h - Maratón de guitarras
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -1090,7 +1090,7 @@ del INBAL.
 
 ## SÁB | NOV 7, 19 h - Gonzalo Gutiérrez, piano
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -1677,7 +1677,7 @@ sin cordura*, que incluye obras de jóvenes compositores mexicanos.
 
 ## DOM | NOV 8, 18 h - OJUEM: Areán / Rosado
 
-Sala Nezahualcóyotl, CCU, UNAM
+Centro Cultural Universitario, UNAM, Sala Nezahualcóyotl
 
 ### Programa
 
@@ -1855,7 +1855,7 @@ música contemporánea.
 
 ## LUN | NOV 9, 19 h - Black Noise & Victoria Amaro
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -2221,7 +2221,7 @@ Julián Carrillo con Liminar.
 
 ## MAR | NOV 10, 19 h - Alberto Rosado, piano
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 **Resonancias de ida y vuelta**
 
@@ -2546,7 +2546,7 @@ público y la intervención sonora de los más diversos espacios.
 
 ## MIÉ | NOV 11, 19 h - Piccolegio / Trío LaMN
 
-Laboratorio Escénico, Jardín Escénico
+Jardín Escénico, Laboratorio Escénico
 
 ### Programa
 
@@ -3043,7 +3043,7 @@ música contemporánea.
 
 ## VIE | NOV 13, 17 h - Dirén Checa, violín
 
-Laboratorio Escénico, Jardín Escénico
+Jardín Escénico, Laboratorio Escénico
 
 ### Programa
 
@@ -3330,10 +3330,10 @@ través de conciertos, recursos académicos, conferencias y talleres.
 ## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Coro de Madrigalistas de Bellas Artes: Cadet
 
 Viernes 13 de noviembre, 19 h\
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 Domingo 15 de noviembre, 12 h\
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -3738,7 +3738,7 @@ Originario de la Ciudad de México. Compositor y director egresado de la Escuela
 
 ## SÁB | NOV 14, 11:30 h - Alberto Rosado, piano
 
-Salón de Recepciones, Museo Nacional de Arte
+Museo Nacional de Arte, Salón de Recepciones
 
 **Lo fijo y lo volátil**
 
@@ -4001,7 +4001,7 @@ música contemporánea.
 
 ## SÁB | NOV 14, 12 h - Maratón de percusiones
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -4489,7 +4489,7 @@ interdisciplinarios y su próxima producción discográfica como solista.
 
 ## SÁB | NOV 14, 13 h - Ensamble de Música Nueva (FaM-UNAM)
 
-Sala Xochipilli, Facultad de Música, UNAM
+Facultad de Música, UNAM, Sala Xochipilli
 
 ### Programa
 
@@ -4774,7 +4774,7 @@ casa Powell Flutes.
 
 ## SÁB | NOV 14, 17 h - Dúo Gasparini-Monnet
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -5014,7 +5014,7 @@ del Conservatoire National Supérieur de Paris. En 2021 interpretó
 
 ## SÁB | NOV 14, 19 h - Cepromusic: Saariaho
 
-Anfiteatro Simón Bolívar, Colegio de San Ildefonso, UNAM
+Colegio de San Ildefonso, UNAM, Anfiteatro Simón Bolívar
 
 **Monográfico Saariaho**
 
@@ -5184,7 +5184,7 @@ Roberto Kolb y es director musical del Ensamble Cepromusic.
 
 ## DOM | NOV 15, 17 h - Vicente Moronta, oboe
 
-Laboratorio Escénico, Jardín Escénico
+Jardín Escénico, Laboratorio Escénico
 
 **Resonancias latinoamericanas para oboe y público rumbero**
 
@@ -5578,7 +5578,7 @@ Iberoamericano, OboesMigrantes Dúo y del Khyma Dúo.
 
 ## DOM | NOV 15, 18 h - Dúo Arco y Teclas / Trío Siqueiros
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -5795,7 +5795,7 @@ no solo de la comunidad artística y musical, sino de todo el público.
 
 ## DOM | NOV 15, 19 h - Ehecatl Flores, fagot contrabajo
 
-Laboratorio Escénico, Jardín Escénico
+Jardín Escénico, Laboratorio Escénico
 
 ### Programa
 
@@ -5964,7 +5964,7 @@ ensamble Cepromusic.
 
 ## MAR | NOV 17, 19 h - Calderone / Bassanese: Scodanibbio
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -6403,7 +6403,7 @@ cumplir tus sueños! phishing.alejandroviramontes.com
 
 ## MIÉ | NOV 18, 19 h - Francisco García Torres: Enríquez 100
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -6911,7 +6911,7 @@ países. Pertenece al Sistema Nacional de Creadores de Arte.
 
 ## JUE | NOV 19, 19 h - OCBA
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -7681,7 +7681,7 @@ constante.
 
 ## VIE | NOV 20, 19 h - Cepromusic
 
-Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Pabellón Escénico
 
 ### Programa
 
@@ -8175,7 +8175,7 @@ compositor mexicano, integrante del Cuarteto Léner.
 
 ## SÁB | NOV 21, 12 h - Cuarteto de Bellas Artes: Enríquez 100
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ---
 
@@ -8292,7 +8292,7 @@ independientes y cortometrajes.
 
 ## SÁB | NOV 21, 17 h - Ensamble Sonus
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 ### Programa
 
@@ -8531,7 +8531,7 @@ Cámara en la ESM.
 
 ## SÁB | NOV 21, 19 h - CLAUSURA: Tambuco
 
-Sala Principal, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Principal
 
 **Concierto de clausura**
 
@@ -8863,7 +8863,7 @@ Meister Music, ambos merecedores del reconocimiento Record Geijutsu.
 
 ## VIE | NOV 6, 20 h - Xalapa: OSX
 
-Sala Principal, Centro Cultural Tlaqná\
+Centro Cultural Tlaqná, Sala Principal\
 Xalapa, Veracruz
 
 ### Programa
@@ -9166,7 +9166,7 @@ Internacional de Música Nueva *Manuel Enríquez*, entre otros.
 
 ## MAR | NOV 10, 17 h - Monterrey: Q-SION, percusiones
 
-Sala Chopin, Escuela Superior de Música y Danza\
+Escuela Superior de Música y Danza, Sala Chopin\
 Monterrey, Nuevo León
 
 ### Programa
@@ -9438,7 +9438,7 @@ cultural y compromiso con las comunidades.
 ## MAR | NOV 10, 19:30 h - Guadalajara: Dúo Gasparini-Monnet
 
 Martes de Música\
-Sala Higinio Ruvalcaba, Ex Convento del Carmen\
+Ex Convento del Carmen, Sala Higinio Ruvalcaba\
 Guadalajara, Jalisco
 
 ---
@@ -10034,7 +10034,7 @@ Coparmex 2019.
 
 ## VIE | NOV 13, 19 h - Monterrey: Eusebio Sánchez, percusiones
 
-Sala Chopin, Escuela Superior de Música y Danza\
+Escuela Superior de Música y Danza, Sala Chopin\
 Monterrey, Nuevo León
 
 ### Programa
@@ -10547,7 +10547,7 @@ La obra que se presente deberá ser aprobada previamente por Alberto Rosado.
 
 ## MAR | NOV 17, 17 h - Presentación del libro *No me basta*
 
-Lobby del Pabellón Escénico, Jardín Escénico
+Jardín Escénico, Lobby del Pabellón Escénico
 
 De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 (Ediciones Mexicanas de Música)
@@ -11070,7 +11070,7 @@ Maby Muñoz, **moderadora**
 
 #### JUE | NOV 19, 10 h - Conferencia: Iracema de Andrade
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 Iracema de Andrade, **ponente**
 
@@ -11080,7 +11080,7 @@ Luis Jaime Cortez, **moderador**
 
 #### JUE | NOV 19, 11:30 h - Mesa 3: Entre disciplinas
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
 
@@ -11090,7 +11090,7 @@ José María Serralde, **moderador**
 
 #### JUE | NOV 19, 13 h - Mesa 4: El gestor
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 Guillermo Contreras, Arón Bitrán, Aurelio Tello y Susana Enríquez, **participantes**
 
@@ -11100,7 +11100,7 @@ Marusia Pola, **moderadora**
 
 #### JUE | NOV 19, 16:30 h - Conferencia: Leonora Saavedra
 
-Sala Manuel M. Ponce, Palacio de Bellas Artes
+Palacio de Bellas Artes, Sala Manuel M. Ponce
 
 Leonora Saavedra, **ponente**
 
@@ -11117,7 +11117,7 @@ Maby Muñoz, **moderadora**
 **Palacio de Bellas Artes**\
 Av. Juárez y Eje Central Lázaro Cárdenas s/n, Centro Histórico, Ciudad de México
 
-**Salón de Recepciones, Museo Nacional de Arte**\
+**Museo Nacional de Arte, Salón de Recepciones**\
 Tacuba 8, Centro Histórico, Ciudad de México
 
 **Jardín Escénico**\
@@ -11135,10 +11135,10 @@ Fernández Leal 31, La Concepción, Coyoacán, Ciudad de México
 **Museo Universitario Arte Contemporáneo, UNAM**\
 Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
 
-**Sala Nezahualcóyotl, Centro Cultural Universitario, UNAM**\
+**Centro Cultural Universitario, UNAM, Sala Nezahualcóyotl**\
 Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
 
-**Anfiteatro Simón Bolívar, Colegio de San Ildefonso, UNAM**\
+**Colegio de San Ildefonso, UNAM, Anfiteatro Simón Bolívar**\
 Justo Sierra 16, Centro Histórico, Ciudad de México
 
 **Facultad de Música, UNAM**\
@@ -11173,7 +11173,7 @@ La Quebrada 62, Centro, Acapulco, Guerrero
 **Centro Cultural Universitario Bicentenario**\
 Sierra Leona 550, Lomas 2da Sección, San Luis Potosí, San Luis Potosí
 
-**Sala Principal, Centro Cultural Tlaqná**\
+**Centro Cultural Tlaqná, Sala Principal**\
 Av. de las Culturas Veracruzanas 1, Emiliano Zapata, Xalapa, Veracruz
 
 **Ex Convento del Carmen**\

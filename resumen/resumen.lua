@@ -271,23 +271,25 @@ function Pandoc(doc)
     tras_obras = false
   end
 
+  -- Sede de cada fecha: el renglón de la sede («Palacio de Bellas Artes, Sala
+  -- Principal») con los que siguen (ciudad y estado), y aparte ese renglón solo
   local function sede_de(parrafos)
-    local res = {}
+    local res, solos = {}, {}
     for _, p in ipairs(parrafos) do
       local rs = renglones(p.content)
       local lugar
       for k, r in ipairs(rs) do
         local t = stringify(r)
         if palabra_sede(t) then
-          -- con los renglones que siguen (ciudad y estado)
           lugar = t
+          solos[#res + 1] = t
           for j = k + 1, #rs do lugar = lugar .. ", " .. stringify(rs[j]) end
           break
         end
       end
       if lugar then res[#res + 1] = lugar end
     end
-    return res
+    return res, solos
   end
 
   local i, n = 1, #bloques
@@ -317,7 +319,7 @@ function Pandoc(doc)
           parrafos[#parrafos + 1] = bloques[k]
           k = k + 1
         end
-        ev.lugares = sede_de(parrafos)
+        ev.lugares, ev.renglones_sede = sede_de(parrafos)
         if #ev.lugares == 0 then io.stderr:write("Sin sede: " .. texto .. "\n") end
         i = k - 1
         table.insert(eventos, ev)
@@ -447,17 +449,21 @@ function Pandoc(doc)
   -- ---------------------------------------------------------------------------
   local por_palabra = {}
   for _, s in ipairs(sedes) do if s.palabra then por_palabra[s.palabra] = s end end
-  local function sala_de(lugar, sede)
-    local primero = trim((lugar:match("^([^,]+)") or lugar))
-    if clave(sede.nombre):find(clave(primero), 1, true) then return "" end
-    return primero
+  -- La sala: lo que sigue al nombre del recinto («Palacio de Bellas Artes,
+  -- Sala Principal» → «Sala Principal»; «Casa Rafael Galván, UAM» → nada)
+  local function sala_de(renglon, sede)
+    local partes = {}
+    for parte in (renglon .. ","):gmatch("%s*([^,]+),") do partes[#partes + 1] = trim(parte) end
+    local k = 1
+    while partes[k] and clave(sede.nombre):find(clave(partes[k]), 1, true) do k = k + 1 end
+    return table.concat(partes, ", ", k)
   end
   for _, e in ipairs(eventos) do
     e.claves = {}
     for k, lugar in ipairs(e.lugares) do
       local sede = por_palabra[palabra_sede(lugar)]
       if sede then
-        local sala = sala_de(lugar, sede)
+        local sala = sala_de(e.renglones_sede[k] or lugar, sede)
         if not sede.salas[sala] then
           sede.salas[sala] = { orden = #sede.salas + 1 }
           table.insert(sede.salas, sala)
@@ -525,7 +531,7 @@ function Pandoc(doc)
       local direccion = s.direccion:gsub(", Ciudad de México$", "")
       for k, sala in ipairs(s.salas) do
         local nombre = escape(s.nombre)
-        if sala ~= "" then nombre = escape(sala) .. ", " .. nombre end
+        if sala ~= "" then nombre = nombre .. ", " .. escape(sala) end
         emit(string.format("\\sede{%s}{%s}{%s}", s.salas[sala].letra, nombre,
           k == 1 and escape(direccion) or ""))
       end
