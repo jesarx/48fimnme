@@ -7,18 +7,27 @@
 # hace falta, lo que se quiera cambiar de lo anterior.
 #
 #   evento        etiqueta del evento (la del Programa general y del sitio)
+#   funcion       (opcional) en un evento con varias funciones, cuál (1, 2…):
+#                 cada función lleva su postal, con su fecha y su sede
 #   antetitulo    renglón sobre la fecha (si no se indica, «Concierto»)
 #   interpretes   lista de nombres o de [nombre, papel]
 #   obras         (opcional) en lugar de «Obras de…» del programa; *cursivas*
 #                 solo para los títulos de las obras
+#   nota          (opcional) renglón en cursivas bajo el recuadro de obras
+#                 (el nombre del programa, una colaboración…); «\n» (entre
+#                 comillas) cambia de renglón, aquí y en la entrada
 #   fotos         hasta cuatro, en círculo (de int/ o comp/), de arriba abajo
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros
 #   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado»
 #                 (p. ej. el precio de la inauguración o la clausura)
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa
+#
+# Van primero las de los estados y luego las de la Ciudad de México, en orden.
 
 postales:
+  # --- Estados ---------------------------------------------------------------
+
   - evento: vie-nov-6-xalapa-osx
     interpretes:
       - Orquesta Sinfónica de Xalapa
@@ -28,6 +37,33 @@ postales:
     fotos:
       - int/Orquesta Sinfónica de Xalapa.jpg
       - int/Martin Lebel.jpg
+
+  # --- Ciudad de México ------------------------------------------------------
+
+  - evento: vie-nov-6-inauguracion-osn-carrasco-hofele
+    antetitulo: Concierto inaugural
+    interpretes:
+      - Orquesta Sinfónica Nacional
+      - [Ludwig Carrasco, director artístico]
+      - [Simon Höfele, trompeta]
+    nota: En colaboración con el Patronato de la Industria Alemana para la Cultura
+    fotos:
+      - int/OSN 1.jpg
+      - int/carrasco.jpg
+      - int/Simon Hofele.jpg
+    entrada: "Abono para la inauguración y la clausura\n$250 · $200 · $120 · $100"
+
+  - evento: sab-nov-7-maraton-de-guitarras
+    interpretes:
+      - Mario Ortiz
+      - Ensamble Artificios
+      - Tetraktys Guitar Quartet
+      - Vladimir Ibarra
+    fotos:
+      - int/Mario Ortiz.jpg
+      - int/Ensamble Artificios.jpg
+      - int/Tetraktys.jpg
+      - int/Vladimir Ibarra.jpg
 
   - evento: sab-nov-7-instalacion-sonora-nuno-de-buen
     antetitulo: Instalación sonora
@@ -58,3 +94,248 @@ postales:
       - Cuarteto Arcano
     fotos:
       - int/Cuarteto Arcano.jpeg
+
+  - evento: dom-nov-8-ojuem-arean-rosado
+    interpretes:
+      - Orquesta Juvenil Universitaria Eduardo Mata
+      - [José Areán, director artístico]
+      - [Alberto Rosado, piano]
+    fotos:
+      - int/OJUEM.jpg
+      - int/José Areán.jpg
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - evento: lun-nov-9-black-noise-victoria-amaro
+    interpretes:
+      - Black Noise Ensamble
+      - [Victoria Amaro, dirección y voz]
+    fotos:
+      - int/Black Noise Ensamble.jpg
+      - int/Victoria Amaro.jpeg
+
+  - evento: mar-nov-10-alberto-rosado-piano
+    interpretes:
+      - [Alberto Rosado, piano]
+    nota: "Resonancias de ida y vuelta\nLa vanguardia pianística a ambos lados del Atlántico"
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - evento: mie-nov-11-generacion-espontanea
+    interpretes:
+      - Generación Espontánea
+    obras: Improvisación libre
+    nota: "Concierto del 20 aniversario de Generación Espontánea\nEn homenaje a Natalia Pérez Turner"
+    fotos:
+      - int/Generación Espontánea.jpg
+
+  - evento: mie-nov-11-piccolegio-trio-lamn
+    interpretes:
+      - Piccolegio
+      - Trío LaMN
+    fotos:
+      - int/Piccolegio.jpg
+      - int/Trío LaMN.jpg
+
+  - evento: jue-nov-12-alberto-rosado-piano
+    interpretes:
+      - [Alberto Rosado, piano]
+      - [Juan Cáceres Avitia, electrónica]
+    nota: "e-piano\nDiálogos entre piano, imagen y electrónica"
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: vie-nov-13-diren-checa-violin
+    interpretes:
+      - [Dirén Checa, violín y electrónica]
+      - [Juan Cáceres Avitia, electrónica]
+    fotos:
+      - int/Dirén Checa.jpg
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: vie-nov-13-coro-de-madrigalistas-de-bellas-artes-cadet
+    funcion: 1
+    interpretes:
+      - Coro de Madrigalistas de Bellas Artes
+      - [Rodrigo Cadet, director invitado]
+    fotos:
+      - int/Coro de Madrigalistas (27).JPG
+      - int/Rodrigo Cadet.jpg
+
+  - evento: sab-nov-14-alberto-rosado-piano
+    interpretes:
+      - [Alberto Rosado, piano]
+    nota: "Lo fijo y lo volátil\nTres décadas de creación pianística"
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - evento: sab-nov-14-maraton-de-percusiones
+    interpretes:
+      - Bryan Flores
+      - Fourtissimo Percussion Ensemble
+      - Abraham Parra Arámburo
+      - [Juan Cáceres Avitia, electrónica]
+      - Aldo Aranda
+      - [Carlos Larrauri, guitarra]
+    fotos:
+      - int/Bryan Flores.jpg
+      - int/Fourtissimo.jpg
+      - int/Abraham Parra.JPG
+      - int/Aldo Aranda.jpg
+
+  - evento: sab-nov-14-ensamble-de-musica-nueva-fam-unam
+    interpretes:
+      - Ensamble de Música Nueva de la FaM-UNAM
+      - [Germán Tort, director artístico]
+      - [Miguel Ángel Villanueva, flauta]
+    fotos:
+      - int/Ensamble de Música Nueva Fam UNAM.JPG
+      - int/Germán Tort.jpg
+      - int/Miguel Ángel Villanueva 1.JPG
+
+  - evento: sab-nov-14-duo-gasparini-monnet
+    interpretes:
+      - Dúo Gasparini-Monnet
+      - [Noemi Gasparini, violín]
+      - [Makeda Monnet, soprano]
+    fotos:
+      - int/Duo Gasparini-Monnet.jpg
+
+  - evento: sab-nov-14-cepromusic-saariaho
+    interpretes:
+      - Ensamble Cepromusic
+      - [José Luis Castillo, director artístico]
+    fotos:
+      - int/Cepromusic_1.jpg
+      - int/José Luis Castillo.jpg
+
+  - evento: vie-nov-13-coro-de-madrigalistas-de-bellas-artes-cadet
+    funcion: 2
+    interpretes:
+      - Coro de Madrigalistas de Bellas Artes
+      - [Rodrigo Cadet, director invitado]
+    fotos:
+      - int/Coro de Madrigalistas (27).JPG
+      - int/Rodrigo Cadet.jpg
+
+  - evento: dom-nov-15-vicente-moronta-oboe
+    interpretes:
+      - [Vicente Moronta, oboe y electrónica]
+      - [Juan Cáceres Avitia, electrónica]
+    nota: Resonancias latinoamericanas para oboe y público rumbero
+    fotos:
+      - int/Vicente Moronta.jpeg
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: dom-nov-15-duo-arco-y-teclas-trio-siqueiros
+    interpretes:
+      - Dúo Arco y Teclas
+      - Trío Siqueiros
+    fotos:
+      - int/Dúo Arco y Teclas.jpeg
+      - int/Trío Siqueiros.jpg
+
+  - evento: dom-nov-15-ehecatl-flores-fagot-contrabajo
+    interpretes:
+      - [Ehecatl Flores, fagot contrabajo]
+      - [Juan Cáceres Avitia, electrónica]
+    fotos:
+      - int/Ehecatl Flores.jpg
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: mar-nov-17-calderone-bassanese-scodanibbio
+    interpretes:
+      - [Dario Calderone, contrabajo]
+      - [Stefano Bassanese, electrónica]
+    fotos:
+      - int/Dario Calderone.jpg
+      - int/Stefano Bassanese.jpg
+
+  - evento: mie-nov-18-electroacustica-i
+    antetitulo: Concierto electroacústico
+    interpretes:
+      - Electroacústica I
+      - [Juan Cáceres Avitia, electrónica]
+    fotos:
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: mie-nov-18-francisco-garcia-torres-enriquez-100
+    interpretes:
+      - [Francisco García Torres, piano]
+    nota: Enríquez 100
+    fotos:
+      - int/Francisco García Torres.jpg
+
+  - evento: jue-nov-19-russek-concierto-electroacustico
+    antetitulo: Concierto electroacústico
+    interpretes:
+      - [Antonio Russek, curaduría y proyección sonora]
+      - [Juan Cáceres Avitia, electrónica]
+    fotos:
+      - int/Antonio Russek.jpg
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: jue-nov-19-ocba
+    interpretes:
+      - Orquesta de Cámara de Bellas Artes
+      - [Luis Manuel Sánchez Rivas, director artístico]
+      - [Carlos Gándara, violín]
+    fotos:
+      - int/OCBA (1).jpg
+      - int/Luis Manuel Sánchez (1).jpeg
+      - int/Carlos Gándara.jpeg
+
+  - evento: jue-nov-19-electroacustica-ii
+    antetitulo: Concierto electroacústico
+    interpretes:
+      - Electroacústica II
+      - [Juan Cáceres Avitia, electrónica]
+    fotos:
+      - comp/Juan Cáceres Avítia.jpg
+
+  - evento: vie-nov-20-iracema-de-andrade-onix
+    interpretes:
+      - [Iracema de Andrade, violonchelo eléctrico]
+      - [Juan Cáceres Avitia, electrónica]
+      - Ónix Ensamble
+      - [Felipe Pérez Santiago, director]
+    fotos:
+      - int/Iracema de Andrade.jpg
+      - comp/Juan Cáceres Avítia.jpg
+      - int/Onix.jpg
+
+  - evento: vie-nov-20-cepromusic
+    interpretes:
+      - Ensamble Cepromusic
+    fotos:
+      - int/Cepromusic_6.jpg
+
+  - evento: vie-nov-20-cuarteto-ruvalcaba
+    interpretes:
+      - Cuarteto Ruvalcaba
+    fotos:
+      - int/Cuarteto Ruvalcaba 1.jpeg
+
+  - evento: sab-nov-21-cuarteto-de-bellas-artes-enriquez-100
+    interpretes:
+      - Cuarteto de Cuerdas de Bellas Artes
+    nota: "Jornadas INBAL-SACM 2026\nIntegral de los cuartetos de cuerda de Manuel Enríquez"
+    fotos:
+      - int/Cuarteto de Cuerdas de Bellas Artes.png
+
+  - evento: sab-nov-21-ensamble-sonus
+    interpretes:
+      - Ensamble Sonus
+      - [Pablo Ramírez Márquez, clarinete y clarinete bajo]
+      - [Pablo Miró Cortez, piano]
+    fotos:
+      - int/Ensamble Sonus.jpg
+
+  - evento: sab-nov-21-clausura-tambuco
+    antetitulo: Concierto de clausura
+    interpretes:
+      - Tambuco Ensamble de Percusiones
+      - [Ricardo Gallardo, director artístico]
+    fotos:
+      - int/Tambuco 1.jpg
+    entrada: "Abono para la inauguración y la clausura\n$250 · $200 · $120 · $100"

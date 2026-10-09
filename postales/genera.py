@@ -21,6 +21,7 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 import yaml
@@ -63,7 +64,7 @@ def tex(texto, juntos=()):
     for a, b in (("\\", r"\textbackslash{}"), ("&", r"\&"), ("%", r"\%"), ("$", r"\$"),
                  ("#", r"\#"), ("_", r"\_"), ("{", r"\{"), ("}", r"\}"), ("~", r"\textasciitilde{}")):
         t = t.replace(a, b)
-    t = t.replace("\u00a0", "~")
+    t = t.replace("\u00a0", "~").replace("\n", r"\\")   # «\n»: cambio de renglón
     return re.sub(r"\*([^*]+)\*", r"\\emph{\1}", t)
 
 
@@ -95,10 +96,16 @@ def juntar_nombres(texto, limite=26):
         if j > k and len(cadena) <= limite:
             salida.append(cadena.replace(" ", "\u00a0"))
         else:
-            salida.extend(palabras[k:j + 1])
+            # muy larga: se puede partir, pero no después de «de», «la»…
+            for w in palabras[k:j + 1]:
+                if salida and salida[-1].split("\u00a0")[-1] in CONECTORES:
+                    salida[-1] += "\u00a0" + w
+                else:
+                    salida.append(w)
         k = j + 1
-    # y el último renglón, con dos palabras al menos
-    if len(salida) > 2 and len(salida[-2]) + len(salida[-1]) < limite:
+    # y el último renglón, con dos palabras al menos (si no las tiene ya:
+    # «…Cárdenas s/n, | Centro Histórico»)
+    if len(salida) > 2 and "\u00a0" not in salida[-1] and len(salida[-2]) + len(salida[-1]) < limite:
         salida[-2:] = [salida[-2] + "\u00a0" + salida[-1]]
     return " ".join(salida)
 
@@ -150,12 +157,12 @@ def logo_blanco(archivo, destino):
     return alfa.size
 
 
-def sede_y_direccion(fm):
+def sede_y_direccion(fm, funcion=0):
     """«Centro Cultural Tlaqná, Sala Principal, Xalapa, Veracruz» y su dirección →
     («Centro Cultural Tlaqná, Sala Principal», «Av. …, Xalapa, Veracruz»).
     En la Ciudad de México la dirección va sin «Ciudad de México»."""
-    lugar = fm["fechas"][0]["lugar"] or fm["lugares"][0]
-    direccion = fm["fechas"][0]["direccion"] or fm.get("direccion", "")
+    lugar = fm["fechas"][funcion]["lugar"] or fm["lugares"][0]
+    direccion = fm["fechas"][funcion]["direccion"] or fm.get("direccion", "")
     partes = lugar.split(", ")
     for k in range(1, len(partes)):
         if direccion.endswith(", ".join(partes[k:])):
@@ -164,9 +171,19 @@ def sede_y_direccion(fm):
     return lugar, re.sub(r",\s*Ciudad de México$", "", direccion)
 
 
-def fecha_texto(fm):
-    f = fm["fechas"][0]
+def fecha_texto(fm, funcion=0):
+    f = fm["fechas"][funcion]
     return f"{f['dia']} de 2026, {f['hora']} h"
+
+
+def nombre_salida(postal):
+    """Etiqueta del evento; si tiene varias funciones, cada postal empieza con
+    la fecha de la suya: «dom-nov-15-coro-de-madrigalistas-…»."""
+    if "funcion" not in postal:
+        return postal["evento"]
+    f = datos_evento(postal["evento"])["fechas"][postal["funcion"] - 1]
+    semana, dia, mes = unicodedata.normalize("NFKD", f["corto"]).encode("ascii", "ignore").decode().lower().split()
+    return re.sub(r"^[a-z]{3}-[a-z]{3}-\d+-", f"{semana}-{mes}-{dia}-", postal["evento"])
 
 
 def apellidos():
@@ -186,7 +203,7 @@ def con_iniciales(nombre, excepciones):
             k -= 1
         apellido, pila = " ".join(palabras[k:]), " ".join(palabras[:k])
     iniciales = "".join(p[0] + "." for p in pila.split() if p[:1].isupper())
-    return f"{iniciales} {apellido}" if iniciales else apellido
+    return (f"{iniciales} {apellido}" if iniciales else apellido).replace(" ", "\u00a0")   # no se parte
 
 
 def obras_texto(fm, postal):
@@ -233,32 +250,43 @@ def fotos(postal, carpeta):
     return "\n".join(tikz)
 
 
+def media_columna(postal):
+    """Media altura de la columna de fotos (para que no baje hasta los logotipos)."""
+    n = len((postal.get("fotos") or [])[:MAX_FOTOS])
+    return f"{((n - 1) * PASO_FOTOS_MM + DIAMETRO_FOTO_MM) / 2 if n else 0:.2f}mm"
+
+
 def preparar(postal):
     etiqueta = postal["evento"]
     fm = datos_evento(etiqueta)
-    carpeta = BUILD / etiqueta
+    funcion = postal.get("funcion", 1) - 1
+    nombre = nombre_salida(postal)
+    carpeta = BUILD / nombre
     carpeta.mkdir(parents=True, exist_ok=True)
     nombres = fm.get("compositores", []) + [i if isinstance(i, str) else i[0] for i in postal.get("interpretes", [])]
 
     interpretes = []
     for i in postal.get("interpretes", []):
-        nombre, papel = (i, "") if isinstance(i, str) else (i[0], i[1] if len(i) > 1 else "")
-        interpretes.append(rf"\interprete{{{tex(nombre, [nombre])}}}{{{tex(papel)}}}")
-    sede, direccion = sede_y_direccion(fm)
+        persona, papel = (i, "") if isinstance(i, str) else (i[0], i[1] if len(i) > 1 else "")
+        # el papel no se parte: va en el renglón del nombre o en el siguiente
+        interpretes.append(rf"\interprete{{{tex(juntar_nombres(persona))}}}{{{tex(papel.replace(' ', chr(0xa0)))}}}")
+    sede, direccion = sede_y_direccion(fm, funcion)
     datos = {
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
-        "fecha": tex(postal.get("fecha", fecha_texto(fm))),
+        "fecha": tex(postal.get("fecha", fecha_texto(fm, funcion))),
         "interpretes": "".join(interpretes),
-        "obras": tex(obras_texto(fm, postal), nombres),
+        "obras": tex(obras_texto(fm, postal).replace(" y ", " y\u00a0"), nombres),
+        "nota": tex("\n".join(juntar_nombres(r) for r in postal.get("nota", "").split("\n")), nombres),
         "sede": tex(juntar_nombres(postal.get("sede", sede))),
         "direccion": tex(juntar_nombres(postal.get("direccion", direccion))),
         "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
         "fotos": fotos(postal, carpeta),
+        "mediofotos": media_columna(postal),
         "logos": logos(fm, carpeta),
     }
     archivo = carpeta / "datos.tex"
     archivo.write_text("".join(rf"\def\{k}{{{v}}}" + "\n" for k, v in datos.items()), encoding="utf-8")
-    return etiqueta, archivo
+    return nombre, archivo
 
 
 def compilar(etiqueta, datos):
@@ -288,7 +316,7 @@ def main():
     lista = yaml.safe_load((SALIDA / "postales.yaml").read_text(encoding="utf-8"))["postales"]
     pedidas = set(sys.argv[1:])
     for postal in lista:
-        if pedidas and postal["evento"] not in pedidas:
+        if pedidas and not pedidas & {postal["evento"], nombre_salida(postal)}:
             continue
         compilar(*preparar(postal))
 
