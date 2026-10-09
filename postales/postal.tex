@@ -4,12 +4,13 @@
 %  (build/postales/<evento>/datos.tex): no se edita a mano.
 %
 %  Formato 4:5: 108 × 135 mm, que se exporta a 1080 × 1350 px (254 ppp).
-%  Sigue las postales del diseñador (lineamientos aprobados): fondo verde con
-%  la partitura, logotipo y nombre del Foro en su color arriba a la
-%  izquierda; antetítulo, fecha, intérpretes, recuadro de obras, sede,
-%  dirección y entrada; fotos en círculo a la derecha; al pie, sobre el
+%  Parte de las postales del diseñador: fondo verde con la partitura,
+%  logotipo y nombre del Foro arriba a la izquierda y, al pie, sobre el
 %  degradado oscuro, los logotipos (la CNMO horizontal) y la pleca de Cultura
-%  e INBAL, con los tamaños y posiciones de esas postales.
+%  e INBAL, con los tamaños y posiciones aprobados (eso no cambia).
+%  Lo demás prioriza la legibilidad: el verde se oscurece un poco detrás del
+%  contenido, los textos son claros, las fotos van en una franja ancha (las
+%  de grupo se ven bien) y las obras, sin recuadro.
 % =============================================================================
 \documentclass{article}
 \usepackage[paperwidth=108mm, paperheight=135mm, margin=0pt]{geometry}
@@ -34,14 +35,12 @@
 
 \usepackage{xcolor}
 \usepackage{luacolor}
-% Colores de las postales del diseñador
-\definecolor{fondo}{HTML}{617655}
+\definecolor{fondo}{HTML}{617655}       % verde de las postales del diseñador
 \definecolor{colorlogo}{HTML}{E6AE78}   % logotipo y nombre del Foro
-\definecolor{tenue}{HTML}{A5B7A2}       % antetítulo y fechas del Foro
-\definecolor{claro}{HTML}{C4D2BE}       % fecha del evento y dirección
-\definecolor{caja}{HTML}{A4B9AA}        % recuadro de obras
-\definecolor{verdeoscuro}{HTML}{172B20} % texto del recuadro
-\definecolor{bordefoto}{HTML}{C6C6BE}
+% Textos: sobre el verde oscurecido (#526448) todos pasan de 4:1 de contraste
+\definecolor{casiblanco}{HTML}{E8EFE5}  % fecha y obras
+\definecolor{suave}{HTML}{DCE6D8}       % papel, dirección, nota y fechas del Foro
+\definecolor{acento}{HTML}{F0C79B}      % antetítulo, «Obras de» y entrada (dorado claro)
 
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -49,6 +48,8 @@
 \input{automatizacion/plantilla/logo-48.tex}
 \input{automatizacion/plantilla/logo-cnmo-horizontal.tex}
 \newcommand{\partitura}{automatizacion/plantilla/partitura-1x4.pdf}
+% velo que oscurece el fondo detrás del contenido: empieza transparente
+\tikzfading[name=velo, top color=transparent!100, bottom color=transparent!0]
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
@@ -61,51 +62,61 @@
 \newcommand{\pt}[1]{\fpeval{#1*\escala}}
 \newcommand{\mm}[1]{\fpeval{#1*\escala}mm}
 
-% Un intérprete: el nombre y, si lo hay, su papel en letra más ligera (en el
-% mismo renglón o, si no cabe, en el siguiente); lo que pasa al renglón
-% siguiente va con sangría, para que no parezca otro intérprete
+% Un intérprete: el nombre y, si lo hay, su papel (en el mismo renglón o, si
+% no cabe, en el siguiente); lo que pasa al renglón siguiente va con sangría
 \newcommand{\interprete}[2]{%
-  {\fontsize{\pt{14.2}}{\pt{14.2}}\selectfont\color{white}\hangindent=\mm{4}\hangafter=1 #1%
-   \ifx&#2&\else\hskip0.5em\relax{\ligera\fontsize{\pt{10}}{\pt{14.2}}\selectfont\color{claro}#2}\fi\par}}
+  {\fontsize{\pt{14.4}}{\pt{15.4}}\selectfont\color{white}\hangindent=\mm{4}\hangafter=1 #1%
+   \ifx&#2&\else\hskip0.5em\relax{\fontsize{\pt{10}}{\pt{15.4}}\selectfont\color{suave}#2}\fi\par}}
 
-% Datos: \antetitulo, \fecha, \interpretes, \obras, \nota, \sede, \direccion,
-% \entrada, \fotos, \mediofotos (media altura de la columna de fotos) y \logos
-% (los escribe genera.py)
+% Datos: \antetitulo, \fecha, \interpretes, \etiquetaobras, \obras, \nota,
+% \sede, \direccion, \entrada, \fotoslua (las fotos, para postal.lua),
+% \pistas (archivo de las fotos para el IDML) y \logos (los escribe genera.py)
 \input{\datos}
 
-% Zona del contenido (desde arriba): empieza a los 27,6 mm y mide 74 mm; si el
-% contenido es más corto, se centra en ella; si es más largo, sube hasta los
-% 24 mm y, si aun así no cabe en 83 mm, se achica
+% Zona del contenido: de los 22,5 a los 107 mm. Arriba la franja de fotos
+% (de 24 a 46 mm de alto, según cuánto texto haya) y abajo el texto; si
+% sobra lugar, el conjunto se centra
+\newlength{\anchotexto}\setlength{\anchotexto}{94mm}
+\newlength{\zona}\setlength{\zona}{84.5mm}
+\newlength{\separacion}
+\newlength{\franjamin}
+\newlength{\franja}
 \newlength{\altocontenido}
-\newlength{\arriba}
-\newlength{\centrofotosy}
+\newlength{\sobra}
+\newlength{\arribafotos}
+\newlength{\arribatexto}
+\ifx\fotoslua\empty
+  \setlength{\separacion}{0mm}\setlength{\franjamin}{0mm}
+\else
+  \setlength{\separacion}{5.5mm}\setlength{\franjamin}{24mm}
+\fi
 \newsavebox{\contenido}
 \newif\ifachicar
 
 \newcommand{\armar}{%
   \sbox{\contenido}{%
-  \begin{minipage}[b]{76.6mm}
+  \begin{minipage}[b]{\anchotexto}
     \raggedright
-    {\fontsize{\pt{8.5}}{\pt{10}}\negrita\color{tenue}\MakeUppercase{\antetitulo}\par}
-    \vspace{\mm{0.4}}
-    {\fontsize{\pt{9.9}}{\pt{11.7}}\seminegrita\color{claro}\fecha\par}
+    {\fontsize{\pt{8.6}}{\pt{10}}\negrita\color{acento}\textls[90]{\MakeUppercase{\antetitulo}}\par}
+    \vspace{\mm{0.8}}
+    {\fontsize{\pt{10.4}}{\pt{12.4}}\seminegrita\color{casiblanco}\fecha\par}
+    \vspace{\mm{1.2}}
     \interpretes
     \ifx\obras\empty\else
-      \vspace{\mm{5.1}}
-      % el recuadro sobresale 1,2 mm a la izquierda: su texto alinea con el resto
-      {\setlength{\fboxsep}{0pt}\hspace*{-1.2mm}\colorbox{caja}{\hspace{1.2mm}\parbox{\dimexpr76.6mm-2.4mm\relax}{%
-        \vspace{\mm{1.3}}\raggedright\fontsize{\pt{7.7}}{\pt{11.4}}\seminegrita\color{verdeoscuro}\obras
-        \par\vspace{\mm{0.4}}}\hspace{1.2mm}}\par}
+      \vspace{\mm{4.4}}
+      {\fontsize{\pt{6.9}}{\pt{8.6}}\negrita\color{acento}\textls[110]{\MakeUppercase{\etiquetaobras}}\par}
+      \vspace{\mm{0.6}}
+      {\fontsize{\pt{8.9}}{\pt{11.8}}\selectfont\color{casiblanco}\obras\par}
     \fi
     \ifx\nota\empty\else
-      \vspace{\mm{1.6}}{\fontsize{\pt{7.4}}{\pt{9.4}}\ligera\itshape\color{white}\nota\par}
+      \vspace{\mm{1.8}}{\fontsize{\pt{8}}{\pt{10}}\itshape\color{suave}\nota\par}
     \fi
-    \vspace{\mm{8.3}}
-    {\fontsize{\pt{9.7}}{\pt{11.6}}\negrita\color{white}\sede\par}
-    \vspace{\mm{0.1}}
-    {\fontsize{\pt{8.6}}{\pt{11.6}}\selectfont\color{claro}\direccion\par}
+    \vspace{\mm{5.2}}
+    {\fontsize{\pt{9.8}}{\pt{11.8}}\negrita\color{white}\sede\par}
+    \vspace{\mm{0.3}}
+    {\fontsize{\pt{8.9}}{\pt{11.4}}\selectfont\color{suave}\direccion\par}
     \ifx\entrada\empty\else
-      \vspace{\mm{0.9}}{\fontsize{\pt{8.5}}{\pt{10}}\negrita\color{white}\entrada\par}\fi
+      \vspace{\mm{1.3}}{\fontsize{\pt{8.9}}{\pt{10.6}}\negrita\color{acento}\entrada\par}\fi
   \end{minipage}}%
   \setlength{\altocontenido}{\dimexpr\ht\contenido+\dp\contenido\relax}}
 
@@ -114,32 +125,35 @@
 \armar
 \loop
   \achicarfalse
-  \ifdim\altocontenido>83mm \ifdim\escala pt>0.62pt \achicartrue\fi\fi
+  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
+    \ifdim\escala pt>0.62pt \achicartrue\fi\fi
 \ifachicar
   \edef\escala{\fpeval{\escala-0.04}}\armar
 \repeat
-\ifdim\altocontenido<74mm
-  \setlength{\arriba}{\dimexpr27.6mm+(74mm-\altocontenido)/2\relax}
+\ifx\fotoslua\empty
+  \setlength{\franja}{0mm}
 \else
-  \setlength{\arriba}{\dimexpr27.6mm+74mm-\altocontenido\relax}
-  \ifdim\arriba<24mm \setlength{\arriba}{24mm}\fi
+  \setlength{\franja}{\dimexpr\zona-\separacion-\altocontenido\relax}
+  \ifdim\franja>46mm \setlength{\franja}{46mm}\fi
+  \ifdim\franja<\franjamin \setlength{\franja}{\franjamin}\fi
 \fi
-% Centro de las fotos: 5,5 mm abajo del centro del contenido (como en las
-% postales del diseñador), sin bajar de los 107 mm ni subir de los 22 mm
-\setlength{\centrofotosy}{\dimexpr\arriba+0.5\altocontenido+5.5mm\relax}
-\ifdim\dimexpr\centrofotosy+\mediofotos\relax>107mm
-  \setlength{\centrofotosy}{\dimexpr107mm-\mediofotos\relax}\fi
-\ifdim\dimexpr\centrofotosy-\mediofotos\relax<22mm
-  \setlength{\centrofotosy}{\dimexpr22mm+\mediofotos\relax}\fi
+\setlength{\sobra}{\dimexpr\zona-\separacion-\altocontenido-\franja\relax}
+\ifdim\sobra<0mm \setlength{\sobra}{0mm}\fi
+\setlength{\arribafotos}{\dimexpr22.5mm+0.4\sobra\relax}
+\setlength{\arribatexto}{\dimexpr\arribafotos+\franja+\separacion\relax}
 \begin{tikzpicture}[remember picture, overlay]
-  % Fondo: verde con la partitura de «1 x 4» y, al pie, el degradado oscuro
+  % Fondo: verde con la partitura de «1 x 4», el velo y, al pie, el degradado oscuro
   \fill[fondo] (current page.south west) rectangle (current page.north east);
   \begin{scope}
     \clip (current page.south west) rectangle (current page.north east);
-    \node[anchor=north east, inner sep=0pt, opacity=0.16]
+    \node[anchor=north east, inner sep=0pt, opacity=0.11]
       at ($(current page.north east)+(30mm,2mm)$)
       {\includegraphics[height=140mm]{\partitura}};
   \end{scope}
+  \fill[black, opacity=0.15, path fading=velo]
+    ($(current page.north west)+(0,-18mm)$) rectangle ($(current page.north east)+(0,-34mm)$);
+  \fill[black, opacity=0.15]
+    ($(current page.north west)+(0,-34mm)$) rectangle (current page.south east);
   \fill[black, opacity=0.86, path fading=north]
     (current page.south west) rectangle ($(current page.south east)+(0,31mm)$);
   % (con \solofondo definido, solo el fondo: lo usa el IDML)
@@ -153,15 +167,17 @@
       {\color{colorlogo}FORO INTERNACIONAL}\\
       {\color{colorlogo}DE MÚSICA NUEVA}\\
       {\seminegrita\color{colorlogo}MANUEL ENRÍQUEZ}\\[0mm]
-      {\fontsize{5.6}{6.6}\negrita\color{tenue}NOVIEMBRE 6 AL 21, 2026}};
+      {\fontsize{5.6}{6.6}\negrita\color{suave}NOVIEMBRE 6 AL 21, 2026}};
 
-  % Contenido
-  \node[anchor=south west, inner sep=0pt]
-    at ($(current page.north west)+(5.8mm,-\arriba-\altocontenido)$) {\usebox{\contenido}};
-
-  % Fotos en círculo
-  \coordinate (centrofotos) at ($(current page.north west)+(93.5mm,-\centrofotosy)$);
-  \fotos
+  % Fotos (postal.lua) y texto
+  \directlua{
+    local P = dofile("postales/postal.lua")
+    local marcos = P.disponer({\fotoslua}, 6, P.mm(\number\arribafotos), 96, P.mm(\number\franja))
+    P.tikz(marcos, 1.6)
+    P.pistas(marcos, "\pistas", 1.6)
+  }
+  \node[anchor=north west, inner sep=0pt]
+    at ($(current page.north west)+(6.2mm,-\arribatexto)$) {\usebox{\contenido}};
 
   % Logotipos y pleca de Cultura e INBAL (tamaños y posiciones aprobados)
   \node[anchor=center, inner sep=0pt] at ($(current page.north)+(0,-114.9mm)$) {\logos};

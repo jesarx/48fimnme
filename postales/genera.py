@@ -40,9 +40,7 @@ except Exception:   # noqa: BLE001
 
 BUILD = RAIZ / "build/postales"
 SALIDA = RAIZ / "postales"
-PX_MM = 20                    # fotos a 2× de la salida (10 px/mm)
-DIAMETRO_FOTO_MM = 17.2       # círculos de las postales del diseñador
-PASO_FOTOS_MM = 20.2          # de centro a centro
+LADO_MAX_FOTO = 1800          # px; la franja de fotos mide a lo más 96 × 46 mm
 MAX_FOTOS = 4
 # Logotipos (tamaños aprobados en las postales del diseñador): la CNMO
 # horizontal a 15,2 mm de ancho; los demás, de área parecida (como el del
@@ -128,24 +126,33 @@ def abrir(ruta):
     return img.convert("RGB")
 
 
-def foco_de(img, foco):
-    """Punto de interés (x, y) en fracciones: el indicado o el de los rostros."""
-    if foco:
-        return foco
+def analizar(img, foco):
+    """Punto de interés (x, y) en fracciones y número de rostros. El punto es
+    el indicado o el centro de los rostros (en una foto de grupo, de todos; se
+    descartan los muy chicos, que suelen ser falsos)."""
     caras = detectar_rostros(img)
     if caras:
-        x, y, w, h = max(caras, key=lambda c: c[2] * c[3])
-        return ((x + w / 2) / img.width, (y + h / 2) / img.height)
-    return (0.5, 0.4)
+        mayor = max(c[2] * c[3] for c in caras)
+        caras = [c for c in caras if c[2] * c[3] >= 0.15 * mayor]
+    if foco:
+        return foco[0], foco[1], len(caras)
+    if caras:
+        x0 = min(c[0] for c in caras)
+        y0 = min(c[1] for c in caras)
+        x1 = max(c[0] + c[2] for c in caras)
+        y1 = max(c[1] + c[3] for c in caras)
+        return (x0 + x1) / 2 / img.width, (y0 + y1) / 2 / img.height, len(caras)
+    return 0.5, 0.5, 0
 
 
-def recortar(img, lado, foco):
-    """Recorte cuadrado de img alrededor de foco, escalado a lado × lado."""
-    fx, fy = foco
-    l = min(img.width, img.height)
-    x0 = min(max(0, int(fx * img.width - l / 2)), img.width - l)
-    y0 = min(max(0, int(fy * img.height - l * 0.45)), img.height - l)
-    return img.crop((x0, y0, x0 + l, y0 + l)).resize((lado, lado), Image.LANCZOS)
+def proporcion_marco(a, caras):
+    """Proporción (ancho/alto) del marco de una foto en la franja: un retrato
+    (un rostro) va en un marco angosto; una foto de grupo, en uno apaisado."""
+    if caras == 1:
+        return min(max(a, 0.72), 1.0)
+    if caras > 1:
+        return min(max(a, 1.15), 1.9)
+    return min(max(a, 0.72), 1.9)
 
 
 def logo_blanco(archivo, destino):
@@ -186,6 +193,13 @@ def nombre_salida(postal):
     return re.sub(r"^[a-z]{3}-[a-z]{3}-\d+-", f"{semana}-{mes}-{dia}-", postal["evento"])
 
 
+def obras_y_etiqueta(texto):
+    """«Obras de A, B y C» → («Obras de», «A, B y C»). Un texto propio (el
+    título de una instalación) va con la etiqueta «Programa»."""
+    m = re.match(r"(Obras? de) (.+)", texto, re.S)
+    return (m.group(1), m.group(2)) if m else ("Programa", texto)
+
+
 def obras_texto(fm, postal):
     """«Obras de…» del Markdown, con los nombres como están ahí (o el de
     postales.yaml)."""
@@ -220,28 +234,21 @@ def logos(fm, carpeta, sin_logos=()):
 
 
 def fotos(postal, carpeta):
-    """Fotos en círculo, una debajo de otra, centradas en (centrofotos)."""
+    """Las fotos para la franja (postal.lua): cada una reducida, con su
+    proporción y su punto de interés."""
     rutas = (postal.get("fotos") or [])[:MAX_FOTOS]
     focos = postal.get("foco", {}) or {}
-    r = DIAMETRO_FOTO_MM / 2
-    tikz = []
+    lua = []
     for k, ruta in enumerate(rutas):
         img = abrir(ruta)
+        fx, fy, caras = analizar(img, focos.get(ruta))
+        img.thumbnail((LADO_MAX_FOTO, LADO_MAX_FOTO), Image.LANCZOS)
         destino = carpeta / f"foto-{k + 1}.jpg"
-        recortar(img, round(DIAMETRO_FOTO_MM * PX_MM), foco_de(img, focos.get(ruta))).save(destino, quality=90)
-        dy = ((len(rutas) - 1) / 2 - k) * PASO_FOTOS_MM
-        centro = f"($(centrofotos)+(0,{dy:.2f}mm)$)"
-        tikz.append(
-            rf"\begin{{scope}}\clip {centro} circle ({r:.2f}mm);"
-            rf"\node[inner sep=0pt] at {centro} {{\includegraphics[width={DIAMETRO_FOTO_MM}mm]{{{destino.relative_to(RAIZ)}}}}};\end{{scope}}"
-            rf"\draw[bordefoto, line width=1.4pt] {centro} circle ({r:.2f}mm);")
-    return "\n".join(tikz)
-
-
-def media_columna(postal):
-    """Media altura de la columna de fotos (para que no baje hasta los logotipos)."""
-    n = len((postal.get("fotos") or [])[:MAX_FOTOS])
-    return f"{((n - 1) * PASO_FOTOS_MM + DIAMETRO_FOTO_MM) / 2 if n else 0:.2f}mm"
+        img.save(destino, quality=90)
+        a = img.width / img.height
+        lua.append(f'{{archivo="{destino.relative_to(RAIZ)}", a={a:.4f}, p={proporcion_marco(a, caras):.4f}, '
+                   f'fx={fx:.4f}, fy={fy:.4f}}}')
+    return ",".join(lua)
 
 
 def preparar(postal):
@@ -259,17 +266,19 @@ def preparar(postal):
         # el papel no se parte: va en el renglón del nombre o en el siguiente
         interpretes.append(rf"\interprete{{{tex(juntar_nombres(persona))}}}{{{tex(papel.replace(' ', chr(0xa0)))}}}")
     sede, direccion = sede_y_direccion(fm, funcion)
+    etiqueta_obras, obras = obras_y_etiqueta(obras_texto(fm, postal))
     datos = {
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
         "fecha": tex(postal.get("fecha", fecha_texto(fm, funcion))),
         "interpretes": "".join(interpretes),
-        "obras": tex(obras_texto(fm, postal).replace(" y ", " y\u00a0"), nombres),
+        "etiquetaobras": tex(etiqueta_obras),
+        "obras": tex(obras.replace(" y ", " y\u00a0"), nombres),
         "nota": tex("\n".join(juntar_nombres(r) for r in postal.get("nota", "").split("\n")), nombres),
         "sede": tex(juntar_nombres(postal.get("sede", sede))),
         "direccion": tex(juntar_nombres(postal.get("direccion", direccion))),
         "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
-        "fotos": fotos(postal, carpeta),
-        "mediofotos": media_columna(postal),
+        "fotoslua": fotos(postal, carpeta),
+        "pistas": str((carpeta / "fotos.json").relative_to(RAIZ)),
         "logos": logos(fm, carpeta, postal.get("sin_logos", [])),
     }
     archivo = carpeta / "datos.tex"
@@ -308,7 +317,8 @@ def compilar(etiqueta, datos, pdf_fondo):
                     str(pdf), str(SALIDA / nombre)], check=True)
     # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
     idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
-                            str(SALIDA / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}")
+                            str(SALIDA / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}",
+                            pistas_fotos=carpeta / "fotos.json")
     print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png, .pdf e .idml")
 
 
