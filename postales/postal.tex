@@ -65,19 +65,22 @@
 % Un intérprete: el nombre y, si lo hay, su papel (en el mismo renglón o, si
 % no cabe, en el siguiente); lo que pasa al renglón siguiente va con sangría
 \newcommand{\interprete}[2]{%
-  {\fontsize{\pt{14.4}}{\pt{15.4}}\selectfont\color{white}\hangindent=\mm{4}\hangafter=1 #1%
-   \ifx&#2&\else\hskip0.5em\relax{\fontsize{\pt{10}}{\pt{15.4}}\selectfont\color{suave}#2}\fi\par}}
+  {\fontsize{\pt{14}}{\pt{14.9}}\selectfont\color{white}\hangindent=\mm{4}\hangafter=1 #1%
+   \ifx&#2&\else\hskip0.5em\relax{\fontsize{\pt{9.8}}{\pt{14.9}}\selectfont\color{suave}#2}\fi\par}}
 
-% Datos: \antetitulo, \fecha, \interpretes, \etiquetaobras, \obras, \nota,
+% Datos: \antetitulo, \titulo, \subtitulo, \fecha, \interpretes,
+% \etiquetaobras, \obras, \nota,
 % \sede, \direccion, \entrada, \fotoslua (las fotos, para postal.lua),
 % \pistas (archivo de las fotos para el IDML) y \logos (los escribe genera.py)
 \input{\datos}
 
-% Zona del contenido: de los 22,5 a los 107 mm. Arriba la franja de fotos
-% (de 24 a 46 mm de alto, según cuánto texto haya) y abajo el texto; si
-% sobra lugar, el conjunto se centra
+% Zona del contenido: de los 21 a los 108 mm. Arriba la franja de fotos y
+% abajo el texto. La franja mide de 22 a 46 mm según cuánto texto haya; si
+% el texto no cabe, primero se achica un poco (hasta el 90 %), luego la
+% franja baja hasta 17 mm y, solo si aún no cabe, el texto se achica más.
+% Si sobra lugar, el conjunto se centra
 \newlength{\anchotexto}\setlength{\anchotexto}{94mm}
-\newlength{\zona}\setlength{\zona}{84.5mm}
+\newlength{\zona}\setlength{\zona}{87mm}
 \newlength{\separacion}
 \newlength{\franjamin}
 \newlength{\franja}
@@ -88,7 +91,7 @@
 \ifx\fotoslua\empty
   \setlength{\separacion}{0mm}\setlength{\franjamin}{0mm}
 \else
-  \setlength{\separacion}{5.5mm}\setlength{\franjamin}{24mm}
+  \setlength{\separacion}{4.5mm}\setlength{\franjamin}{22mm}
 \fi
 \newsavebox{\contenido}
 \newif\ifachicar
@@ -98,37 +101,62 @@
   \begin{minipage}[b]{\anchotexto}
     \raggedright
     {\fontsize{\pt{8.6}}{\pt{10}}\negrita\color{acento}\textls[90]{\MakeUppercase{\antetitulo}}\par}
-    \vspace{\mm{0.8}}
-    {\fontsize{\pt{10.4}}{\pt{12.4}}\seminegrita\color{casiblanco}\fecha\par}
-    \vspace{\mm{1.2}}
+    % título del concierto (y su segunda parte), entre el antetítulo y la fecha
+    \ifx\titulo\empty\else
+      \vspace{\mm{1}}
+      {\fontsize{\pt{12.6}}{\pt{14.4}}\seminegrita\color{acento}\titulo\par}
+      \ifx\subtitulo\empty\else
+        \vspace{\mm{0.2}}{\fontsize{\pt{9.2}}{\pt{11}}\selectfont\color{suave}\subtitulo\par}
+      \fi
+      \vspace{\mm{1}}
+    \fi
+    \vspace{\mm{0.7}}
+    {\fontsize{\pt{10.2}}{\pt{12}}\seminegrita\color{casiblanco}\fecha\par}
+    \vspace{\mm{1}}
     \interpretes
     \ifx\obras\empty\else
-      \vspace{\mm{4.4}}
-      {\fontsize{\pt{6.9}}{\pt{8.6}}\negrita\color{acento}\textls[110]{\MakeUppercase{\etiquetaobras}}\par}
-      \vspace{\mm{0.6}}
-      {\fontsize{\pt{8.9}}{\pt{11.8}}\selectfont\color{casiblanco}\obras\par}
+      \vspace{\mm{3.8}}
+      {\fontsize{\pt{6.9}}{\pt{8.4}}\negrita\color{acento}\textls[110]{\MakeUppercase{\etiquetaobras}}\par}
+      \vspace{\mm{0.5}}
+      {\fontsize{\pt{8.8}}{\pt{11.4}}\selectfont\color{casiblanco}\obras\par}
     \fi
     \ifx\nota\empty\else
-      \vspace{\mm{1.8}}{\fontsize{\pt{8}}{\pt{10}}\itshape\color{suave}\nota\par}
+      \vspace{\mm{1.5}}{\fontsize{\pt{8}}{\pt{10}}\selectfont\color{suave}\nota\par}
     \fi
-    \vspace{\mm{5.2}}
-    {\fontsize{\pt{9.8}}{\pt{11.8}}\negrita\color{white}\sede\par}
-    \vspace{\mm{0.3}}
-    {\fontsize{\pt{8.9}}{\pt{11.4}}\selectfont\color{suave}\direccion\par}
+    \vspace{\mm{4.4}}
+    {\fontsize{\pt{9.8}}{\pt{11.6}}\negrita\color{white}\sede\par}
+    \vspace{\mm{0.2}}
+    {\fontsize{\pt{8.8}}{\pt{11}}\selectfont\color{suave}\direccion\par}
     \ifx\entrada\empty\else
-      \vspace{\mm{1.3}}{\fontsize{\pt{8.9}}{\pt{10.6}}\negrita\color{acento}\entrada\par}\fi
+      \vspace{\mm{1.1}}{\fontsize{\pt{8.8}}{\pt{10.4}}\negrita\color{acento}\entrada\par}\fi
   \end{minipage}}%
   \setlength{\altocontenido}{\dimexpr\ht\contenido+\dp\contenido\relax}}
 
 \begin{document}
 % (se arma aquí y no en el preámbulo: microtype ajusta desde \begin{document})
 \armar
+% 1. el texto, hasta el 90 %
+\loop
+  \achicarfalse
+  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
+    \ifdim\escala pt>0.91pt \achicartrue\fi\fi
+\ifachicar
+  \edef\escala{\fpeval{\escala-0.02}}\armar
+\repeat
+% 2. la franja de fotos, hasta 17 mm
+\ifx\fotoslua\empty\else
+  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
+    \setlength{\franjamin}{\dimexpr\zona-\separacion-\altocontenido\relax}
+    \ifdim\franjamin<17mm \setlength{\franjamin}{17mm}\fi
+  \fi
+\fi
+% 3. el texto, lo que haga falta
 \loop
   \achicarfalse
   \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
     \ifdim\escala pt>0.62pt \achicartrue\fi\fi
 \ifachicar
-  \edef\escala{\fpeval{\escala-0.04}}\armar
+  \edef\escala{\fpeval{\escala-0.02}}\armar
 \repeat
 \ifx\fotoslua\empty
   \setlength{\franja}{0mm}
@@ -139,7 +167,7 @@
 \fi
 \setlength{\sobra}{\dimexpr\zona-\separacion-\altocontenido-\franja\relax}
 \ifdim\sobra<0mm \setlength{\sobra}{0mm}\fi
-\setlength{\arribafotos}{\dimexpr22.5mm+0.4\sobra\relax}
+\setlength{\arribafotos}{\dimexpr21mm+0.4\sobra\relax}
 \setlength{\arribatexto}{\dimexpr\arribafotos+\franja+\separacion\relax}
 \begin{tikzpicture}[remember picture, overlay]
   % Fondo: verde con la partitura de «1 x 4», el velo y, al pie, el degradado oscuro

@@ -52,8 +52,8 @@ ENTRADA_LIBRE = "Entrada libre | Cupo limitado"
 
 
 def tex(texto, juntos=()):
-    """Texto (con *cursivas* de Markdown) → LaTeX. Los nombres de «juntos» no
-    se parten entre renglones."""
+    """Texto → LaTeX. En las postales no hay cursivas: los *asteriscos* de
+    Markdown se quitan. Los nombres de «juntos» no se parten entre renglones."""
     if not texto:
         return ""
     t = str(texto)
@@ -63,7 +63,7 @@ def tex(texto, juntos=()):
                  ("#", r"\#"), ("_", r"\_"), ("{", r"\{"), ("}", r"\}"), ("~", r"\textasciitilde{}")):
         t = t.replace(a, b)
     t = t.replace("\u00a0", "~").replace("\n", r"\\")   # «\n»: cambio de renglón
-    return re.sub(r"\*([^*]+)\*", r"\\emph{\1}", t)
+    return re.sub(r"\*([^*]+)\*", r"\1", t)
 
 
 CONECTORES = {"de", "del", "la", "las", "los", "y"}
@@ -101,6 +101,13 @@ def juntar_nombres(texto, limite=26):
                 else:
                     salida.append(w)
         k = j + 1
+    # «de», «la», «y»… no quedan al final de un renglón
+    k = 0
+    while k < len(salida) - 1:
+        if salida[k] in CONECTORES:
+            salida[k:k + 2] = [salida[k] + "\u00a0" + salida[k + 1]]
+        else:
+            k += 1
     # y el último renglón, con dos palabras al menos (si no las tiene ya:
     # «…Cárdenas s/n, | Centro Histórico»)
     if len(salida) > 2 and "\u00a0" not in salida[-1] and len(salida[-2]) + len(salida[-1]) < limite:
@@ -194,16 +201,22 @@ def nombre_salida(postal):
 
 
 def obras_y_etiqueta(texto):
-    """«Obras de A, B y C» → («Obras de», «A, B y C»). Un texto propio (el
-    título de una instalación) va con la etiqueta «Programa»."""
+    """«Obras de A, B y C» → («Obras de», «A, B y C»). Un texto propio
+    («Improvisación libre») va con la etiqueta «Programa»."""
     m = re.match(r"(Obras? de) (.+)", texto, re.S)
     return (m.group(1), m.group(2)) if m else ("Programa", texto)
 
 
 def obras_texto(fm, postal):
     """«Obras de…» del Markdown, con los nombres como están ahí (o el de
-    postales.yaml)."""
-    return postal.get("obras") or fm.get("obras", "")
+    postales.yaml). Si todos los compositores están entre los intérpretes (una
+    instalación de su autor), no hace falta."""
+    if "obras" in postal:
+        return postal["obras"] or ""
+    interpretes = {i if isinstance(i, str) else i[0] for i in postal.get("interpretes", [])}
+    if fm.get("compositores") and set(fm["compositores"]) <= interpretes:
+        return ""
+    return fm.get("obras", "")
 
 
 def origen_logos():
@@ -269,6 +282,8 @@ def preparar(postal):
     etiqueta_obras, obras = obras_y_etiqueta(obras_texto(fm, postal))
     datos = {
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
+        "titulo": tex(juntar_nombres(postal.get("titulo", "")), nombres),
+        "subtitulo": tex(juntar_nombres(postal.get("subtitulo", "")), nombres),
         "fecha": tex(postal.get("fecha", fecha_texto(fm, funcion))),
         "interpretes": "".join(interpretes),
         "etiquetaobras": tex(etiqueta_obras),

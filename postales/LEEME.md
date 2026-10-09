@@ -21,29 +21,39 @@ python3 postales/genera.py sab-nov-7-gonzalo-gutierrez-piano  # solo esa
 
 ## Cómo es cada postal
 
+Parte de las postales del diseñador, pero prioriza la legibilidad. Lo que
+sigue las reglas de los logotipos no cambia: el logotipo y el nombre del Foro
+arriba a la izquierda y, al pie, sobre el degradado oscuro, la fila de
+logotipos y la pleca de Cultura e INBAL, con sus tamaños y posiciones.
+
 De arriba abajo:
 
 1. Logotipo y nombre del Foro, en el color del logotipo (#E6AE78).
-2. Antetítulo («Concierto», «Instalación sonora»…), fecha y hora.
-3. Intérpretes, uno por renglón, con su papel en letra ligera si se indica.
-   Si un nombre no cabe en un renglón, lo que pasa al siguiente va con
-   sangría, para que no parezca otro intérprete. El papel no se parte: va
-   junto al nombre o, si no cabe, completo en el renglón siguiente.
-4. Recuadro de obras y, si se indica, una nota en cursivas (el nombre del
-   programa, una colaboración), como en la postal del abono del diseñador.
-5. Sede, dirección y «Entrada libre | Cupo limitado».
-6. Al pie, sobre el degradado oscuro: los logotipos y la pleca de Cultura e
-   INBAL.
+2. La franja de fotos (hasta cuatro), con esquinas redondeadas: todas del
+   mismo alto; los grupos en marcos apaisados y los retratos en marcos
+   angostos, recortadas alrededor de los rostros (de todos, en una foto de
+   grupo).
+3. Antetítulo («Concierto», «Instalación sonora»…), en dorado claro; el
+   título del concierto, si lo tiene (y su segunda parte, más chica); la
+   fecha y la hora.
+4. Intérpretes, uno por renglón, con su papel. Si un nombre no cabe en un
+   renglón, lo que pasa al siguiente va con sangría, para que no parezca otro
+   intérprete. El papel no se parte: va junto al nombre o, si no cabe,
+   completo en el renglón siguiente.
+5. «OBRAS DE» y los compositores, sin recuadro; si se indica, una nota (una
+   colaboración). Si todos los compositores son intérpretes (una instalación
+   de su autor), no va.
+6. Sede, dirección y «Entrada libre | Cupo limitado».
 
-Las fotos van en círculo a la derecha, una debajo de otra (hasta cuatro).
-El fondo es verde, con la partitura de *1 x 4* de Enríquez.
+No hay cursivas. El fondo es el verde de las postales del diseñador, con la
+partitura de *1 x 4* de Enríquez; detrás del contenido se oscurece un poco
+para que los textos se lean bien (todos pasan de 4:1 de contraste).
 
-Medidas y colores se calibraron sobre la postal del maratón de guitarras del
-diseñador: los textos y el recuadro coinciden con ella a un par de píxeles. El
-contenido arranca a los 27,6 mm. Si es más corto que el de esa postal, se
-centra en el espacio disponible. Si es más largo (muchos intérpretes u obras),
-sube hasta los 24 mm y, si aun así no cabe, se compone un poco más chico. Las
-fotos nunca bajan hasta los logotipos.
+El contenido va de los 21 a los 108 mm. La franja de fotos mide de 22 a 46 mm
+según cuánto texto haya; si sobra lugar, el conjunto se centra. Si el texto
+no cabe, primero se compone un poco más chico (hasta el 90 %), luego la
+franja baja hasta 17 mm y solo entonces el texto se achica más. La
+disposición de las fotos está en `postal.lua`.
 
 ## De dónde sale cada dato
 
@@ -57,11 +67,10 @@ fotos nunca bajan hasta los logotipos.
 
   Si cambia algo de esto en el Markdown, basta regenerar.
 - **De `postales.yaml`**:
-  - el antetítulo y los intérpretes;
+  - el antetítulo, el título y los intérpretes;
   - las fotos;
-  - lo opcional: la función (en un concierto con varias), otras obras (p. ej.
-    el título de una instalación), una nota, la entrada o el precio, otra
-    sede o dirección, y los logotipos del evento que no van en esa postal
+  - lo opcional: la función (en un concierto con varias), otras obras, una
+    nota, la entrada o el precio, otra sede o dirección, y los logotipos del evento que no van en esa postal
     (la función del Coro de Madrigalistas en el Palacio de Bellas Artes no
     lleva los del Jardín Escénico).
 
@@ -87,8 +96,8 @@ fotos nunca bajan hasta los logotipos.
 - **Entrada**: «Entrada libre | Cupo limitado», salvo que se indique otra cosa.
   La inauguración y la clausura llevan el precio del abono de ambos conciertos
   (el de la postal del abono).
-- **Cursivas**: solo en los títulos de las obras. Los nombres de personas y
-  lugares no se parten entre renglones.
+- **Cursivas**: ninguna. Los nombres de personas y lugares no se parten entre
+  renglones, y «de», «la», «y»… no quedan al final de un renglón.
 
 ## Archivos
 
@@ -97,6 +106,7 @@ fotos nunca bajan hasta los logotipos.
 | `postales.yaml` | Lista de postales y sus datos editoriales. |
 | `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG e IDML. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
+| `postal.lua` | Disposición y recorte de las fotos en la franja (y sus marcos para el IDML). |
 | `recursos/` | Pleca de Cultura e INBAL. |
 | `fimnme2026-postal-<evento>.png`, `.pdf`, `.idml` | Las postales (generadas). La de cada función de un concierto que se repite empieza con su fecha. |
 | `anteriores/` | Las primeras postales de prueba, con el diseño anterior (solo como referencia). |
@@ -109,17 +119,18 @@ abono) a partir del PDF de cada postal y del fondo, que se compila aparte
 documento de InDesign de una página, del tamaño de la postal, con todo
 incrustado (no depende de otros archivos). De atrás hacia adelante:
 
-- **Fondo**: verde, partitura y degradado, como imagen (300 ppp), bloqueado.
-- **Recuadro de las obras**: rectángulo de InDesign, con su color.
+- **Fondo**: verde, partitura, velo y degradado, como imagen (300 ppp),
+  bloqueado.
 - **Logotipos y pleca**: cada uno como imagen aparte. Los vectoriales (el del
   Foro y el de la CNMO) van a 1200 ppp.
-- **Fotos**: cada una en su marco circular con el filete, para cambiarlas
-  fácilmente (Archivo › Colocar sobre el marco).
+- **Fotos**: cada una en su marco de esquinas redondeadas, con la imagen
+  recortada como en el PDF; se cambian fácilmente (Archivo › Colocar sobre
+  el marco).
 - **Textos**, editables en Noto Sans: un marco por bloque (antetítulo,
-  fecha, intérpretes, obras, nota, sede, dirección, entrada), con los mismos
-  cortes de renglón, tamaños, colores, interlineado y espaciado entre letras
-  que el PDF. Cada bloque tiene su estilo de párrafo y los colores están en
-  las muestras con sus nombres (`claro`, `tenue`, `caja`…).
+  título, fecha, intérpretes, obras, sede, dirección, entrada), con los
+  mismos cortes de renglón, tamaños, colores, interlineado y espaciado entre
+  letras que el PDF. Cada bloque tiene su estilo de párrafo y los colores
+  están en las muestras con sus nombres (`acento`, `casiblanco`, `suave`…).
 
 Para editarlo hay que tener instalada la familia Noto Sans
 (`automatizacion/fuentes/`). Se revisó con el importador de IDML de Scribus:

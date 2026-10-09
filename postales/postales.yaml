@@ -1,5 +1,5 @@
-# Postales de los eventos del 48.º FIMNME (1080 × 1350 px, para redes), con el
-# diseño de las postales del diseñador.
+# Postales de los eventos del 48.º FIMNME (1080 × 1350 px, para redes). Parten
+# de las postales del diseñador; la plantilla es postales/postal.tex.
 #
 # Cada postal toma del Markdown (a través de sitio/_conciertos/<evento>.html,
 # que genera sitio/genera.sh) la fecha, la hora, la sede, la dirección,
@@ -9,14 +9,18 @@
 #   evento        etiqueta del evento (la del Programa general y del sitio)
 #   funcion       (opcional) en un evento con varias funciones, cuál (1, 2…):
 #                 cada función lleva su postal, con su fecha y su sede
-#   antetitulo    renglón sobre la fecha (si no se indica, «Concierto»)
+#   antetitulo    primer renglón (si no se indica, «Concierto»)
+#   titulo        (opcional) título del concierto (el nombre del programa, el
+#                 de un maratón, la obra de una instalación): va bajo el
+#                 antetítulo y sobre la fecha
+#   subtitulo     (opcional) su segunda parte, más chica
 #   interpretes   lista de nombres o de [nombre, papel]
-#   obras         (opcional) en lugar de «Obras de…» del programa; *cursivas*
-#                 solo para los títulos de las obras
-#   nota          (opcional) renglón en cursivas bajo el recuadro de obras
-#                 (el nombre del programa, una colaboración…); «\n» (entre
-#                 comillas) cambia de renglón, aquí y en la entrada
-#   fotos         hasta cuatro, en círculo (de int/ o comp/), de arriba abajo
+#   obras         (opcional) en lugar de «Obras de…» del programa
+#   nota          (opcional) renglón bajo las obras (una colaboración…);
+#                 «\n» (entre comillas) cambia de renglón, aquí y en la entrada
+#   (en las postales no hay cursivas)
+#   fotos         hasta cuatro (de int/ o comp/), en la franja de arriba, de
+#                 izquierda a derecha
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros
 #   sin_logos     (opcional) logotipos del evento que no van en esta postal
@@ -62,6 +66,7 @@ postales:
       - Ensamble Artificios
       - Tetraktys Guitar Quartet
       - Vladimir Ibarra
+    titulo: Maratón de guitarras
     fotos:
       - int/Mario Ortiz.jpg
       - int/Ensamble Artificios.jpg
@@ -70,9 +75,9 @@ postales:
 
   - evento: sab-nov-7-instalacion-sonora-nuno-de-buen
     antetitulo: Instalación sonora
+    titulo: Sobre las sensaciones de tono y otros fantasmas
     interpretes:
       - Andrés Nuño de Buen
-    obras: "*Sobre las sensaciones de tono y otros fantasmas*"
     fotos:
       - comp/Andrés Nuño de Buen.jpeg
 
@@ -84,10 +89,10 @@ postales:
 
   - evento: dom-nov-8-instalacion-sonora-nuno-de-buen-vigueras
     antetitulo: Instalación-concierto
+    titulo: Sobre las sensaciones de tono y otros fantasmas
     interpretes:
       - Andrés Nuño de Buen
       - [Fernando Vigueras, guitarra]
-    obras: "*Sobre las sensaciones de tono y otros fantasmas*"
     fotos:
       - comp/Andrés Nuño de Buen.jpeg
       - int/Fernando Vigueras.jpg
@@ -119,7 +124,8 @@ postales:
   - evento: mar-nov-10-alberto-rosado-piano
     interpretes:
       - [Alberto Rosado, piano]
-    nota: "Resonancias de ida y vuelta\nLa vanguardia pianística a ambos lados del Atlántico"
+    titulo: Resonancias de ida y vuelta
+    subtitulo: La vanguardia pianística a ambos lados del Atlántico
     fotos:
       - int/Andrés Rosado - foto de Michal Novak.jpg
 
@@ -127,7 +133,8 @@ postales:
     interpretes:
       - Generación Espontánea
     obras: Improvisación libre
-    nota: "Concierto del 20 aniversario de Generación Espontánea\nEn homenaje a Natalia Pérez Turner"
+    titulo: Concierto del 20 aniversario de Generación Espontánea
+    subtitulo: En homenaje a Natalia Pérez Turner
     fotos:
       - int/Generación Espontánea.jpg
 
@@ -143,7 +150,8 @@ postales:
     interpretes:
       - [Alberto Rosado, piano]
       - [Juan Cáceres Avitia, electrónica]
-    nota: "e-piano\nDiálogos entre piano, imagen y electrónica"
+    titulo: e-piano
+    subtitulo: Diálogos entre piano, imagen y electrónica
     fotos:
       - int/Andrés Rosado - foto de Michal Novak.jpg
       - comp/Juan Cáceres Avítia.jpg
@@ -168,11 +176,13 @@ postales:
   - evento: sab-nov-14-alberto-rosado-piano
     interpretes:
       - [Alberto Rosado, piano]
-    nota: "Lo fijo y lo volátil\nTres décadas de creación pianística"
+    titulo: Lo fijo y lo volátil
+    subtitulo: Tres décadas de creación pianística
     fotos:
       - int/Andrés Rosado - foto de Michal Novak.jpg
 
   - evento: sab-nov-14-maraton-de-percusiones
+    titulo: Maratón de percusiones
     interpretes:
       - Bryan Flores
       - Fourtissimo Percussion Ensemble
@@ -205,6 +215,7 @@ postales:
       - int/Duo Gasparini-Monnet.jpg
 
   - evento: sab-nov-14-cepromusic-saariaho
+    titulo: Monográfico Saariaho
     interpretes:
       - Ensamble Cepromusic
       - [José Luis Castillo, director artístico]
@@ -226,7 +237,7 @@ postales:
     interpretes:
       - [Vicente Moronta, oboe y electrónica]
       - [Juan Cáceres Avitia, electrónica]
-    nota: Resonancias latinoamericanas para oboe y público rumbero
+    titulo: Resonancias latinoamericanas para oboe y público rumbero
     fotos:
       - int/Vicente Moronta.jpeg
       - comp/Juan Cáceres Avítia.jpg
@@ -256,9 +267,8 @@ postales:
       - int/Stefano Bassanese.jpg
 
   - evento: mie-nov-18-electroacustica-i
-    antetitulo: Concierto electroacústico
+    titulo: Electroacústica I
     interpretes:
-      - Electroacústica I
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - comp/Juan Cáceres Avítia.jpg
@@ -266,7 +276,7 @@ postales:
   - evento: mie-nov-18-francisco-garcia-torres-enriquez-100
     interpretes:
       - [Francisco García Torres, piano]
-    nota: Enríquez 100
+    titulo: Enríquez 100
     fotos:
       - int/Francisco García Torres.jpg
 
@@ -290,9 +300,8 @@ postales:
       - int/Carlos Gándara.jpeg
 
   - evento: jue-nov-19-electroacustica-ii
-    antetitulo: Concierto electroacústico
+    titulo: Electroacústica II
     interpretes:
-      - Electroacústica II
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - comp/Juan Cáceres Avítia.jpg
@@ -323,7 +332,8 @@ postales:
   - evento: sab-nov-21-cuarteto-de-bellas-artes-enriquez-100
     interpretes:
       - Cuarteto de Cuerdas de Bellas Artes
-    nota: "Jornadas INBAL-SACM 2026\nIntegral de los cuartetos de cuerda de Manuel Enríquez"
+    titulo: Jornadas INBAL-SACM 2026
+    subtitulo: Integral de los cuartetos de cuerda de Manuel Enríquez
     fotos:
       - int/Cuarteto de Cuerdas de Bellas Artes.png
 
