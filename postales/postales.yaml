@@ -19,6 +19,9 @@
 #   fotos         hasta cuatro, en círculo (de int/ o comp/), de arriba abajo
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros
+#   sin_logos     (opcional) logotipos del evento que no van en esta postal
+#                 (partes de su ruta en el Markdown; p. ej. los de la sede de
+#                 la otra función)
 #   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado»
 #                 (p. ej. el precio de la inauguración o la clausura)
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa
@@ -210,7 +213,8 @@ postales:
       - int/José Luis Castillo.jpg
 
   - evento: vie-nov-13-coro-de-madrigalistas-de-bellas-artes-cadet
-    funcion: 2
+    funcion: 2   # en el Palacio de Bellas Artes: sin los logotipos del Jardín Escénico
+    sin_logos: [Centro_Cultural_Bosque, Jardin_Escenico]
     interpretes:
       - Coro de Madrigalistas de Bellas Artes
       - [Rodrigo Cadet, director invitado]

@@ -85,9 +85,14 @@
       {\includegraphics[height=\paperheight]{\partitura}};
   \end{scope}}
 
+\newcommand{\franja}{%
+  \fill[black] (current page.south west) rectangle ($(current page.south east)+(0,24mm)$);}
+
 \begin{document}
 \begin{tikzpicture}[remember picture, overlay]
   \fondopartitura
+  % (con \solofondo definido, solo el fondo y la franja: lo usa el IDML)
+  \ifdefined\solofondo\franja\else
   % Logotipo y nombre del Foro (como en la portada)
   \node[anchor=north west, inner sep=0pt] (logo)
     at ($(current page.north west)+(10mm,-7mm)$) {\logofimnme{14mm}{colorlogo}};
@@ -134,7 +139,7 @@
   % Franja negra al pie, como en las postales de los conciertos: logotipos
   % (ninguno más grande que los de Cultura e INBAL; los mismos tamaños que
   % calcula postales/genera.py) y pleca de Cultura e INBAL
-  \fill[black] (current page.south west) rectangle ($(current page.south east)+(0,24mm)$);
+  \franja
   \node[anchor=center, inner sep=0pt] at ($(current page.north)+(0,-116.2mm)$) {%
     \raisebox{-0.5\height}{\logocnmohorizontal{15.5mm}{white}}\hspace{5mm}%
     \raisebox{-0.5\height}{\includegraphics[height=4.5mm]{build/postal/osn-blanco.png}}\hspace{5mm}%
@@ -142,5 +147,6 @@
   \node[anchor=north west, inner sep=0pt]
     at ($(current page.north west)+(30mm,-121.5mm)$)
     {\includegraphics[width=48mm]{postales/recursos/pleca-cultura-inbal80.png}};
+  \fi
 \end{tikzpicture}
 \end{document}

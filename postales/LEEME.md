@@ -7,8 +7,7 @@ Cada postal sale en tres formatos:
 
 - PNG de 1080 × 1350 px;
 - PDF;
-- SVG editable en Inkscape o Illustrator, con los textos como texto en Noto
-  Sans y el fondo, las fotos y los logotipos en otra capa.
+- IDML para InDesign (ver «El IDML», abajo).
 
 Siguen las postales del diseñador, que ya cumplen los lineamientos del INBAL.
 Los tamaños y posiciones de los logotipos están aprobados.
@@ -62,7 +61,9 @@ fotos nunca bajan hasta los logotipos.
   - las fotos;
   - lo opcional: la función (en un concierto con varias), otras obras (p. ej.
     el título de una instalación), una nota, la entrada o el precio, otra
-    sede o dirección.
+    sede o dirección, y los logotipos del evento que no van en esa postal
+    (la función del Coro de Madrigalistas en el Palacio de Bellas Artes no
+    lleva los del Jardín Escénico).
 
   Para agregar una postal, se copia un bloque y se cambia la etiqueta del
   evento (la misma del Programa general y del sitio).
@@ -73,8 +74,10 @@ fotos nunca bajan hasta los logotipos.
   (`automatizacion/plantilla/logo-cnmo-horizontal.tex`, de
   `comentarios/CNMO horizontal.ai`). Los demás, en blanco y de área parecida
   (como el del Centro Cultural del Bosque en la postal del diseñador): a lo
-  más 4,2 mm de alto y 14 mm de ancho. En el Palacio de Bellas Artes solo va
-  la CNMO, como en las postales del INBAL.
+  más 4,2 mm de alto y 14 mm de ancho. En el Jardín Escénico van los del
+  Centro Cultural del Bosque y del Jardín Escénico (`logos/*.ai`), como en
+  la postal del diseñador. En el Palacio de Bellas Artes solo va la CNMO,
+  como en las postales del INBAL.
 - **Pleca de Cultura e INBAL** (`recursos/pleca-cultura-inbal80.png`): la de
   los 80 años, con fondo transparente, en la posición y el tamaño de esas
   postales.
@@ -92,15 +95,36 @@ fotos nunca bajan hasta los logotipos.
 | Archivo | Para qué sirve |
 |---|---|
 | `postales.yaml` | Lista de postales y sus datos editoriales. |
-| `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG y SVG. |
+| `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG e IDML. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `recursos/` | Pleca de Cultura e INBAL. |
-| `fimnme2026-postal-<evento>.png`, `.pdf`, `.svg` | Las postales (generadas). La de cada función de un concierto que se repite empieza con su fecha. |
+| `fimnme2026-postal-<evento>.png`, `.pdf`, `.idml` | Las postales (generadas). La de cada función de un concierto que se repite empieza con su fecha. |
 | `anteriores/` | Las primeras postales de prueba, con el diseño anterior (solo como referencia). |
 
-El SVG lo arma `postal/svg_editable.py`, el mismo que hace el de la postal del
-abono. No se genera un `.ai`: es un formato cerrado de Adobe. Illustrator
-abre el SVG, con los textos editables, y también el PDF.
+## El IDML
+
+Lo arma `postal/idml_editable.py` (el mismo que hace el de la postal del
+abono) a partir del PDF de cada postal y del fondo, que se compila aparte
+(la plantilla con `\solofondo`, en `build/postales/fondo.pdf`). Es un
+documento de InDesign de una página, del tamaño de la postal, con todo
+incrustado (no depende de otros archivos). De atrás hacia adelante:
+
+- **Fondo**: verde, partitura y degradado, como imagen (300 ppp), bloqueado.
+- **Recuadro de las obras**: rectángulo de InDesign, con su color.
+- **Logotipos y pleca**: cada uno como imagen aparte. Los vectoriales (el del
+  Foro y el de la CNMO) van a 1200 ppp.
+- **Fotos**: cada una en su marco circular con el filete, para cambiarlas
+  fácilmente (Archivo › Colocar sobre el marco).
+- **Textos**, editables en Noto Sans: un marco por bloque (antetítulo,
+  fecha, intérpretes, obras, nota, sede, dirección, entrada), con los mismos
+  cortes de renglón, tamaños, colores, interlineado y espaciado entre letras
+  que el PDF. Cada bloque tiene su estilo de párrafo y los colores están en
+  las muestras con sus nombres (`claro`, `tenue`, `caja`…).
+
+Para editarlo hay que tener instalada la familia Noto Sans
+(`automatizacion/fuentes/`). Se revisó con el importador de IDML de Scribus:
+posiciones, imágenes, colores, fuentes y cortes de renglón coinciden con el
+PDF. No se ha abierto todavía en InDesign.
 
 Requisitos: LuaLaTeX, Python 3 con PyYAML, Pillow y PyMuPDF (OpenCV es
 opcional: centra las fotos en los rostros) y `pdftoppm`. Los archivos

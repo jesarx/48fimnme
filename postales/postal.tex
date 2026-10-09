@@ -142,6 +142,8 @@
   \end{scope}
   \fill[black, opacity=0.86, path fading=north]
     (current page.south west) rectangle ($(current page.south east)+(0,31mm)$);
+  % (con \solofondo definido, solo el fondo: lo usa el IDML)
+  \ifdefined\solofondo\else
 
   % Logotipo y nombre del Foro
   \node[anchor=north west, inner sep=0pt] (logo)
@@ -166,5 +168,6 @@
   \node[anchor=north west, inner sep=0pt]
     at ($(current page.north west)+(30mm,-121.5mm)$)
     {\includegraphics[width=48mm]{postales/recursos/pleca-cultura-inbal80.png}};
+  \fi
 \end{tikzpicture}
 \end{document}

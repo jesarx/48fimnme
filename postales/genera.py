@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, PDF y SVG editable).
+"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, PDF e IDML editable).
 
 Siguen las postales del diseñador (lineamientos y tamaños de logotipos
 aprobados). Lee postales/postales.yaml (antetítulo, intérpretes, fotos…) y,
@@ -12,8 +12,8 @@ LuaLaTeX.
     python3 postales/genera.py                 todas las postales
     python3 postales/genera.py <evento>…       solo esas
 
-Salida: postales/fimnme2026-postal-<evento>.png, .pdf y .svg (editable en
-Inkscape o Illustrator, con los textos como texto en Noto Sans).
+Salida: postales/fimnme2026-postal-<evento>.png, .pdf e .idml (editable en
+InDesign, con los textos en Noto Sans; lo arma postal/idml_editable.py).
 """
 
 import json
@@ -22,6 +22,7 @@ import shutil
 import subprocess
 import sys
 import unicodedata
+import urllib.parse
 from pathlib import Path
 
 import yaml
@@ -29,6 +30,8 @@ from PIL import Image, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "automatizacion"))
+sys.path.insert(0, str(RAIZ / "postal"))
+import idml_editable  # noqa: E402
 try:   # detección de rostros del Programa general (OpenCV es opcional)
     from preparar_imagenes import detectar_rostros
 except Exception:   # noqa: BLE001
@@ -196,6 +199,10 @@ def con_iniciales(nombre, excepciones):
     """«Jorge Torres Sáenz» → «J. Torres Sáenz»; «Liliana Z. del Río» → «L.Z. del Río»."""
     if nombre in excepciones and ", " in excepciones[nombre]:
         apellido, pila = excepciones[nombre].split(", ", 1)
+        # el índice pone en mayúscula la partícula («De Mattos»); aquí va como
+        # en el nombre («F.L. de Mattos»)
+        if nombre.lower().endswith(apellido.lower()):
+            apellido = nombre[len(nombre) - len(apellido):]
     else:
         palabras = nombre.split()
         k = len(palabras) - 1
@@ -219,10 +226,25 @@ def obras_texto(fm, postal):
     return obras
 
 
-def logos(fm, carpeta):
-    """La CNMO (horizontal) y los logotipos del evento, en blanco."""
+def origen_logos():
+    """build/logos/<archivo> → ruta del logotipo en el Markdown (de manifiesto.tsv)."""
+    origen = {}
+    for fila in (RAIZ / "build/logos/manifiesto.tsv").read_text(encoding="utf-8").splitlines():
+        partes = fila.split("\t")
+        if len(partes) >= 2:
+            origen[Path(partes[1]).name] = urllib.parse.unquote(partes[0].split("|")[0])
+    return origen
+
+
+def logos(fm, carpeta, sin_logos=()):
+    """La CNMO (horizontal) y los logotipos del evento, en blanco; sin los de
+    «sin_logos» (partes de su ruta: p. ej. los de una sede en la que no es
+    esta función)."""
     lista = [rf"\logocnmohorizontal{{{ANCHO_CNMO_MM}mm}}{{white}}"]
-    for k, l in enumerate(fm.get("logos", [])):
+    origen = origen_logos() if sin_logos else {}
+    elegidos = [l for l in fm.get("logos", [])
+                if not any(s in origen.get(l["archivo"], "") for s in sin_logos)]
+    for k, l in enumerate(elegidos):
         destino = carpeta / f"logo-{k + 1}.png"
         w, h = logo_blanco(l["archivo"], destino)
         r = w / h
@@ -282,43 +304,58 @@ def preparar(postal):
         "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
         "fotos": fotos(postal, carpeta),
         "mediofotos": media_columna(postal),
-        "logos": logos(fm, carpeta),
+        "logos": logos(fm, carpeta, postal.get("sin_logos", [])),
     }
     archivo = carpeta / "datos.tex"
     archivo.write_text("".join(rf"\def\{k}{{{v}}}" + "\n" for k, v in datos.items()), encoding="utf-8")
     return nombre, archivo
 
 
-def compilar(etiqueta, datos):
-    carpeta = BUILD / etiqueta
-    nombre = f"fimnme2026-postal-{etiqueta}"
+def lualatex(nombre, carpeta, entrada, etiqueta):
     for _ in range(2):   # dos pasadas: posiciones de TikZ (remember picture)
         r = subprocess.run(
             ["lualatex", "--interaction=nonstopmode", "--halt-on-error", f"--jobname={nombre}",
-             f"--output-directory={carpeta.relative_to(RAIZ)}",
-             rf"\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}"],
+             f"--output-directory={carpeta.relative_to(RAIZ)}", entrada],
             cwd=RAIZ, capture_output=True, text=True)
         if r.returncode != 0:
             print(f"✗ Error de LuaLaTeX en {etiqueta}; últimas líneas del registro:")
             print("\n".join((carpeta / f"{nombre}.log").read_text(errors="replace").splitlines()[-25:]))
             sys.exit(1)
+    return carpeta / f"{nombre}.pdf"
+
+
+def fondo(datos):
+    """El fondo de las postales (verde, partitura y degradado), igual en todas:
+    la plantilla compilada con \\solofondo, para el IDML."""
+    return lualatex("fondo", BUILD, rf"\def\solofondo{{}}\def\datos{{{datos.relative_to(RAIZ)}}}"
+                    r"\input{postales/postal.tex}", "el fondo")
+
+
+def compilar(etiqueta, datos, pdf_fondo):
+    carpeta = BUILD / etiqueta
+    nombre = f"fimnme2026-postal-{etiqueta}"
+    hecho = lualatex(nombre, carpeta, rf"\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}",
+                     etiqueta)
     pdf = SALIDA / f"{nombre}.pdf"
-    shutil.copyfile(carpeta / f"{nombre}.pdf", pdf)
+    shutil.copyfile(hecho, pdf)
     subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1080", "-scale-to-y", "1350", "-singlefile",
                     str(pdf), str(SALIDA / nombre)], check=True)
-    # SVG editable: fondo, fotos y logotipos en una capa; los textos en otra
-    subprocess.run([sys.executable, str(RAIZ / "postal/svg_editable.py"), str(pdf), str(SALIDA / f"{nombre}.svg"),
-                    f"48.º FIMNME · Postal: {etiqueta}"], cwd=RAIZ, check=True)
-    print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png, .pdf y .svg")
+    # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
+    idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
+                            str(SALIDA / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}")
+    print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png, .pdf e .idml")
 
 
 def main():
     lista = yaml.safe_load((SALIDA / "postales.yaml").read_text(encoding="utf-8"))["postales"]
     pedidas = set(sys.argv[1:])
+    pdf_fondo = None
     for postal in lista:
         if pedidas and not pedidas & {postal["evento"], nombre_salida(postal)}:
             continue
-        compilar(*preparar(postal))
+        etiqueta, datos = preparar(postal)
+        pdf_fondo = pdf_fondo or fondo(datos)
+        compilar(etiqueta, datos, pdf_fondo)
 
 
 if __name__ == "__main__":
