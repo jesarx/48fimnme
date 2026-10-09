@@ -1,20 +1,15 @@
 % =============================================================================
-%  Postal de un concierto · 48.º FIMNME
-%  La compila postales/genera.py con los datos de cada concierto
-%  (build/postales/<concierto>/datos.tex): no se edita a mano.
+%  Postal de un evento · 48.º FIMNME
+%  La compila postales/genera.py con los datos de cada evento
+%  (build/postales/<evento>/datos.tex): no se edita a mano.
 %
 %  Formato 4:5: 108 × 135 mm, que se exporta a 1080 × 1350 px (254 ppp).
-%  Estructura de las postales del INBAL (fotos, título, intérpretes, obras,
-%  fecha, sede, logotipos y pleca de Cultura e INBAL al pie) con el diseño
-%  del Programa general: fondo verde con la partitura, logotipo del Foro y
-%  Noto Sans.
-%
-%  De arriba abajo: el encabezado (logotipo y nombre del Foro, sobre el
-%  verde: no se encima a las fotos), las fotos, el contenido (sin espacio
-%  entre las obras y la fecha) y la franja negra con los logotipos. El
-%  contenido va pegado a la franja y las fotos ocupan lo que queda: su alto
-%  (\altofotos) se mide en una primera pasada (\medir) y genera.py recorta
-%  las fotos a esa medida. Sin cursivas, salvo los títulos de las obras.
+%  Sigue las postales del diseñador (lineamientos aprobados): fondo verde con
+%  la partitura, logotipo y nombre del Foro en su color arriba a la
+%  izquierda; antetítulo, fecha, intérpretes, recuadro de obras, sede,
+%  dirección y entrada; fotos en círculo a la derecha; al pie, sobre el
+%  degradado oscuro, los logotipos (la CNMO horizontal) y la pleca de Cultura
+%  e INBAL, con los tamaños y posiciones de esas postales.
 % =============================================================================
 \documentclass{article}
 \usepackage[paperwidth=108mm, paperheight=135mm, margin=0pt]{geometry}
@@ -29,28 +24,24 @@
   BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
   FontFace={sb}{n}{*-SemiBold}, FontFace={sb}{it}{*-SemiBoldItalic},
   FontFace={l}{n}{*-Light}, FontFace={l}{it}{*-LightItalic},
-  FontFace={eb}{n}{*-ExtraBold},
   Numbers=Lining
 ]
 \newcommand{\ligera}{\fontseries{l}\selectfont}
 \newcommand{\seminegrita}{\fontseries{sb}\selectfont}
 \newcommand{\negrita}{\fontseries{b}\selectfont}
-\newcommand{\extranegrita}{\fontseries{eb}\selectfont}
 \usepackage[spanish, es-nodecimaldot, es-noquoting, es-noshorthands, es-nolayout]{babel}
 \usepackage[protrusion=true, expansion=true, tracking=true, final]{microtype}
-\newcommand{\espaciado}[2][80]{\textls[#1]{#2}}
 
 \usepackage{xcolor}
 \usepackage{luacolor}
-\definecolor{verdeoscuro}{HTML}{172B20}
-\definecolor{portadabase}{HTML}{4E5F44}
-\definecolor{portadaluz}{HTML}{768F68}
-\definecolor{portadatexto}{HTML}{E2E6DF}
-\definecolor{portadacaja}{HTML}{A5B9A8}
-% Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
-% INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
-\definecolor{dorado}{HTML}{D2BD86}
-\definecolor{doradooscuro}{HTML}{A88B4C}
+% Colores de las postales del diseñador
+\definecolor{fondo}{HTML}{617655}
+\definecolor{colorlogo}{HTML}{E6AE78}   % logotipo y nombre del Foro
+\definecolor{tenue}{HTML}{A5B7A2}       % antetítulo y fechas del Foro
+\definecolor{claro}{HTML}{C4D2BE}       % fecha del evento y dirección
+\definecolor{caja}{HTML}{A4B9AA}        % recuadro de obras
+\definecolor{verdeoscuro}{HTML}{172B20} % texto del recuadro
+\definecolor{bordefoto}{HTML}{C6C6BE}
 
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -61,101 +52,86 @@
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
-% Medidas (desde arriba): encabezado, fotos, contenido y franja negra con los
-% logotipos. \altofotos se calcula abajo, con el alto del contenido.
-\newlength{\altocabeza}\setlength{\altocabeza}{21mm}
-\newlength{\altofranja}\setlength{\altofranja}{24mm}
-\newlength{\altofotos}
-\newsavebox{\contenido}
-\newlength{\separacion}\setlength{\separacion}{3.4mm}  % entre fotos y contenido
-
-% Un intérprete: nombre y papel, como en las postales del INBAL
+% Un intérprete: el nombre y, si lo hay, su papel en letra más ligera
 \newcommand{\interprete}[2]{%
-  {\fontsize{10.6}{13.2}\selectfont\color{white}#1\enspace
-   {\ligera\fontsize{8.6}{13.2}\selectfont\color{portadatexto}#2}\par}}
+  {\fontsize{14.2}{14.2}\selectfont\color{white}#1%
+   \ifx&#2&\else\enspace{\ligera\fontsize{10}{14.2}\selectfont\color{claro}#2}\fi\par}}
 
-% Datos de la postal: \fotos, \retratos, \antetitulo, \titulo, \subtitulo,
-% \interpretes, \obras, \estrenos, \nota, \precio, \fecha, \sede,
-% \direccion, \logos
+% Datos: \antetitulo, \fecha, \interpretes, \obras, \sede, \direccion,
+% \entrada, \fotos, \logos (los escribe genera.py)
 \input{\datos}
 
+% Zona del contenido (desde arriba): empieza a los 27,6 mm y mide 74 mm; si el
+% contenido es más corto, se centra en ella
+\newlength{\altocontenido}
+\newlength{\arriba}
+\newsavebox{\contenido}
 
 \begin{document}
-% Contenido: título, intérpretes y obras; luego (sin hueco) fecha y sede (se
-% arma aquí y no en el preámbulo: microtype espacia las versalitas desde
-% \begin{document})
+% (se arma aquí y no en el preámbulo: microtype ajusta desde \begin{document})
 \sbox{\contenido}{%
-  \begin{minipage}[b]{90mm}
+  \begin{minipage}[b]{76.6mm}
     \raggedright
-    {\fontsize{6.8}{8}\negrita\color{portadacaja}\espaciado[150]{\MakeUppercase{\antetitulo}}\par}
-    \vspace{1.4mm}
-    {\fontsize{16}{18.6}\extranegrita\color{white}\titulo\par}
-    \ifx\subtitulo\empty\else
-      \vspace{0.8mm}{\fontsize{8.6}{10.6}\ligera\color{portadatexto}\subtitulo\par}\fi
-    \vspace{2.6mm}
-    \interpretes
-    \vspace{2.8mm}
-    {\setlength{\fboxsep}{1.6mm}\colorbox{portadacaja}{\parbox{\dimexpr90mm-2\fboxsep\relax}{%
-      \raggedright\fontsize{8.6}{10.6}\seminegrita\color{verdeoscuro}\obras
-      \ifx\estrenos\empty\else\par\vspace{0.6mm}{\fontsize{6.8}{8.2}\negrita\estrenos\par}\fi}}\par}
-    \ifx\nota\empty\else
-      \vspace{1.4mm}{\fontsize{6.6}{8}\ligera\color{portadatexto}\nota\par}\fi
-    \vspace{3.6mm}
-    \ifx\precio\empty\else
-      {\fontsize{9.6}{11.6}\negrita\color{white}\precio\par}\vspace{0.6mm}\fi
-    {\fontsize{11.4}{13.6}\extranegrita\color{white}\fecha\par}
+    {\fontsize{8.5}{10}\negrita\color{tenue}\MakeUppercase{\antetitulo}\par}
     \vspace{0.4mm}
-    {\fontsize{8.8}{10.6}\seminegrita\color{portadatexto}\sede\par}
-    {\fontsize{7.8}{9.4}\selectfont\color{portadacaja}\direccion\par}
+    {\fontsize{9.9}{11.7}\seminegrita\color{claro}\fecha\par}
+    \interpretes
+    \ifx\obras\empty\else
+      \vspace{5.1mm}
+      % el recuadro sobresale 1,2 mm a la izquierda: su texto alinea con el resto
+      {\setlength{\fboxsep}{0pt}\hspace*{-1.2mm}\colorbox{caja}{\hspace{1.2mm}\parbox{\dimexpr76.6mm-2.4mm\relax}{%
+        \vspace{1.3mm}\raggedright\fontsize{7.7}{11.4}\seminegrita\color{verdeoscuro}\obras
+        \par\vspace{0.4mm}}\hspace{1.2mm}}\par}
+    \fi
+    \vspace{8.3mm}
+    {\fontsize{9.7}{11.6}\negrita\color{white}\sede\par}
+    \vspace{0.1mm}
+    {\fontsize{8.6}{11.6}\selectfont\color{claro}\direccion\par}
+    \ifx\entrada\empty\else
+      \vspace{0.9mm}{\fontsize{8.5}{10}\negrita\color{white}\entrada\par}\fi
   \end{minipage}}
-% las fotos llenan lo que queda entre el encabezado y el contenido
-\setlength{\altofotos}{\dimexpr135mm-\altofranja-3mm-\ht\contenido-\dp\contenido-\separacion-\altocabeza\relax}
-\typeout{POSTAL-ALTOFOTOS=\the\altofotos}
+\setlength{\altocontenido}{\dimexpr\ht\contenido+\dp\contenido\relax}
+\ifdim\altocontenido<74mm
+  \setlength{\arriba}{\dimexpr27.6mm+(74mm-\altocontenido)/2\relax}
+\else
+  \setlength{\arriba}{27.6mm}
+\fi
 \begin{tikzpicture}[remember picture, overlay]
-  % Fondo: verde con luz y la partitura de «1 x 4» (como la portada)
-  \fill[portadabase] (current page.south west) rectangle (current page.north east);
+  % Fondo: verde con la partitura de «1 x 4» y, al pie, el degradado oscuro
+  \fill[fondo] (current page.south west) rectangle (current page.north east);
   \begin{scope}
     \clip (current page.south west) rectangle (current page.north east);
-    \shade[inner color=portadaluz, outer color=portadabase]
-      ($(current page.south east)+(-8mm,\altofranja+14mm)$) circle (72mm);
-    \node[anchor=south east, inner sep=0pt, opacity=0.10]
-      at ($(current page.south east)+(36mm,\altofranja)$)
-      {\includegraphics[height=95mm]{\partitura}};
+    \node[anchor=north east, inner sep=0pt, opacity=0.16]
+      at ($(current page.north east)+(30mm,2mm)$)
+      {\includegraphics[height=140mm]{\partitura}};
   \end{scope}
+  \fill[black, opacity=0.86, path fading=north]
+    (current page.south west) rectangle ($(current page.south east)+(0,31mm)$);
 
-  % Encabezado: logotipo y nombre del Foro, sobre el verde
+  % Logotipo y nombre del Foro
   \node[anchor=north west, inner sep=0pt] (logo)
-    at ($(current page.north west)+(9mm,-5mm)$) {\logofimnme{11mm}{dorado}};
-  \node[anchor=north west, inner sep=0pt, text=white, align=left,
-    font=\fontsize{6.5}{7.6}\selectfont]
-    at ($(logo.north east)+(2.4mm,0.3mm)$) {%
-      {\ligera FORO INTERNACIONAL}\\
-      {\ligera DE MÚSICA NUEVA}\\
-      {\seminegrita MANUEL ENRÍQUEZ}\\[0.4mm]
-      {\fontsize{4.8}{5.8}\negrita NOVIEMBRE 6 AL 21, 2026}};
+    at ($(current page.north west)+(6.2mm,-7mm)$) {\logofimnme{11mm}{colorlogo}};
+  \node[anchor=north west, inner sep=0pt, align=left, font=\fontsize{7.6}{7.9}\selectfont]
+    at ($(logo.north east)+(1.6mm,0.3mm)$) {%
+      {\color{colorlogo}FORO INTERNACIONAL}\\
+      {\color{colorlogo}DE MÚSICA NUEVA}\\
+      {\seminegrita\color{colorlogo}MANUEL ENRÍQUEZ}\\[0mm]
+      {\fontsize{5.6}{6.6}\negrita\color{tenue}NOVIEMBRE 6 AL 21, 2026}};
 
-  % Fotos de los intérpretes, a todo lo ancho, bajo el encabezado
-  \coordinate (fotoNO) at ($(current page.north west)+(0,-\altocabeza)$);
-  \coordinate (fotoSO) at ($(fotoNO)+(0,-\altofotos)$);
-  \ifdefined\medir\else
-    \fotos
-    % degradado al verde abajo
-    \fill[portadabase, path fading=north]
-      ($(fotoSO)+(0,0.42\altofotos)$) rectangle ($(fotoSO)+(108mm,-0.6mm)$);
-    % retratos en círculo (como en las fichas del programa)
-    \retratos
-  \fi
-
-  % Contenido, pegado a la franja de los logotipos
+  % Contenido
   \node[anchor=south west, inner sep=0pt]
-    at ($(current page.south west)+(9mm,\altofranja+3mm)$) {\usebox{\contenido}};
+    at ($(current page.north west)+(5.8mm,-\arriba-\altocontenido)$) {\usebox{\contenido}};
 
-  % Franja negra al pie: logotipos y pleca de Cultura e INBAL (como en las
-  % postales del INBAL: misma posición y tamaño). Ningún logotipo es más
-  % grande que los de Cultura e INBAL.
-  \fill[black] (current page.south west) rectangle ($(current page.south east)+(0,\altofranja)$);
-  \node[anchor=center, inner sep=0pt] at ($(current page.north)+(0,-116.2mm)$) {\logos};
+  % Fotos en círculo: su centro, 5,5 mm abajo del centro del contenido (como en
+  % las postales del diseñador)
+  \coordinate (centrofotos) at ($(current page.north west)+(93.5mm,-\arriba-0.5\altocontenido-5.5mm)$);
+  \fotos
+
+  % Logotipos y pleca de Cultura e INBAL (tamaños y posiciones aprobados)
+  \node[anchor=center, inner sep=0pt] at ($(current page.north)+(0,-114.9mm)$) {\logos};
   \node[anchor=north west, inner sep=0pt]
     at ($(current page.north west)+(30mm,-121.5mm)$)
     {\includegraphics[width=48mm]{postales/recursos/pleca-cultura-inbal80.png}};

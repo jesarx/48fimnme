@@ -8,7 +8,7 @@ Toma el PDF de la postal y arma un SVG con dos capas:
 * «Textos»: cada renglón como texto editable en Noto Sans, con su peso,
   tamaño, color y espaciado entre letras.
 
-Uso: python3 postal/svg_editable.py ENTRADA.pdf SALIDA.svg
+Uso: python3 postal/svg_editable.py ENTRADA.pdf SALIDA.svg [TÍTULO]
 
 Para editarlo hay que tener instalada la familia Noto Sans (está en
 automatizacion/fuentes/).
@@ -103,6 +103,7 @@ def capa_textos(pagina):
 
 def main():
     entrada, destino = sys.argv[1], sys.argv[2]
+    titulo = sys.argv[3] if len(sys.argv) > 3 else "48.º FIMNME · Postal del abono"
     pagina = pymupdf.open(entrada)[0]
     svg = pagina.get_svg_image(text_as_path=False)
     # el fondo: todo menos los textos (que MuPDF escribe letra por letra)
@@ -117,7 +118,7 @@ def main():
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
         'xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" '
         f'width="{ancho * mm:.1f}mm" height="{alto * mm:.1f}mm" viewBox="0 0 {ancho:.3f} {alto:.3f}">\n'
-        '<title>48.º FIMNME · Postal del abono</title>\n'
+        f'<title>{escape(titulo)}</title>\n'
         '<g id="fondo" inkscape:groupmode="layer" inkscape:label="Fondo y logotipos">\n'
         + fondo[inicio:fin] +
         '</g>\n<g id="textos" inkscape:groupmode="layer" inkscape:label="Textos">\n'
