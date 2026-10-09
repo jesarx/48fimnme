@@ -2872,6 +2872,8 @@ Diálogos entre piano, imagen y electrónica
 
 **Alberto Rosado**, piano
 
+**Juan Cáceres Avitia**, electrónica
+
 ### Personas compositoras
 
 #### Iñaki Estrada (España, 1977)
@@ -3037,6 +3039,24 @@ contemporáneo e imparte la Maestría de Piano y música de cámara en el
 Conservatorio Superior de Castilla y León, donde dirige el Taller de
 música contemporánea.
 
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
+
 ::: logos
 ![](<logos/logo muac/MUAC-LOGO-COLAB.png>)
 :::
@@ -3084,6 +3104,8 @@ INTERMEDIO\
 ---
 
 **Dirén Checa**, violín y electrónica
+
+**Juan Cáceres Avitia**, electrónica
 
 ### Personas compositoras
 
@@ -3326,6 +3348,24 @@ algunos de los compositores más importantes de la escena actual. Su
 proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
 
 ## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Coro de Madrigalistas de Bellas Artes: Cadet
 
@@ -4064,6 +4104,8 @@ Carlos Blázquez
 
 **Abraham Parra Arámburo**, percusiones
 
+**Juan Cáceres Avitia**, electrónica
+
 **Gene Koshinski**
 
 -   *Killjoy* (2019)\* `\hfill`{=tex}15'
@@ -4468,6 +4510,24 @@ Schick y *Pleiades* en 2015 de Iannis Xenakis con Aiyun Huang e Iván
 Manzanilla. Fue profesor de tiempo completo en el Afghanistan National
 Institute of Music en Kabul en 2016 y 2017. Desde 2018 es músico
 residente del Ensamble Cepromusic.
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
 
 #### Aldo Aranda
 
@@ -5244,6 +5304,8 @@ Jardín Escénico, Laboratorio Escénico
 
 **Vicente Moronta**, oboe y electrónica
 
+**Juan Cáceres Avitia**, electrónica
+
 ### Personas compositoras
 
 #### Adrián Suárez (Venezuela, 1969)
@@ -5576,6 +5638,24 @@ contemporánea del Teatro Teresa Carreño y director artístico del
 Ensamble Contemporáneo de Caracas. Es cofundador del Ensamble
 Iberoamericano, OboesMigrantes Dúo y del Khyma Dúo.
 
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
+
 ## DOM | NOV 15, 18 h - Dúo Arco y Teclas / Trío Siqueiros
 
 Jardín Escénico, Pabellón Escénico
@@ -5817,6 +5897,8 @@ Jardín Escénico, Laboratorio Escénico
 
 **Ehecatl Flores**, fagot contrabajo
 
+**Juan Cáceres Avitia**, electrónica
+
 ### Personas compositoras
 
 #### Giacinto Scelsi (Italia, 1905-1988)
@@ -5961,6 +6043,24 @@ Creación y Proyectos Culturales en la vertiente de Creadores Escénicos
 solo y con electroacústica. Es pasante de la Maestría en Música mexicana
 de concierto en el Conservatorio Nacional de Música y residente del
 ensamble Cepromusic.
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
 
 ## MAR | NOV 17, 19 h - Calderone / Bassanese: Scodanibbio
 
@@ -6113,6 +6213,8 @@ Casa Rafael Galván, UAM
 **Alejandro Viramontes Nunura**
 
 -   *Phi\$hing* (2023) `\hfill `{=tex}5'
+
+**Juan Cáceres Avitia**, electrónica
 
 ### Personas compositoras
 
@@ -6394,6 +6496,26 @@ premio???, para reclamarlo solo conéctate, da clic al siguiente enlace y
 sigue estos sencillos pasos. ¡No querrás perderte esta oportunidad para
 cumplir tus sueños! phishing.alejandroviramontes.com
 
+### Intérpretes
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
+
 ::: logos
 ![](<logos/logos UAM/variacion5.png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
@@ -6620,6 +6742,8 @@ Casa Rafael Galván, UAM
 -   *Antes del anochecer* `\hfill `{=tex}8'
 
 **Antonio Russek**, curaduría y proyección sonora
+
+**Juan Cáceres Avitia**, electrónica
 
 ### Notas al programa
 
@@ -6902,6 +7026,24 @@ recibido becas, premios y distinciones y su obra se ha presentado en los
 más importantes festivales nacionales e internacionales en veinte
 países. Pertenece al Sistema Nacional de Creadores de Arte.
 
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
+
 ::: logos
 ![](<logos/logos UAM/variacion5.png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
@@ -7133,6 +7275,8 @@ Casa Rafael Galván, UAM
 
 -   *Interlude* (2022)\*\* `\hfill `{=tex}11'
 
+**Juan Cáceres Avitia**, electrónica
+
 ### Personas compositoras
 
 #### Iván Ferrer Orozco (México, 1978)
@@ -7345,6 +7489,26 @@ Su dinámica contenida, pero en gradual expansión, junto con su flujo
 espacial, funciona como una pausa perceptiva: una breve apertura entre
 paisajes sonoros turbulentos.
 
+### Intérpretes
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
+
 ::: logos
 ![](<logos/logos UAM/variacion5.png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
@@ -7374,6 +7538,8 @@ Claustro de Sor Juana
     Versión para violonchelo
 
 **Iracema de Andrade**, violonchelo eléctrico
+
+**Juan Cáceres Avitia**, electrónica
 
 **Jimena Contreras**
 
@@ -7655,6 +7821,24 @@ Electroacústicas* y *Electro-Acústico*, este último nominado a dos
 Grammy Latinos. Como creadora ha sido seleccionada para residencias
 artísticas en EMS en Estocolmo, HANGAR en Lisboa, CMMAS en Morelia y OMI
 en Nueva York.
+
+#### Juan Cáceres Avitia
+
+![](comp/Juan%20Cáceres%20Avítia.jpg)
+
+Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
+Continuó su formación en Musicología en el Conservatorio Nacional de
+Música bajo la cátedra de Ricardo Miranda, donde también estudió
+composición en el Taller de Electroacústica a cargo de Josué Peregrina.
+Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
+Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
+Universitarios e Internacionales de Música en Compostela. Ha participado
+en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
+Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
+Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
+premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
+Tecnologías aplicadas a la creación musical y Compositor residente del
+Cepromusic.
 
 #### Ónix Ensamble
 

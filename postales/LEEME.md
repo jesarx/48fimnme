@@ -1,6 +1,9 @@
 # Postales de los eventos · 48.º FIMNME
 
-Una postal por evento para redes. Cada una sale en tres formatos:
+Una postal por concierto para redes: todos los de la Ciudad de México y, de los
+estados, la de Xalapa. Un concierto con dos funciones lleva una postal por
+función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
+Cada postal sale en tres formatos:
 
 - PNG de 1080 × 1350 px;
 - PDF;
@@ -24,7 +27,11 @@ De arriba abajo:
 1. Logotipo y nombre del Foro, en el color del logotipo (#E6AE78).
 2. Antetítulo («Concierto», «Instalación sonora»…), fecha y hora.
 3. Intérpretes, uno por renglón, con su papel en letra ligera si se indica.
-4. Recuadro de obras.
+   Si un nombre no cabe en un renglón, lo que pasa al siguiente va con
+   sangría, para que no parezca otro intérprete. El papel no se parte: va
+   junto al nombre o, si no cabe, completo en el renglón siguiente.
+4. Recuadro de obras y, si se indica, una nota en cursivas (el nombre del
+   programa, una colaboración), como en la postal del abono del diseñador.
 5. Sede, dirección y «Entrada libre | Cupo limitado».
 6. Al pie, sobre el degradado oscuro: los logotipos y la pleca de Cultura e
    INBAL.
@@ -35,7 +42,9 @@ El fondo es verde, con la partitura de *1 x 4* de Enríquez.
 Medidas y colores se calibraron sobre la postal del maratón de guitarras del
 diseñador: los textos y el recuadro coinciden con ella a un par de píxeles. El
 contenido arranca a los 27,6 mm. Si es más corto que el de esa postal, se
-centra en el espacio disponible.
+centra en el espacio disponible. Si es más largo (muchos intérpretes u obras),
+sube hasta los 24 mm y, si aun así no cabe, se compone un poco más chico. Las
+fotos nunca bajan hasta los logotipos.
 
 ## De dónde sale cada dato
 
@@ -51,8 +60,9 @@ centra en el espacio disponible.
 - **De `postales.yaml`**:
   - el antetítulo y los intérpretes;
   - las fotos;
-  - lo opcional: otras obras (p. ej. el título de una instalación), la
-    entrada o el precio, otra sede o dirección.
+  - lo opcional: la función (en un concierto con varias), otras obras (p. ej.
+    el título de una instalación), una nota, la entrada o el precio, otra
+    sede o dirección.
 
   Para agregar una postal, se copia un bloque y se cambia la etiqueta del
   evento (la misma del Programa general y del sitio).
@@ -71,8 +81,9 @@ centra en el espacio disponible.
 - **«Obras de…»**: con los nombres completos. Si la lista pasa de 150
   caracteres, los nombres de pila van en inicial («J. Torres Sáenz»), como hizo
   el diseñador. Para separar apellidos usa `automatizacion/indice-onomastico.yaml`.
-- **Entrada**: «Entrada libre | Cupo limitado», salvo que se indique otra cosa
-  (la inauguración y la clausura llevan precio).
+- **Entrada**: «Entrada libre | Cupo limitado», salvo que se indique otra cosa.
+  La inauguración y la clausura llevan el precio del abono de ambos conciertos
+  (el de la postal del abono).
 - **Cursivas**: solo en los títulos de las obras. Los nombres de personas y
   lugares no se parten entre renglones.
 
@@ -84,7 +95,7 @@ centra en el espacio disponible.
 | `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG y SVG. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `recursos/` | Pleca de Cultura e INBAL. |
-| `fimnme2026-postal-<evento>.png`, `.pdf`, `.svg` | Las postales (generadas). |
+| `fimnme2026-postal-<evento>.png`, `.pdf`, `.svg` | Las postales (generadas). La de cada función de un concierto que se repite empieza con su fecha. |
 | `anteriores/` | Las primeras postales de prueba, con el diseño anterior (solo como referencia). |
 
 El SVG lo arma `postal/svg_editable.py`, el mismo que hace el de la postal del
