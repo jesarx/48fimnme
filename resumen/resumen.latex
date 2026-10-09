@@ -49,10 +49,8 @@
 \definecolor{verdegris}{HTML}{546B5C}
 \definecolor{filete}{HTML}{B9CDBF}
 \definecolor{fondobeige}{HTML}{F4F1EA}
-% Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
-% INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
-\definecolor{dorado}{HTML}{D2BD86}
-\definecolor{doradooscuro}{HTML}{A88B4C}
+% Logotipo del Foro, siempre en el color de las postales del diseñador
+\definecolor{colorlogo}{HTML}{E6AE78}
 \pagecolor{fondobeige}
 \color{verdeoscuro}
 
@@ -89,7 +87,7 @@
 \newlength{\anchohora}\setlength{\anchohora}{3.25em}% «19 h», «19:30 h»
 \newenvironment{agenda}{%
   \thispagestyle{empty}%
-  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{doradooscuro}\end{minipage}\hspace{3mm}%
+  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{colorlogo}\end{minipage}\hspace{3mm}%
   \begin{minipage}[c]{\dimexpr\linewidth-13mm\relax}\RaggedRight
     {\fontsize{9.6}{11.4}\selectfont\bfseries 48.º Foro Internacional de Música Nueva\\
       Manuel Enríquez\par}\vspace{0.8mm}
