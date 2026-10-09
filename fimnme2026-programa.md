@@ -1008,6 +1008,11 @@ discográficas: *Marañón: música para guitarra de ocho cuerdas de Ernesto
 García de León* y *The Dream of a Shadow: Phillip Houghton complete
 works*.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## SÁB | NOV 7, 17 h - Instalación sonora: Nuño de Buen
 
 Casa Rafael Galván, UAM
@@ -2219,6 +2224,11 @@ proyecto ganador del Programa de Fomento a Proyectos y Coinversiones
 Culturales con Black Noise, así como un integral del compositor potosino
 Julián Carrillo con Liminar.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## MAR | NOV 10, 19 h - Alberto Rosado, piano
 
 Palacio de Bellas Artes, Sala Manuel M. Ponce
@@ -2829,6 +2839,11 @@ ganó el apoyo de Fomento a Proyectos y Coinversiones Culturales 2023
 para grabar la obra integral para cuerdas del compositor mexicano José
 Luis Hurtado.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## JUE | NOV 12, 19 h - Alberto Rosado, piano
 
 Museo Universitario Arte Contemporáneo, UNAM
@@ -3367,6 +3382,11 @@ premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
 Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Coro de Madrigalistas de Bellas Artes: Cadet
 
 Viernes 13 de noviembre, 19 h\
@@ -3775,6 +3795,11 @@ Alcázar, **bibliotecaria**; Paulina Rodríguez, **servicio social**.
 ![](int/Rodrigo%20Cadet.jpg)
 
 Originario de la Ciudad de México. Compositor y director egresado de la Escuela Superior de Música, ha escrito obras para orquesta, ensambles de cámara y coro. Ha hecho estudios de composición y orquestación con Hugo Rosales, Alejandro Romero, Georgina Derbez, Arturo Márquez y Mario Lavista; de dirección coral con Alfredo Mendoza, Sergio Cárdenas y Digna Guerra, y de dirección orquestal con Enrique Arturo Diemecke. Ha sido director asociado del ensamble Tempus Fugit, director asistente en la Compañía Nacional de Ópera y director invitado del ensamble del Cepromusic. Ha sido director huésped en las orquestas Sinfónica Nacional, Sinfónica del IPN, Filarmónica de Sonora y de Cámara de Bellas Artes, entre otras. Ha dirigido el estreno de varias óperas, entre ellas *El día que María perdió la voz* de Marcela Rodríguez y *Titus* de Guillermo Eisner. Le han sido comisionadas nuevas obras por instituciones como la Universidad de Yale, el VocalEssence Ensamble y la asociación Classical Movements.
+
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
 
 ## SÁB | NOV 14, 11:30 h - Alberto Rosado, piano
 
@@ -4546,6 +4571,11 @@ Secretaría de Cultura como Creador Artístico con Trayectoria, su trabajo
 se proyecta como un puente entre culturas, generaciones y lenguajes.
 Actualmente reside en Amberes, donde desarrolla nuevos proyectos
 interdisciplinarios y su próxima producción discográfica como solista.
+
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
 
 ## SÁB | NOV 14, 13 h - Ensamble de Música Nueva (FaM-UNAM)
 
@@ -5656,6 +5686,11 @@ premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
 Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## DOM | NOV 15, 18 h - Dúo Arco y Teclas / Trío Siqueiros
 
 Jardín Escénico, Pabellón Escénico
@@ -5873,6 +5908,11 @@ como un ensamble representativo y estandarte contando con
 interpretaciones y actividad musical de una alta calidad para beneficio,
 no solo de la comunidad artística y musical, sino de todo el público.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## DOM | NOV 15, 19 h - Ehecatl Flores, fagot contrabajo
 
 Jardín Escénico, Laboratorio Escénico
@@ -6062,6 +6102,11 @@ premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
 Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
+
 ## MAR | NOV 17, 19 h - Calderone / Bassanese: Scodanibbio
 
 Jardín Escénico, Pabellón Escénico
@@ -6165,6 +6210,11 @@ Luigi Nono de Venecia. Fue presidente de la Associazione di Informatica
 Musicale Italiana y actualmente es profesor de Composición
 Electroacústica en el Conservatorio de Turín, coordinador de la Escuela
 de Música Electrónica y director artístico del festival To Listen To.
+
+::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
+:::
 
 ## MIÉ | NOV 18, 19 h - Electroacústica I
 
@@ -8162,6 +8212,8 @@ creación el ensamble ha ejecutado cuatrocientos conciertos en los que ha
 interpretado más de ochocientas obras y trescientos estrenos.
 
 ::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
 ![](<logos/logos cepromusic/LOGO CEPRO black.svg>)
 :::
 
@@ -10741,6 +10793,8 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 **Luis Jaime Cortez**, moderador
 
 ::: logos
+![](<logos/Centro_Cultural_Bosque_logo.ai>)
+![](<logos/Jardin_Escenico_horiz.ai>)
 ![](<logos/logos Ediciones Mexicanas de Música/Ediciones Mexicanas de Música.jpg>){realce="0.4"}
 :::
 
@@ -11305,7 +11359,7 @@ Av. Juárez y Eje Central Lázaro Cárdenas s/n, Centro Histórico, Ciudad de M�
 Tacuba 8, Centro Histórico, Ciudad de México
 
 **Jardín Escénico**\
-Paseo de la Reforma 111, Bosque de Chapultepec, Ciudad de México
+Paseo de la Reforma s/n, esq. Chivatito, Bosque de Chapultepec, Ciudad de México
 
 **Museo de Arte Carrillo Gil**\
 Revolución 1608, San Ángel, Ciudad de México
