@@ -49,10 +49,8 @@
 \definecolor{verdegris}{HTML}{546B5C}
 \definecolor{filete}{HTML}{B9CDBF}
 \definecolor{fondobeige}{HTML}{F4F1EA}
-% Logotipo del Foro, siempre en dorado (el del logotipo de los 80 años del
-% INBAL): claro sobre fondos verdes u oscuros; más profundo sobre el beige
-\definecolor{dorado}{HTML}{D2BD86}
-\definecolor{doradooscuro}{HTML}{A88B4C}
+% Logotipo del Foro, siempre en el color de las postales del diseñador
+\definecolor{colorlogo}{HTML}{E6AE78}
 \pagecolor{fondobeige}
 \color{verdeoscuro}
 
@@ -89,17 +87,17 @@
 \newlength{\anchohora}\setlength{\anchohora}{3.25em}% «19 h», «19:30 h»
 \newenvironment{agenda}{%
   \thispagestyle{empty}%
-  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{doradooscuro}\end{minipage}\hspace{3mm}%
+  \noindent\begin{minipage}[c]{10mm}\logofimnme{10mm}{colorlogo}\end{minipage}\hspace{3mm}%
   \begin{minipage}[c]{\dimexpr\linewidth-13mm\relax}\RaggedRight
-    {\fontsize{9.6}{11.4}\selectfont\bfseries 48.º Foro Internacional de Música Nueva\\
+    {\fontsize{9.6}{11.4}\selectfont\bfseries Foro Internacional de Música Nueva\\
       Manuel Enríquez\par}\vspace{0.8mm}
     {\fontsize{8}{9.6}\selectfont\color{acento}\bfseries 6 al 21 de noviembre de 2026
       \enspace·\enspace\color{verdegris}\mdseries Agenda y programas\par}
   \end{minipage}\par\vspace{1.8mm}%
   {\color{filete}\hrule height 0.6pt}\vspace{1mm}%
   {\fontsize{6.8}{8.2}\selectfont\color{verdegris}En cursiva, actividades académicas y
-    sesiones del Coloquio Manuel Enríquez 100. La letra indica la sede (al final de la
-    agenda, con su dirección).\par}\vspace{0.6mm}%
+    sesiones del Coloquio Manuel Enríquez~100.\\
+    La letra indica la sede (al final de la agenda, con su dirección).\par}\vspace{0.6mm}%
   \fontsize{7}{8.3}\selectfont
   \begin{multicols}{2}\raggedright
   \clubpenalty=10000 \widowpenalty=10000 \hyphenpenalty=10000 \exhyphenpenalty=10000
@@ -145,7 +143,7 @@
   \noindent\begin{minipage}[c]{8mm}\logocnmo{8mm}{verdegris}\end{minipage}\hspace{2.5mm}%
   \begin{minipage}[c]{\dimexpr\linewidth-10.5mm\relax}\RaggedRight
     \color{verdegris}\fontsize{7}{8.6}\selectfont Obras, semblanzas y notas al programa
-    en el Programa general del 48.º FIMNME.\end{minipage}\par}
+    en el \mbox{Programa general} del \mbox{48.º FIMNME}.\end{minipage}\par}
 % #1 fecha y hora  #2 letras de sede  #3 título  #4 sede
 \newcommand{\concierto}[4]{\par\addvspace{3.4mm}%
   \setbox\cajaconcierto=\vbox\bgroup
@@ -192,6 +190,13 @@
 \newcommand{\grupodirectorio}[1]{\par\addvspace{5mm}%
   {\fontsize{7.4}{9}\selectfont\bfseries\color{acento}\espaciado[80]{\MakeUppercase{#1}}\par}%
   \nopagebreak\vspace{0.6mm}}
+% Créditos del FIMNME y de la Coordinación Nacional de Música y Ópera (los del
+% Programa general), antes del directorio de la última página
+\newcommand{\creditos}[1]{\clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  {\centering\fontsize{7.6}{9.2}\selectfont\let\\\saltodirectorio
+   \setlength{\parskip}{1.8mm}\hyphenpenalty=10000 #1\par}%
+  \vspace*{\fill}}
 \newcommand{\contraportada}[1]{\clearpage\thispagestyle{empty}%
   \vspace*{\fill}%
   {\centering\fontsize{8}{9.8}\selectfont\let\\\saltodirectorio

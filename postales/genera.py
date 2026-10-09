@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Postales de los conciertos del 48.º FIMNME (1080 × 1350 px, PNG y PDF).
+"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, PDF y SVG editable).
 
-Lee postales/postales.yaml (datos editoriales de cada postal) y, de cada
-concierto, lo que ya está en el Markdown: fecha, hora, sede, dirección,
-obras, estrenos y logotipos (de sitio/_conciertos/<concierto>.html, que
-genera sitio/genera.sh). Prepara los logotipos en blanco y los datos para
-postales/postal.tex y lo compila con LuaLaTeX en dos pasadas: la primera mide
-cuánto alto queda para las fotos (el contenido va pegado a la franja de los
-logotipos) y la segunda las pone, recortadas a esa medida y centradas en los
-rostros.
+Siguen las postales del diseñador (lineamientos y tamaños de logotipos
+aprobados). Lee postales/postales.yaml (antetítulo, intérpretes, fotos…) y,
+de cada evento, lo que ya está en el Markdown: fecha, hora, sede, dirección,
+obras y logotipos (de sitio/_conciertos/<evento>.html, que genera
+sitio/genera.sh). Prepara las fotos en círculo (centradas en los rostros), los
+logotipos en blanco y los datos para postales/postal.tex, y lo compila con
+LuaLaTeX.
 
     python3 postales/genera.py                 todas las postales
-    python3 postales/genera.py <concierto>…    solo esas
+    python3 postales/genera.py <evento>…       solo esas
 
-Salida: postales/fimnme2026-postal-<concierto>.png y .pdf
+Salida: postales/fimnme2026-postal-<evento>.png, .pdf y .svg (editable en
+Inkscape o Illustrator, con los textos como texto en Noto Sans).
 """
 
 import json
@@ -36,15 +36,20 @@ except Exception:   # noqa: BLE001
 
 BUILD = RAIZ / "build/postales"
 SALIDA = RAIZ / "postales"
-ANCHO_MM = 108
-PX_MM = 20                            # fotos a 2× de la salida (10 px/mm)
-DIAMETRO_RETRATO_MM = 20
-# Logotipos de la franja: ninguno más grande que los de Cultura e INBAL de la
-# pleca (el escudo y «Cultura» ocupan unos 22 × 7 mm; el del INBAL, 13 mm de
-# ancho): a lo más 4,5 mm de alto y 13 mm de ancho, con un área parecida
-# entre sí. La CNMO, en su versión horizontal.
-ALTO_MAX_LOGO, ANCHO_MAX_LOGO, AREA_LOGO = 4.5, 13.0, 42.0
-ANCHO_CNMO = 15.5
+PX_MM = 20                    # fotos a 2× de la salida (10 px/mm)
+DIAMETRO_FOTO_MM = 17.2       # círculos de las postales del diseñador
+PASO_FOTOS_MM = 20.2          # de centro a centro
+MAX_FOTOS = 4
+# Logotipos (tamaños aprobados en las postales del diseñador): la CNMO
+# horizontal a 15,2 mm de ancho; los demás, de área parecida (como el del
+# Centro Cultural del Bosque, 8 × 4,2 mm), a lo más 4,2 mm de alto y 14 de ancho
+ANCHO_CNMO_MM = 15.2
+ALTO_MAX_LOGO, ANCHO_MAX_LOGO, AREA_LOGO = 4.2, 14.0, 34.0
+SEPARACION_LOGOS_MM = 4.2
+# Con más letras que esto, en «Obras de…» los nombres de pila van en inicial
+# («J. Torres Sáenz»), como en las postales del diseñador
+LARGO_MAX_OBRAS = 150
+ENTRADA_LIBRE = "Entrada libre | Cupo limitado"
 
 
 def tex(texto, juntos=()):
@@ -62,8 +67,44 @@ def tex(texto, juntos=()):
     return re.sub(r"\*([^*]+)\*", r"\\emph{\1}", t)
 
 
-def datos_concierto(etiqueta):
-    """Encabezado de la página del concierto y los nombres de sus compositores."""
+CONECTORES = {"de", "del", "la", "las", "los", "y"}
+
+
+def juntar_nombres(texto, limite=26):
+    """Los nombres propios (de lugares y personas) no se parten entre renglones:
+    «Bosque de Chapultepec», «Paseo de la Reforma» (con espacios fijos)."""
+    palabras = texto.split(" ")
+    def mayuscula(w):
+        return w[:1].isupper() and not w[:1].isdigit()
+    k, salida = 0, []
+    while k < len(palabras):
+        j = k
+        if mayuscula(palabras[k]) and not palabras[k].endswith((",", ".", ";", ":")):
+            # una cadena: mayúscula (conector)* mayúscula …
+            while j + 1 < len(palabras):
+                m = j + 1
+                while m < len(palabras) and palabras[m] in CONECTORES:
+                    m += 1
+                if m < len(palabras) and mayuscula(palabras[m]) and not palabras[j].endswith((",", ".", ";", ":")):
+                    j = m
+                    if palabras[m].endswith((",", ".", ";", ":")):
+                        break
+                else:
+                    break
+        cadena = " ".join(palabras[k:j + 1])
+        if j > k and len(cadena) <= limite:
+            salida.append(cadena.replace(" ", "\u00a0"))
+        else:
+            salida.extend(palabras[k:j + 1])
+        k = j + 1
+    # y el último renglón, con dos palabras al menos
+    if len(salida) > 2 and len(salida[-2]) + len(salida[-1]) < limite:
+        salida[-2:] = [salida[-2] + "\u00a0" + salida[-1]]
+    return " ".join(salida)
+
+
+def datos_evento(etiqueta):
+    """Encabezado de la página del evento y los nombres de sus compositores."""
     archivo = RAIZ / "sitio/_conciertos" / f"{etiqueta}.html"
     if not archivo.exists():
         sys.exit(f"✗ No existe {archivo.relative_to(RAIZ)}: revise la etiqueta o ejecute sitio/genera.sh --contenido")
@@ -91,18 +132,13 @@ def foco_de(img, foco):
     return (0.5, 0.4)
 
 
-def recortar(img, ancho, alto, foco):
-    """Recorta img a la proporción ancho:alto alrededor de foco y la escala."""
+def recortar(img, lado, foco):
+    """Recorte cuadrado de img alrededor de foco, escalado a lado × lado."""
     fx, fy = foco
-    proporcion = ancho / alto
-    if img.width / img.height > proporcion:     # sobra ancho
-        w, h = int(img.height * proporcion), img.height
-    else:                                       # sobra alto
-        w, h = img.width, int(img.width / proporcion)
-    # el rostro, a un tercio desde arriba (no al centro)
-    x0 = min(max(0, int(fx * img.width - w / 2)), img.width - w)
-    y0 = min(max(0, int(fy * img.height - h * 0.4)), img.height - h)
-    return img.crop((x0, y0, x0 + w, y0 + h)).resize((ancho, alto), Image.LANCZOS)
+    l = min(img.width, img.height)
+    x0 = min(max(0, int(fx * img.width - l / 2)), img.width - l)
+    y0 = min(max(0, int(fy * img.height - l * 0.45)), img.height - l)
+    return img.crop((x0, y0, x0 + l, y0 + l)).resize((lado, lado), Image.LANCZOS)
 
 
 def logo_blanco(archivo, destino):
@@ -114,17 +150,18 @@ def logo_blanco(archivo, destino):
     return alfa.size
 
 
-def sede_texto(fm):
-    """«Sala Principal, Palacio de Bellas Artes» → «Palacio de Bellas Artes, Sala Principal»."""
+def sede_y_direccion(fm):
+    """«Centro Cultural Tlaqná, Sala Principal, Xalapa, Veracruz» y su dirección →
+    («Centro Cultural Tlaqná, Sala Principal», «Av. …, Xalapa, Veracruz»).
+    En la Ciudad de México la dirección va sin «Ciudad de México»."""
     lugar = fm["fechas"][0]["lugar"] or fm["lugares"][0]
-    sede = fm["fechas"][0]["sede_nombre"]
-    if sede and lugar.endswith(", " + sede):
-        return sede + ", " + lugar[: -len(sede) - 2]
-    return lugar
-
-
-def direccion_texto(fm):
-    return re.sub(r",\s*Ciudad de México$", "", fm["fechas"][0]["direccion"] or "")
+    direccion = fm["fechas"][0]["direccion"] or fm.get("direccion", "")
+    partes = lugar.split(", ")
+    for k in range(1, len(partes)):
+        if direccion.endswith(", ".join(partes[k:])):
+            lugar = ", ".join(partes[:k])
+            break
+    return lugar, re.sub(r",\s*Ciudad de México$", "", direccion)
 
 
 def fecha_texto(fm):
@@ -132,127 +169,128 @@ def fecha_texto(fm):
     return f"{f['dia']} de 2026, {f['hora']} h"
 
 
-def preparar(postal):
-    """Logotipos y datos de la postal; las fotos se recortan al compilar."""
-    etiqueta = postal["concierto"]
-    fm = datos_concierto(etiqueta)
-    carpeta = BUILD / etiqueta
-    carpeta.mkdir(parents=True, exist_ok=True)
+def apellidos():
+    """Excepciones del índice onomástico: «Nombre Apellidos» → «Apellidos, Nombre»."""
+    datos = yaml.safe_load((RAIZ / "automatizacion/indice-onomastico.yaml").read_text(encoding="utf-8"))
+    return {k: v for k, v in (datos.get("indice-onomastico") or {}).items() if v != "-"}
 
-    # Logotipos: la CNMO y los del concierto, en blanco
-    logos = [rf"\logocnmohorizontal{{{ANCHO_CNMO}mm}}{{white}}"]
+
+def con_iniciales(nombre, excepciones):
+    """«Jorge Torres Sáenz» → «J. Torres Sáenz»; «Liliana Z. del Río» → «L.Z. del Río»."""
+    if nombre in excepciones and ", " in excepciones[nombre]:
+        apellido, pila = excepciones[nombre].split(", ", 1)
+    else:
+        palabras = nombre.split()
+        k = len(palabras) - 1
+        while k > 1 and palabras[k - 1][:1].islower():   # partículas: «del Río»
+            k -= 1
+        apellido, pila = " ".join(palabras[k:]), " ".join(palabras[:k])
+    iniciales = "".join(p[0] + "." for p in pila.split() if p[:1].isupper())
+    return f"{iniciales} {apellido}" if iniciales else apellido
+
+
+def obras_texto(fm, postal):
+    """«Obras de…» del Markdown (o el de postales.yaml); si es muy largo, con
+    los nombres de pila en inicial."""
+    if postal.get("obras"):
+        return postal["obras"]
+    obras = fm.get("obras", "")
+    if len(obras) > LARGO_MAX_OBRAS:
+        excepciones = apellidos()
+        for c in sorted(fm.get("compositores", []), key=len, reverse=True):
+            obras = obras.replace(c, con_iniciales(c, excepciones))
+    return obras
+
+
+def logos(fm, carpeta):
+    """La CNMO (horizontal) y los logotipos del evento, en blanco."""
+    lista = [rf"\logocnmohorizontal{{{ANCHO_CNMO_MM}mm}}{{white}}"]
     for k, l in enumerate(fm.get("logos", [])):
         destino = carpeta / f"logo-{k + 1}.png"
         w, h = logo_blanco(l["archivo"], destino)
         r = w / h
         alto = min((AREA_LOGO / r) ** 0.5, ALTO_MAX_LOGO, ANCHO_MAX_LOGO / r)
-        logos.append(rf"\includegraphics[width={alto * r:.2f}mm, height={alto:.2f}mm]{{{destino.relative_to(RAIZ)}}}")
+        lista.append(rf"\includegraphics[width={alto * r:.2f}mm, height={alto:.2f}mm]{{{destino.relative_to(RAIZ)}}}")
+    return rf"\hspace{{{SEPARACION_LOGOS_MM}mm}}".join(r"\raisebox{-0.5\height}{" + l + "}" for l in lista)
 
-    nombres = fm.get("compositores", []) + [n for n, _ in postal.get("interpretes", [])]
-    interpretes = "".join(rf"\interprete{{{tex(n)}}}{{{tex(p)}}}" for n, p in postal.get("interpretes", []))
+
+def fotos(postal, carpeta):
+    """Fotos en círculo, una debajo de otra, centradas en (centrofotos)."""
+    rutas = (postal.get("fotos") or [])[:MAX_FOTOS]
+    focos = postal.get("foco", {}) or {}
+    r = DIAMETRO_FOTO_MM / 2
+    tikz = []
+    for k, ruta in enumerate(rutas):
+        img = abrir(ruta)
+        destino = carpeta / f"foto-{k + 1}.jpg"
+        recortar(img, round(DIAMETRO_FOTO_MM * PX_MM), foco_de(img, focos.get(ruta))).save(destino, quality=90)
+        dy = ((len(rutas) - 1) / 2 - k) * PASO_FOTOS_MM
+        centro = f"($(centrofotos)+(0,{dy:.2f}mm)$)"
+        tikz.append(
+            rf"\begin{{scope}}\clip {centro} circle ({r:.2f}mm);"
+            rf"\node[inner sep=0pt] at {centro} {{\includegraphics[width={DIAMETRO_FOTO_MM}mm]{{{destino.relative_to(RAIZ)}}}}};\end{{scope}}"
+            rf"\draw[bordefoto, line width=1.4pt] {centro} circle ({r:.2f}mm);")
+    return "\n".join(tikz)
+
+
+def preparar(postal):
+    etiqueta = postal["evento"]
+    fm = datos_evento(etiqueta)
+    carpeta = BUILD / etiqueta
+    carpeta.mkdir(parents=True, exist_ok=True)
+    nombres = fm.get("compositores", []) + [i if isinstance(i, str) else i[0] for i in postal.get("interpretes", [])]
+
+    interpretes = []
+    for i in postal.get("interpretes", []):
+        nombre, papel = (i, "") if isinstance(i, str) else (i[0], i[1] if len(i) > 1 else "")
+        interpretes.append(rf"\interprete{{{tex(nombre, [nombre])}}}{{{tex(papel)}}}")
+    sede, direccion = sede_y_direccion(fm)
     datos = {
-        "fotos": "",
-        "retratos": "",
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
-        "titulo": tex(postal.get("titulo", fm["title"])),
-        "subtitulo": tex(postal.get("subtitulo", "")),
-        "interpretes": interpretes,
-        "obras": tex(postal.get("obras") or fm.get("obras", ""), nombres),
-        "estrenos": tex(postal.get("estrenos", fm.get("estrenos", ""))),
-        "nota": tex(postal.get("nota", "")),
-        "precio": tex(postal.get("precio", "")),
         "fecha": tex(postal.get("fecha", fecha_texto(fm))),
-        "sede": tex(postal.get("sede", sede_texto(fm))),
-        "direccion": tex(postal.get("direccion", direccion_texto(fm))),
-        "logos": r"\hspace{5mm}".join(r"\raisebox{-0.5\height}{" + l + "}" for l in logos),
+        "interpretes": "".join(interpretes),
+        "obras": tex(obras_texto(fm, postal), nombres),
+        "sede": tex(juntar_nombres(postal.get("sede", sede))),
+        "direccion": tex(juntar_nombres(postal.get("direccion", direccion))),
+        "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
+        "fotos": fotos(postal, carpeta),
+        "logos": logos(fm, carpeta),
     }
-    return etiqueta, carpeta, datos
-
-
-def escribir_datos(carpeta, datos):
     archivo = carpeta / "datos.tex"
     archivo.write_text("".join(rf"\def\{k}{{{v}}}" + "\n" for k, v in datos.items()), encoding="utf-8")
-    return archivo
+    return etiqueta, archivo
 
 
-def fotos_y_retratos(postal, carpeta, alto_mm):
-    """Fotos a todo lo ancho (lado a lado) y retratos en círculo, para el alto medido."""
-    focos = postal.get("foco", {}) or {}
-    fotos = postal.get("fotos", []) or []
-    tikz = []
-    n = len(fotos)
-    for k, ruta in enumerate(fotos):
-        ancho_mm = ANCHO_MM / n
-        img = abrir(ruta)
-        recorte = recortar(img, round(ancho_mm * PX_MM), round(alto_mm * PX_MM), foco_de(img, focos.get(ruta)))
-        destino = carpeta / f"foto-{k + 1}.jpg"
-        recorte.save(destino, quality=90)
-        tikz.append(rf"\node[anchor=north west, inner sep=0pt] at ($(fotoNO)+({k * ancho_mm:.3f}mm,0)$)"
-                    rf" {{\includegraphics[width={ancho_mm:.3f}mm, height=\altofotos]{{{destino.relative_to(RAIZ)}}}}};")
-        if k > 0:
-            tikz.append(rf"\draw[portadabase, line width=1.2pt] ($(fotoNO)+({k * ancho_mm:.3f}mm,0)$) -- ($(fotoSO)+({k * ancho_mm:.3f}mm,0)$);")
-
-    # Retratos en círculo, abajo a la derecha de las fotos, de izquierda a
-    # derecha en el orden de la lista
-    retratos = []
-    lista_retratos = postal.get("retratos", []) or []
-    diametro = min(DIAMETRO_RETRATO_MM, alto_mm - 6)
-    r = diametro / 2
-    for k, ruta in enumerate(lista_retratos):
-        img = abrir(ruta)
-        lado = round(diametro * PX_MM)
-        recorte = recortar(img, lado, lado, foco_de(img, focos.get(ruta)))
-        destino = carpeta / f"retrato-{k + 1}.jpg"
-        recorte.save(destino, quality=90)
-        x = ANCHO_MM - 9 - r - (len(lista_retratos) - 1 - k) * (diametro + 3)
-        centro = rf"($(fotoSO)+({x:.2f}mm,{r + 3:.2f}mm)$)"
-        retratos.append(
-            rf"\begin{{scope}}\clip {centro} circle ({r:.2f}mm);"
-            rf"\node[inner sep=0pt] at {centro} {{\includegraphics[width={diametro:.2f}mm]{{{destino.relative_to(RAIZ)}}}}};\end{{scope}}"
-            rf"\draw[portadacaja, line width=1.1pt] {centro} circle ({r:.2f}mm);")
-    return "\n".join(tikz), "\n".join(retratos)
-
-
-def lualatex(carpeta, nombre, datos, medir=False):
-    previo = r"\def\medir{}" if medir else ""
-    r = subprocess.run(
-        ["lualatex", "--interaction=nonstopmode", "--halt-on-error", f"--jobname={nombre}",
-         f"--output-directory={carpeta.relative_to(RAIZ)}",
-         rf"{previo}\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}"],
-        cwd=RAIZ, capture_output=True, text=True)
-    registro = (carpeta / f"{nombre}.log").read_text(errors="replace")
-    if r.returncode != 0:
-        print(f"✗ Error de LuaLaTeX en {nombre}; últimas líneas del registro:")
-        print("\n".join(registro.splitlines()[-25:]))
-        sys.exit(1)
-    return registro
-
-
-def compilar(postal, etiqueta, carpeta, datos):
+def compilar(etiqueta, datos):
+    carpeta = BUILD / etiqueta
     nombre = f"fimnme2026-postal-{etiqueta}"
-    # 1.ª pasada: sin fotos, para medir su alto (y las posiciones de TikZ)
-    registro = lualatex(carpeta, nombre, escribir_datos(carpeta, datos), medir=True)
-    alto_pt = float(re.search(r"POSTAL-ALTOFOTOS=([\d.]+)pt", registro).group(1))
-    alto_mm = alto_pt * 25.4 / 72.27
-    if alto_mm < 24:
-        print(f"⚠ {etiqueta}: el contenido deja solo {alto_mm:.0f} mm para las fotos; conviene acortarlo")
-    # 2.ª pasada: con las fotos recortadas a esa medida
-    datos["fotos"], datos["retratos"] = fotos_y_retratos(postal, carpeta, alto_mm)
-    lualatex(carpeta, nombre, escribir_datos(carpeta, datos))
+    for _ in range(2):   # dos pasadas: posiciones de TikZ (remember picture)
+        r = subprocess.run(
+            ["lualatex", "--interaction=nonstopmode", "--halt-on-error", f"--jobname={nombre}",
+             f"--output-directory={carpeta.relative_to(RAIZ)}",
+             rf"\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}"],
+            cwd=RAIZ, capture_output=True, text=True)
+        if r.returncode != 0:
+            print(f"✗ Error de LuaLaTeX en {etiqueta}; últimas líneas del registro:")
+            print("\n".join((carpeta / f"{nombre}.log").read_text(errors="replace").splitlines()[-25:]))
+            sys.exit(1)
     pdf = SALIDA / f"{nombre}.pdf"
     shutil.copyfile(carpeta / f"{nombre}.pdf", pdf)
     subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1080", "-scale-to-y", "1350", "-singlefile",
                     str(pdf), str(SALIDA / nombre)], check=True)
-    print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png y .pdf (fotos de {alto_mm:.0f} mm de alto)")
+    # SVG editable: fondo, fotos y logotipos en una capa; los textos en otra
+    subprocess.run([sys.executable, str(RAIZ / "postal/svg_editable.py"), str(pdf), str(SALIDA / f"{nombre}.svg"),
+                    f"48.º FIMNME · Postal: {etiqueta}"], cwd=RAIZ, check=True)
+    print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png, .pdf y .svg")
 
 
 def main():
     lista = yaml.safe_load((SALIDA / "postales.yaml").read_text(encoding="utf-8"))["postales"]
     pedidas = set(sys.argv[1:])
     for postal in lista:
-        if pedidas and postal["concierto"] not in pedidas:
+        if pedidas and postal["evento"] not in pedidas:
             continue
-        compilar(postal, *preparar(postal))
+        compilar(*preparar(postal))
 
 
 if __name__ == "__main__":

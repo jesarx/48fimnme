@@ -6,7 +6,9 @@ letra de lectura (Noto Sans de 8 pt en los programas).
 
 - **Páginas 1–2 · Agenda.** Todos los conciertos, actividades académicas y
   sesiones del Coloquio, día por día, con hora, título y la letra de su sede,
-  más la clave de sedes con su dirección.
+  más la clave de sedes con su dirección (primero el recinto y luego la sala).
+  Los nombres no se cortan entre renglones y ningún título termina con una
+  palabra sola en su último renglón (`automatizacion/tipografia.lua`).
 - **Programas.** Un concierto por bloque (no se parte entre páginas): fecha,
   título y sede; sus intérpretes y las personas compositoras («Obras de A, B
   y C»), sin los títulos de las obras; y cuántos estrenos mundiales y en
@@ -14,11 +16,16 @@ letra de lectura (Noto Sans de 8 pt en los programas).
   sola vez). Se omiten las listas de integrantes de los conjuntos (se dan
   su nombre y su dirección).
 - **Actividades académicas y Coloquio**, con sus participantes.
-- **Penúltima página · Logotipos.** Todos los logotipos del Programa general (los
-  bloques `::: logos` de cada concierto), sin repetir, en copias ligeras
-  para que el PDF siga pesando poco.
+- **Logotipos.** Todos los logotipos del Programa general (los bloques
+  `::: logos` de cada concierto), sin repetir, en copias ligeras para que el
+  PDF siga pesando poco.
+- **Créditos** del 48.º FIMNME («## Créditos») y directorio de la
+  Coordinación Nacional de Música y Ópera («## Directorio»), como en el
+  Programa general.
 - **Última página · Directorio** de la Secretaría de Cultura y del INBAL (el
   bloque `::: contraportada` del Markdown), con la pleca institucional al pie.
+
+En total, 16 páginas (múltiplo de 4, para imprimirlo).
 
 No se edita a mano: se genera a partir del mismo `fimnme2026-programa.md`,
 así que cualquier corrección al programa general llega también aquí.

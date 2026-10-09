@@ -82,6 +82,6 @@ if [[ "${1:-}" != "--rapido" ]]; then
   postal/compila.sh
   echo "▸ Sitio web…"
   sitio/genera.sh
-  echo "▸ Postales de los conciertos…"
+  echo "▸ Postales de los eventos…"
   python3 postales/genera.py
 fi

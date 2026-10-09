@@ -15,6 +15,8 @@
 -- =============================================================================
 
 local stringify = pandoc.utils.stringify
+package.path = "automatizacion/?.lua;" .. package.path
+local tipografia = require("tipografia")
 
 local function trim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
 local function raw(s) return pandoc.RawBlock("latex", s) end
@@ -113,9 +115,11 @@ local function titulo_latex(inlines, titulo)
   for k = 2, #inlines - 1 do
     local el = inlines[k]
     if el.t == "Str" and el.text == "-" and inlines[k - 1].t == "Space" and inlines[k + 1].t == "Space" then
-      local resto = pandoc.List()
+      local resto = pandoc.Inlines({})
       for j = k + 2, #inlines do resto:insert(inlines[j]) end
-      return latex(resto)
+      -- sin nombres cortados ni una palabra sola en el último renglón (en la
+      -- agenda, a dos columnas, los de más de 26 letras se parten en dos)
+      return latex(tipografia.componer(tipografia.atar_final(tipografia.nombres(resto, 26), 1, 26)))
     end
   end
   return escape(titulo)
@@ -271,23 +275,25 @@ function Pandoc(doc)
     tras_obras = false
   end
 
+  -- Sede de cada fecha: el renglón de la sede («Palacio de Bellas Artes, Sala
+  -- Principal») con los que siguen (ciudad y estado), y aparte ese renglón solo
   local function sede_de(parrafos)
-    local res = {}
+    local res, solos = {}, {}
     for _, p in ipairs(parrafos) do
       local rs = renglones(p.content)
       local lugar
       for k, r in ipairs(rs) do
         local t = stringify(r)
         if palabra_sede(t) then
-          -- con los renglones que siguen (ciudad y estado)
           lugar = t
+          solos[#res + 1] = t
           for j = k + 1, #rs do lugar = lugar .. ", " .. stringify(rs[j]) end
           break
         end
       end
       if lugar then res[#res + 1] = lugar end
     end
-    return res
+    return res, solos
   end
 
   local i, n = 1, #bloques
@@ -317,7 +323,7 @@ function Pandoc(doc)
           parrafos[#parrafos + 1] = bloques[k]
           k = k + 1
         end
-        ev.lugares = sede_de(parrafos)
+        ev.lugares, ev.renglones_sede = sede_de(parrafos)
         if #ev.lugares == 0 then io.stderr:write("Sin sede: " .. texto .. "\n") end
         i = k - 1
         table.insert(eventos, ev)
@@ -447,17 +453,21 @@ function Pandoc(doc)
   -- ---------------------------------------------------------------------------
   local por_palabra = {}
   for _, s in ipairs(sedes) do if s.palabra then por_palabra[s.palabra] = s end end
-  local function sala_de(lugar, sede)
-    local primero = trim((lugar:match("^([^,]+)") or lugar))
-    if clave(sede.nombre):find(clave(primero), 1, true) then return "" end
-    return primero
+  -- La sala: lo que sigue al nombre del recinto («Palacio de Bellas Artes,
+  -- Sala Principal» → «Sala Principal»; «Casa Rafael Galván, UAM» → nada)
+  local function sala_de(renglon, sede)
+    local partes = {}
+    for parte in (renglon .. ","):gmatch("%s*([^,]+),") do partes[#partes + 1] = trim(parte) end
+    local k = 1
+    while partes[k] and clave(sede.nombre):find(clave(partes[k]), 1, true) do k = k + 1 end
+    return table.concat(partes, ", ", k)
   end
   for _, e in ipairs(eventos) do
     e.claves = {}
     for k, lugar in ipairs(e.lugares) do
       local sede = por_palabra[palabra_sede(lugar)]
       if sede then
-        local sala = sala_de(lugar, sede)
+        local sala = sala_de(e.renglones_sede[k] or lugar, sede)
         if not sede.salas[sala] then
           sede.salas[sala] = { orden = #sede.salas + 1 }
           table.insert(sede.salas, sala)
@@ -525,7 +535,7 @@ function Pandoc(doc)
       local direccion = s.direccion:gsub(", Ciudad de México$", "")
       for k, sala in ipairs(s.salas) do
         local nombre = escape(s.nombre)
-        if sala ~= "" then nombre = escape(sala) .. ", " .. nombre end
+        if sala ~= "" then nombre = nombre .. ", " .. escape(sala) end
         emit(string.format("\\sede{%s}{%s}{%s}", s.salas[sala].letra, nombre,
           k == 1 and escape(direccion) or ""))
       end
@@ -707,6 +717,24 @@ function Pandoc(doc)
   else
     emit("\\cierre")
   end
+
+  -- Créditos: los del 48.º FIMNME («## Créditos») y el directorio de la
+  -- Coordinación Nacional de Música y Ópera («## Directorio»)
+  local cred, tomar = {}, false
+  local function quiero(titulo)
+    local c = clave(titulo)
+    return c:find("foro internacional de musica nueva", 1, true) ~= nil
+        or c == "coordinacion nacional de musica y opera"
+  end
+  for _, b in ipairs(doc.blocks) do
+    if b.t == "Header" and b.level <= 3 then
+      tomar = b.level == 3 and quiero(stringify(b.content))
+      if tomar then cred[#cred + 1] = "\\grupodirectorio{" .. latex(b.content) .. "}" end
+    elseif tomar and (b.t == "Para" or b.t == "Plain") then
+      cred[#cred + 1] = latex(b.content) .. "\\par"
+    end
+  end
+  if #cred > 0 then emit("\\creditos{" .. table.concat(cred, "\n") .. "}") end
 
   -- Última página: directorio de la Secretaría de Cultura y del INBAL (el
   -- bloque «::: contraportada») con la pleca institucional

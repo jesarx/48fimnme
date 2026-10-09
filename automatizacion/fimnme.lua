@@ -19,10 +19,15 @@
 --    * alimenta el índice onomástico de personas compositoras (makeindex);
 --    * usa las fotos ya recortadas por automatizacion/preparar_imagenes.py;
 --    * descarta los \clearpage y \vfill manuales: la paginación la decide
---      la plantilla.
+--      la plantilla;
+--    * en el texto corrido (semblanzas, notas, intérpretes, descripciones):
+--      siglas en versalitas, nombres sin cortar y el último renglón de cada
+--      párrafo con dos palabras al menos (automatizacion/tipografia.lua).
 -- =============================================================================
 
 local stringify = pandoc.utils.stringify
+package.path = "automatizacion/?.lua;" .. package.path
+local tipografia = require("tipografia")
 
 -- -----------------------------------------------------------------------------
 -- Utilidades
@@ -362,7 +367,8 @@ local function lista_obras(lista, marcas)
     elseif dur == "" and not tiene_anio(titulo) and anterior then
       table.insert(out, "\\movimiento{" .. latex(titulo) .. "}")
     else
-      obra("\\obra{" .. latex(titulo) .. "}{" .. escape(dur) .. "}{" .. latex(cred) .. "}")
+      -- las dos últimas palabras del título (con el año) no se separan
+      obra("\\obra{" .. latex(tipografia.atar_final(titulo, 2)) .. "}{" .. escape(dur) .. "}{" .. latex(cred) .. "}")
       anterior = true
     end
     -- Bloques restantes del elemento: sublistas (movimientos) o texto
@@ -667,7 +673,7 @@ function Pandoc(doc)
       if concierto_abierto and siguiente_es_texto(i) then
         marca = "\\phantomsection\\label{" .. registrar(nota_vista, clave, i + 1, "nota:") .. "}"
       end
-      emit(raw("\\notaobra{" .. latex(b.content) .. "}" .. marca))
+      emit(raw("\\notaobra{" .. latex(tipografia.atar_final(b:clone().content, 1)) .. "}" .. marca))
       abrir_nota(i + 1)
     end
   end
@@ -1034,7 +1040,10 @@ function Pandoc(doc)
           subtitulo = latex(siguiente.content)
           i = i + 1
         end
-        emit(raw("\\parte{" .. texto .. "}{" .. texto .. "}{" .. subtitulo .. "}"))
+        -- en la portadilla, «CONCIERTOS» en su renglón: «CONCIERTOS / EN CIUDAD
+        -- DE MÉXICO» (no «CONCIERTOS EN CIUDAD / DE MÉXICO»)
+        local formato = texto:gsub("^(CONCIERTOS) ", "%1\\\\")
+        emit(raw("\\parte{" .. formato .. "}{" .. texto .. "}{" .. subtitulo .. "}"))
         cabecera = ""
       elseif divisor then
         cerrar_mayor()
@@ -1331,7 +1340,7 @@ function Pandoc(doc)
     elseif en_programa and (b.t == "Para" or b.t == "Plain") and #b.content == 1
            and b.content[1].t == "Span" and b.content[1].classes:includes("solista") then
       -- [**Nombre**, instrumento]{.solista}: solista de la obra anterior
-      emit(raw("\\solista{" .. latex(b.content[1].content) .. "}"))
+      emit(raw("\\solista{" .. latex(tipografia.parrafo(b.content[1].content)) .. "}"))
       i = i + 1
 
     elseif en_programa and (b.t == "Para" or b.t == "Plain") then
@@ -1441,5 +1450,11 @@ function Pandoc(doc)
 
   cerrar_mayor()
   escribir_pendientes(nil)
-  return pandoc.Pandoc(out, doc.meta)
+  -- Texto corrido: siglas en versalitas, nombres sin cortar, último renglón
+  -- con dos palabras al menos
+  local cuerpo = pandoc.Blocks(out):walk({
+    Para = function(b) b.content = tipografia.parrafo(b.content); return b end,
+    Plain = function(b) b.content = tipografia.parrafo(b.content); return b end,
+  })
+  return pandoc.Pandoc(cuerpo, doc.meta)
 end

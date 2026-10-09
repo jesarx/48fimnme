@@ -1,61 +1,60 @@
-# Postales de los conciertos del 48.º FIMNME (1080 × 1350 px, para redes).
+# Postales de los eventos del 48.º FIMNME (1080 × 1350 px, para redes), con el
+# diseño de las postales del diseñador.
 #
-# Cada postal toma del Markdown (a través de sitio/_conciertos/<concierto>.html,
-# que genera sitio/genera.sh) la fecha, la hora, la sede, la dirección, las
-# obras, los estrenos y los logotipos del concierto. Aquí van los datos
-# editoriales y, si hace falta, lo que se quiera cambiar de lo anterior.
+# Cada postal toma del Markdown (a través de sitio/_conciertos/<evento>.html,
+# que genera sitio/genera.sh) la fecha, la hora, la sede, la dirección,
+# «Obras de…» y los logotipos del evento. Aquí van los datos editoriales y, si
+# hace falta, lo que se quiera cambiar de lo anterior.
 #
-#   concierto     etiqueta del concierto (la del Programa general y del sitio)
-#   antetitulo    renglón pequeño sobre el título
-#   titulo        título grande
-#   subtitulo     (opcional) bajo el título
-#   interpretes   lista de [nombre, papel]
-#   obras         (opcional) en lugar de «Obras de…» del programa; *cursivas* solo
-#                 para los títulos de las obras (las postales del INBAL no llevan
-#                 otras). Los nombres de compositores e intérpretes no se parten.
-#   nota          (opcional) colaboración, patrocinio…
-#   precio        (opcional) p. ej. «$75 boleto general»
-#   direccion     (opcional) en lugar de la dirección de la sede
-#   fotos         una o varias (lado a lado), a todo lo ancho de la parte de arriba
-#   retratos      (opcional) fotos en círculo, como en las fichas del programa
+#   evento        etiqueta del evento (la del Programa general y del sitio)
+#   antetitulo    renglón sobre la fecha (si no se indica, «Concierto»)
+#   interpretes   lista de nombres o de [nombre, papel]
+#   obras         (opcional) en lugar de «Obras de…» del programa; *cursivas*
+#                 solo para los títulos de las obras
+#   fotos         hasta cuatro, en círculo (de int/ o comp/), de arriba abajo
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros
+#   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado»
+#                 (p. ej. el precio de la inauguración o la clausura)
+#   fecha, sede, direccion   (opcionales) en lugar de las del programa
 
 postales:
-  - concierto: vie-nov-6-inauguracion-osn-carrasco-hofele
-    antetitulo: Concierto inaugural
-    titulo: Orquesta Sinfónica Nacional
+  - evento: vie-nov-6-xalapa-osx
     interpretes:
-      - [Ludwig Carrasco, director artístico]
-      - [Simon Höfele, trompeta (Alemania)]
-    nota: En colaboración con el Patronato de la Industria Alemana para la Cultura
-    direccion: Av. Juárez y Eje Central, Centro Histórico
+      - Orquesta Sinfónica de Xalapa
+      - [Martin Lebel, director]
+      - [Gabriela Flores, mezzosoprano]
+      - [Armando Gama, barítono]
     fotos:
-      - int/OSN 1.jpg
-    foco:
-      int/OSN 1.jpg: [0.5, 0.62]
-    retratos:
-      - int/carrasco.jpg
-      - int/Simon Hofele.jpg
+      - int/Orquesta Sinfónica de Xalapa.jpg
+      - int/Martin Lebel.jpg
 
-  - concierto: mar-nov-10-alberto-rosado-piano
-    antetitulo: Concierto
-    titulo: Resonancias de ida y vuelta
-    subtitulo: La vanguardia pianística a ambos lados del Atlántico
+  - evento: sab-nov-7-instalacion-sonora-nuno-de-buen
+    antetitulo: Instalación sonora
     interpretes:
-      - [Alberto Rosado, piano (España)]
-    direccion: Av. Juárez y Eje Central, Centro Histórico
+      - Andrés Nuño de Buen
+    obras: "*Sobre las sensaciones de tono y otros fantasmas*"
     fotos:
-      - int/Andrés Rosado - foto de Michal Novak.jpg
+      - comp/Andrés Nuño de Buen.jpeg
 
-  - concierto: mar-nov-17-calderone-bassanese-scodanibbio
-    antetitulo: Concierto
-    titulo: Scodanibbio
+  - evento: sab-nov-7-gonzalo-gutierrez-piano
     interpretes:
-      - [Dario Calderone, contrabajo (Italia)]
-      - [Stefano Bassanese, electrónica (Italia)]
-    obras: "*Voyage That Never Ends* y *Oltracuidansa* de Stefano Scodanibbio"
-    direccion: Paseo de la Reforma 111, Bosque de Chapultepec
+      - [Gonzalo Gutiérrez, piano]
     fotos:
-      - int/Dario Calderone.jpg
-      - int/Stefano Bassanese.jpg
+      - int/Gonzalo Gutiérrez.jpg
+
+  - evento: dom-nov-8-instalacion-sonora-nuno-de-buen-vigueras
+    antetitulo: Instalación-concierto
+    interpretes:
+      - Andrés Nuño de Buen
+      - [Fernando Vigueras, guitarra]
+    obras: "*Sobre las sensaciones de tono y otros fantasmas*"
+    fotos:
+      - comp/Andrés Nuño de Buen.jpeg
+      - int/Fernando Vigueras.jpg
+
+  - evento: dom-nov-8-cuarteto-arcano
+    interpretes:
+      - Cuarteto Arcano
+    fotos:
+      - int/Cuarteto Arcano.jpeg
