@@ -66,9 +66,17 @@
 \widowpenalty=10000
 \clubpenalty=10000
 \brokenpenalty=5000
-\emergencystretch=1.2em
+\emergencystretch=2em
 \hyphenpenalty=200
+% sin sílaba suelta en el último renglón de un párrafo («caleidoscópi-/cas.»):
+% el penúltimo renglón casi nunca termina en guion
+\finalhyphendemerits=200000
 \setlength{\overfullrule}{0pt}
+
+% Siglas en versalitas (las de la fuente: Noto Sans las tiene), un poco
+% espaciadas, para que no destaquen dentro del texto. Las pone
+% automatizacion/tipografia.lua en el texto corrido.
+\newcommand{\siglas}[1]{{\addfontfeatures{Letters=UppercaseSmallCaps}\textls[50]{#1}}}
 
 % ---------------------------------------------------------------- Color ------
 \usepackage[table]{xcolor}
@@ -648,7 +656,7 @@
 \newcommand*{\l@dia}[2]{%
   \par\addvspace{2.2mm}\necesito{3\baselineskip}%
   {\estilotitulos\fontsize{7.8}{9.6}\bfseries\color{acento}\espaciado[50]{#1}\par}\nopagebreak[4]}
-\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{3.75em}}% hora: «19 h», «19:30 h»
+\newcommand*{\l@concierto}{\@dottedtocline{1}{0pt}{4.2em}}% hora: «19 h», «19:30 h» (cabe la más ancha)
 \newcommand*{\l@seccionmayor}{\@dottedtocline{1}{0pt}{0pt}}
 \renewcommand*{\@dotsep}{2.2}
 \newcommand{\indicegeneral}{%

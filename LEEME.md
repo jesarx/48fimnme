@@ -9,7 +9,7 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
 postal/compila.sh       # solo la postal del abono (también la genera la compilación completa)
 sitio/genera.sh         # solo el sitio web (también lo genera la compilación completa)
-python3 postales/genera.py   # solo las postales de los conciertos (también la compilación completa)
+python3 postales/genera.py   # solo las postales de los eventos (también la compilación completa)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -66,7 +66,7 @@ Para otra edición hacen falta tres cosas:
 | `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
 | `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas y notas, sedes, Coloquio, descargas), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
-| `postales/` | Postales de los conciertos para redes (1080 × 1350 px y PDF): datos del Markdown y, en `postales.yaml`, título, intérpretes, fotos y encuadre; ver `postales/LEEME.md`. |
+| `postales/` | Postales de los eventos para redes, con el diseño del diseñador (1080 × 1350 px; PNG, PDF y SVG editable): datos del Markdown y, en `postales.yaml`, antetítulo, intérpretes y fotos; ver `postales/LEEME.md`. |
 | `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) y `.svg` (editable en Inkscape o Illustrator, con los textos como texto en Noto Sans y el fondo y los logotipos en otra capa; Illustrator también abre el PDF). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
@@ -77,6 +77,20 @@ Para otra edición hacen falta tres cosas:
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
 | `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial, tomada de la plantilla institucional. |
 
+## Tipografía automática
+
+En el texto corrido (semblanzas, notas, intérpretes, descripciones) el filtro
+aplica tres reglas (`automatizacion/tipografia.lua`; el resumido usa las dos
+últimas en la agenda):
+
+- Las siglas van en versalitas (UNAM, OSN, INBAL…), para que no destaquen.
+- Los nombres de personas y lugares procuran no cortarse entre renglones.
+- El último renglón de un párrafo no queda con una sola palabra, ni con una
+  sílaba suelta tras un guion.
+
+Las uniones no son rígidas: si un renglón no tiene otra salida, TeX corta, así
+que nada se sale del margen.
+
 ## Convenciones del Markdown
 
 - `\part{TÍTULO}` abre una parte (página verde). Si le sigue un párrafo, se usa
@@ -85,7 +99,8 @@ Para otra edición hacen falta tres cosas:
   Dos fechas: `## VIE | NOV 13, 19 h / DOM | NOV 15, 12 h - Título`. Las horas
   van sin «:00» (`12 h`), salvo si no son en punto (`13:30 h`); así salen en
   el programa general, el resumen y el sitio.
-  El primer párrafo después del encabezado es la sede.
+  El primer párrafo después del encabezado es la sede: primero el recinto y
+  luego la sala («Palacio de Bellas Artes, Sala Principal»).
 - En «Conciertos en Ciudad de México» la página divisoria de cada día se genera
   sola; no hace falta escribirla. El orden de los conciertos es el del archivo.
 - `### Programa`, `### Personas compositoras`, `### Intérpretes`,
