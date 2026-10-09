@@ -50,9 +50,6 @@ MAX_FOTOS = 4
 ANCHO_CNMO_MM = 15.2
 ALTO_MAX_LOGO, ANCHO_MAX_LOGO, AREA_LOGO = 4.2, 14.0, 34.0
 SEPARACION_LOGOS_MM = 4.2
-# Con más letras que esto, en «Obras de…» los nombres de pila van en inicial
-# («J. Torres Sáenz»), como en las postales del diseñador
-LARGO_MAX_OBRAS = 150
 ENTRADA_LIBRE = "Entrada libre | Cupo limitado"
 
 
@@ -189,41 +186,10 @@ def nombre_salida(postal):
     return re.sub(r"^[a-z]{3}-[a-z]{3}-\d+-", f"{semana}-{mes}-{dia}-", postal["evento"])
 
 
-def apellidos():
-    """Excepciones del índice onomástico: «Nombre Apellidos» → «Apellidos, Nombre»."""
-    datos = yaml.safe_load((RAIZ / "automatizacion/indice-onomastico.yaml").read_text(encoding="utf-8"))
-    return {k: v for k, v in (datos.get("indice-onomastico") or {}).items() if v != "-"}
-
-
-def con_iniciales(nombre, excepciones):
-    """«Jorge Torres Sáenz» → «J. Torres Sáenz»; «Liliana Z. del Río» → «L.Z. del Río»."""
-    if nombre in excepciones and ", " in excepciones[nombre]:
-        apellido, pila = excepciones[nombre].split(", ", 1)
-        # el índice pone en mayúscula la partícula («De Mattos»); aquí va como
-        # en el nombre («F.L. de Mattos»)
-        if nombre.lower().endswith(apellido.lower()):
-            apellido = nombre[len(nombre) - len(apellido):]
-    else:
-        palabras = nombre.split()
-        k = len(palabras) - 1
-        while k > 1 and palabras[k - 1][:1].islower():   # partículas: «del Río»
-            k -= 1
-        apellido, pila = " ".join(palabras[k:]), " ".join(palabras[:k])
-    iniciales = "".join(p[0] + "." for p in pila.split() if p[:1].isupper())
-    return (f"{iniciales} {apellido}" if iniciales else apellido).replace(" ", "\u00a0")   # no se parte
-
-
 def obras_texto(fm, postal):
-    """«Obras de…» del Markdown (o el de postales.yaml); si es muy largo, con
-    los nombres de pila en inicial."""
-    if postal.get("obras"):
-        return postal["obras"]
-    obras = fm.get("obras", "")
-    if len(obras) > LARGO_MAX_OBRAS:
-        excepciones = apellidos()
-        for c in sorted(fm.get("compositores", []), key=len, reverse=True):
-            obras = obras.replace(c, con_iniciales(c, excepciones))
-    return obras
+    """«Obras de…» del Markdown, con los nombres como están ahí (o el de
+    postales.yaml)."""
+    return postal.get("obras") or fm.get("obras", "")
 
 
 def origen_logos():

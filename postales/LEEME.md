@@ -81,9 +81,9 @@ fotos nunca bajan hasta los logotipos.
 - **Pleca de Cultura e INBAL** (`recursos/pleca-cultura-inbal80.png`): la de
   los 80 años, con fondo transparente, en la posición y el tamaño de esas
   postales.
-- **«Obras de…»**: con los nombres completos. Si la lista pasa de 150
-  caracteres, los nombres de pila van en inicial («J. Torres Sáenz»), como hizo
-  el diseñador. Para separar apellidos usa `automatizacion/indice-onomastico.yaml`.
+- **«Obras de…»** y **dirección**: como en el Markdown, con los nombres
+  completos (sin pasar los nombres de pila a iniciales). Si la lista es larga,
+  el contenido se compone un poco más chico (ver arriba).
 - **Entrada**: «Entrada libre | Cupo limitado», salvo que se indique otra cosa.
   La inauguración y la clausura llevan el precio del abono de ambos conciertos
   (el de la postal del abono).
