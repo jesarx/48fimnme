@@ -15,6 +15,8 @@
 -- =============================================================================
 
 local stringify = pandoc.utils.stringify
+package.path = "automatizacion/?.lua;" .. package.path
+local tipografia = require("tipografia")
 
 local function trim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
 local function raw(s) return pandoc.RawBlock("latex", s) end
@@ -113,9 +115,11 @@ local function titulo_latex(inlines, titulo)
   for k = 2, #inlines - 1 do
     local el = inlines[k]
     if el.t == "Str" and el.text == "-" and inlines[k - 1].t == "Space" and inlines[k + 1].t == "Space" then
-      local resto = pandoc.List()
+      local resto = pandoc.Inlines({})
       for j = k + 2, #inlines do resto:insert(inlines[j]) end
-      return latex(resto)
+      -- sin nombres cortados ni una palabra sola en el último renglón (en la
+      -- agenda, a dos columnas, los de más de 26 letras se parten en dos)
+      return latex(tipografia.componer(tipografia.atar_final(tipografia.nombres(resto, 26), 1, 26)))
     end
   end
   return escape(titulo)
@@ -713,6 +717,24 @@ function Pandoc(doc)
   else
     emit("\\cierre")
   end
+
+  -- Créditos: los del 48.º FIMNME («## Créditos») y el directorio de la
+  -- Coordinación Nacional de Música y Ópera («## Directorio»)
+  local cred, tomar = {}, false
+  local function quiero(titulo)
+    local c = clave(titulo)
+    return c:find("foro internacional de musica nueva", 1, true) ~= nil
+        or c == "coordinacion nacional de musica y opera"
+  end
+  for _, b in ipairs(doc.blocks) do
+    if b.t == "Header" and b.level <= 3 then
+      tomar = b.level == 3 and quiero(stringify(b.content))
+      if tomar then cred[#cred + 1] = "\\grupodirectorio{" .. latex(b.content) .. "}" end
+    elseif tomar and (b.t == "Para" or b.t == "Plain") then
+      cred[#cred + 1] = latex(b.content) .. "\\par"
+    end
+  end
+  if #cred > 0 then emit("\\creditos{" .. table.concat(cred, "\n") .. "}") end
 
   -- Última página: directorio de la Secretaría de Cultura y del INBAL (el
   -- bloque «::: contraportada») con la pleca institucional
