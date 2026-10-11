@@ -79,7 +79,7 @@ Generado (no editar: lo reescribe `genera.sh`):
 | `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, obras, estrenos, sedes) y logotipos. |
 | `_data/abono.json` | Precios y sede del abono: los de `postales/abono/abono.tex`. |
 | `_data/descargas.json`, `descargas/` | Copias del Programa general y del resumido. |
-| `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/png/`): el PNG para descargarla y una vista previa ligera (JPG de 540 × 675 px). |
+| `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/jpg/`): el JPG de 1080 × 1350 px para descargarla y una vista previa ligera (JPG de 540 × 675 px). |
 | `_includes/generado/` | Coloquio, créditos, directorio y logotipos en SVG. |
 | `assets/fotos/comp/`, `assets/fotos/int/` | Las fotos de las fichas: el recorte en círculo del Programa general (240 px). |
 | `assets/fotos/completas/` | Cada foto del Markdown entera, sin recortar (hasta 1000 px), para verla en grande. |

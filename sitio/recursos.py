@@ -255,7 +255,7 @@ def descargas():
             detalle = f"PDF · {len(pymupdf.open(origen))} páginas · {peso}"
         else:
             with Image.open(origen) as im:
-                detalle = f"PNG · {im.width} × {im.height} px · {peso}"
+                detalle = f"{origen.suffix[1:].upper()} · {im.width} × {im.height} px · {peso}"
         lista.append({"id": clave, "archivo": origen.name, "titulo": titulo,
                       "descripcion": descripcion, "detalle": detalle})
     limpiar_directorio(destino, {d["archivo"] for d in lista})
@@ -270,28 +270,29 @@ LADO_PREVIA = (540, 675)
 
 
 def postales():
-    """La postal de cada evento: el PNG para descargarla y una vista previa
-    ligera. En postales.json, por la etiqueta del evento, la lista de sus
-    postales (dos en un concierto con dos funciones, cada una con su fecha)."""
+    """La postal de cada evento: el JPG para descargarla (1080 × 1350 px; pesa
+    mucho menos que el PNG) y una vista previa ligera. En postales.json, por la
+    etiqueta del evento, la lista de sus postales (dos en un concierto con dos
+    funciones, cada una con su fecha)."""
     sys.path.insert(0, str(RAIZ / "postales"))
     import genera   # noqa: E402  (nombre de cada postal, el mismo que al generarlas)
     lista = yaml.safe_load((RAIZ / "postales/postales.yaml").read_text(encoding="utf-8"))["postales"]
     destino, previas = SITIO / "postales", ASSETS / "postales"
     destino.mkdir(exist_ok=True)
     previas.mkdir(exist_ok=True)
-    datos, pngs, jpgs = {}, set(), set()
+    datos, archivos, jpgs = {}, set(), set()
     for postal in lista:
         nombre = genera.nombre_salida(postal)
-        png = RAIZ / "postales/png" / f"fimnme2026-postal-{nombre}.png"
-        if not png.exists():
-            print(f"  Aviso: falta {png.relative_to(RAIZ)} (python3 postales/genera.py)")
+        jpg = RAIZ / "postales/jpg" / f"fimnme2026-postal-{nombre}.jpg"
+        if not jpg.exists():
+            print(f"  Aviso: falta {jpg.relative_to(RAIZ)} (python3 postales/genera.py)")
             continue
-        copia = destino / png.name
-        if not copia.exists() or copia.read_bytes() != png.read_bytes():
-            shutil.copyfile(png, copia)
+        copia = destino / jpg.name
+        if not copia.exists() or copia.read_bytes() != jpg.read_bytes():
+            shutil.copyfile(jpg, copia)
         previa = previas / f"{nombre}.jpg"
-        if not al_dia(previa, png):
-            with Image.open(png) as im:
+        if not al_dia(previa, jpg):
+            with Image.open(jpg) as im:
                 im.convert("RGB").resize(LADO_PREVIA, Image.LANCZOS).save(
                     previa, "JPEG", quality=84, optimize=True, progressive=True)
         fecha = ""
@@ -299,15 +300,15 @@ def postales():
             f = genera.datos_evento(postal["evento"])["fechas"][postal["funcion"] - 1]
             fecha = f"{f['corto']} · {f['hora']} h"
         datos.setdefault(postal["evento"], []).append(
-            {"png": png.name, "previa": previa.name, "fecha": fecha,
-             "kb": round(png.stat().st_size / 1024)})
-        pngs.add(png.name)
+            {"archivo": jpg.name, "previa": previa.name, "fecha": fecha,
+             "kb": round(jpg.stat().st_size / 1024)})
+        archivos.add(jpg.name)
         jpgs.add(previa.name)
-    limpiar_directorio(destino, pngs)
+    limpiar_directorio(destino, archivos)
     limpiar_directorio(previas, jpgs)
     (SITIO / "_data/postales.json").write_text(json.dumps(datos, ensure_ascii=False) + "\n",
                                               encoding="utf-8")
-    print(f"  {len(pngs)} postales")
+    print(f"  {len(archivos)} postales")
 
 
 def main():

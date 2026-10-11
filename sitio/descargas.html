@@ -41,7 +41,7 @@ description: Descargue el Programa general, el Programa resumido y las postales 
 
 <section class="postales-galeria" id="postales" aria-labelledby="postales-titulo">
   <h2 id="postales-titulo">Postales de los eventos</h2>
-  <p class="postales-intro">Una postal por evento, para compartir en redes (PNG de 1080 × 1350 px). Toque una para verla en grande.</p>
+  <p class="postales-intro">Una postal por evento, para compartir en redes (JPG de 1080 × 1350 px). Toque una para verla en grande.</p>
   {%- assign grupos = site.conciertos | group_by: "seccion_nombre" %}
   {%- for s in site.data.secciones %}
     {%- assign grupo = grupos | where: "name", s.nombre | first %}
@@ -52,13 +52,13 @@ description: Descargue el Programa general, el Programa resumido y las postales 
         {%- assign postales = site.data.postales[c.slug] %}
         {%- for p in postales %}
     <figure class="postal-ficha">
-      <a class="postal-enlace" href="{{ '/postales/' | append: p.png | relative_url }}" data-ampliar title="Ver la postal en grande">
+      <a class="postal-enlace" href="{{ '/postales/' | append: p.archivo | relative_url }}" data-ampliar title="Ver la postal en grande">
         <img src="{{ '/assets/postales/' | append: p.previa | relative_url }}" alt="Postal: {{ c.title | escape }}{% if p.fecha != '' %} ({{ p.fecha }}){% endif %}" width="540" height="675" loading="lazy">
       </a>
       <figcaption>
         <span class="postal-fecha">{% if p.fecha != "" %}{{ p.fecha }}{% else %}{{ c.fechas[0].corto }} · {{ c.fechas[0].hora }}&nbsp;h{% endif %}</span>
         <a class="postal-titulo" href="{{ c.url | relative_url }}">{{ c.titulo_html }}</a>
-        <a class="postal-descarga" href="{{ '/postales/' | append: p.png | relative_url }}" download>Descargar PNG · {{ p.kb }} KB</a>
+        <a class="postal-descarga" href="{{ '/postales/' | append: p.archivo | relative_url }}" download>Descargar JPG · {{ p.kb }} KB</a>
       </figcaption>
     </figure>
         {%- endfor %}
