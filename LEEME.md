@@ -7,9 +7,9 @@ El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 ./compila.sh            # compilación completa (3–10 pasadas, ~4 min)
 ./compila.sh --rapido   # una sola pasada, para revisar cambios
 resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
-postal/compila.sh       # solo la postal del abono (también la genera la compilación completa)
 sitio/genera.sh         # solo el sitio web (también lo genera la compilación completa)
 python3 postales/genera.py   # solo las postales de los eventos (también la compilación completa)
+postales/abono/compila.sh    # solo la postal del abono (también la compilación completa)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -62,12 +62,11 @@ Para otra edición hacen falta tres cosas:
 |---|---|
 | `fimnme2026-programa.md`, `fimnme2026-programa.yaml` | Contenido y metadatos del programa. |
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
-| `logos/` | Logotipos originales de sedes, instituciones y patrocinadores. |
-| `48 FIMNME programas/` | Programas de mano individuales (docx), referencia para cotejar. |
+| `logos/` | Logotipos originales de sedes, instituciones y patrocinadores (también el de la CNMO en versión horizontal, de donde sale `automatizacion/plantilla/logo-cnmo-horizontal.tex`). |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
-| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas y notas, sedes, Coloquio, descargas), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
-| `postales/` | Postales de todos los eventos para redes (conciertos en verde; actividades académicas y Coloquio en azul), a partir del diseño del diseñador (1080 × 1350 px; PNG, PDF e IDML para InDesign): datos del Markdown y, en `postales.yaml`, antetítulo, intérpretes y fotos; ver `postales/LEEME.md`. |
-| `postal/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos), 1080 × 1350 px: `fimnme2026-postal-abono.png` (redes), `.pdf` (impresión) e `.idml` (editable en InDesign, con los textos en Noto Sans; lo arma `postal/idml_editable.py`, como el de las postales de los conciertos). Sus textos están en `postal/postal.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
+| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
+| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `pdf/` e `idml/` (InDesign). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/LEEME.md`. |
+| `postales/abono/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos); sale, como las demás, en `postales/png`, `pdf` e `idml`. Sus textos están en `postales/abono/abono.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
