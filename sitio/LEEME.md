@@ -76,7 +76,7 @@ Generado (no editar: lo reescribe `genera.sh`):
 | Archivo | Contenido |
 |---|---|
 | `_conciertos/*.html` | Una página por concierto, actividad académica o sesión del Coloquio. |
-| `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, estrenos, sedes) y logotipos. |
+| `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, obras, estrenos, sedes) y logotipos. |
 | `_data/abono.json` | Precios y sede del abono: los de `postales/abono/abono.tex`. |
 | `_data/descargas.json`, `descargas/` | Copias del Programa general y del resumido. |
 | `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/png/`): el PNG para descargarla y una vista previa ligera (JPG de 540 × 675 px). |
@@ -89,8 +89,14 @@ Generado (no editar: lo reescribe `genera.sh`):
 
 - Los logotipos de cada actividad académica son los de su bloque `::: logos`
   (en el programa general se juntan en una sola franja).
-- Las cifras de estrenos cuentan cada estreno una vez (como el Programa
-  resumido): una obra que se repite en otra sede no vuelve a contar.
+- Las cifras del inicio: los conciertos cuentan cada función (el Coro de
+  Madrigalistas, con dos, cuenta dos; las instalaciones sonoras no cuentan);
+  las obras interpretadas, cada obra una vez aunque se toque en varios
+  conciertos (la misma obra y el mismo compositor; si el año no coincide, son
+  versiones distintas y cuentan aparte; las improvisaciones no cuentan); los
+  estrenos, cada estreno una vez (como el Programa resumido): una obra que se
+  repite en otra sede no vuelve a contar; las actividades académicas suman las
+  del Coloquio.
 - En las tarjetas de la agenda, de un conjunto se dan el nombre y quien lo
   dirige, no la lista de integrantes (está completa en la página del evento).
 - La duración en «Agregar a mi calendario» es de dos horas (el programa no
