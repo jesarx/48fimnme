@@ -72,20 +72,28 @@
 % Datos: \antetitulo, \titulo, \subtitulo, \fecha, \interpretes,
 % \etiquetaobras, \obras, \nota,
 % \sede, \direccion, \entrada, \fotoslua (las fotos, para postal.lua),
+% \franjanecesaria, \franjapreferida, \franjamaxima (los altos de franja que
+% les convienen a las fotos: el que no corta ningún rostro, el que muestra
+% también los hombros y el mayor que no los corta por los lados),
 % \pistas (archivo de las fotos para el IDML), \logos y \fondoactividad (si es
 % una actividad académica) (los escribe genera.py)
 \input{\datos}
 \ifdefined\fondoactividad\colorlet{fondo}{fondoactividades}\fi
 
 % Zona del contenido: de los 21 a los 108 mm. Arriba la franja de fotos y
-% abajo el texto. La franja mide de 22 a 46 mm según cuánto texto haya; si
-% el texto no cabe, primero se achica un poco (hasta el 90 %), luego la
-% franja baja hasta 17 mm y, solo si aún no cabe, el texto se achica más.
-% Si sobra lugar, el conjunto se centra
+% abajo el texto. La franja busca el alto que les conviene a sus fotos (el
+% preferido, entre el necesario y el máximo; de 22 a 50 mm); si el texto no
+% cabe, primero la franja baja hasta el alto necesario (o 22 mm), luego el
+% texto se achica un poco (hasta el 82 %), la franja baja hasta 17 mm (aquí
+% ya se cortan rostros) y, solo si aún no cabe, el texto se achica más. Si
+% sobra lugar, la franja crece (hasta 46 mm, sin pasar del máximo) y el
+% conjunto se centra
 \newlength{\anchotexto}\setlength{\anchotexto}{94mm}
 \newlength{\zona}\setlength{\zona}{87mm}
 \newlength{\separacion}
 \newlength{\franjamin}
+\newlength{\franjaobjetivo}
+\newlength{\franjatope}
 \newlength{\franja}
 \newlength{\altocontenido}
 \newlength{\sobra}
@@ -93,8 +101,21 @@
 \newlength{\arribatexto}
 \ifx\fotoslua\empty
   \setlength{\separacion}{0mm}\setlength{\franjamin}{0mm}
+  \setlength{\franjaobjetivo}{0mm}\setlength{\franjatope}{0mm}
 \else
-  \setlength{\separacion}{4.5mm}\setlength{\franjamin}{22mm}
+  \setlength{\separacion}{4.5mm}
+  % tope: el máximo de las fotos, sin pasar de 56 mm
+  \setlength{\franjatope}{\franjamaxima}
+  \ifdim\franjatope>56mm \setlength{\franjatope}{56mm}\fi
+  % objetivo: el preferido (hasta 50 mm), no menos que el necesario ni que
+  % 22 mm, no más que el tope
+  \setlength{\franjaobjetivo}{\franjapreferida}
+  \ifdim\franjaobjetivo>50mm \setlength{\franjaobjetivo}{50mm}\fi
+  \ifdim\franjaobjetivo<\franjanecesaria \setlength{\franjaobjetivo}{\franjanecesaria}\fi
+  \ifdim\franjaobjetivo>\franjatope \setlength{\franjaobjetivo}{\franjatope}\fi
+  \ifdim\franjaobjetivo<22mm \setlength{\franjaobjetivo}{22mm}\fi
+  \ifdim\franjatope<\franjaobjetivo \setlength{\franjatope}{\franjaobjetivo}\fi
+  \setlength{\franjamin}{\franjaobjetivo}
 \fi
 \newsavebox{\contenido}
 \newif\ifachicar
@@ -138,39 +159,47 @@
 \begin{document}
 % (se arma aquí y no en el preámbulo: microtype ajusta desde \begin{document})
 \armar
-% 1. el texto, hasta el 90 %
-\loop
-  \achicarfalse
-  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
-    \ifdim\escala pt>0.91pt \achicartrue\fi\fi
-\ifachicar
-  \edef\escala{\fpeval{\escala-0.02}}\armar
-\repeat
-% 2. la franja de fotos, hasta 17 mm
-\ifx\fotoslua\empty\else
-  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
-    \setlength{\franjamin}{\dimexpr\zona-\separacion-\altocontenido\relax}
-    \ifdim\franjamin<17mm \setlength{\franjamin}{17mm}\fi
-  \fi
-\fi
-% 3. el texto, lo que haga falta
-\loop
-  \achicarfalse
-  \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
-    \ifdim\escala pt>0.62pt \achicartrue\fi\fi
-\ifachicar
-  \edef\escala{\fpeval{\escala-0.02}}\armar
-\repeat
+% el texto se achica (de 2 en 2 %) hasta #1 mientras no quepa con la franja
+\newcommand{\achicarhasta}[1]{%
+  \loop
+    \achicarfalse
+    \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
+      \ifdim\escala pt>\fpeval{#1+0.01}pt \achicartrue\fi\fi
+  \ifachicar
+    \edef\escala{\fpeval{\escala-0.02}}\armar
+  \repeat}
+% la franja baja hasta #1 (si no es ya más baja) mientras el texto no quepa
+\newcommand{\bajarfranja}[1]{%
+  \ifx\fotoslua\empty\else
+    \ifdim\dimexpr\altocontenido+\separacion+\franjamin\relax>\zona
+      \setlength{\franjamin}{\dimexpr\zona-\separacion-\altocontenido\relax}
+      \ifdim\franjamin<#1\relax \setlength{\franjamin}{#1}\fi
+    \fi
+  \fi}
+% 1. la franja, hasta el alto necesario (o 22 mm); 2. el texto, hasta el
+% 82 %; 3. la franja, hasta 17 mm; 4. el texto, lo que haga falta
+\newlength{\franjanec}
+\setlength{\franjanec}{\franjanecesaria}
+\ifdim\franjanec<22mm \setlength{\franjanec}{22mm}\fi
+\ifdim\franjanec>\franjaobjetivo \setlength{\franjanec}{\franjaobjetivo}\fi
+\bajarfranja{\franjanec}
+\achicarhasta{0.82}
+\bajarfranja{17mm}
+\achicarhasta{0.62}
+% la franja ocupa lo que quede: hasta el objetivo o, si sobra, hasta 46 mm
+% (sin pasar del tope)
 \ifx\fotoslua\empty
   \setlength{\franja}{0mm}
 \else
   \setlength{\franja}{\dimexpr\zona-\separacion-\altocontenido\relax}
-  \ifdim\franja>46mm \setlength{\franja}{46mm}\fi
+  \ifdim\franjatope>46mm \setlength{\franjatope}{\ifdim\franjaobjetivo>46mm\franjaobjetivo\else 46mm\fi}\fi
+  \ifdim\franja>\franjatope \setlength{\franja}{\franjatope}\fi
   \ifdim\franja<\franjamin \setlength{\franja}{\franjamin}\fi
 \fi
 \setlength{\sobra}{\dimexpr\zona-\separacion-\altocontenido-\franja\relax}
 \ifdim\sobra<0mm \setlength{\sobra}{0mm}\fi
 \setlength{\arribafotos}{\dimexpr21mm+0.4\sobra\relax}
+\typeout{Postal: texto al \escala, franja de \the\franja\space(objetivo \the\franjaobjetivo, necesaria \franjanecesaria)}
 \setlength{\arribatexto}{\dimexpr\arribafotos+\franja+\separacion\relax}
 \begin{tikzpicture}[remember picture, overlay]
   % Fondo: verde con la partitura de «1 x 4», el velo y, al pie, el degradado oscuro

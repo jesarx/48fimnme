@@ -431,6 +431,29 @@ end
 
 -- Sección «Programa» → HTML; también reúne compositores, intérpretes y estrenos
 local ESTRENOS_VISTOS, ESTRENOS_TOTAL = {}, { 0, 0 }
+-- obras interpretadas en el Foro: cada obra una vez aunque se toque en varios
+-- conciertos (el programa del Dúo Gasparini-Monnet en cuatro ciudades, los de
+-- Electroacústica en Morelia); no cuentan los movimientos ni lo que no tiene
+-- compositor (la improvisación libre). Se comparan compositor y título; el
+-- año, si lo tienen las dos (un título sin año es la misma obra)
+local OBRAS_VISTAS, OBRAS_TOTAL = {}, 0
+
+local function contar_obra(compositor, txt)
+  if compositor == "" then return end
+  txt = txt:gsub("%*+$", "")
+  local titulo, anio = txt:match("^(.-)%s*%(([^)]*)%)%s*$")
+  titulo, anio = titulo or txt, anio or ""
+  local base = etiqueta(compositor .. " " .. titulo)
+  local anios = OBRAS_VISTAS[base]
+  if anios then
+    if anio == "" or anios[""] or anios[anio] then anios[anio] = true; return end
+  else
+    anios = {}
+    OBRAS_VISTAS[base] = anios
+  end
+  anios[anio] = true
+  OBRAS_TOTAL = OBRAS_TOTAL + 1
+end
 
 local function programa(bloques, ev)
   local partes, interpretes, estado = {}, {}, {}
@@ -467,6 +490,7 @@ local function programa(bloques, ev)
           ESTRENOS_TOTAL[marcas] = ESTRENOS_TOTAL[marcas] + 1
         end
         local h, es_obra = obra_html(item, previa)
+        if es_obra then contar_obra(compositor, txt) end
         items[#items + 1] = h
         previa = previa or es_obra
       end
@@ -940,11 +964,14 @@ function Pandoc(doc)
   escribir(DESTINO .. "/_data/sedes.json", json(datos_sedes) .. "\n")
 
   local cifras = { conciertos = 0, actividades = 0, coloquio = 0, sedes = #datos_sedes,
-                   mundiales = ESTRENOS_TOTAL[1], mexico = ESTRENOS_TOTAL[2], dias = #dias }
+                   mundiales = ESTRENOS_TOTAL[1], mexico = ESTRENOS_TOTAL[2], dias = #dias,
+                   obras = OBRAS_TOTAL }
   for _, e in ipairs(eventos) do
     if e.tipo == "concierto" and clave(e.titulo_txt):match("^instalacion") then
       cifras.instalaciones = (cifras.instalaciones or 0) + 1
-    elseif e.tipo == "concierto" then cifras.conciertos = cifras.conciertos + 1
+    elseif e.tipo == "concierto" then
+      -- cada función: el Coro de Madrigalistas canta dos veces (dos conciertos)
+      cifras.conciertos = cifras.conciertos + #e.fechas
     elseif e.tipo == "actividad" then cifras.actividades = cifras.actividades + 1
     else cifras.coloquio = cifras.coloquio + 1 end
   end

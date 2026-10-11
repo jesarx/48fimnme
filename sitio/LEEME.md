@@ -76,10 +76,10 @@ Generado (no editar: lo reescribe `genera.sh`):
 | Archivo | Contenido |
 |---|---|
 | `_conciertos/*.html` | Una página por concierto, actividad académica o sesión del Coloquio. |
-| `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, estrenos, sedes) y logotipos. |
+| `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, obras, estrenos, sedes) y logotipos. |
 | `_data/abono.json` | Precios y sede del abono: los de `postales/abono/abono.tex`. |
 | `_data/descargas.json`, `descargas/` | Copias del Programa general y del resumido. |
-| `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/png/`): el PNG para descargarla y una vista previa ligera (JPG de 540 × 675 px). |
+| `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/jpg/`): el JPG de 1080 × 1350 px para descargarla y una vista previa ligera (JPG de 540 × 675 px). |
 | `_includes/generado/` | Coloquio, créditos, directorio y logotipos en SVG. |
 | `assets/fotos/comp/`, `assets/fotos/int/` | Las fotos de las fichas: el recorte en círculo del Programa general (240 px). |
 | `assets/fotos/completas/` | Cada foto del Markdown entera, sin recortar (hasta 1000 px), para verla en grande. |
@@ -89,8 +89,14 @@ Generado (no editar: lo reescribe `genera.sh`):
 
 - Los logotipos de cada actividad académica son los de su bloque `::: logos`
   (en el programa general se juntan en una sola franja).
-- Las cifras de estrenos cuentan cada estreno una vez (como el Programa
-  resumido): una obra que se repite en otra sede no vuelve a contar.
+- Las cifras del inicio: los conciertos cuentan cada función (el Coro de
+  Madrigalistas, con dos, cuenta dos; las instalaciones sonoras no cuentan);
+  las obras interpretadas, cada obra una vez aunque se toque en varios
+  conciertos (la misma obra y el mismo compositor; si el año no coincide, son
+  versiones distintas y cuentan aparte; las improvisaciones no cuentan); los
+  estrenos, cada estreno una vez (como el Programa resumido): una obra que se
+  repite en otra sede no vuelve a contar; las actividades académicas suman las
+  del Coloquio.
 - En las tarjetas de la agenda, de un conjunto se dan el nombre y quien lo
   dirige, no la lista de integrantes (está completa en la página del evento).
 - La duración en «Agregar a mi calendario» es de dos horas (el programa no

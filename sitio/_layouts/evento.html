@@ -62,10 +62,10 @@ clase: pagina-evento
         <p class="indice-titulo">Postal para compartir</p>
         {%- for p in postales %}
         <figure class="postal-figura">
-          <a class="postal-enlace" href="{{ '/postales/' | append: p.png | relative_url }}" data-ampliar title="Ver la postal en grande">
+          <a class="postal-enlace" href="{{ '/postales/' | append: p.archivo | relative_url }}" data-ampliar title="Ver la postal en grande">
             <img src="{{ '/assets/postales/' | append: p.previa | relative_url }}" alt="Postal: {{ page.title | escape }}{% if p.fecha != '' %} ({{ p.fecha }}){% endif %}" width="540" height="675" loading="lazy">
           </a>
-          <a class="boton boton-claro" href="{{ '/postales/' | append: p.png | relative_url }}" download>Descargar{% if p.fecha != "" %} · {{ p.fecha }}{% endif %}</a>
+          <a class="boton boton-claro" href="{{ '/postales/' | append: p.archivo | relative_url }}" download>Descargar{% if p.fecha != "" %} · {{ p.fecha }}{% endif %}</a>
         </figure>
         {%- endfor %}
       </section>

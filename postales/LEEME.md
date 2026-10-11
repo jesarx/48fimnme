@@ -6,9 +6,11 @@ Coloquio Manuel Enríquez 100. Las de los conciertos van en el verde de las
 postales del diseñador; las de las actividades académicas y el Coloquio, en
 verde azulado (#53797C). Un concierto con dos funciones lleva una postal por
 función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
-Cada postal sale en tres formatos, cada uno en su carpeta:
+Cada postal sale en cuatro formatos, cada uno en su carpeta:
 
 - `png/`: PNG de 1080 × 1350 px, para redes;
+- `jpg/`: JPG de 1080 × 1350 px (calidad 90): se ve igual y pesa menos de la
+  mitad; es el que usa el sitio web;
 - `pdf/`: PDF;
 - `idml/`: IDML para InDesign (ver «El IDML», abajo).
 
@@ -39,8 +41,9 @@ De arriba abajo:
 1. Logotipo y nombre del Foro, en el color del logotipo (#E6AE78).
 2. La franja de fotos (hasta cuatro), con esquinas redondeadas: todas del
    mismo alto; los grupos en marcos apaisados y los retratos en marcos
-   angostos, recortadas alrededor de los rostros (de todos, en una foto de
-   grupo).
+   angostos. Cada foto se encuadra con sus rostros enteros (todos, en una foto
+   de grupo), con aire arriba y, si cabe, los hombros, y un poco de cerca
+   para que no se vean chicos.
 3. Antetítulo («Concierto», «Instalación sonora», «Ecos del Foro»,
    «Conferencia», «Coloquio Manuel Enríquez 100»…), en dorado claro; el
    título del concierto, si lo tiene (y su segunda parte, más chica); la
@@ -59,11 +62,23 @@ No hay cursivas. El fondo (verde o verde azulado) lleva la partitura de *1 x 4* 
 Enríquez; detrás del contenido se oscurece un poco para que los textos se lean
 bien (todos pasan de 4:1 de contraste, en los dos colores).
 
-El contenido va de los 21 a los 108 mm. La franja de fotos mide de 22 a 46 mm
-según cuánto texto haya; si sobra lugar, el conjunto se centra. Si el texto
-no cabe, primero se compone un poco más chico (hasta el 90 %), luego la
-franja baja hasta 17 mm y solo entonces el texto se achica más. La
-disposición de las fotos está en `postal.lua`.
+El contenido va de los 21 a los 108 mm. La franja de fotos toma el alto que
+les conviene a sus fotos (`genera.py` lo calcula con los rostros): el
+preferido, que muestra los rostros con los hombros (hasta 50 mm), sin bajar
+del necesario para no cortar ningún rostro ni pasar del máximo que no los
+corta por los lados. Si el texto no cabe, primero la franja baja hasta el
+alto necesario, luego el texto se compone un poco más chico (hasta el 82 %),
+la franja baja hasta 17 mm (aquí ya puede cortarse algún rostro) y solo
+entonces el texto se achica más. Si sobra lugar, la franja
+crece (hasta 46 mm) y el conjunto se centra. La disposición y el encuadre de
+las fotos están en `postal.lua`.
+
+Para afinar una foto, en `postales.yaml` se le puede dar un **recorte** (la
+parte que se usa: así una foto que son dos retratos juntos, como la del Dúo
+Gasparini-Monnet, o una del escenario con los músicos lejos, como la del
+Ensamble Sonus, va en dos marcos, uno por persona) o un **peso** (su marco,
+más ancho que los otros: el Trío LaMN y el Trío Siqueiros, que comparten
+concierto, van más grandes).
 
 ## De dónde sale cada dato
 
@@ -78,8 +93,8 @@ disposición de las fotos está en `postal.lua`.
   Si cambia algo de esto en el Markdown, basta regenerar.
 - **De `postales.yaml`**:
   - el antetítulo, el título y los intérpretes;
-  - las fotos (y, en «focos», el punto de interés de las fotos en las que no
-    se detecta bien el rostro);
+  - las fotos, con su recorte o su peso si los tienen (y, en «focos», el
+    punto de interés de las fotos en las que no se detecta bien el rostro);
   - lo opcional: la función (en un concierto con varias), otras obras, una
     nota, la entrada o el precio, otra sede o dirección, y los logotipos del evento que no van en esa postal
     (la función del Coro de Madrigalistas en el Palacio de Bellas Artes no
@@ -118,12 +133,12 @@ disposición de las fotos está en `postal.lua`.
 | Archivo | Para qué sirve |
 |---|---|
 | `postales.yaml` | Lista de postales y sus datos editoriales. |
-| `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG e IDML. |
+| `genera.py` | Prepara fotos (con sus rostros), logotipos y datos; compila cada postal y la exporta a PNG, JPG e IDML. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `postal.lua` | Disposición y recorte de las fotos en la franja (y sus marcos para el IDML). |
 | `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF. |
 | `recursos/` | Pleca de Cultura e INBAL. |
-| `png/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.pdf` e `.idml`. La de cada función de un concierto que se repite empieza con su fecha. |
+| `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.jpg`, `.pdf` e `.idml`. La de cada función de un concierto que se repite empieza con su fecha. |
 | `abono/` | La postal del abono (inauguración y clausura): `abono.tex` (diseño y textos), `compila.sh` y `logos_blancos.py`. |
 
 ## El IDML

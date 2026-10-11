@@ -712,8 +712,9 @@ def convertir(pdf, pdf_fondo, plantilla, destino, titulo, pistas_fotos=None):
     for k, (caja, img, formato) in enumerate(graficos):
         idml.marco_imagen(img, formato, caja, f"Logotipo {k + 1}")
     for k, (i, caja, pista) in enumerate(sorted(recortadas, key=lambda f: f[1].x0)):
-        idml.foto_recortada(imagen_del_pdf(doc, i["xref"]), caja, pymupdf.Rect(pista["marco"]), pista["radio"],
-                            f"Foto {k + 1}")
+        # la caja de la imagen, la exacta de postal.lua (la del PDF se redondea)
+        idml.foto_recortada(imagen_del_pdf(doc, i["xref"]), pymupdf.Rect(pista["imagen"]),
+                            pymupdf.Rect(pista["marco"]), pista["radio"], f"Foto {k + 1}")
     for k, (i, caja, filete) in enumerate(sorted(fotos, key=lambda f: f[1].y0)):
         idml.foto(imagen_del_pdf(doc, i["xref"]), caja, filete.get("width") or 1,
                   muestras(filete["color"]), f"Foto {k + 1}")
