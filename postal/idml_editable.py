@@ -29,6 +29,7 @@ muestras.
 
 import base64
 import io
+import json
 from collections import Counter
 import re
 import sys
@@ -412,6 +413,23 @@ class Documento:
             + '<FrameFittingOption FittingOnEmptyFrame="FillProportionally"/>'
             + self.imagen_xml(img, "JPEG", caja, nombre) + '</Oval>')
 
+    def foto_recortada(self, img, caja, marco, radio, nombre):
+        """Foto en un marco de esquinas redondeadas; la imagen (más grande que
+        el marco) queda recortada por él, como en el PDF."""
+        esquinas = "".join(f' {e}CornerOption="RoundedCorner" {e}CornerRadius="{num(radio)}"'
+                           for e in ("TopLeft", "TopRight", "BottomLeft", "BottomRight"))
+        self.objetos.append(
+            f'<Rectangle Self="{self.nuevo()}" ContentType="GraphicType" Name={quoteattr(nombre)} ItemLayer="ucapa" '
+            f'Locked="false" Visible="true" FillColor="Swatch/None" StrokeColor="Swatch/None" StrokeWeight="0"'
+            f'{esquinas} AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="1 0 0 1 0 0">'
+            + self.geometria(self.rect_puntos(marco))
+            # lo que la imagen sobresale del marco (InDesign la ubica con su
+            # ItemTransform; esto lo repite para otros programas, como Scribus)
+            + f'<FrameFittingOption FittingOnEmptyFrame="FillProportionally" LeftCrop="{num(marco.x0 - caja.x0)}" '
+              f'TopCrop="{num(marco.y0 - caja.y0)}" RightCrop="{num(caja.x1 - marco.x1)}" '
+              f'BottomCrop="{num(caja.y1 - marco.y1)}"/>'
+            + self.imagen_xml(img, "JPEG", caja, nombre) + '</Rectangle>')
+
     def rectangulo(self, caja, color, nombre):
         self.objetos.append(
             f'<Rectangle Self="{self.nuevo()}" ContentType="Unassigned" Name={quoteattr(nombre)} ItemLayer="ucapa" '
@@ -643,7 +661,9 @@ class Documento:
                 z.writestr(nombre, contenido, compress_type=zipfile.ZIP_DEFLATED)
 
 
-def convertir(pdf, pdf_fondo, plantilla, destino, titulo):
+def convertir(pdf, pdf_fondo, plantilla, destino, titulo, pistas_fotos=None):
+    """pistas_fotos: JSON (de postales/postal.lua) con el marco y la imagen de
+    cada foto recortada en un rectángulo de esquinas redondeadas."""
     doc = pymupdf.open(pdf)
     pagina = doc[0]
     fondo = pymupdf.open(pdf_fondo)[0]
@@ -662,11 +682,16 @@ def convertir(pdf, pdf_fondo, plantilla, destino, titulo):
     imagenes = [i for i in pagina.get_image_info(xrefs=True)
                 if i["xref"] and not any(cerca(pymupdf.Rect(i["bbox"]), c, 1) for c in cajas_fondo)]
     circulos = [d for d in trazos if es_circulo(d)]
-    fotos, otras = [], []
+    pistas = json.loads(Path(pistas_fotos).read_text()) if pistas_fotos and Path(pistas_fotos).exists() else []
+    fotos, otras, recortadas = [], [], []
     for i in imagenes:
         caja = pymupdf.Rect(i["bbox"])
+        pista = next((p for p in pistas if cerca(pymupdf.Rect(p["imagen"]), caja, 1)), None)
         filete = next((d for d in circulos if cerca(pymupdf.Rect(d["rect"]), caja, 3)), None)
-        (fotos if filete else otras).append((i, caja, filete))
+        if pista:
+            recortadas.append((i, caja, pista))
+        else:
+            (fotos if filete else otras).append((i, caja, filete))
     usados = [f[2]["seqno"] for f in fotos]
     rectangulos = [d for d in trazos if es_rectangulo(d)]
     lineas_rectas = [d for d in trazos if es_linea(d)]
@@ -686,6 +711,9 @@ def convertir(pdf, pdf_fondo, plantilla, destino, titulo):
     graficos.sort(key=lambda g: (round(g[0].y0 / 20), g[0].x0))
     for k, (caja, img, formato) in enumerate(graficos):
         idml.marco_imagen(img, formato, caja, f"Logotipo {k + 1}")
+    for k, (i, caja, pista) in enumerate(sorted(recortadas, key=lambda f: f[1].x0)):
+        idml.foto_recortada(imagen_del_pdf(doc, i["xref"]), caja, pymupdf.Rect(pista["marco"]), pista["radio"],
+                            f"Foto {k + 1}")
     for k, (i, caja, filete) in enumerate(sorted(fotos, key=lambda f: f[1].y0)):
         idml.foto(imagen_del_pdf(doc, i["xref"]), caja, filete.get("width") or 1,
                   muestras(filete["color"]), f"Foto {k + 1}")

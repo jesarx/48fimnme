@@ -11359,7 +11359,7 @@ Av. Juárez y Eje Central Lázaro Cárdenas s/n, Centro Histórico, Ciudad de M�
 Tacuba 8, Centro Histórico, Ciudad de México
 
 **Jardín Escénico**\
-Paseo de la Reforma s/n, esq. Chivatito, Bosque de Chapultepec, Ciudad de México
+Paseo de la Reforma s/n. Esq. Chivatito, Bosque de Chapultepec, Ciudad de México
 
 **Museo de Arte Carrillo Gil**\
 Revolución 1608, San Ángel, Ciudad de México
