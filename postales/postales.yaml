@@ -20,7 +20,12 @@
 #                 «\n» (entre comillas) cambia de renglón, aquí y en la entrada
 #   (en las postales no hay cursivas)
 #   fotos         hasta cuatro (de int/ o comp/), en la franja de arriba, de
-#                 izquierda a derecha
+#                 izquierda a derecha. Cada una es la ruta o, para afinarla,
+#                 {archivo: ruta, recorte: [x0, y0, x1, y1], peso: n}:
+#                 «recorte», la parte de la foto que se usa (en fracciones,
+#                 de 0 a 1; p. ej. para poner en dos marcos una foto que son
+#                 dos retratos), y «peso», cuánto más ancho es su marco que
+#                 el de las otras (1.6: un 60 % más; para darle prioridad)
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros (o en el de la
 #                 lista «focos», al final, que vale para todas las postales)
@@ -65,8 +70,9 @@ postales:
       - [Noemi Gasparini, violín]
       - [Makeda Monnet, soprano]
       - [Miguel Ángel Valdés-Brito Pérez, piano]
-    fotos:
-      - int/Duo Gasparini-Monnet.jpg
+    fotos:   # la foto son dos retratos juntos: cada uno en su marco
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0, 0, 0.461, 1]}
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0.465, 0, 1, 1]}
 
   - evento: jue-nov-12-morelia-asako-arai-flauta
     titulo: Compositoras en música electrónica
@@ -204,7 +210,7 @@ postales:
       - Trío LaMN
     fotos:
       - int/Piccolegio.jpg
-      - int/Trío LaMN.jpg
+      - {archivo: int/Trío LaMN.jpg, peso: 1.6}   # el Trío, más grande
 
   - evento: jue-nov-12-alberto-rosado-piano
     interpretes:
@@ -214,7 +220,6 @@ postales:
     subtitulo: Diálogos entre piano, imagen y electrónica
     fotos:
       - int/Andrés Rosado - foto de Michal Novak.jpg
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: vie-nov-13-diren-checa-violin
     interpretes:
@@ -222,7 +227,6 @@ postales:
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - int/Dirén Checa.jpg
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: vie-nov-13-coro-de-madrigalistas-de-bellas-artes-cadet
     funcion: 1
@@ -271,8 +275,9 @@ postales:
       - Dúo Gasparini-Monnet
       - [Noemi Gasparini, violín]
       - [Makeda Monnet, soprano]
-    fotos:
-      - int/Duo Gasparini-Monnet.jpg
+    fotos:   # la foto son dos retratos juntos: cada uno en su marco
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0, 0, 0.461, 1]}
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0.465, 0, 1, 1]}
 
   - evento: sab-nov-14-cepromusic-saariaho
     titulo: Monográfico Saariaho
@@ -300,7 +305,6 @@ postales:
     titulo: Resonancias latinoamericanas para oboe y público rumbero
     fotos:
       - int/Vicente Moronta.jpeg
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: dom-nov-15-duo-arco-y-teclas-trio-siqueiros
     interpretes:
@@ -308,7 +312,7 @@ postales:
       - Trío Siqueiros
     fotos:
       - int/Dúo Arco y Teclas.jpeg
-      - int/Trío Siqueiros.jpg
+      - {archivo: int/Trío Siqueiros.jpg, peso: 1.6}   # el Trío, más grande
 
   - evento: dom-nov-15-ehecatl-flores-fagot-contrabajo
     interpretes:
@@ -316,7 +320,6 @@ postales:
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - int/Ehecatl Flores.jpg
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: mar-nov-17-calderone-bassanese-scodanibbio
     interpretes:
@@ -330,8 +333,6 @@ postales:
     titulo: Electroacústica I
     interpretes:
       - [Juan Cáceres Avitia, electrónica]
-    fotos:
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: mie-nov-18-francisco-garcia-torres-enriquez-100
     interpretes:
@@ -347,7 +348,6 @@ postales:
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - int/Antonio Russek.jpg
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: jue-nov-19-ocba
     interpretes:
@@ -363,8 +363,6 @@ postales:
     titulo: Electroacústica II
     interpretes:
       - [Juan Cáceres Avitia, electrónica]
-    fotos:
-      - comp/Juan Cáceres Avítia.jpg
 
   - evento: vie-nov-20-iracema-de-andrade-onix
     interpretes:
@@ -402,8 +400,9 @@ postales:
       - Ensamble Sonus
       - [Pablo Ramírez Márquez, clarinete y clarinete bajo]
       - [Pablo Miró Cortez, piano]
-    fotos:
-      - int/Ensamble Sonus.jpg
+    fotos:   # la foto es del escenario: cada músico en su marco
+      - {archivo: int/Ensamble Sonus.jpg, recorte: [0.07, 0.05, 0.37, 0.65]}
+      - {archivo: int/Ensamble Sonus.jpg, recorte: [0.6, 0.05, 0.9, 0.65]}
 
   - evento: sab-nov-21-clausura-tambuco
     antetitulo: Concierto de clausura
@@ -567,8 +566,9 @@ postales:
       - [Noemi Gasparini, violín]
       - [Makeda Monnet, soprano]
       - [Miguel Ángel Valdés-Brito Pérez, piano]
-    fotos:
-      - int/Duo Gasparini-Monnet.jpg
+    fotos:   # la foto son dos retratos juntos: cada uno en su marco
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0, 0, 0.461, 1]}
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0.465, 0, 1, 1]}
 
   - evento: mar-dic-1-oaxaca-duo-gasparini-monnet
     antetitulo: Ecos del Foro
@@ -577,10 +577,13 @@ postales:
       - [Noemi Gasparini, violín]
       - [Makeda Monnet, soprano]
       - [Miguel Ángel Valdés-Brito Pérez, piano]
-    fotos:
-      - int/Duo Gasparini-Monnet.jpg
+    fotos:   # la foto son dos retratos juntos: cada uno en su marco
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0, 0, 0.461, 1]}
+      - {archivo: int/Duo Gasparini-Monnet.jpg, recorte: [0.465, 0, 1, 1]}
 
 # Punto de interés de las fotos en las que no se detecta bien el rostro
 # ([x, y] de 0 a 1), para todas las postales en que aparecen
 focos:
   comp/Luis Jaime Cortez.jpeg: [0.46, 0.58]
+  int/Ensamble Danaus.jpg: [0.5, 0.6]   # el del fagot, de perfil, no se detecta
+  int/Ehecatl Flores.jpg: [0.5, 0.3]   # el rostro, tras el fagot contrabajo

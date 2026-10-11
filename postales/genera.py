@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, PDF e IDML editable).
+"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, JPG, PDF e IDML editable).
 
 Siguen las postales del diseñador (lineamientos y tamaños de logotipos
 aprobados). Lee postales/postales.yaml (antetítulo, intérpretes, fotos…) y,
 de cada evento, lo que ya está en el Markdown: fecha, hora, sede, dirección,
 obras y logotipos (de sitio/_conciertos/<evento>.html, que genera
-sitio/genera.sh). Prepara las fotos en círculo (centradas en los rostros), los
-logotipos en blanco y los datos para postales/postal.tex, y lo compila con
-LuaLaTeX.
+sitio/genera.sh). Prepara las fotos (con sus rostros, para encuadrarlas sin
+cortarlos), los logotipos en blanco y los datos para postales/postal.tex, y lo
+compila con LuaLaTeX.
 
     python3 postales/genera.py                 todas las postales
     python3 postales/genera.py <evento>…       solo esas
 
-Salida: postales/png/, pdf/ e idml/fimnme2026-postal-<evento>.* (el IDML,
+Salida: postales/png/, jpg/, pdf/ e idml/fimnme2026-postal-<evento>.* (el IDML,
 editable en InDesign con los textos en Noto Sans, lo arma
 postales/idml_editable.py).
 """
@@ -136,22 +136,39 @@ def abrir(ruta):
 
 
 def analizar(img, foco):
-    """Punto de interés (x, y) en fracciones y número de rostros. El punto es
-    el indicado o el centro de los rostros (en una foto de grupo, de todos; se
-    descartan los muy chicos, que suelen ser falsos)."""
+    """Rostros de una foto → (punto de interés, número de rostros, zonas). El
+    punto es el indicado o el centro de los rostros (en una foto de grupo, de
+    todos; se descartan los muy chicos, que suelen ser falsos). Las zonas, en
+    fracciones de la foto: «rostros», lo que no debe cortarse (los rostros, de
+    la frente al mentón); «nucleo», lo que conviene mostrar entero (los rostros
+    con el pelo y aire arriba), y «abajo», hasta dónde conviene mostrar
+    (hombros y algo del torso)."""
     caras = detectar_rostros(img)
     if caras:
         mayor = max(c[2] * c[3] for c in caras)
         caras = [c for c in caras if c[2] * c[3] >= 0.15 * mayor]
-    if foco:
-        return foco[0], foco[1], len(caras)
+    zonas = None
     if caras:
-        x0 = min(c[0] for c in caras)
-        y0 = min(c[1] for c in caras)
-        x1 = max(c[0] + c[2] for c in caras)
-        y1 = max(c[1] + c[3] for c in caras)
-        return (x0 + x1) / 2 / img.width, (y0 + y1) / 2 / img.height, len(caras)
-    return 0.5, 0.5, 0
+        alto = sum(c[3] for c in caras) / len(caras)
+        ancho = sum(c[2] for c in caras) / len(caras)
+        x0 = min(c[0] for c in caras) - 0.45 * ancho
+        x1 = max(c[0] + c[2] for c in caras) + 0.45 * ancho
+        y0 = min(c[1] for c in caras) - 0.55 * alto
+        y1 = max(c[1] + c[3] for c in caras) + 0.35 * alto
+        abajo = max(c[1] + c[3] for c in caras) + 1.6 * alto
+        w, h = img.width, img.height
+        rostros = (min(c[0] for c in caras) - 0.12 * ancho, min(c[1] for c in caras) - 0.2 * alto,
+                   max(c[0] + c[2] for c in caras) + 0.12 * ancho, max(c[1] + c[3] for c in caras) + 0.12 * alto)
+        zonas = {"nucleo": (max(0, x0 / w), max(0, y0 / h), min(1, x1 / w), min(1, y1 / h)),
+                 "rostros": (max(0, rostros[0] / w), max(0, rostros[1] / h),
+                             min(1, rostros[2] / w), min(1, rostros[3] / h)),
+                 "abajo": min(1, abajo / h)}
+    if foco:   # el punto indicado manda: se encuadra en él, sin las zonas
+        return (foco[0], foco[1]), len(caras), None
+    if zonas:
+        x0, y0, x1, y1 = zonas["nucleo"]
+        return ((x0 + x1) / 2, (y0 + y1) / 2), len(caras), zonas
+    return (0.5, 0.5), 0, None
 
 
 def proporcion_marco(a, caras):
@@ -267,24 +284,68 @@ def logos(fm, carpeta, sin_logos=()):
 
 
 FOCOS = {}   # «focos» de postales.yaml: para todas las postales
+ANCHO_FRANJA_MM, SEPARACION_FOTOS_MM = 96.0, 2.0   # los de postal.lua
+
+
+def foto_de(entrada):
+    """Una foto de postales.yaml: la ruta o {archivo, recorte, peso}."""
+    if isinstance(entrada, str):
+        return {"archivo": entrada}
+    return entrada
 
 
 def fotos(postal, carpeta):
-    """Las fotos para la franja (postal.lua): cada una reducida, con su
-    proporción y su punto de interés."""
-    rutas = (postal.get("fotos") or [])[:MAX_FOTOS]
+    """Las fotos para la franja (postal.lua): cada una reducida (y, si se
+    indica, recortada), con la proporción de su marco, su punto de interés y
+    sus zonas. Devuelve también los altos de franja que les convienen:
+    el necesario para que ningún rostro se corte, el preferido (con hombros) y
+    el máximo (para que no se corten por los lados)."""
+    entradas = [foto_de(f) for f in (postal.get("fotos") or [])[:MAX_FOTOS]]
     focos = {**FOCOS, **(postal.get("foco") or {})}
-    lua = []
-    for k, ruta in enumerate(rutas):
-        img = abrir(ruta)
-        fx, fy, caras = analizar(img, focos.get(ruta))
+    datos = []
+    for k, f in enumerate(entradas):
+        img = abrir(f["archivo"])
+        if f.get("recorte"):   # [x0, y0, x1, y1] en fracciones: una parte de la foto
+            x0, y0, x1, y1 = f["recorte"]
+            img = img.crop((round(x0 * img.width), round(y0 * img.height),
+                            round(x1 * img.width), round(y1 * img.height)))
+        foco, caras, zonas = analizar(img, focos.get(f["archivo"]))
         img.thumbnail((LADO_MAX_FOTO, LADO_MAX_FOTO), Image.LANCZOS)
         destino = carpeta / f"foto-{k + 1}.jpg"
         img.save(destino, quality=90)
         a = img.width / img.height
-        lua.append(f'{{archivo="{destino.relative_to(RAIZ)}", a={a:.4f}, p={proporcion_marco(a, caras):.4f}, '
-                   f'fx={fx:.4f}, fy={fy:.4f}}}')
-    return ",".join(lua)
+        p = (ANCHO_FRANJA_MM if len(entradas) == 1 else proporcion_marco(a, caras)) * f.get("peso", 1)
+        datos.append({"archivo": destino.relative_to(RAIZ), "a": a, "p": p, "foco": foco, "zonas": zonas})
+    if not datos:
+        return "", (0, 0, 0)
+    util = ANCHO_FRANJA_MM - SEPARACION_FOTOS_MM * (len(datos) - 1)
+    suma = sum(d["p"] for d in datos)
+    necesaria, preferida, maxima = 0.0, 0.0, 999.0
+    for d in datos:
+        w = util if len(datos) == 1 else util * d["p"] / suma
+        if d["zonas"]:
+            # en unidades del alto de la foto: la foto mide «a» de ancho y 1 de alto
+            x0, y0, x1, y1 = d["zonas"]["rostros"]
+            necesaria = max(necesaria, w * (y1 - y0) / d["a"])
+            maxima = min(maxima, w / max((x1 - x0) * d["a"], 1e-3))
+            y0 = d["zonas"]["nucleo"][1]
+            preferida = max(preferida, w * (d["zonas"]["abajo"] - y0) / d["a"])
+        else:
+            preferida = max(preferida, w / d["a"])   # sin rostros: la foto entera
+    if len(datos) > 1:
+        # el alto en que los marcos tienen su proporción (hasta 44 mm): en la
+        # franja, los retratos no quedan apaisados ni los rostros chicos
+        preferida = max(preferida, min(util / suma, 44.0))
+    lua = []
+    for d in datos:
+        z = d["zonas"]
+        nucleo = "{%.4f,%.4f,%.4f,%.4f}" % z["nucleo"] if z else "nil"
+        rostros = "{%.4f,%.4f,%.4f,%.4f}" % z["rostros"] if z else "nil"
+        abajo = "%.4f" % z["abajo"] if z else "nil"
+        lua.append(f'{{archivo="{d["archivo"]}", a={d["a"]:.4f}, p={d["p"]:.4f}, '
+                   f'fx={d["foco"][0]:.4f}, fy={d["foco"][1]:.4f}, nucleo={nucleo}, rostros={rostros}, '
+                   f'abajo={abajo}}}')
+    return ",".join(lua), (necesaria, preferida, maxima)
 
 
 def preparar(postal):
@@ -303,6 +364,7 @@ def preparar(postal):
         interpretes.append(rf"\interprete{{{tex(juntar_nombres(persona))}}}{{{tex(papel.replace(' ', chr(0xa0)))}}}")
     sede, direccion = sede_y_direccion(fm, funcion)
     etiqueta_obras, obras = obras_y_etiqueta(obras_texto(fm, postal))
+    fotoslua, altos = fotos(postal, carpeta)
     datos = {
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
         "titulo": tex(juntar_nombres(postal.get("titulo", "")), nombres),
@@ -315,7 +377,10 @@ def preparar(postal):
         "sede": tex(juntar_nombres(postal.get("sede", sede))),
         "direccion": tex(juntar_nombres(postal.get("direccion", direccion))),
         "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
-        "fotoslua": fotos(postal, carpeta),
+        "fotoslua": fotoslua,
+        "franjanecesaria": f"{altos[0]:.2f}mm",
+        "franjapreferida": f"{altos[1]:.2f}mm",
+        "franjamaxima": f"{min(altos[2], 99):.2f}mm",
         "pistas": str((carpeta / "fotos.json").relative_to(RAIZ)),
         "logos": logos(fm, carpeta, postal.get("sin_logos", [])),
     }
@@ -353,17 +418,20 @@ def compilar(etiqueta, datos, pdf_fondo):
     nombre = f"fimnme2026-postal-{etiqueta}"
     hecho = lualatex(nombre, carpeta, rf"\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}",
                      etiqueta)
-    for formato in ("png", "pdf", "idml"):
+    for formato in ("png", "jpg", "pdf", "idml"):
         (SALIDA / formato).mkdir(exist_ok=True)
     pdf = SALIDA / "pdf" / f"{nombre}.pdf"
     shutil.copyfile(hecho, pdf)
     subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1080", "-scale-to-y", "1350", "-singlefile",
                     str(pdf), str(SALIDA / "png" / nombre)], check=True)
+    # JPG: pesa mucho menos que el PNG (es el que usa el sitio)
+    Image.open(SALIDA / "png" / f"{nombre}.png").convert("RGB").save(
+        SALIDA / "jpg" / f"{nombre}.jpg", quality=90, optimize=True, progressive=True)
     # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
     idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
                             str(SALIDA / "idml" / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}",
                             pistas_fotos=carpeta / "fotos.json")
-    print(f"✓ {nombre}: postales/png, pdf e idml")
+    print(f"✓ {nombre}: postales/png, jpg, pdf e idml")
 
 
 def main():
