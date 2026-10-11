@@ -35,7 +35,8 @@
 
 \usepackage{xcolor}
 \usepackage{luacolor}
-\definecolor{fondo}{HTML}{617655}       % verde de las postales del diseñador
+\definecolor{fondo}{HTML}{617655}       % verde de las postales del diseñador (conciertos)
+\definecolor{fondoactividades}{HTML}{556C7E} % azul pizarra (actividades académicas y Coloquio)
 \definecolor{colorlogo}{HTML}{E6AE78}   % logotipo y nombre del Foro
 % Textos: sobre el verde oscurecido (#526448) todos pasan de 4:1 de contraste
 \definecolor{casiblanco}{HTML}{E8EFE5}  % fecha y obras
@@ -71,8 +72,10 @@
 % Datos: \antetitulo, \titulo, \subtitulo, \fecha, \interpretes,
 % \etiquetaobras, \obras, \nota,
 % \sede, \direccion, \entrada, \fotoslua (las fotos, para postal.lua),
-% \pistas (archivo de las fotos para el IDML) y \logos (los escribe genera.py)
+% \pistas (archivo de las fotos para el IDML), \logos y \fondoactividad (si es
+% una actividad académica) (los escribe genera.py)
 \input{\datos}
+\ifdefined\fondoactividad\colorlet{fondo}{fondoactividades}\fi
 
 % Zona del contenido: de los 21 a los 108 mm. Arriba la franja de fotos y
 % abajo el texto. La franja mide de 22 a 46 mm según cuánto texto haya; si

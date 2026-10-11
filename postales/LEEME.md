@@ -1,8 +1,12 @@
 # Postales de los eventos · 48.º FIMNME
 
-Una postal por concierto para redes: todos los de la Ciudad de México y, de los
-estados, la de Xalapa. Un concierto con dos funciones lleva una postal por
-función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
+Una postal por evento para redes: todos los conciertos (Ciudad de México,
+estados y Ecos del Foro), las actividades académicas y las sesiones del
+Coloquio Manuel Enríquez 100. Las de los conciertos van en el verde de las
+postales del diseñador; las de las actividades académicas y el Coloquio, en un
+azul pizarra (#556C7E) que combina con él. Un concierto con dos funciones lleva
+una postal por función (el Coro de Madrigalistas: Jardín Escénico y Palacio de
+Bellas Artes).
 Cada postal sale en tres formatos:
 
 - PNG de 1080 × 1350 px;
@@ -33,21 +37,23 @@ De arriba abajo:
    mismo alto; los grupos en marcos apaisados y los retratos en marcos
    angostos, recortadas alrededor de los rostros (de todos, en una foto de
    grupo).
-3. Antetítulo («Concierto», «Instalación sonora»…), en dorado claro; el
+3. Antetítulo («Concierto», «Instalación sonora», «Ecos del Foro»,
+   «Conferencia», «Coloquio Manuel Enríquez 100»…), en dorado claro; el
    título del concierto, si lo tiene (y su segunda parte, más chica); la
    fecha y la hora.
-4. Intérpretes, uno por renglón, con su papel. Si un nombre no cabe en un
+4. Intérpretes (o ponentes, participantes y moderadores), uno por renglón,
+   con su papel. Si un nombre no cabe en un
    renglón, lo que pasa al siguiente va con sangría, para que no parezca otro
    intérprete. El papel no se parte: va junto al nombre o, si no cabe,
    completo en el renglón siguiente.
 5. «OBRAS DE» y los compositores, sin recuadro; si se indica, una nota (una
-   colaboración). Si todos los compositores son intérpretes (una instalación
-   de su autor), no va.
+   colaboración, a quién va dirigida una actividad). Si todos los compositores
+   son intérpretes (una instalación de su autor), no va.
 6. Sede, dirección y «Entrada libre | Cupo limitado».
 
-No hay cursivas. El fondo es el verde de las postales del diseñador, con la
-partitura de *1 x 4* de Enríquez; detrás del contenido se oscurece un poco
-para que los textos se lean bien (todos pasan de 4:1 de contraste).
+No hay cursivas. El fondo (verde o azul) lleva la partitura de *1 x 4* de
+Enríquez; detrás del contenido se oscurece un poco para que los textos se lean
+bien (todos pasan de 4:1 de contraste, en los dos colores).
 
 El contenido va de los 21 a los 108 mm. La franja de fotos mide de 22 a 46 mm
 según cuánto texto haya; si sobra lugar, el conjunto se centra. Si el texto
@@ -68,7 +74,8 @@ disposición de las fotos está en `postal.lua`.
   Si cambia algo de esto en el Markdown, basta regenerar.
 - **De `postales.yaml`**:
   - el antetítulo, el título y los intérpretes;
-  - las fotos;
+  - las fotos (y, en «focos», el punto de interés de las fotos en las que no
+    se detecta bien el rostro);
   - lo opcional: la función (en un concierto con varias), otras obras, una
     nota, la entrada o el precio, otra sede o dirección, y los logotipos del evento que no van en esa postal
     (la función del Coro de Madrigalistas en el Palacio de Bellas Artes no
@@ -86,7 +93,10 @@ disposición de las fotos está en `postal.lua`.
   más 4,2 mm de alto y 14 mm de ancho. En el Jardín Escénico van los del
   Centro Cultural del Bosque y del Jardín Escénico (`logos/*.ai`), como en
   la postal del diseñador. En el Palacio de Bellas Artes solo va la CNMO,
-  como en las postales del INBAL.
+  como en las postales del INBAL. Si una fila de logotipos pasa de 90 mm (siete
+  en Guadalajara), se reduce la separación entre ellos, no su tamaño. Si un
+  logotipo trae un recuadro de fondo (el de la Fundación Harp Helú), en la
+  versión en blanco se quita el recuadro.
 - **Pleca de Cultura e INBAL** (`recursos/pleca-cultura-inbal80.png`): la de
   los 80 años, con fondo transparente, en la posición y el tamaño de esas
   postales.
@@ -115,7 +125,7 @@ disposición de las fotos está en `postal.lua`.
 
 Lo arma `postal/idml_editable.py` (el mismo que hace el de la postal del
 abono) a partir del PDF de cada postal y del fondo, que se compila aparte
-(la plantilla con `\solofondo`, en `build/postales/fondo.pdf`). Es un
+(la plantilla con `\solofondo`, en `build/postales/fondo-verde.pdf` y `fondo-azul.pdf`). Es un
 documento de InDesign de una página, del tamaño de la postal, con todo
 incrustado (no depende de otros archivos). De atrás hacia adelante:
 

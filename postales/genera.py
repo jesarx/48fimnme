@@ -48,6 +48,7 @@ MAX_FOTOS = 4
 ANCHO_CNMO_MM = 15.2
 ALTO_MAX_LOGO, ANCHO_MAX_LOGO, AREA_LOGO = 4.2, 14.0, 34.0
 SEPARACION_LOGOS_MM = 4.2
+ANCHO_MAX_FILA = 90.0         # mm (la postal mide 108)
 ENTRADA_LIBRE = "Entrada libre | Cupo limitado"
 
 
@@ -163,8 +164,19 @@ def proporcion_marco(a, caras):
 
 
 def logo_blanco(archivo, destino):
-    """Logotipo de build/logos (un solo color con transparencia) en blanco."""
+    """Logotipo de build/logos (un solo color con transparencia) en blanco. Si
+    el logotipo trae un recuadro de fondo (el borde parejo y entintado, como
+    el de la Fundación Harp Helú), el recuadro se quita: en blanco sería un
+    cuadro gris."""
     alfa = Image.open(RAIZ / "build/logos" / archivo).convert("RGBA").getchannel("A")
+    w, h = alfa.size
+    borde = sorted([alfa.getpixel((x, y)) for x in range(w) for y in (0, h - 1)] +
+                   [alfa.getpixel((x, y)) for y in range(h) for x in (0, w - 1)])
+    fondo = borde[len(borde) // 2]
+    parejo = sum(abs(v - fondo) <= 12 for v in borde) >= 0.9 * len(borde)
+    if fondo > 40 and parejo:
+        m = fondo + 12
+        alfa = alfa.point(lambda v: 0 if v <= m else round((v - m) * 255 / (255 - m)))
     blanco = Image.new("RGBA", alfa.size, (255, 255, 255, 0))
     blanco.putalpha(alfa)
     blanco.save(destino, optimize=True)
@@ -237,20 +249,30 @@ def logos(fm, carpeta, sin_logos=()):
     origen = origen_logos() if sin_logos else {}
     elegidos = [l for l in fm.get("logos", [])
                 if not any(s in origen.get(l["archivo"], "") for s in sin_logos)]
+    ancho = ANCHO_CNMO_MM
     for k, l in enumerate(elegidos):
         destino = carpeta / f"logo-{k + 1}.png"
         w, h = logo_blanco(l["archivo"], destino)
         r = w / h
         alto = min((AREA_LOGO / r) ** 0.5, ALTO_MAX_LOGO, ANCHO_MAX_LOGO / r)
+        ancho += alto * r
         lista.append(rf"\includegraphics[width={alto * r:.2f}mm, height={alto:.2f}mm]{{{destino.relative_to(RAIZ)}}}")
-    return rf"\hspace{{{SEPARACION_LOGOS_MM}mm}}".join(r"\raisebox{-0.5\height}{" + l + "}" for l in lista)
+    # con muchos logotipos, la separación se reduce para que la fila no pase
+    # de ANCHO_MAX_FILA (los tamaños de los logotipos no cambian)
+    separacion = SEPARACION_LOGOS_MM
+    if len(lista) > 1:
+        separacion = max(2.0, min(separacion, (ANCHO_MAX_FILA - ancho) / (len(lista) - 1)))
+    return rf"\hspace{{{separacion:.2f}mm}}".join(r"\raisebox{-0.5\height}{" + l + "}" for l in lista)
+
+
+FOCOS = {}   # «focos» de postales.yaml: para todas las postales
 
 
 def fotos(postal, carpeta):
     """Las fotos para la franja (postal.lua): cada una reducida, con su
     proporción y su punto de interés."""
     rutas = (postal.get("fotos") or [])[:MAX_FOTOS]
-    focos = postal.get("foco", {}) or {}
+    focos = {**FOCOS, **(postal.get("foco") or {})}
     lua = []
     for k, ruta in enumerate(rutas):
         img = abrir(ruta)
@@ -296,6 +318,8 @@ def preparar(postal):
         "pistas": str((carpeta / "fotos.json").relative_to(RAIZ)),
         "logos": logos(fm, carpeta, postal.get("sin_logos", [])),
     }
+    if fm.get("tipo") in ("actividad", "coloquio"):   # fondo azul
+        datos["fondoactividad"] = ""
     archivo = carpeta / "datos.tex"
     archivo.write_text("".join(rf"\def\{k}{{{v}}}" + "\n" for k, v in datos.items()), encoding="utf-8")
     return nombre, archivo
@@ -315,9 +339,11 @@ def lualatex(nombre, carpeta, entrada, etiqueta):
 
 
 def fondo(datos):
-    """El fondo de las postales (verde, partitura y degradado), igual en todas:
-    la plantilla compilada con \\solofondo, para el IDML."""
-    return lualatex("fondo", BUILD, rf"\def\solofondo{{}}\def\datos{{{datos.relative_to(RAIZ)}}}"
+    """El fondo de las postales (verde o azul, partitura y degradado), igual en
+    todas las de su color: la plantilla compilada con \\solofondo, para el IDML."""
+    azul = "fondoactividad" in datos.read_text(encoding="utf-8")
+    return lualatex("fondo-azul" if azul else "fondo-verde", BUILD,
+                    rf"\def\solofondo{{}}\def\datos{{{datos.relative_to(RAIZ)}}}"
                     r"\input{postales/postal.tex}", "el fondo")
 
 
@@ -338,15 +364,19 @@ def compilar(etiqueta, datos, pdf_fondo):
 
 
 def main():
-    lista = yaml.safe_load((SALIDA / "postales.yaml").read_text(encoding="utf-8"))["postales"]
+    datos_yaml = yaml.safe_load((SALIDA / "postales.yaml").read_text(encoding="utf-8"))
+    lista = datos_yaml["postales"]
+    FOCOS.update(datos_yaml.get("focos") or {})
     pedidas = set(sys.argv[1:])
-    pdf_fondo = None
+    fondos = {}   # un fondo por color
     for postal in lista:
         if pedidas and not pedidas & {postal["evento"], nombre_salida(postal)}:
             continue
         etiqueta, datos = preparar(postal)
-        pdf_fondo = pdf_fondo or fondo(datos)
-        compilar(etiqueta, datos, pdf_fondo)
+        azul = "fondoactividad" in datos.read_text(encoding="utf-8")
+        if azul not in fondos:
+            fondos[azul] = fondo(datos)
+        compilar(etiqueta, datos, fondos[azul])
 
 
 if __name__ == "__main__":

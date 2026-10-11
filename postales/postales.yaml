@@ -22,7 +22,8 @@
 #   fotos         hasta cuatro (de int/ o comp/), en la franja de arriba, de
 #                 izquierda a derecha
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
-#                 si no se indica, se centra en los rostros
+#                 si no se indica, se centra en los rostros (o en el de la
+#                 lista «focos», al final, que vale para todas las postales)
 #   sin_logos     (opcional) logotipos del evento que no van en esta postal
 #                 (partes de su ruta en el Markdown; p. ej. los de la sede de
 #                 la otra función)
@@ -30,7 +31,8 @@
 #                 (p. ej. el precio de la inauguración o la clausura)
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa
 #
-# Van primero las de los estados y luego las de la Ciudad de México, en orden.
+# Van en este orden: estados, Ciudad de México, actividades académicas,
+# Coloquio y Ecos del Foro (las actividades y el Coloquio, con fondo azul).
 
 postales:
   # --- Estados ---------------------------------------------------------------
@@ -44,6 +46,64 @@ postales:
     fotos:
       - int/Orquesta Sinfónica de Xalapa.jpg
       - int/Martin Lebel.jpg
+
+  - evento: lun-nov-9-morelia-ensamble-danaus
+    interpretes:
+      - Ensamble Danaus
+    fotos:
+      - int/Ensamble Danaus.jpg
+
+  - evento: mar-nov-10-monterrey-q-sion-percusiones
+    interpretes:
+      - Q-SION Ensamble de Percusiones
+    fotos:
+      - int/Q-Sion.jpg
+
+  - evento: mar-nov-10-guadalajara-duo-gasparini-monnet
+    interpretes:
+      - Dúo Gasparini-Monnet
+      - [Noemi Gasparini, violín]
+      - [Makeda Monnet, soprano]
+      - [Miguel Ángel Valdés-Brito Pérez, piano]
+    fotos:
+      - int/Duo Gasparini-Monnet.jpg
+
+  - evento: jue-nov-12-morelia-asako-arai-flauta
+    titulo: Compositoras en música electrónica
+    interpretes:
+      - [Asako Arai, flauta]
+    fotos:
+      - int/Asako Arai.jpg
+
+  - evento: vie-nov-13-morelia-julio-i-cervantes-guitarra
+    interpretes:
+      - [Julio Isaac Cervantes, guitarra]
+    fotos:
+      - int/Julio Isaac Cervantes.jpg
+
+  - evento: vie-nov-13-monterrey-eusebio-sanchez-percusiones
+    interpretes:
+      - [Eusebio Sánchez, percusiones]
+    fotos:
+      - int/Eusebio Sánchez.jpg
+
+  - evento: vie-nov-13-merida-carmen-maldonado-percusion-teatral
+    interpretes:
+      - [Carmen Maldonado, percusión teatral]
+    fotos:
+      - int/Carmen Maldonado.jpg
+
+  - evento: sab-nov-14-acapulco-fabian-rangel
+    interpretes:
+      - [Fabián Rangel, violín]
+    fotos:
+      - int/Fabián Rangel.jpg
+
+  - evento: mie-nov-18-morelia-electroacustica-i
+    titulo: Electroacústica I
+
+  - evento: jue-nov-19-morelia-electroacustica-ii
+    titulo: Electroacústica II
 
   # --- Ciudad de México ------------------------------------------------------
 
@@ -353,3 +413,174 @@ postales:
     fotos:
       - int/Tambuco 1.jpg
     entrada: "Abono para la inauguración y la clausura\n$250 · $200 · $120 · $100"
+
+  # --- Actividades académicas (fondo azul) -----------------------------------
+
+  - evento: mar-nov-10-conferencia-el-piano-contemporaneo
+    antetitulo: Conferencia
+    titulo: El piano contemporáneo
+    subtitulo: Estéticas y obras emblemáticas del siglo XX y primeras décadas del siglo XXI
+    interpretes:
+      - [Alberto Rosado, ponente]
+    nota: Dirigida a estudiantes de piano y de música en general
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - evento: mar-nov-10-mesa-redonda-de-la-escucha-al-espacio-la-instalacion-como-nuevo-territorio
+    antetitulo: Mesa redonda
+    titulo: "De la escucha al espacio: la instalación como nuevo territorio"
+    interpretes:
+      - Valeria Macías Rodríguez
+      - Andrés Nuño de Buen
+      - Hugo Solís
+      - [Tito Rivas, moderador]
+    fotos:
+      - comp/Andrés Nuño de Buen.jpeg
+
+  - evento: mie-nov-11-clase-maestra-de-piano
+    antetitulo: Actividad académica
+    titulo: Clase maestra de piano
+    interpretes:
+      - [Alberto Rosado, imparte]
+    nota: Para un máximo de ocho estudiantes de nivel avanzado
+    fotos:
+      - int/Andrés Rosado - foto de Michal Novak.jpg
+
+  - evento: mar-nov-17-presentacion-del-libro-no-me-basta
+    antetitulo: Presentación de libro
+    titulo: No me basta
+    subtitulo: De Stefano Scodanibbio, con traducción de Sharbel Pimentel (Ediciones Mexicanas de Música)
+    interpretes:
+      - [Sharbel Pimentel, presentador]
+      - [Ana Lara, presentadora]
+      - [Julio Estrada, presentador]
+      - [Luis Jaime Cortez, moderador]
+    fotos:
+      - comp/Stefano Scodanibbio.jpg
+      - comp/Julio Estrada.jpg
+      - comp/Luis Jaime Cortez.jpeg
+
+  - evento: jue-nov-19-tres-acercamientos-a-oltracuidansa-de-scodanibbio
+    antetitulo: Actividad académica
+    titulo: Tres acercamientos a Oltracuidansa de Scodanibbio
+    interpretes:
+      - [Dario Calderone, imparte]
+      - [Stefano Bassanese, imparte]
+    nota: Dirigida a estudiantes de contrabajo, de composición y de música en general
+    fotos:
+      - int/Dario Calderone.jpg
+      - int/Stefano Bassanese.jpg
+
+  # --- Coloquio Manuel Enríquez 100 (fondo azul) -----------------------------
+
+  - evento: mie-nov-18-conferencia-luis-jaime-cortez
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: Conferencia
+    interpretes:
+      - [Luis Jaime Cortez, ponente]
+      - [Nonis Prado, moderadora]
+    fotos:
+      - comp/Luis Jaime Cortez.jpeg
+
+  - evento: mie-nov-18-mesa-1-un-retrato-de-amigos
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Mesa 1: Un retrato de amigos"
+    interpretes:
+      - Luis Jaime Cortez
+      - Arturo Márquez
+      - Federico Ibarra Groth
+      - Marielena Arizpe
+      - Antonio Russek
+      - [Ana Lara, moderadora]
+    fotos:
+      - comp/Luis Jaime Cortez.jpeg
+      - comp/Federico Ibarra.jpg
+      - int/Antonio Russek.jpg
+
+  - evento: mie-nov-18-mesa-2-sus-interpretes
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Mesa 2: Sus intérpretes"
+    interpretes:
+      - Álvaro Bitrán
+      - Marisa Canales
+      - Wendy Holdaway
+      - José Luis Castillo
+      - [Maby Muñoz, moderadora]
+    fotos:
+      - int/José Luis Castillo.jpg
+
+  - evento: jue-nov-19-conferencia-iracema-de-andrade
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: Conferencia
+    interpretes:
+      - [Iracema de Andrade, ponente]
+      - [Luis Jaime Cortez, moderador]
+    fotos:
+      - int/Iracema de Andrade.jpg
+      - comp/Luis Jaime Cortez.jpeg
+
+  - evento: jue-nov-19-mesa-3-entre-disciplinas
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Mesa 3: Entre disciplinas"
+    interpretes:
+      - Álvaro Bitrán
+      - Marisa Canales
+      - Wendy Holdaway
+      - José Luis Castillo
+      - [José María Serralde, moderador]
+    fotos:
+      - int/José Luis Castillo.jpg
+
+  - evento: jue-nov-19-mesa-4-el-gestor
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Mesa 4: El gestor"
+    interpretes:
+      - Guillermo Contreras
+      - Arón Bitrán
+      - Aurelio Tello
+      - Susana Enríquez
+      - [Marusia Pola, moderadora]
+
+  - evento: jue-nov-19-conferencia-leonora-saavedra
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: Conferencia
+    interpretes:
+      - [Leonora Saavedra, ponente]
+      - [Maby Muñoz, moderadora]
+
+  # --- Ecos del Foro (fuera de las fechas del Foro) ---------------------------
+
+  - evento: vie-oct-30-san-luis-potosi-oslp
+    antetitulo: Ecos del Foro
+    interpretes:
+      - [Orquesta Sinfónica Universitaria, de la Universidad Autónoma de San Luis Potosí]
+      - [Alfredo Ibarra, director artístico]
+      - [Román Shimalin Tsyganov, violín]
+    fotos:
+      - int/Orquesta Sinfónica Universitaria San Luis Potosí 1.jpg
+      - int/Alfredo Ibarra.png
+
+  - evento: sab-nov-28-ocotlan-duo-gasparini-monnet
+    antetitulo: Ecos del Foro
+    interpretes:
+      - Dúo Gasparini-Monnet
+      - [Noemi Gasparini, violín]
+      - [Makeda Monnet, soprano]
+      - [Miguel Ángel Valdés-Brito Pérez, piano]
+    fotos:
+      - int/Duo Gasparini-Monnet.jpg
+
+  - evento: mar-dic-1-oaxaca-duo-gasparini-monnet
+    antetitulo: Ecos del Foro
+    interpretes:
+      - Dúo Gasparini-Monnet
+      - [Noemi Gasparini, violín]
+      - [Makeda Monnet, soprano]
+      - [Miguel Ángel Valdés-Brito Pérez, piano]
+    fotos:
+      - int/Duo Gasparini-Monnet.jpg
+
+# Punto de interés de las fotos en las que no se detecta bien el rostro
+# ([x, y] de 0 a 1), para todas las postales en que aparecen
+focos:
+  comp/Luis Jaime Cortez.jpeg: [0.46, 0.58]
