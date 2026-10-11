@@ -74,14 +74,20 @@ cp "build/$NOMBRE.pdf" "$NOMBRE.pdf"
 echo "✓ Listo: $NOMBRE.pdf ($(pdfinfo "$NOMBRE.pdf" 2>/dev/null | awk '/^Pages/{print $2}') páginas)"
 grep -E "^(Overfull|Underfull) \\\\hbox" "build/$NOMBRE.log" | sort | uniq -c | sort -rn | head -5 || true
 
-# El programa resumido, las postales y el sitio web salen del mismo Markdown
+# El programa resumido, las postales y el sitio web salen del mismo Markdown.
+# Las postales toman los datos de cada evento del contenido del sitio, y el
+# sitio muestra las postales: primero el contenido, luego las postales y al
+# final los recursos (que copian las postales) y la compilación del sitio.
 if [[ "${1:-}" != "--rapido" ]]; then
   echo "▸ Programa resumido…"
   resumen/compila.sh
+  echo "▸ Sitio web: contenido…"
+  sitio/genera.sh --contenido
   echo "▸ Postal del abono…"
-  postal/compila.sh
-  echo "▸ Sitio web…"
-  sitio/genera.sh
+  postales/abono/compila.sh
   echo "▸ Postales de los eventos…"
   python3 postales/genera.py
+  echo "▸ Sitio web: recursos y compilación…"
+  python3 sitio/recursos.py
+  sitio/genera.sh --compilar
 fi

@@ -32,7 +32,7 @@
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa
 #
 # Van en este orden: estados, Ciudad de México, actividades académicas,
-# Coloquio y Ecos del Foro (las actividades y el Coloquio, con fondo azul).
+# Coloquio y Ecos del Foro (las actividades y el Coloquio, con fondo verde azulado).
 
 postales:
   # --- Estados ---------------------------------------------------------------
@@ -414,7 +414,7 @@ postales:
       - int/Tambuco 1.jpg
     entrada: "Abono para la inauguración y la clausura\n$250 · $200 · $120 · $100"
 
-  # --- Actividades académicas (fondo azul) -----------------------------------
+  # --- Actividades académicas (fondo verde azulado) ---------------------------
 
   - evento: mar-nov-10-conferencia-el-piano-contemporaneo
     antetitulo: Conferencia
@@ -471,7 +471,7 @@ postales:
       - int/Dario Calderone.jpg
       - int/Stefano Bassanese.jpg
 
-  # --- Coloquio Manuel Enríquez 100 (fondo azul) -----------------------------
+  # --- Coloquio Manuel Enríquez 100 (fondo verde azulado) ---------------------
 
   - evento: mie-nov-18-conferencia-luis-jaime-cortez
     antetitulo: Coloquio Manuel Enríquez 100
