@@ -12,8 +12,9 @@ LuaLaTeX.
     python3 postales/genera.py                 todas las postales
     python3 postales/genera.py <evento>…       solo esas
 
-Salida: postales/fimnme2026-postal-<evento>.png, .pdf e .idml (editable en
-InDesign, con los textos en Noto Sans; lo arma postal/idml_editable.py).
+Salida: postales/png/, pdf/ e idml/fimnme2026-postal-<evento>.* (el IDML,
+editable en InDesign con los textos en Noto Sans, lo arma
+postales/idml_editable.py).
 """
 
 import json
@@ -30,7 +31,7 @@ from PIL import Image, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "automatizacion"))
-sys.path.insert(0, str(RAIZ / "postal"))
+sys.path.insert(0, str(RAIZ / "postales"))
 import idml_editable  # noqa: E402
 try:   # detección de rostros del Programa general (OpenCV es opcional)
     from preparar_imagenes import detectar_rostros
@@ -318,7 +319,7 @@ def preparar(postal):
         "pistas": str((carpeta / "fotos.json").relative_to(RAIZ)),
         "logos": logos(fm, carpeta, postal.get("sin_logos", [])),
     }
-    if fm.get("tipo") in ("actividad", "coloquio"):   # fondo azul
+    if fm.get("tipo") in ("actividad", "coloquio"):   # fondo verde azulado
         datos["fondoactividad"] = ""
     archivo = carpeta / "datos.tex"
     archivo.write_text("".join(rf"\def\{k}{{{v}}}" + "\n" for k, v in datos.items()), encoding="utf-8")
@@ -339,7 +340,7 @@ def lualatex(nombre, carpeta, entrada, etiqueta):
 
 
 def fondo(datos):
-    """El fondo de las postales (verde o azul, partitura y degradado), igual en
+    """El fondo de las postales (verde o verde azulado, partitura y degradado), igual en
     todas las de su color: la plantilla compilada con \\solofondo, para el IDML."""
     azul = "fondoactividad" in datos.read_text(encoding="utf-8")
     return lualatex("fondo-azul" if azul else "fondo-verde", BUILD,
@@ -352,15 +353,17 @@ def compilar(etiqueta, datos, pdf_fondo):
     nombre = f"fimnme2026-postal-{etiqueta}"
     hecho = lualatex(nombre, carpeta, rf"\def\datos{{{datos.relative_to(RAIZ)}}}\input{{postales/postal.tex}}",
                      etiqueta)
-    pdf = SALIDA / f"{nombre}.pdf"
+    for formato in ("png", "pdf", "idml"):
+        (SALIDA / formato).mkdir(exist_ok=True)
+    pdf = SALIDA / "pdf" / f"{nombre}.pdf"
     shutil.copyfile(hecho, pdf)
     subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1080", "-scale-to-y", "1350", "-singlefile",
-                    str(pdf), str(SALIDA / nombre)], check=True)
+                    str(pdf), str(SALIDA / "png" / nombre)], check=True)
     # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
     idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
-                            str(SALIDA / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}",
+                            str(SALIDA / "idml" / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}",
                             pistas_fotos=carpeta / "fotos.json")
-    print(f"✓ {SALIDA.relative_to(RAIZ)}/{nombre}.png, .pdf e .idml")
+    print(f"✓ {nombre}: postales/png, pdf e idml")
 
 
 def main():

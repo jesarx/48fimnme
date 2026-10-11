@@ -1,17 +1,69 @@
 ---
 title: Programa de mano
 antetitulo: Descargas
-entrada: El programa del 48.º Foro para leer en el teléfono, imprimir o compartir.
+entrada: El programa del 48.º Foro para leer en el teléfono, imprimir o compartir, y la postal de cada evento.
 clase: pagina-descargas
-description: Descargue el Programa general y el Programa resumido del 48.º Foro Internacional de Música Nueva Manuel Enríquez.
+description: Descargue el Programa general, el Programa resumido y las postales de los eventos del 48.º Foro Internacional de Música Nueva Manuel Enríquez.
 ---
+{%- comment -%}
+  Los QR (descargas/qr-*.svg) los genera _plugins/qr.rb al compilar, con la
+  dirección del sitio de _config.yml (url y baseurl).
+{%- endcomment -%}
 <div class="descargas">
   {%- for d in site.data.descargas %}
-  <a class="descarga descarga-{{ d.id }}" href="{{ '/descargas/' | append: d.archivo | relative_url }}" download>
-    <span class="descarga-icono" aria-hidden="true">{% if d.archivo contains ".pdf" %}PDF{% else %}PNG{% endif %}</span>
-    <span class="descarga-titulo">{{ d.titulo }}</span>
-    <span class="descarga-texto">{{ d.descripcion }}</span>
-    <span class="descarga-detalle">{{ d.detalle }}</span>
-  </a>
+  <div class="descarga-tarjeta">
+    <a class="descarga descarga-{{ d.id }}" href="{{ '/descargas/' | append: d.archivo | relative_url }}" download>
+      <span class="descarga-icono" aria-hidden="true">PDF</span>
+      <span class="descarga-titulo">{{ d.titulo }}</span>
+      <span class="descarga-texto">{{ d.descripcion }}</span>
+      <span class="descarga-detalle">{{ d.detalle }}</span>
+    </a>
+    {%- if site.qr[d.id] %}
+    <figure class="descarga-qr">
+      <img src="{{ '/descargas/qr-' | append: d.id | append: '.svg' | relative_url }}" alt="Código QR para descargar el {{ d.titulo }}" width="132" height="132" loading="lazy">
+      <figcaption>Escanee para descargarlo · <a href="{{ '/descargas/qr-' | append: d.id | append: '.svg' | relative_url }}" download>QR (SVG)</a></figcaption>
+    </figure>
+    {%- endif %}
+  </div>
   {%- endfor %}
 </div>
+
+{%- if site.qr.descargas %}
+<aside class="descargas-qr-pagina">
+  <img src="{{ '/descargas/qr-descargas.svg' | relative_url }}" alt="Código QR de esta página" width="150" height="150" loading="lazy">
+  <div>
+    <h2>Para carteles e impresos</h2>
+    <p>Este código QR abre esta página, con los dos programas y todas las postales: <a href="{{ site.qr.descargas }}">{{ site.qr.descargas | remove: "https://" }}</a>.</p>
+    <p><a class="boton boton-claro" href="{{ '/descargas/qr-descargas.svg' | relative_url }}" download>Descargar el QR (SVG)</a></p>
+  </div>
+</aside>
+{%- endif %}
+
+<section class="postales-galeria" id="postales" aria-labelledby="postales-titulo">
+  <h2 id="postales-titulo">Postales de los eventos</h2>
+  <p class="postales-intro">Una postal por evento, para compartir en redes (PNG de 1080 × 1350 px). Toque una para verla en grande.</p>
+  {%- assign grupos = site.conciertos | group_by: "seccion_nombre" %}
+  {%- for s in site.data.secciones %}
+    {%- assign grupo = grupos | where: "name", s.nombre | first %}
+    {%- if grupo %}
+  <h3 class="postales-seccion">{{ s.nombre }}</h3>
+  <div class="postales-rejilla">
+      {%- for c in grupo.items %}
+        {%- assign postales = site.data.postales[c.slug] %}
+        {%- for p in postales %}
+    <figure class="postal-ficha">
+      <a class="postal-enlace" href="{{ '/postales/' | append: p.png | relative_url }}" data-ampliar title="Ver la postal en grande">
+        <img src="{{ '/assets/postales/' | append: p.previa | relative_url }}" alt="Postal: {{ c.title | escape }}{% if p.fecha != '' %} ({{ p.fecha }}){% endif %}" width="540" height="675" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="postal-fecha">{% if p.fecha != "" %}{{ p.fecha }}{% else %}{{ c.fechas[0].corto }} · {{ c.fechas[0].hora }}&nbsp;h{% endif %}</span>
+        <a class="postal-titulo" href="{{ c.url | relative_url }}">{{ c.titulo_html }}</a>
+        <a class="postal-descarga" href="{{ '/postales/' | append: p.png | relative_url }}" download>Descargar PNG · {{ p.kb }} KB</a>
+      </figcaption>
+    </figure>
+        {%- endfor %}
+      {%- endfor %}
+  </div>
+    {%- endif %}
+  {%- endfor %}
+</section>

@@ -3,15 +3,18 @@
 Una postal por evento para redes: todos los conciertos (Ciudad de México,
 estados y Ecos del Foro), las actividades académicas y las sesiones del
 Coloquio Manuel Enríquez 100. Las de los conciertos van en el verde de las
-postales del diseñador; las de las actividades académicas y el Coloquio, en un
-azul pizarra (#556C7E) que combina con él. Un concierto con dos funciones lleva
-una postal por función (el Coro de Madrigalistas: Jardín Escénico y Palacio de
-Bellas Artes).
-Cada postal sale en tres formatos:
+postales del diseñador; las de las actividades académicas y el Coloquio, en
+verde azulado (#53797C). Un concierto con dos funciones lleva una postal por
+función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
+Cada postal sale en tres formatos, cada uno en su carpeta:
 
-- PNG de 1080 × 1350 px;
-- PDF;
-- IDML para InDesign (ver «El IDML», abajo).
+- `png/`: PNG de 1080 × 1350 px, para redes;
+- `pdf/`: PDF;
+- `idml/`: IDML para InDesign (ver «El IDML», abajo).
+
+En las mismas carpetas está la postal del abono (`fimnme2026-postal-abono`), que
+se genera aparte (`abono/`, abajo). El sitio web muestra la postal de cada
+evento en su página y todas juntas en la de descargas.
 
 Siguen las postales del diseñador, que ya cumplen los lineamientos del INBAL.
 Los tamaños y posiciones de los logotipos están aprobados.
@@ -19,6 +22,7 @@ Los tamaños y posiciones de los logotipos están aprobados.
 ```bash
 python3 postales/genera.py                                  # todas
 python3 postales/genera.py sab-nov-7-gonzalo-gutierrez-piano  # solo esa
+postales/abono/compila.sh                                   # la del abono
 ```
 
 `./compila.sh` (la compilación completa) también las regenera.
@@ -51,7 +55,7 @@ De arriba abajo:
    son intérpretes (una instalación de su autor), no va.
 6. Sede, dirección y «Entrada libre | Cupo limitado».
 
-No hay cursivas. El fondo (verde o azul) lleva la partitura de *1 x 4* de
+No hay cursivas. El fondo (verde o verde azulado) lleva la partitura de *1 x 4* de
 Enríquez; detrás del contenido se oscurece un poco para que los textos se lean
 bien (todos pasan de 4:1 de contraste, en los dos colores).
 
@@ -117,15 +121,17 @@ disposición de las fotos está en `postal.lua`.
 | `genera.py` | Prepara fotos, logotipos y datos; compila cada postal y la exporta a PNG e IDML. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `postal.lua` | Disposición y recorte de las fotos en la franja (y sus marcos para el IDML). |
+| `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF. |
 | `recursos/` | Pleca de Cultura e INBAL. |
-| `fimnme2026-postal-<evento>.png`, `.pdf`, `.idml` | Las postales (generadas). La de cada función de un concierto que se repite empieza con su fecha. |
-| `anteriores/` | Las primeras postales de prueba, con el diseño anterior (solo como referencia). |
+| `png/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.pdf` e `.idml`. La de cada función de un concierto que se repite empieza con su fecha. |
+| `abono/` | La postal del abono (inauguración y clausura): `abono.tex` (diseño y textos), `compila.sh` y `logos_blancos.py`. |
 
 ## El IDML
 
-Lo arma `postal/idml_editable.py` (el mismo que hace el de la postal del
+Lo arma `postales/idml_editable.py` (el mismo que hace el de la postal del
 abono) a partir del PDF de cada postal y del fondo, que se compila aparte
-(la plantilla con `\solofondo`, en `build/postales/fondo-verde.pdf` y `fondo-azul.pdf`). Es un
+(la plantilla con `\solofondo`, en `build/postales/fondo-verde.pdf` y
+`fondo-azul.pdf`, el verde azulado). Es un
 documento de InDesign de una página, del tamaño de la postal, con todo
 incrustado (no depende de otros archivos). De atrás hacia adelante:
 

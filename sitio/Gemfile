@@ -3,3 +3,4 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
 gem "webrick", "~> 1.8"   # para «jekyll serve» con Ruby ≥ 3
+gem "rqrcode_core", "~> 2.0"   # QR de la página de descargas (_plugins/qr.rb)

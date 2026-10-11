@@ -69,8 +69,8 @@ EOF
 git clone git@github-fimnme:jesarx/48fimnme.git ~/48fimnme
 ```
 
-Instala Jekyll para el sitio (queda dentro de `sitio/vendor/`, sin tocar el
-sistema):
+Instala Jekyll para el sitio y la gema de los códigos QR de la página de
+descargas (quedan dentro de `sitio/vendor/`, sin tocar el sistema):
 
 ```bash
 cd ~/48fimnme/sitio
@@ -225,7 +225,10 @@ error y en la caché de `assets`.
 Cuando el sitio quede aprobado en `forodemusicanueva.inba.gob.mx`:
 
 1. En `sitio/_config.yml`, cambia `url` a `"https://forodemusicanueva.inba.gob.mx"`
-   e `indexar` a `true`. Haz commit.
+   e `indexar` a `true`. Haz commit. Los códigos QR de la página de descargas
+   se generan al compilar con ese `url`: al publicar de nuevo ya apuntan al
+   dominio definitivo (si antes se imprimió alguno con el de prueba, conviene
+   la redirección del paso 3).
 2. Hay dos caminos:
    - **Si el sitio se queda en este VPS:** el registro DNS del dominio (lo
      administra el INBAL) debe apuntar a su IP. Después repite el paso 5 con el
