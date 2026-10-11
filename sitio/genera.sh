@@ -7,12 +7,15 @@
 #   sitio/genera.sh --contenido  solo regenera el contenido (sin Jekyll)
 #   sitio/genera.sh --compilar   solo compila (el contenido ya está generado)
 #
-# Requisitos: pandoc (≥ 3.1), Python 3 con Pillow, NumPy y PyMuPDF; para
-# compilar, Ruby con Jekyll 4 (cd sitio && bundle install).
+# Requisitos: pandoc (≥ 3.1), Python 3 con Pillow, NumPy, PyMuPDF y PyYAML;
+# para compilar, Ruby con Jekyll 4 y la gema rqrcode_core de los códigos QR
+# (cd sitio && bundle install).
 #
 # Lo generado (sitio/_conciertos, sitio/_data, sitio/_includes/generado,
-# sitio/assets/fotos y logos, sitio/descargas) se guarda en el repositorio:
-# así el sitio se puede compilar solo con Jekyll, sin pandoc ni LaTeX.
+# sitio/assets/fotos, logos y postales, sitio/descargas, sitio/postales) se
+# guarda en el repositorio: así el sitio se puede compilar solo con Jekyll,
+# sin pandoc ni LaTeX. Los QR de la página de descargas los genera Jekyll al
+# compilar (_plugins/qr.rb), con la dirección de _config.yml.
 #
 # Las direcciones llevan el año de la edición (baseurl de _config.yml, p. ej.
 # «/2026»): el sitio se compila en sitio/_site/2026/ y en sitio/_site/ quedan

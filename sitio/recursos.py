@@ -11,9 +11,13 @@ Prepara, a partir de lo que ya usan el Programa general y la postal:
 * sitio/assets/img/     logo «48» y de la CNMO en SVG (de los trazos de la
                         plantilla; copia en _includes/generado), textura de la
                         partitura de Enríquez, ícono e imagen para compartir
-* sitio/_data/abono.json      precios y sede del abono (los de postal/postal.tex)
-* sitio/_data/descargas.json  PDF del programa, del resumen y la postal
-* sitio/descargas/            copias de esos archivos
+* sitio/_data/abono.json      precios y sede del abono (los de postales/abono/abono.tex)
+* sitio/_data/descargas.json  PDF del Programa general y del resumido
+* sitio/descargas/            copias de esos archivos (los QR para descargarlos
+                              los genera Jekyll al compilar: _plugins/qr.rb)
+* sitio/postales/             la postal de cada evento en PNG (para descargar)
+* sitio/assets/postales/      su vista previa, ligera (JPG de 540 × 675 px)
+* sitio/_data/postales.json   las postales de cada evento (por su etiqueta)
 
 Las fotos y logotipos que hacen falta los lista sitio/sitio.lua en
 build/sitio/recursos.tsv.
@@ -22,7 +26,10 @@ build/sitio/recursos.tsv.
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
+
+import yaml
 
 import numpy as np
 import pymupdf
@@ -209,7 +216,7 @@ def imagen_redes(textura):
 # -----------------------------------------------------------------------------
 def abono():
     """Precios, sede y dirección del abono: los mismos de la postal."""
-    tex = (RAIZ / "postal/postal.tex").read_text(encoding="utf-8")
+    tex = (RAIZ / "postales/abono/abono.tex").read_text(encoding="utf-8")
 
     def comando(nombre):
         m = re.search(r"\\newcommand\{\\" + nombre + r"\}\{(.*)\}\s*$", tex, flags=re.M)
@@ -227,8 +234,6 @@ DESCARGAS = [
      "Programa completo: obras, semblanzas y notas al programa"),
     ("resumen", RAIZ / "resumen/fimnme2026-resumen.pdf", "Programa resumido",
      "Todas las fechas en pocas páginas, para imprimir o consultar rápido"),
-    ("postal", RAIZ / "postal/fimnme2026-postal-abono.png", "Postal del abono",
-     "Inauguración y clausura en el Palacio de Bellas Artes"),
 ]
 
 
@@ -253,8 +258,56 @@ def descargas():
                 detalle = f"PNG · {im.width} × {im.height} px · {peso}"
         lista.append({"id": clave, "archivo": origen.name, "titulo": titulo,
                       "descripcion": descripcion, "detalle": detalle})
+    limpiar_directorio(destino, {d["archivo"] for d in lista})
     (SITIO / "_data/descargas.json").write_text(json.dumps(lista, ensure_ascii=False) + "\n",
                                                encoding="utf-8")
+
+
+# -----------------------------------------------------------------------------
+# Postales de los eventos (las que genera postales/genera.py)
+# -----------------------------------------------------------------------------
+LADO_PREVIA = (540, 675)
+
+
+def postales():
+    """La postal de cada evento: el PNG para descargarla y una vista previa
+    ligera. En postales.json, por la etiqueta del evento, la lista de sus
+    postales (dos en un concierto con dos funciones, cada una con su fecha)."""
+    sys.path.insert(0, str(RAIZ / "postales"))
+    import genera   # noqa: E402  (nombre de cada postal, el mismo que al generarlas)
+    lista = yaml.safe_load((RAIZ / "postales/postales.yaml").read_text(encoding="utf-8"))["postales"]
+    destino, previas = SITIO / "postales", ASSETS / "postales"
+    destino.mkdir(exist_ok=True)
+    previas.mkdir(exist_ok=True)
+    datos, pngs, jpgs = {}, set(), set()
+    for postal in lista:
+        nombre = genera.nombre_salida(postal)
+        png = RAIZ / "postales/png" / f"fimnme2026-postal-{nombre}.png"
+        if not png.exists():
+            print(f"  Aviso: falta {png.relative_to(RAIZ)} (python3 postales/genera.py)")
+            continue
+        copia = destino / png.name
+        if not copia.exists() or copia.read_bytes() != png.read_bytes():
+            shutil.copyfile(png, copia)
+        previa = previas / f"{nombre}.jpg"
+        if not al_dia(previa, png):
+            with Image.open(png) as im:
+                im.convert("RGB").resize(LADO_PREVIA, Image.LANCZOS).save(
+                    previa, "JPEG", quality=84, optimize=True, progressive=True)
+        fecha = ""
+        if "funcion" in postal:
+            f = genera.datos_evento(postal["evento"])["fechas"][postal["funcion"] - 1]
+            fecha = f"{f['corto']} · {f['hora']} h"
+        datos.setdefault(postal["evento"], []).append(
+            {"png": png.name, "previa": previa.name, "fecha": fecha,
+             "kb": round(png.stat().st_size / 1024)})
+        pngs.add(png.name)
+        jpgs.add(previa.name)
+    limpiar_directorio(destino, pngs)
+    limpiar_directorio(previas, jpgs)
+    (SITIO / "_data/postales.json").write_text(json.dumps(datos, ensure_ascii=False) + "\n",
+                                              encoding="utf-8")
+    print(f"  {len(pngs)} postales")
 
 
 def main():
@@ -264,6 +317,7 @@ def main():
     imagen_redes(textura)
     abono()
     descargas()
+    postales()
 
 
 if __name__ == "__main__":

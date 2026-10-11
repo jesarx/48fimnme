@@ -56,6 +56,21 @@ clase: pagina-evento
       </section>
       {%- endfor %}
 
+      {%- assign postales = site.data.postales[page.slug] %}
+      {%- if postales %}
+      <section class="dato postal-evento" aria-label="Postal para compartir">
+        <p class="indice-titulo">Postal para compartir</p>
+        {%- for p in postales %}
+        <figure class="postal-figura">
+          <a class="postal-enlace" href="{{ '/postales/' | append: p.png | relative_url }}" data-ampliar title="Ver la postal en grande">
+            <img src="{{ '/assets/postales/' | append: p.previa | relative_url }}" alt="Postal: {{ page.title | escape }}{% if p.fecha != '' %} ({{ p.fecha }}){% endif %}" width="540" height="675" loading="lazy">
+          </a>
+          <a class="boton boton-claro" href="{{ '/postales/' | append: p.png | relative_url }}" download>Descargar{% if p.fecha != "" %} · {{ p.fecha }}{% endif %}</a>
+        </figure>
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
       {%- if page.secciones.size > 1 %}
       <nav class="indice" aria-label="En esta página">
         <p class="indice-titulo">En esta página</p>
