@@ -193,7 +193,7 @@ local CLAVES_SEDE = {
   "bellas artes", "museo nacional de arte", "jardin escenico", "carrillo gil",
   "conservatorio nacional", "musica y danza", "escuela superior de musica",
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
-  "rafael galvan", "casa del tiempo", "sor juana", "cenart", "artes sonoras",
+  "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
   "convento del carmen", "rodolfo morales", "san pablo",
 }
