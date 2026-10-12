@@ -8254,7 +8254,7 @@ Róterdam, Países Bajos.
 
 ## VIE | NOV 20, 19 h - Cuarteto Ruvalcaba
 
-Xico. Antigua Sede del Senado
+Casa del Tiempo, UAM
 
 ### Programa
 
@@ -8441,7 +8441,9 @@ la memoria de Higinio Ruvalcaba (1905-1976), destacado violinista y
 compositor mexicano, integrante del Cuarteto Léner.
 
 ::: logos
-![](<logos/logo xico/xico_senado.jpg>)
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaDelTiempoNegro.png>)
 :::
 
 ## SÁB | NOV 21, 12 h - Cuarteto de Bellas Artes: Enríquez 100
@@ -11420,8 +11422,8 @@ Xicoténcatl 126, Del Carmen, Coyoacán, Ciudad de México
 **Casa Rafael Galván, UAM**\
 Zacatecas 94, Roma Norte, Ciudad de México
 
-**Xico. Antigua Sede del Senado**\
-Xicoténcatl 9, Centro Histórico, Ciudad de México
+**Casa del Tiempo, UAM**\
+Pedro Antonio de los Santos 84, San Miguel Chapultepec, Ciudad de México
 
 **Universidad del Claustro de Sor Juana**\
 José María Izazaga 92, Centro Histórico, Ciudad de México
@@ -11509,9 +11511,6 @@ José Areán, *director artístico de la OJUEM*
 Gustavo Pacheco López, *rector*\
 Yissel Arce Padrón, *coordinadora general de Difusión*\
 Hugo García Galván, *director de la Casa Rafael Galván*
-
-**Senado de la República**\
-Martha López Castillo, *coordinadora de Eventos Culturales*
 
 **Universidad del Claustro de Sor Juana**\
 Rafael Tovar López-Portillo, *rector*
