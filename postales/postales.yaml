@@ -384,8 +384,10 @@ postales:
   - evento: vie-nov-20-cepromusic
     interpretes:
       - Ensamble Cepromusic
+      - [Roberto Beltrán-Zavala, director invitado]
     fotos:
       - int/Cepromusic_6.jpg
+      - int/Roberto Beltrán-Zavala.jpg
 
   - evento: vie-nov-20-cuarteto-ruvalcaba
     interpretes:

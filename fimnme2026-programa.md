@@ -7945,7 +7945,7 @@ Jardín Escénico, Pabellón Escénico
 
 **Ensamble Cepromusic**
 
-Director invitado
+Roberto Beltrán-Zavala, director invitado
 
 Maximiliano Trigo, **flauta** | Arielle Amezcua, **oboe** | Gabriel
 Padilla, **clarinete** | Pablo Ramírez, **clarinete bajo** | Ángel
@@ -8210,6 +8210,41 @@ como la fotografía, el video, el teatro, el cine silente, la danza y la
 multimedia, y cuenta con tres producciones discográficas. Desde su
 creación el ensamble ha ejecutado cuatrocientos conciertos en los que ha
 interpretado más de ochocientas obras y trescientos estrenos.
+
+#### Roberto Beltrán-Zavala
+
+![](int/Roberto%20Beltrán-Zavala.jpg)
+
+Es reconocido unánimemente por orquestas, público y prensa especializada
+como uno de los directores más destacados de su generación. En
+temporadas recientes, su actividad artística lo ha llevado a exitosos
+debuts con orquestas de Países Bajos, Bélgica, Italia, Alemania, Suiza,
+Francia, Rumania, Polonia, Malta, Argentina y México. Su repertorio
+abarca ciclos sinfónicos completos de Shostakovich y Mahler, así como
+obras seminales del siglo XX de compositores como Stravinski, Varèse,
+Boulez, Messiaen, Bartók y Ligeti y más de veinte títulos operísticos.
+Se desempeñó como director musical de la Orquesta Sinfónica de
+Guanajuato (OSUG) de 2015 a 2023 y actualmente es director artístico en
+re:orchestra en Róterdam, así como director musical del Palermo Classica
+International Festival en Italia. Ha dirigido las orquestas del Siglo
+XVIII, Sinfónica Nacional de México, d’Auvergne, Rotterdam Philharmonic,
+Silesian Philharmonic, Holland Sinfonia, Nacional de Radio de Rumania,
+Bremerhaven Opera, Sinfonica di Sanremo, Royal of Wallonia y Malta
+Philharmonic.
+
+En 2016 BIS Records lanzó su álbum debut europeo dentro de la serie
+Essential Music, recibiendo elogios de publicaciones como *The Strad*,
+*Gramophone*, *Klassik Heute* y *Amadeus*, así como un amplio
+reconocimiento del público. En 2019 la OSUG publicó una grabación en
+vivo de la Tercera sinfonía de Mahler, seguida en 2022 por un álbum de
+la Décima sinfonía de Shostakovich en el sello francés Evidence
+Classics. En 2025 lanzó una grabación en vivo de *Das Lied von der Erde*
+de Mahler, considerada por el propio director como uno de los proyectos
+más personales y significativos de su carrera. En 2022 recibió el Mahler
+Award de la Mahler Foundation, en reconocimiento a su extraordinaria
+contribución a la interpretación y difusión de la música de Gustav
+Mahler. De nacionalidad mexicana y neerlandesa, actualmente reside en
+Róterdam, Países Bajos.
 
 ::: logos
 ![](<logos/Centro_Cultural_Bosque_logo.ai>)
