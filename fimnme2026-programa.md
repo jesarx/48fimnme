@@ -11343,7 +11343,7 @@ Maby Muñoz, **moderadora**
 
 #### JUE | NOV 19, 10 h - Conferencia: Iracema de Andrade
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Iracema de Andrade, **ponente**
 
@@ -11353,7 +11353,7 @@ Luis Jaime Cortez, **moderador**
 
 #### JUE | NOV 19, 11:30 h - Mesa 3: Entre disciplinas
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
 
@@ -11363,7 +11363,7 @@ José María Serralde, **moderador**
 
 #### JUE | NOV 19, 13 h - Mesa 4: El gestor
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Guillermo Contreras, Arón Bitrán, Aurelio Tello y Susana Enríquez, **participantes**
 
@@ -11373,7 +11373,7 @@ Marusia Pola, **moderadora**
 
 #### JUE | NOV 19, 16:30 h - Conferencia: Leonora Saavedra
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Leonora Saavedra, **ponente**
 
