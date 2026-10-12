@@ -56,6 +56,63 @@ Para otra edición hacen falta tres cosas:
 - cambiar el diseño en las plantillas y en `sitio/assets/`;
 - poner el año en `baseurl` de `sitio/_config.yml`.
 
+## Sitio web: compilarlo y entregarlo a Informática
+
+El contenido del sitio ya está generado en el repositorio (cada compilación
+completa lo actualiza), así que para entregarlo **basta Jekyll**: no hacen
+falta pandoc, LaTeX ni Python.
+
+**Una sola vez** (instalar Jekyll y la gema de los códigos QR, dentro de
+`sitio/vendor/`):
+
+```bash
+# Ruby 3 o posterior con bundler:
+#   macOS:          brew install ruby          (y abrir una terminal nueva)
+#   Debian/Ubuntu:  sudo apt install ruby-full build-essential zlib1g-dev
+#   Windows:        RubyInstaller con DevKit (rubyinstaller.org) y Git Bash
+gem install bundler
+cd sitio
+bundle config set --local path vendor/bundle
+bundle install
+cd ..
+```
+
+**Cada vez:**
+
+```bash
+git pull                        # trae lo último
+sitio/genera.sh --compilar      # compila en sitio/_site/
+```
+
+Para revisarlo antes en el navegador: `sitio/genera.sh --servir` y abrir
+<http://localhost:4000/2026/>.
+
+**Para Informática**, se comprime el **contenido** de `sitio/_site/` (no la
+carpeta `sitio/`):
+
+```bash
+cd sitio/_site && zip -r ../../fimnme2026-sitio.zip . && cd ../..
+```
+
+(En macOS o Windows también se puede seleccionar todo lo que hay dentro de
+`sitio/_site/` y elegir «Comprimir».) El zip lleva la carpeta `2026/` (el
+sitio: páginas HTML, CSS, JavaScript, imágenes y PDF), un `index.html` que
+redirige de la raíz del dominio a `/2026/` y el `robots.txt`. Son archivos
+estáticos: se copian tal cual a la raíz del servidor web, sin base de datos
+ni PHP.
+
+**Antes de compilar la versión definitiva**, en `sitio/_config.yml`:
+
+- `url`: el dominio donde se va a publicar (hoy es el de prueba,
+  `https://fimnme.qumran.cc`). Se usa en los enlaces para compartir y en los
+  códigos QR de la página de descargas.
+- `indexar: true`, para que los buscadores lo encuentren (en `false` les
+  pide que no lo indexen).
+- `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
+
+Después de cambiarlos, volver a compilar (`sitio/genera.sh --compilar`) y
+hacer el zip. Más detalles en `sitio/LEEME.md` y `sitio/DESPLIEGUE.md`.
+
 ## Cómo está organizado
 
 | Archivo | Para qué sirve |
