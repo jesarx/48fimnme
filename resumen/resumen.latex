@@ -20,8 +20,11 @@
   Path=\rutafuentes, Extension=.ttf,
   UprightFont=*-Regular, ItalicFont=*-Italic,
   BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic,
+  FontFace={l}{n}{*-Light}, FontFace={l}{it}{*-LightItalic},
   Numbers=Lining
 ]
+% El papel de un intérprete (el instrumento, «director»…), más ligero que el nombre
+\newcommand{\papel}[1]{{\fontseries{l}\selectfont #1}}
 \IfFontExistsTF{Noto Sans CJK SC}
   {\newfontfamily\fuentecjk{Noto Sans CJK SC}
    \newcommand{\textocjk}[1]{{\fontshape{n}\fuentecjk #1}}}
