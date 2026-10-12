@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila la postal para la venta del abono del 48.º FIMNME (inauguración y
+# Compila la postal para la venta del abono del 48º FIMNME (inauguración y
 # clausura) y la exporta en PNG y JPG de 1080 × 1350 px, en PDF y en IDML
 # editable.
 #
@@ -42,6 +42,6 @@ pdftoppm -png -scale-to-x 1080 -scale-to-y 1350 -singlefile "postales/pdf/$NOMBR
 python3 -c "from PIL import Image; Image.open('postales/png/$NOMBRE.png').convert('RGB').save('postales/jpg/$NOMBRE.jpg', quality=90, optimize=True, progressive=True)"
 # IDML editable (InDesign): fondo, recuadros, logotipos y textos en Noto Sans
 python3 postales/idml_editable.py "postales/pdf/$NOMBRE.pdf" build/postal/fondo.pdf postales/abono/abono.tex \
-  "postales/idml/$NOMBRE.idml" "48.º FIMNME · Postal del abono"
+  "postales/idml/$NOMBRE.idml" "48º FIMNME · Postal del abono"
 tamano=$(python3 -c "from PIL import Image; print('×'.join(map(str, Image.open('postales/png/$NOMBRE.png').size)))")
 echo "✓ Listo: postales/png/$NOMBRE.png ($tamano px), y en postales/jpg, pdf e idml"

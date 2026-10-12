@@ -1,5 +1,5 @@
 % =============================================================================
-%  Programa resumido del 48.º FIMNME
+%  Programa resumido del 48º FIMNME
 %  Mismo formato (108 × 192 mm) y paleta que el Programa general. Todo en
 %  Noto Sans (sin versiones condensadas): la agenda a dos columnas; los
 %  programas a una columna, con cuerpo de lectura.
@@ -20,8 +20,11 @@
   Path=\rutafuentes, Extension=.ttf,
   UprightFont=*-Regular, ItalicFont=*-Italic,
   BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic,
+  FontFace={l}{n}{*-Light}, FontFace={l}{it}{*-LightItalic},
   Numbers=Lining
 ]
+% El papel de un intérprete (el instrumento, «director»…), más ligero que el nombre
+\newcommand{\papel}[1]{{\fontseries{l}\selectfont #1}}
 \IfFontExistsTF{Noto Sans CJK SC}
   {\newfontfamily\fuentecjk{Noto Sans CJK SC}
    \newcommand{\textocjk}[1]{{\fontshape{n}\fuentecjk #1}}}
@@ -61,7 +64,7 @@
 
 \usepackage[hidelinks, pdfusetitle]{hyperref}
 \hypersetup{
-  pdftitle={48.º FIMNME · Programa resumido},
+  pdftitle={48º FIMNME · Programa resumido},
   pdfauthor={Coordinación Nacional de Música y Ópera},
   pdflang={es-MX}}
 
@@ -69,7 +72,7 @@
 \usepackage[automark]{scrlayer-scrpage}
 \clearpairofpagestyles
 \setkomafont{pagefoot}{\fontsize{6.4}{7.5}\selectfont\color{verdegris}}
-\ifoot{48.º Foro Internacional de Música Nueva Manuel Enríquez · Programa resumido}
+\ifoot{48º Foro Internacional de Música Nueva Manuel Enríquez · Programa resumido}
 \ofoot{\thepage}
 \pagestyle{scrheadings}
 
@@ -143,7 +146,7 @@
   \noindent\begin{minipage}[c]{8mm}\logocnmo{8mm}{verdegris}\end{minipage}\hspace{2.5mm}%
   \begin{minipage}[c]{\dimexpr\linewidth-10.5mm\relax}\RaggedRight
     \color{verdegris}\fontsize{7}{8.6}\selectfont Obras, semblanzas y notas al programa
-    en el \mbox{Programa general} del \mbox{48.º FIMNME}.\end{minipage}\par}
+    en el \mbox{Programa general} del \mbox{48º FIMNME}.\end{minipage}\par}
 % #1 fecha y hora  #2 letras de sede  #3 título  #4 sede
 \newcommand{\concierto}[4]{\par\addvspace{3.4mm}%
   \setbox\cajaconcierto=\vbox\bgroup

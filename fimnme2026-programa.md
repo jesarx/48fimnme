@@ -7945,7 +7945,7 @@ Jardín Escénico, Pabellón Escénico
 
 **Ensamble Cepromusic**
 
-Director invitado
+Roberto Beltrán-Zavala, director invitado
 
 Maximiliano Trigo, **flauta** | Arielle Amezcua, **oboe** | Gabriel
 Padilla, **clarinete** | Pablo Ramírez, **clarinete bajo** | Ángel
@@ -8211,6 +8211,41 @@ multimedia, y cuenta con tres producciones discográficas. Desde su
 creación el ensamble ha ejecutado cuatrocientos conciertos en los que ha
 interpretado más de ochocientas obras y trescientos estrenos.
 
+#### Roberto Beltrán-Zavala
+
+![](int/Roberto%20Beltrán-Zavala.jpg)
+
+Es reconocido unánimemente por orquestas, público y prensa especializada
+como uno de los directores más destacados de su generación. En
+temporadas recientes, su actividad artística lo ha llevado a exitosos
+debuts con orquestas de Países Bajos, Bélgica, Italia, Alemania, Suiza,
+Francia, Rumania, Polonia, Malta, Argentina y México. Su repertorio
+abarca ciclos sinfónicos completos de Shostakovich y Mahler, así como
+obras seminales del siglo XX de compositores como Stravinski, Varèse,
+Boulez, Messiaen, Bartók y Ligeti y más de veinte títulos operísticos.
+Se desempeñó como director musical de la Orquesta Sinfónica de
+Guanajuato (OSUG) de 2015 a 2023 y actualmente es director artístico en
+re:orchestra en Róterdam, así como director musical del Palermo Classica
+International Festival en Italia. Ha dirigido las orquestas del Siglo
+XVIII, Sinfónica Nacional de México, d’Auvergne, Rotterdam Philharmonic,
+Silesian Philharmonic, Holland Sinfonia, Nacional de Radio de Rumania,
+Bremerhaven Opera, Sinfonica di Sanremo, Royal of Wallonia y Malta
+Philharmonic.
+
+En 2016 BIS Records lanzó su álbum debut europeo dentro de la serie
+Essential Music, recibiendo elogios de publicaciones como *The Strad*,
+*Gramophone*, *Klassik Heute* y *Amadeus*, así como un amplio
+reconocimiento del público. En 2019 la OSUG publicó una grabación en
+vivo de la Tercera sinfonía de Mahler, seguida en 2022 por un álbum de
+la Décima sinfonía de Shostakovich en el sello francés Evidence
+Classics. En 2025 lanzó una grabación en vivo de *Das Lied von der Erde*
+de Mahler, considerada por el propio director como uno de los proyectos
+más personales y significativos de su carrera. En 2022 recibió el Mahler
+Award de la Mahler Foundation, en reconocimiento a su extraordinaria
+contribución a la interpretación y difusión de la música de Gustav
+Mahler. De nacionalidad mexicana y neerlandesa, actualmente reside en
+Róterdam, Países Bajos.
+
 ::: logos
 ![](<logos/Centro_Cultural_Bosque_logo.ai>)
 ![](<logos/Jardin_Escenico_horiz.ai>)
@@ -8219,7 +8254,7 @@ interpretado más de ochocientas obras y trescientos estrenos.
 
 ## VIE | NOV 20, 19 h - Cuarteto Ruvalcaba
 
-Xico. Antigua Sede del Senado
+Casa del Tiempo, UAM
 
 ### Programa
 
@@ -8406,7 +8441,9 @@ la memoria de Higinio Ruvalcaba (1905-1976), destacado violinista y
 compositor mexicano, integrante del Cuarteto Léner.
 
 ::: logos
-![](<logos/logo xico/xico_senado.jpg>)
+![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
+![](<logos/logos UAM/CasaDelTiempoNegro.png>)
 :::
 
 ## SÁB | NOV 21, 12 h - Cuarteto de Bellas Artes: Enríquez 100
@@ -11272,7 +11309,7 @@ compensarlo.
 
 ### Programa del Coloquio
 
-Actividades académicas *in memoriam* en el marco del 48.º FIMNME.
+Actividades académicas *in memoriam* en el marco del 48º FIMNME.
 
 **Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Literatum*
 
@@ -11385,8 +11422,8 @@ Xicoténcatl 126, Del Carmen, Coyoacán, Ciudad de México
 **Casa Rafael Galván, UAM**\
 Zacatecas 94, Roma Norte, Ciudad de México
 
-**Xico. Antigua Sede del Senado**\
-Xicoténcatl 9, Centro Histórico, Ciudad de México
+**Casa del Tiempo, UAM**\
+Pedro Antonio de los Santos 84, San Miguel Chapultepec, Ciudad de México
 
 **Universidad del Claustro de Sor Juana**\
 José María Izazaga 92, Centro Histórico, Ciudad de México
@@ -11425,7 +11462,7 @@ Hidalgo 907 e Independencia 904, Centro, Oaxaca, Oaxaca
 
 ## Créditos
 
-### 48.º Foro Internacional de Música Nueva Manuel Enríquez
+### 48º Foro Internacional de Música Nueva Manuel Enríquez
 
 **José María Serralde Ruiz**\
 *Coordinador Nacional de Música y Ópera*
@@ -11474,9 +11511,6 @@ José Areán, *director artístico de la OJUEM*
 Gustavo Pacheco López, *rector*\
 Yissel Arce Padrón, *coordinadora general de Difusión*\
 Hugo García Galván, *director de la Casa Rafael Galván*
-
-**Senado de la República**\
-Martha López Castillo, *coordinadora de Eventos Culturales*
 
 **Universidad del Claustro de Sor Juana**\
 Rafael Tovar López-Portillo, *rector*

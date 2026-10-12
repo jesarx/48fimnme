@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila el Programa General del 48.º FIMNME.
+# Compila el Programa General del 48º FIMNME.
 #
 #   ./compila.sh            compilación completa
 #   ./compila.sh --rapido   una sola pasada de LuaLaTeX (para revisar cambios)

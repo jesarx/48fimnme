@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila el Programa resumido del 48.º FIMNME a partir del mismo Markdown
+# Compila el Programa resumido del 48º FIMNME a partir del mismo Markdown
 # que el Programa general (no usa fotos: pesa poco y compila en segundos).
 #
 #   resumen/compila.sh

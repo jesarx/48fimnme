@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Genera el sitio web del 48.º FIMNME a partir del mismo Markdown que el
+# Genera el sitio web del 48º FIMNME a partir del mismo Markdown que el
 # Programa general (fimnme2026-programa.md) y lo compila con Jekyll.
 #
 #   sitio/genera.sh              contenido, recursos y compilación (sitio/_site)
@@ -78,7 +78,7 @@ if [[ -n "$BASEURL" ]]; then
 <meta http-equiv="refresh" content="0; url=${BASEURL}/">
 <link rel="canonical" href="${BASEURL}/">
 </head>
-<body><p><a href="${BASEURL}/">48.º Foro Internacional de Música Nueva Manuel Enríquez</a></p></body>
+<body><p><a href="${BASEURL}/">48º Foro Internacional de Música Nueva Manuel Enríquez</a></p></body>
 </html>
 HTML
 fi

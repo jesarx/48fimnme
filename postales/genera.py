@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Postales de los eventos del 48.º FIMNME (1080 × 1350 px: PNG, JPG, PDF e IDML editable).
+"""Postales de los eventos del 48º FIMNME (1080 × 1350 px: PNG, JPG, PDF e IDML editable).
 
 Siguen las postales del diseñador (lineamientos y tamaños de logotipos
 aprobados). Lee postales/postales.yaml (antetítulo, intérpretes, fotos…) y,
@@ -461,7 +461,7 @@ def compilar(etiqueta, datos, pdf_fondo):
         SALIDA / "jpg" / f"{nombre}.jpg", quality=90, optimize=True, progressive=True)
     # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
     idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
-                            str(SALIDA / "idml" / f"{nombre}.idml"), f"48.º FIMNME · Postal: {etiqueta}",
+                            str(SALIDA / "idml" / f"{nombre}.idml"), f"48º FIMNME · Postal: {etiqueta}",
                             pistas_fotos=carpeta / "fotos.json")
     print(f"✓ {nombre}: postales/png, jpg, pdf e idml")
 

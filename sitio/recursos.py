@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recursos del sitio web del 48.º FIMNME (sitio/genera.sh lo ejecuta).
+"""Recursos del sitio web del 48º FIMNME (sitio/genera.sh lo ejecuta).
 
 Prepara, a partir de lo que ya usan el Programa general y la postal:
 
@@ -135,7 +135,7 @@ def svg_de_pgf(tex, destino, titulo):
 def logotipos_vectoriales():
     img = ASSETS / "img"
     img.mkdir(parents=True, exist_ok=True)
-    svg_de_pgf(PLANTILLA / "logo-48.tex", img / "logo-48.svg", "48.º FIMNME")
+    svg_de_pgf(PLANTILLA / "logo-48.tex", img / "logo-48.svg", "48º FIMNME")
     svg_de_pgf(PLANTILLA / "logo-cnmo.tex", img / "logo-cnmo.svg",
                "Coordinación Nacional de Música y Ópera")
     # también para insertarlos en la página (toman el color del texto)

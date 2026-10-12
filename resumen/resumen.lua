@@ -1,5 +1,5 @@
 -- =============================================================================
---  resumen.lua — Programa resumido del 48.º FIMNME
+--  resumen.lua — Programa resumido del 48º FIMNME
 --
 --  Lee el mismo fimnme2026-programa.md que el programa general y genera una
 --  versión muy concentrada (plantilla resumen/resumen.latex):
@@ -54,6 +54,66 @@ end
 local function escape(s)
   s = s:gsub("\\", "\\textbackslash{}"):gsub("([#%%&_{}%$])", "\\%1")
   return s
+end
+
+-- Un nombre (de compositor o de intérprete) sin cortarse entre renglones
+-- (la misma regla del Programa general: tipografia.nombres)
+local function nombre_latex(inlines)
+  return latex(tipografia.componer(tipografia.nombres(pandoc.Inlines(inlines), 40)))
+end
+
+-- Papeles de quienes participan en una actividad académica
+local PAPELES = {
+  imparte = true, imparten = true, ponente = true, ponentes = true, moderador = true,
+  moderadora = true, moderan = true, presentador = true, presentadora = true,
+  presentadores = true, presentadoras = true, participante = true, participantes = true,
+}
+
+-- Un intérprete: «Nombre, papel» → el nombre sin cortarse y el papel (el
+-- instrumento, «director»…) en un peso más ligero (\\papel). El papel es lo
+-- que sigue a la última coma de primer nivel y empieza con minúscula.
+local function interprete_latex(xs)
+  for k = #xs - 2, 1, -1 do
+    local a, b, c = xs[k], xs[k + 1], xs[k + 2]
+    if a.t == "Str" and a.text:sub(-1) == "," and (b.t == "Space" or b.t == "SoftBreak")
+       and c.t == "Str" and c.text:match("^%l") then
+      local nombre, papel = pandoc.Inlines({}), pandoc.Inlines({})
+      for j = 1, k - 1 do nombre:insert(xs[j]) end
+      if a.text ~= "," then nombre:insert(pandoc.Str(a.text:sub(1, -2))) end
+      for j = k + 2, #xs do papel:insert(xs[j]) end
+      return nombre_latex(nombre) .. ", \\papel{" .. latex(papel) .. "}"
+    end
+  end
+  return nombre_latex(xs)
+end
+
+-- Varios intérpretes en un renglón («A, violín; B, piano»): cada uno por
+-- separado → { {texto=, latex=}, … }
+local function interpretes_de(inlines)
+  local partes, actual = {}, pandoc.Inlines({})
+  local function cerrar()
+    while #actual > 0 and (actual[1].t == "Space" or actual[1].t == "SoftBreak") do actual:remove(1) end
+    if #actual > 0 then
+      partes[#partes + 1] = { texto = trim(stringify(actual)), latex = interprete_latex(actual) }
+    end
+    actual = pandoc.Inlines({})
+  end
+  for _, el in ipairs(pandoc.Inlines(inlines)) do
+    if el.t == "Str" and el.text:sub(-1) == ";" then
+      if el.text ~= ";" then actual:insert(pandoc.Str(el.text:sub(1, -2))) end
+      cerrar()
+    else
+      actual:insert(el)
+    end
+  end
+  cerrar()
+  return partes
+end
+
+local function interpretes_latex(inlines)
+  local ls = {}
+  for _, p in ipairs(interpretes_de(inlines)) do ls[#ls + 1] = p.latex end
+  return table.concat(ls, "; ")
 end
 
 -- minúsculas sin acentos, para comparar
@@ -138,7 +198,7 @@ local CLAVES_SEDE = {
   "bellas artes", "museo nacional de arte", "jardin escenico", "carrillo gil",
   "conservatorio nacional", "musica y danza", "escuela superior de musica",
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
-  "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
+  "rafael galvan", "casa del tiempo", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
   "convento del carmen", "rodolfo morales", "san pablo",
 }
@@ -199,15 +259,16 @@ end
 -- en el mismo párrafo o en el siguiente). Las demás personas van todas.
 -- -----------------------------------------------------------------------------
 local function condensar_interpretes(lineas)
-  local out = {}
+  local out, textos = {}, {}
   for _, l in ipairs(lineas) do
     if l.integrante and not clave(l.texto):find("direc") then
       -- integrante de un conjunto ya nombrado: se omite
     else
       out[#out + 1] = l.latex
+      textos[#textos + 1] = l.texto
     end
   end
-  return table.concat(out, "; ")
+  return table.concat(out, "; "), table.concat(textos, "; ")
 end
 
 -- -----------------------------------------------------------------------------
@@ -355,10 +416,43 @@ function Pandoc(doc)
       local t = clave(stringify(b.content))
       if #t < 300 and (ev.tipo == "actividad" or t:find("ponente") or t:find("moderador")
                        or t:find("participantes")) then
+        -- el papel («ponente», «moderadora»…), más ligero que los nombres,
+        -- como el de los intérpretes; los nombres, sin cortarse
         local sin_saltos = pandoc.Inlines(b.content):walk({
           LineBreak = function() return pandoc.Space() end,
-          SoftBreak = function() return pandoc.Space() end })
-        table.insert(ev.extra, latex(sin_saltos))
+          SoftBreak = function() return pandoc.Space() end,
+          Strong = function(el)
+            if stringify(el):match("^%l") then
+              return pandoc.RawInline("latex", "\\papel{" .. latex(el.content) .. "}")
+            end
+          end })
+        -- y el que va en texto normal tras una coma («…, imparte»)
+        local partes, actual = {}, pandoc.Inlines({})
+        local function cerrar(sep)
+          for k = #actual - 2, 1, -1 do
+            local x, y, z = actual[k], actual[k + 1], actual[k + 2]
+            local primera = z.t == "Str" and clave(z.text):gsub("%p", "") or ""
+            if x.t == "Str" and x.text:sub(-1) == "," and y.t == "Space" and PAPELES[primera] then
+              local papel = pandoc.Inlines({})
+              for j = k + 2, #actual do papel:insert(actual[j]) end
+              for j = #actual, k + 2, -1 do actual:remove(j) end
+              actual:insert(pandoc.RawInline("latex", "\\papel{" .. latex(papel) .. "}"))
+              break
+            end
+          end
+          partes[#partes + 1] = nombre_latex(actual) .. sep
+          actual = pandoc.Inlines({})
+        end
+        for _, el in ipairs(sin_saltos) do
+          if el.t == "Str" and el.text:sub(-1) == ";" then
+            if el.text ~= ";" then actual:insert(pandoc.Str(el.text:sub(1, -2))) end
+            cerrar("; ")
+          else
+            actual:insert(el)
+          end
+        end
+        cerrar("")
+        table.insert(ev.extra, table.concat(partes))
       end
 
     elseif en_programa and ev then
@@ -368,7 +462,7 @@ function Pandoc(doc)
              and sig and sig.t == "BulletList" then
         -- compositor
         if not grupo or tras_obras then nuevo_grupo() end
-        table.insert(grupo.obras, { compositor = latex(b.content[1].content),
+        table.insert(grupo.obras, { compositor = nombre_latex(b.content[1].content),
           nombre = trim(stringify(b.content[1].content)), titulos = {} })
       elseif b.t == "BulletList" then
         -- obras sin compositor encabezándolas (p. ej. una improvisación)
@@ -400,8 +494,10 @@ function Pandoc(doc)
           local actual = grupo.obras[#grupo.obras]
           local ultima = actual.titulos[#actual.titulos]
           if ultima then
-            ultima.solista = (ultima.solista and ultima.solista .. "; " or "") ..
-              latex(b.content[1].content):gsub("\\textbf{(.-)}", "%1")
+            local sin_negritas = pandoc.Inlines(b.content[1].content):walk({
+              Strong = function(el) return el.content end })
+            ultima.solistas = ultima.solistas or {}
+            for _, sol in ipairs(interpretes_de(sin_negritas)) do table.insert(ultima.solistas, sol) end
           end
         end
       elseif (b.t == "Para" or b.t == "Plain") and grupo then
@@ -427,7 +523,7 @@ function Pandoc(doc)
             if rt ~= "" and rt ~= "INTERMEDIO" then
               local negrita = r[1] and r[1].t == "Strong"
               local sin_saltos = pandoc.Inlines(r):walk({ LineBreak = function() return pandoc.Space() end })
-              table.insert(grupo.interpretes, { texto = rt, latex = latex(sin_saltos),
+              table.insert(grupo.interpretes, { texto = rt, latex = interpretes_latex(sin_saltos),
                 integrante = not negrita and miembros > 3 and (tras_nombre or (conjunto and k > 1)) })
             end
           end
@@ -560,7 +656,8 @@ function Pandoc(doc)
     if resto and not clave(resto):match("^[aeiou]") then conj = "e" end
     local ls = {}
     for k = 1, #items - 1 do ls[#ls + 1] = items[k].latex end
-    return table.concat(ls, ", ") .. " " .. conj .. " " .. items[#items].latex
+    -- la «y» va con el nombre que sigue (no al final del renglón)
+    return table.concat(ls, ", ") .. " " .. conj .. "~" .. items[#items].latex
   end
 
   local function texto_obras(g)
@@ -594,15 +691,14 @@ function Pandoc(doc)
 
   -- intérpretes del grupo y solistas de obras concretas
   local function texto_interpretes(g)
-    local t = condensar_interpretes(g.interpretes)
-    local plano = clave(t)
+    local t, texto = condensar_interpretes(g.interpretes)
+    local plano = clave(texto)
     for _, o in ipairs(g.obras) do
       for _, ti in ipairs(o.titulos) do
-        for sol in (ti.solista or ""):gmatch("[^;]+") do
-          sol = trim(sol)
-          local nombre = clave(trim(sol:match("^([^,]+)") or sol))
+        for _, sol in ipairs(ti.solistas or {}) do
+          local nombre = clave(trim(sol.texto:match("^([^,]+)") or sol.texto))
           if not plano:find(nombre, 1, true) then
-            t = (t ~= "" and t .. "; " or "") .. sol
+            t = (t ~= "" and t .. "; " or "") .. sol.latex
             plano = plano .. " " .. nombre
           end
         end
@@ -718,7 +814,7 @@ function Pandoc(doc)
     emit("\\cierre")
   end
 
-  -- Créditos: los del 48.º FIMNME («## Créditos») y el directorio de la
+  -- Créditos: los del 48º FIMNME («## Créditos») y el directorio de la
   -- Coordinación Nacional de Música y Ópera («## Directorio»)
   local cred, tomar = {}, false
   local function quiero(titulo)

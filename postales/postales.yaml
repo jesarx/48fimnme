@@ -1,4 +1,4 @@
-# Postales de los eventos del 48.º FIMNME (1080 × 1350 px, para redes). Parten
+# Postales de los eventos del 48º FIMNME (1080 × 1350 px, para redes). Parten
 # de las postales del diseñador; la plantilla es postales/postal.tex.
 #
 # Cada postal toma del Markdown (a través de sitio/_conciertos/<evento>.html,
@@ -384,8 +384,10 @@ postales:
   - evento: vie-nov-20-cepromusic
     interpretes:
       - Ensamble Cepromusic
+      - [Roberto Beltrán-Zavala, director invitado]
     fotos:
       - int/Cepromusic_6.jpg
+      - int/Roberto Beltrán-Zavala.jpg
 
   - evento: vie-nov-20-cuarteto-ruvalcaba
     interpretes:
@@ -462,10 +464,6 @@ postales:
       - [Ana Lara, presentadora]
       - [Julio Estrada, presentador]
       - [Luis Jaime Cortez, moderador]
-    fotos:
-      - comp/Stefano Scodanibbio.jpg
-      - comp/Julio Estrada.jpg
-      - comp/Luis Jaime Cortez.jpeg
 
   - evento: jue-nov-19-tres-acercamientos-a-oltracuidansa-de-scodanibbio
     antetitulo: Actividad académica
@@ -579,6 +577,5 @@ postales:
 # Punto de interés de las fotos en las que no se detecta bien el rostro
 # ([x, y] de 0 a 1), para todas las postales en que aparecen
 focos:
-  comp/Luis Jaime Cortez.jpeg: [0.46, 0.58]
   int/Ensamble Danaus.jpg: [0.5, 0.6]   # el del fagot, de perfil, no se detecta
   int/Ehecatl Flores.jpg: [0.5, 0.3]   # el rostro, tras el fagot contrabajo

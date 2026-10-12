@@ -1,4 +1,4 @@
-# Programa resumido · 48.º FIMNME
+# Programa resumido · 48º FIMNME
 
 `fimnme2026-resumen.pdf` es la versión concentrada del Programa General:
 mismo formato (108 × 192 mm) y paleta, sin fotos, semblanzas ni notas, con
@@ -14,12 +14,16 @@ letra de lectura (Noto Sans de 8 pt en los programas).
   y C»), sin los títulos de las obras; y cuántos estrenos mundiales y en
   México tiene. Al principio, el total de estrenos del Foro (cada obra una
   sola vez). Se omiten las listas de integrantes de los conjuntos (se dan
-  su nombre y su dirección).
-- **Actividades académicas y Coloquio**, con sus participantes.
+  su nombre y su dirección). El papel de cada intérprete (el instrumento,
+  «director»…) va en un peso más ligero que su nombre; los nombres de
+  intérpretes y compositores no se cortan entre renglones, y la «y» final de
+  una lista va con el nombre que sigue.
+- **Actividades académicas y Coloquio**, con sus participantes (su papel,
+  «ponente», «moderadora»…, también más ligero).
 - **Logotipos.** Todos los logotipos del Programa general (los bloques
   `::: logos` de cada concierto), sin repetir, en copias ligeras para que el
   PDF siga pesando poco.
-- **Créditos** del 48.º FIMNME («## Créditos») y directorio de la
+- **Créditos** del 48º FIMNME («## Créditos») y directorio de la
   Coordinación Nacional de Música y Ópera («## Directorio»), como en el
   Programa general.
 - **Última página · Directorio** de la Secretaría de Cultura y del INBAL (el

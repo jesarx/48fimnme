@@ -1,5 +1,5 @@
 -- =============================================================================
---  sitio.lua — Contenido del sitio web del 48.º FIMNME (Jekyll)
+--  sitio.lua — Contenido del sitio web del 48º FIMNME (Jekyll)
 --
 --  Lee el mismo fimnme2026-programa.md que el Programa general y escribe el
 --  contenido del sitio (sitio/genera.sh lo ejecuta):
@@ -193,7 +193,7 @@ local CLAVES_SEDE = {
   "bellas artes", "museo nacional de arte", "jardin escenico", "carrillo gil",
   "conservatorio nacional", "musica y danza", "escuela superior de musica",
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
-  "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
+  "rafael galvan", "casa del tiempo", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
   "convento del carmen", "rodolfo morales", "san pablo",
 }
@@ -553,6 +553,61 @@ local function partir_ficha(inlines)
   return inlines, ""
 end
 
+-- En el programa de cada evento, cada compositor enlaza a su semblanza (más
+-- abajo, en la misma página) y cada obra a su nota al programa o, si no la
+-- tiene, a la semblanza de su compositor
+local function sin_etiquetas(h)
+  return (h:gsub("<[^>]+>", ""):gsub("&lt;", "<"):gsub("&gt;", ">"):gsub("&quot;", '"')
+           :gsub("&#39;", "'"):gsub("&amp;", "&"))
+end
+
+local function enlazar_programa(html)
+  local ids = {}
+  for id in html:gmatch('id="([^"]+)"') do ids[id] = true end
+  local out, pos, ficha = {}, 1, nil
+  while true do
+    local a1, a2 = html:find('<h4 class="compositor">', pos, true)
+    local b1, b2 = html:find('<span class="obra-titulo">', pos, true)
+    if not a1 and not b1 then break end
+    if a1 and (not b1 or a1 < b1) then
+      -- compositor
+      local c1, c2 = html:find("</h4>", a2 + 1, true)
+      local nombre = html:sub(a2 + 1, c1 - 1)
+      local id = "ficha-" .. etiqueta(sin_etiquetas(nombre))
+      if not ids[id] then
+        -- la ficha puede llevar el nombre completo («Federico Ibarra Groth»)
+        local candidatas = {}
+        for otro in pairs(ids) do
+          if otro:sub(1, #id + 1) == id .. "-" then candidatas[#candidatas + 1] = otro end
+        end
+        if #candidatas == 1 then id = candidatas[1] end
+      end
+      ficha = ids[id] and id or nil
+      out[#out + 1] = html:sub(pos, a2)
+      out[#out + 1] = ficha and ('<a href="#' .. id .. '" title="Ver su semblanza">' .. nombre .. "</a>") or nombre
+      out[#out + 1] = "</h4>"
+      pos = c2 + 1
+    else
+      -- obra: su título llega hasta la marca de estreno o el cierre del título
+      local c1 = html:find("<span", b2 + 1, true)
+      local d1 = html:find("</span>", b2 + 1, true)
+      local fin = (c1 and c1 < d1) and c1 or d1
+      local titulo = html:sub(b2 + 1, fin - 1)
+      local plano = sin_etiquetas(titulo):gsub("%s*%([^()]*%)%s*$", ""):gsub("[%s*]+$", "")
+      local nota = "nota-" .. etiqueta(plano)
+      local destino, que = nil, nil
+      if ids[nota] then destino, que = nota, "Ver la nota al programa"
+      elseif ficha then destino, que = ficha, "Ver la semblanza de su compositor" end
+      out[#out + 1] = html:sub(pos, b2)
+      out[#out + 1] = destino and ('<a class="obra-enlace" href="#' .. destino .. '" title="' .. que .. '">' ..
+        titulo .. "</a>") or titulo
+      pos = fin
+    end
+  end
+  out[#out + 1] = html:sub(pos)
+  return table.concat(out)
+end
+
 local function imagen_sola(b)
   if b and b.t == "Para" and #b.content == 1 and b.content[1].t == "Image" then return b.content[1] end
   return nil
@@ -909,7 +964,8 @@ function Pandoc(doc)
       cuerpo[#cuerpo + 1] = '<section class="seccion seccion-' .. s.id .. '" id="' .. s.id .. '">' ..
         '<h2 class="seccion-titulo">' .. esc(s.titulo) .. "</h2>\n" .. s.html .. "</section>"
     end
-    escribir(dir .. "/" .. e.slug .. ".html", "---\n" .. json(fm) .. "\n---\n" .. table.concat(cuerpo, "\n") .. "\n")
+    escribir(dir .. "/" .. e.slug .. ".html", "---\n" .. json(fm) .. "\n---\n" ..
+      enlazar_programa(table.concat(cuerpo, "\n")) .. "\n")
     -- agenda
     for k, f in ipairs(e.fechas) do
       local dia = por_dia[f.iso]

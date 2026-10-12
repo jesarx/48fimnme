@@ -1,4 +1,4 @@
-# Programa General · 48.º FIMNME
+# Programa General · 48º FIMNME
 
 El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
 (contenido) y `fimnme2026-programa.yaml` (metadatos).
