@@ -4,7 +4,8 @@ Una postal por evento para redes: todos los conciertos (Ciudad de México,
 estados y Ecos del Foro), las actividades académicas y las sesiones del
 Coloquio Manuel Enríquez 100. Las de los conciertos van en el verde de las
 postales del diseñador; las de las actividades académicas y el Coloquio, en
-verde azulado (#53797C). Un concierto con dos funciones lleva una postal por
+verde azulado (#53797C). Las del Coloquio son solo de texto, sin fotos (como
+las de Electroacústica). Un concierto con dos funciones lleva una postal por
 función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
 Cada postal sale en cuatro formatos, cada uno en su carpeta:
 
@@ -76,9 +77,14 @@ las fotos están en `postal.lua`.
 Para afinar una foto, en `postales.yaml` se le puede dar un **recorte** (la
 parte que se usa: así una foto que son dos retratos juntos, como la del Dúo
 Gasparini-Monnet, o una del escenario con los músicos lejos, como la del
-Ensamble Sonus, va en dos marcos, uno por persona) o un **peso** (su marco,
+Ensamble Sonus, va en dos marcos, uno por persona), un **peso** (su marco,
 más ancho que los otros: el Trío LaMN y el Trío Siqueiros, que comparten
-concierto, van más grandes).
+concierto, van más grandes) o **extender** su fondo (en una foto de estudio con
+fondo liso: el del Cuarteto de Bellas Artes se extiende a la izquierda para
+que los cuatro quepan completos, con los hombros, en la franja). A una postal
+se le puede pedir un alto mínimo de **franja** (en mm) cuando el que se calcula
+con los rostros no basta: el Ensamble Sonus pide 32 mm para que los retratos
+lleven los hombros.
 
 ## De dónde sale cada dato
 
@@ -93,8 +99,9 @@ concierto, van más grandes).
   Si cambia algo de esto en el Markdown, basta regenerar.
 - **De `postales.yaml`**:
   - el antetítulo, el título y los intérpretes;
-  - las fotos, con su recorte o su peso si los tienen (y, en «focos», el
-    punto de interés de las fotos en las que no se detecta bien el rostro);
+  - las fotos, con su recorte, su peso o su fondo extendido si los tienen
+    (y, en «focos», el punto de interés de las fotos en las que no se detecta
+    bien el rostro), y el alto mínimo de la franja si se pide;
   - lo opcional: la función (en un concierto con varias), otras obras, una
     nota, la entrada o el precio, otra sede o dirección, y los logotipos del evento que no van en esa postal
     (la función del Coro de Madrigalistas en el Palacio de Bellas Artes no

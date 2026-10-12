@@ -21,11 +21,18 @@
 #   (en las postales no hay cursivas)
 #   fotos         hasta cuatro (de int/ o comp/), en la franja de arriba, de
 #                 izquierda a derecha. Cada una es la ruta o, para afinarla,
-#                 {archivo: ruta, recorte: [x0, y0, x1, y1], peso: n}:
+#                 {archivo: ruta, recorte: [x0, y0, x1, y1], peso: n,
+#                 extender: [i, a, d, b]}:
 #                 «recorte», la parte de la foto que se usa (en fracciones,
 #                 de 0 a 1; p. ej. para poner en dos marcos una foto que son
-#                 dos retratos), y «peso», cuánto más ancho es su marco que
-#                 el de las otras (1.6: un 60 % más; para darle prioridad)
+#                 dos retratos); «peso», cuánto más ancho es su marco que
+#                 el de las otras (1.6: un 60 % más; para darle prioridad),
+#                 y «extender», [izquierda, arriba, derecha, abajo], más fondo
+#                 alrededor (fracciones de la foto; para fotos de estudio con
+#                 fondo liso en las que el grupo no cabe sin cortar cabezas)
+#   franja        (opcional) alto mínimo de la franja de fotos, en mm, si el
+#                 que se calcula con los rostros no basta (el texto se achica
+#                 hasta el 82 % para dejarle lugar)
 #   foco          (opcional) punto de interés de cada foto, [x, y] de 0 a 1;
 #                 si no se indica, se centra en los rostros (o en el de la
 #                 lista «focos», al final, que vale para todas las postales)
@@ -391,14 +398,16 @@ postales:
       - Cuarteto de Cuerdas de Bellas Artes
     titulo: Jornadas INBAL-SACM 2026
     subtitulo: Integral de los cuartetos de cuerda de Manuel Enríquez
-    fotos:
-      - int/Cuarteto de Cuerdas de Bellas Artes.png
+    obras: ""   # ya lo dice el subtítulo
+    fotos:   # el grupo es alto: más fondo a la izquierda para que quepa con los hombros
+      - {archivo: int/Cuarteto de Cuerdas de Bellas Artes.png, extender: [0.35, 0, 0, 0]}
 
   - evento: sab-nov-21-ensamble-sonus
     interpretes:
       - Ensamble Sonus
       - [Pablo Ramírez Márquez, clarinete y clarinete bajo]
       - [Pablo Miró Cortez, piano]
+    franja: 32   # los retratos, con los hombros (el texto se achica un poco)
     fotos:   # la foto es del escenario: cada músico en su marco
       - {archivo: int/Ensamble Sonus.jpg, recorte: [0.07, 0.05, 0.37, 0.65]}
       - {archivo: int/Ensamble Sonus.jpg, recorte: [0.6, 0.05, 0.9, 0.65]}
@@ -469,7 +478,7 @@ postales:
       - int/Dario Calderone.jpg
       - int/Stefano Bassanese.jpg
 
-  # --- Coloquio Manuel Enríquez 100 (fondo verde azulado) ---------------------
+  # --- Coloquio Manuel Enríquez 100 (fondo verde azulado; solo texto) ---------
 
   - evento: mie-nov-18-conferencia-luis-jaime-cortez
     antetitulo: Coloquio Manuel Enríquez 100
@@ -477,8 +486,6 @@ postales:
     interpretes:
       - [Luis Jaime Cortez, ponente]
       - [Nonis Prado, moderadora]
-    fotos:
-      - comp/Luis Jaime Cortez.jpeg
 
   - evento: mie-nov-18-mesa-1-un-retrato-de-amigos
     antetitulo: Coloquio Manuel Enríquez 100
@@ -490,10 +497,6 @@ postales:
       - Marielena Arizpe
       - Antonio Russek
       - [Ana Lara, moderadora]
-    fotos:
-      - comp/Luis Jaime Cortez.jpeg
-      - comp/Federico Ibarra.jpg
-      - int/Antonio Russek.jpg
 
   - evento: mie-nov-18-mesa-2-sus-interpretes
     antetitulo: Coloquio Manuel Enríquez 100
@@ -504,8 +507,6 @@ postales:
       - Wendy Holdaway
       - José Luis Castillo
       - [Maby Muñoz, moderadora]
-    fotos:
-      - int/José Luis Castillo.jpg
 
   - evento: jue-nov-19-conferencia-iracema-de-andrade
     antetitulo: Coloquio Manuel Enríquez 100
@@ -513,9 +514,6 @@ postales:
     interpretes:
       - [Iracema de Andrade, ponente]
       - [Luis Jaime Cortez, moderador]
-    fotos:
-      - int/Iracema de Andrade.jpg
-      - comp/Luis Jaime Cortez.jpeg
 
   - evento: jue-nov-19-mesa-3-entre-disciplinas
     antetitulo: Coloquio Manuel Enríquez 100
@@ -526,8 +524,6 @@ postales:
       - Wendy Holdaway
       - José Luis Castillo
       - [José María Serralde, moderador]
-    fotos:
-      - int/José Luis Castillo.jpg
 
   - evento: jue-nov-19-mesa-4-el-gestor
     antetitulo: Coloquio Manuel Enríquez 100
