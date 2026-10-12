@@ -27,7 +27,7 @@ import urllib.parse
 from pathlib import Path
 
 import yaml
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "automatizacion"))
@@ -287,8 +287,36 @@ FOCOS = {}   # «focos» de postales.yaml: para todas las postales
 ANCHO_FRANJA_MM, SEPARACION_FOTOS_MM = 96.0, 2.0   # los de postal.lua
 
 
+def extender(img, izquierda=0, arriba=0, derecha=0, abajo=0):
+    """La foto con más fondo alrededor (fracciones de su ancho y su alto): se
+    estira la orilla y, hacia afuera, se funde con el color del fondo. Sirve
+    para fotos de estudio con fondo liso, cuando el grupo no cabe en el marco
+    sin cortar cabezas."""
+    w, h = img.size
+    i, a, d, b = (round(izquierda * w), round(arriba * h), round(derecha * w), round(abajo * h))
+    lienzo = Image.new("RGB", (w + i + d, h + a + b))
+
+    def lado(columna, ancho, hacia_afuera_izquierda):
+        estirada = columna.resize((ancho, h)).filter(ImageFilter.GaussianBlur(6))
+        pixeles = sorted((columna.getpixel((0, y)) for y in range(h)), key=sum)
+        liso = Image.new("RGB", (ancho, h), pixeles[len(pixeles) // 2])   # el color del fondo
+        rampa = Image.linear_gradient("L").rotate(-90 if hacia_afuera_izquierda else 90).resize((ancho, h))
+        return Image.composite(liso, estirada, rampa)
+
+    if i:
+        lienzo.paste(lado(img.crop((0, 0, 1, h)), i, True), (0, a))
+    if d:
+        lienzo.paste(lado(img.crop((w - 1, 0, w, h)), d, False), (i + w, a))
+    lienzo.paste(img, (i, a))
+    if a:
+        lienzo.paste(lienzo.crop((0, a, lienzo.width, a + 1)).resize((lienzo.width, a)), (0, 0))
+    if b:
+        lienzo.paste(lienzo.crop((0, a + h - 1, lienzo.width, a + h)).resize((lienzo.width, b)), (0, a + h))
+    return lienzo
+
+
 def foto_de(entrada):
-    """Una foto de postales.yaml: la ruta o {archivo, recorte, peso}."""
+    """Una foto de postales.yaml: la ruta o {archivo, recorte, extender, peso}."""
     if isinstance(entrada, str):
         return {"archivo": entrada}
     return entrada
@@ -309,6 +337,8 @@ def fotos(postal, carpeta):
             x0, y0, x1, y1 = f["recorte"]
             img = img.crop((round(x0 * img.width), round(y0 * img.height),
                             round(x1 * img.width), round(y1 * img.height)))
+        if f.get("extender"):   # [izquierda, arriba, derecha, abajo]: más fondo
+            img = extender(img, *f["extender"])
         foco, caras, zonas = analizar(img, focos.get(f["archivo"]))
         img.thumbnail((LADO_MAX_FOTO, LADO_MAX_FOTO), Image.LANCZOS)
         destino = carpeta / f"foto-{k + 1}.jpg"
@@ -365,6 +395,8 @@ def preparar(postal):
     sede, direccion = sede_y_direccion(fm, funcion)
     etiqueta_obras, obras = obras_y_etiqueta(obras_texto(fm, postal))
     fotoslua, altos = fotos(postal, carpeta)
+    if fotoslua and postal.get("franja"):   # alto mínimo pedido (mm)
+        altos = (max(altos[0], postal["franja"]), max(altos[1], postal["franja"]), max(altos[2], postal["franja"]))
     datos = {
         "antetitulo": tex(postal.get("antetitulo", "Concierto")),
         "titulo": tex(juntar_nombres(postal.get("titulo", "")), nombres),
