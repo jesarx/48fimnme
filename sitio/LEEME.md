@@ -103,6 +103,10 @@ Generado (no editar: lo reescribe `genera.sh`):
   indica la hora de término).
 - Las remisiones del Markdown a otra página (`\pageref{conc:…}`) se vuelven
   enlaces.
+- En el programa de cada evento, cada compositor enlaza a su semblanza (más
+  abajo, en la misma página) y cada obra a su nota al programa (que se abre)
+  o, si no la tiene, a la semblanza de su compositor. Los compositores sin
+  semblanza en el Markdown quedan sin enlace.
 - Están todas las fotos del Markdown, cada una en dos versiones: el recorte en
   círculo centrado en el rostro (el del Programa general) y, con un clic sobre
   él, la foto completa. Conservan la carpeta del Markdown (`comp/` e `int/`),
