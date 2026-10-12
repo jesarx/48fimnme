@@ -4,7 +4,8 @@ Una postal por evento para redes: todos los conciertos (Ciudad de México,
 estados y Ecos del Foro), las actividades académicas y las sesiones del
 Coloquio Manuel Enríquez 100. Las de los conciertos van en el verde de las
 postales del diseñador; las de las actividades académicas y el Coloquio, en
-verde azulado (#53797C). Un concierto con dos funciones lleva una postal por
+verde azulado (#53797C). Las del Coloquio son solo de texto, sin fotos (como
+las de Electroacústica). Un concierto con dos funciones lleva una postal por
 función (el Coro de Madrigalistas: Jardín Escénico y Palacio de Bellas Artes).
 Cada postal sale en cuatro formatos, cada uno en su carpeta:
 

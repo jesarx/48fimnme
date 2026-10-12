@@ -469,7 +469,7 @@ postales:
       - int/Dario Calderone.jpg
       - int/Stefano Bassanese.jpg
 
-  # --- Coloquio Manuel Enríquez 100 (fondo verde azulado) ---------------------
+  # --- Coloquio Manuel Enríquez 100 (fondo verde azulado; solo texto) ---------
 
   - evento: mie-nov-18-conferencia-luis-jaime-cortez
     antetitulo: Coloquio Manuel Enríquez 100
@@ -477,8 +477,6 @@ postales:
     interpretes:
       - [Luis Jaime Cortez, ponente]
       - [Nonis Prado, moderadora]
-    fotos:
-      - comp/Luis Jaime Cortez.jpeg
 
   - evento: mie-nov-18-mesa-1-un-retrato-de-amigos
     antetitulo: Coloquio Manuel Enríquez 100
@@ -490,10 +488,6 @@ postales:
       - Marielena Arizpe
       - Antonio Russek
       - [Ana Lara, moderadora]
-    fotos:
-      - comp/Luis Jaime Cortez.jpeg
-      - comp/Federico Ibarra.jpg
-      - int/Antonio Russek.jpg
 
   - evento: mie-nov-18-mesa-2-sus-interpretes
     antetitulo: Coloquio Manuel Enríquez 100
@@ -504,8 +498,6 @@ postales:
       - Wendy Holdaway
       - José Luis Castillo
       - [Maby Muñoz, moderadora]
-    fotos:
-      - int/José Luis Castillo.jpg
 
   - evento: jue-nov-19-conferencia-iracema-de-andrade
     antetitulo: Coloquio Manuel Enríquez 100
@@ -513,9 +505,6 @@ postales:
     interpretes:
       - [Iracema de Andrade, ponente]
       - [Luis Jaime Cortez, moderador]
-    fotos:
-      - int/Iracema de Andrade.jpg
-      - comp/Luis Jaime Cortez.jpeg
 
   - evento: jue-nov-19-mesa-3-entre-disciplinas
     antetitulo: Coloquio Manuel Enríquez 100
@@ -526,8 +515,6 @@ postales:
       - Wendy Holdaway
       - José Luis Castillo
       - [José María Serralde, moderador]
-    fotos:
-      - int/José Luis Castillo.jpg
 
   - evento: jue-nov-19-mesa-4-el-gestor
     antetitulo: Coloquio Manuel Enríquez 100
