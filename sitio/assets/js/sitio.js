@@ -1,4 +1,4 @@
-/* Sitio del 48.º FIMNME: menú, filtros de la agenda, «hoy», próximos eventos,
+/* Sitio del 48º FIMNME: menú, filtros de la agenda, «hoy», próximos eventos,
    archivo de calendario (.ics), botón para volver arriba y fotos en grande.
    Todo es una mejora: sin JavaScript el sitio muestra la programación
    completa. */
@@ -148,7 +148,7 @@
         "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, ""),
         "DTSTART;TZID=America/Mexico_City:" + a.dataset.inicio,
         "DTEND;TZID=America/Mexico_City:" + a.dataset.fin,
-        "SUMMARY:" + esc(a.dataset.titulo + " · 48.º FIMNME"),
+        "SUMMARY:" + esc(a.dataset.titulo + " · 48º FIMNME"),
         "LOCATION:" + esc(a.dataset.lugar),
         "URL:" + a.dataset.url,
         "DESCRIPTION:" + esc(a.dataset.url),

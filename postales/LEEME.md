@@ -1,4 +1,4 @@
-# Postales de los eventos · 48.º FIMNME
+# Postales de los eventos · 48º FIMNME
 
 Una postal por evento para redes: todos los conciertos (Ciudad de México,
 estados y Ecos del Foro), las actividades académicas y las sesiones del

@@ -1,5 +1,5 @@
 -- =============================================================================
---  resumen.lua — Programa resumido del 48.º FIMNME
+--  resumen.lua — Programa resumido del 48º FIMNME
 --
 --  Lee el mismo fimnme2026-programa.md que el programa general y genera una
 --  versión muy concentrada (plantilla resumen/resumen.latex):
@@ -814,7 +814,7 @@ function Pandoc(doc)
     emit("\\cierre")
   end
 
-  -- Créditos: los del 48.º FIMNME («## Créditos») y el directorio de la
+  -- Créditos: los del 48º FIMNME («## Créditos») y el directorio de la
   -- Coordinación Nacional de Música y Ópera («## Directorio»)
   local cred, tomar = {}, false
   local function quiero(titulo)

@@ -1,4 +1,4 @@
-# Sitio web · 48.º FIMNME
+# Sitio web · 48º FIMNME
 
 Sitio en [Jekyll](https://jekyllrb.com/) con toda la programación del Foro. Su
 contenido sale del mismo `fimnme2026-programa.md` que el Programa general y el

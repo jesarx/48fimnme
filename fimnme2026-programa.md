@@ -11272,7 +11272,7 @@ compensarlo.
 
 ### Programa del Coloquio
 
-Actividades académicas *in memoriam* en el marco del 48.º FIMNME.
+Actividades académicas *in memoriam* en el marco del 48º FIMNME.
 
 **Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Literatum*
 
@@ -11425,7 +11425,7 @@ Hidalgo 907 e Independencia 904, Centro, Oaxaca, Oaxaca
 
 ## Créditos
 
-### 48.º Foro Internacional de Música Nueva Manuel Enríquez
+### 48º Foro Internacional de Música Nueva Manuel Enríquez
 
 **José María Serralde Ruiz**\
 *Coordinador Nacional de Música y Ópera*

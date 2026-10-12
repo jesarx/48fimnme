@@ -1,5 +1,5 @@
 -- =============================================================================
---  sitio.lua — Contenido del sitio web del 48.º FIMNME (Jekyll)
+--  sitio.lua — Contenido del sitio web del 48º FIMNME (Jekyll)
 --
 --  Lee el mismo fimnme2026-programa.md que el Programa general y escribe el
 --  contenido del sitio (sitio/genera.sh lo ejecuta):
