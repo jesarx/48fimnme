@@ -1,5 +1,11 @@
 # Montar el sitio en un VPS · fimnme.qumran.cc
 
+Esta guía es la del sitio de prueba, en un VPS propio. El sitio definitivo,
+`https://forodemusicanueva.inba.gob.mx`, lo publica Informática con el zip de
+`sitio/_site/` (ver «Sitio web: compilarlo y entregarlo a Informática» en el
+`README.md` principal). Para montar otra copia de prueba con esta guía, en
+`sitio/_config.yml` van su dominio en `url` e `indexar: false`.
+
 El sitio es **estático**: Jekyll lo compila a la carpeta `sitio/_site/`, que
 son solo archivos HTML, CSS, JavaScript, imágenes y PDF. No usa base de datos
 ni PHP.

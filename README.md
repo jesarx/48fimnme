@@ -222,17 +222,18 @@ redirige de la raíz del dominio a `/2026/` y el `robots.txt`. Son archivos
 estáticos: se copian tal cual a la raíz del servidor web, sin base de datos
 ni PHP.
 
-**Antes de compilar la versión definitiva**, en `sitio/_config.yml`:
+**La dirección del sitio** está en `sitio/_config.yml`:
 
-- `url`: el dominio donde se va a publicar (hoy es el de prueba,
-  `https://fimnme.qumran.cc`). Se usa en los enlaces para compartir, en los
-  códigos QR de la página de descargas y en los enlaces del boletín.
+- `url`: el dominio donde se publica, `https://forodemusicanueva.inba.gob.mx`
+  (el de prueba era `https://fimnme.qumran.cc`). Se usa en los enlaces para
+  compartir, en los códigos QR de la página de descargas y en los enlaces
+  del boletín.
 - `indexar: true`, para que los buscadores lo encuentren (en `false` les
-  pide que no lo indexen).
+  pide que no lo indexen: es lo que se usa en un sitio de prueba).
 - `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
 
-Después de cambiarlos, volver a compilar (`sitio/genera.sh --compilar`) y
-hacer el zip. Más detalles en [`sitio/README.md`](sitio/README.md) y
+Si alguno cambia, hay que volver a compilar (`sitio/genera.sh --compilar`,
+y `python3 newsletter/genera.py` para el boletín) y hacer el zip. Más detalles en [`sitio/README.md`](sitio/README.md) y
 [`sitio/DESPLIEGUE.md`](sitio/DESPLIEGUE.md).
 
 ## Cómo está organizado

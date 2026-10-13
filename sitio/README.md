@@ -33,11 +33,12 @@ comprimir `sitio/_site/`), los pasos están en el `README.md` principal,
 
 En `_config.yml`:
 
-- `url` es el dominio. Se usa en los enlaces para compartir en redes; ahora es
-  el de prueba, `fimnme.qumran.cc`.
+- `url` es el dominio, `https://forodemusicanueva.inba.gob.mx`. Se usa en los
+  enlaces para compartir en redes, en los QR de descargas y en el boletín.
+  (El de prueba era `fimnme.qumran.cc`.)
 - `baseurl` es la carpeta de la edición (`"/2026"`).
-- `indexar: false` pide a los buscadores que no lo indexen mientras es de
-  prueba.
+- `indexar: true` deja que los buscadores lo indexen; en un sitio de prueba
+  va en `false`, para pedirles que no lo hagan.
 
 ## Páginas
 
