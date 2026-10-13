@@ -10,6 +10,7 @@ resumen/compila.sh      # solo el programa resumido (la compilación completa ta
 sitio/genera.sh         # solo el sitio web (también lo genera la compilación completa)
 python3 postales/genera.py   # solo las postales de los eventos (también la compilación completa)
 postales/abono/compila.sh    # solo la postal del abono (también la compilación completa)
+python3 newsletter/genera.py # solo el boletín por correo (también la compilación completa)
 ```
 
 Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
@@ -124,6 +125,7 @@ hacer el zip. Más detalles en `sitio/LEEME.md` y `sitio/DESPLIEGUE.md`.
 | `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
 | `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/LEEME.md`. |
 | `postales/abono/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos); sale, como las demás, en `postales/png`, `jpg`, `pdf` e `idml`. Sus textos están en `postales/abono/abono.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
+| `newsletter/` | Boletín por correo para participantes y amistades (invitación, cifras, inauguración y clausura con el abono, Coloquio y programación día por día, con la CNMO y la pleca de Cultura e INBAL al pie): HTML, versión para pegar en Outlook en la web y `.eml` para Outlook de escritorio, generados de los datos del sitio. Cómo enviarlo: `newsletter/LEEME.md`. |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
