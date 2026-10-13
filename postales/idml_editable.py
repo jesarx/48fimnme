@@ -17,9 +17,16 @@ del mismo tamaño, con estos elementos, de atrás hacia adelante:
   mismos cortes de renglón, tamaños, colores, interlineado y espaciado entre
   letras que el PDF.
 
-Las imágenes van incrustadas: el IDML no depende de otros archivos. Para
-editar los textos hay que tener instalada la familia Noto Sans (está en
-automatizacion/fuentes/).
+El documento mide 1080 × 1350 px (reglas en píxeles): todo se escala de los
+108 × 135 mm del PDF, también los tamaños de letra, así que al exportar a
+JPG a 72 ppp sale de 1080 × 1350 px, como las postales.
+
+Las imágenes van vinculadas, no incrustadas: se guardan en la carpeta Links/,
+junto al IDML (cada una con un nombre según su contenido, así que las que se
+repiten, como el fondo o los logotipos, se guardan una sola vez), y las
+fuentes van en «Document fonts/» (InDesign las activa al abrir el
+documento). Así la carpeta del IDML lleva todo lo necesario para editarlo:
+basta comprimirla.
 
 Uso: python3 postales/idml_editable.py POSTAL.pdf FONDO.pdf PLANTILLA.tex SALIDA.idml [TÍTULO]
 
@@ -27,9 +34,10 @@ De PLANTILLA.tex toma los nombres de los colores (\\definecolor) para las
 muestras.
 """
 
-import base64
+import hashlib
 import io
 import json
+import shutil
 from collections import Counter
 import re
 import sys
@@ -40,7 +48,8 @@ from xml.sax.saxutils import escape, quoteattr
 import pymupdf
 from PIL import Image
 
-FUENTES = Path("automatizacion/fuentes")
+FUENTES = Path(__file__).resolve().parent.parent / "automatizacion/fuentes"
+ANCHO_PX = 1080            # ancho de la página del IDML, en píxeles (= puntos a 72 ppp)
 PPP_FONDO = 300
 PPP_VECTORES = 1200
 KAPPA = 0.5522847498   # curvas de Bézier de un círculo
@@ -324,20 +333,58 @@ def imagen_del_pdf(doc, xref):
 
 
 def codificar(img, formato):
-    """Imagen → (bytes, tipo para InDesign). Se guarda a 72 ppp, así su
-    tamaño en puntos es el de píxeles."""
+    """Imagen → (bytes, tipo para InDesign, extensión). Se guarda a 72 ppp,
+    así su tamaño en puntos es el de píxeles."""
     b = io.BytesIO()
     if formato == "JPEG":
         img.convert("RGB").save(b, "JPEG", quality=92, dpi=(72, 72))
-        return b.getvalue(), "$ID/JPEG"
+        return b.getvalue(), "$ID/JPEG", ".jpg"
     img.save(b, "PNG", optimize=True, dpi=(72, 72))
-    return b.getvalue(), "$ID/Portable Network Graphics (PNG)"
+    return b.getvalue(), "$ID/Portable Network Graphics (PNG)", ".png"
+
+
+def enlaces_usados(carpeta):
+    """Archivos de Links/ que vinculan los IDML de la carpeta."""
+    usados = set()
+    for idml in Path(carpeta).glob("*.idml"):
+        with zipfile.ZipFile(idml) as z:
+            for nombre in z.namelist():
+                if nombre.startswith("Spreads/"):
+                    usados |= set(re.findall(r'LinkResourceURI="file:Links/([^"]+)"', z.read(nombre).decode()))
+    return usados
+
+
+def preparar_paquete(carpeta):
+    """La carpeta de los IDML lista para comprimir y enviar: las fuentes en
+    «Document fonts/» (copias de automatizacion/fuentes), un LEEME y, en
+    Links/, solo las imágenes que vinculan los IDML (se borran las que ya
+    no usa ninguno)."""
+    carpeta = Path(carpeta)
+    fuentes = carpeta / "Document fonts"
+    fuentes.mkdir(parents=True, exist_ok=True)
+    for f in sorted(FUENTES.glob("NotoSans-*.ttf")) + [FUENTES / "LICENCIA-OFL.txt"]:
+        destino = fuentes / f.name
+        if not destino.exists() or destino.read_bytes() != f.read_bytes():
+            shutil.copyfile(f, destino)
+    leeme = Path(__file__).resolve().parent / "idml-LEEME.txt"
+    if leeme.exists():
+        shutil.copyfile(leeme, carpeta / "LEEME.txt")
+    enlaces = carpeta / "Links"
+    if enlaces.exists():
+        usados = enlaces_usados(carpeta)
+        for f in enlaces.iterdir():
+            if f.is_file() and f.name not in usados:
+                f.unlink()
 
 
 # --------------------------------------------------------------------- IDML --
 class Documento:
-    def __init__(self, ancho, alto, muestras):
+    def __init__(self, ancho, alto, muestras, enlaces):
+        """ancho, alto: los del PDF (pt); en el IDML se escalan a ANCHO_PX
+        de ancho (self.k); enlaces: la carpeta Links/ de las imágenes."""
         self.ancho, self.alto = ancho, alto
+        self.k = ANCHO_PX / ancho
+        self.enlaces = Path(enlaces)
         self.muestras = muestras
         self.n = 0
         self.objetos = []        # XML de los objetos del pliego, de atrás hacia adelante
@@ -353,7 +400,11 @@ class Documento:
         """Coordenadas de la página (pt, desde arriba a la izquierda) →
         coordenadas del pliego. En un documento de páginas sueltas, InDesign
         centra la página en el origen del pliego."""
-        return f"{num(x - self.ancho / 2)} {num(y - self.alto / 2)}"
+        return f"{num((x - self.ancho / 2) * self.k)} {num((y - self.alto / 2) * self.k)}"
+
+    def m(self, v):
+        """Una medida del PDF (pt) en el IDML (px)."""
+        return num(v * self.k)
 
     def geometria(self, puntos):
         filas = []
@@ -375,20 +426,25 @@ class Documento:
                 ((cx - radio, cy), (cx - radio, cy + k), (cx - radio, cy - k))]
 
     def imagen_xml(self, img, formato, caja, nombre):
-        datos, tipo = codificar(img, formato)
+        """La imagen, vinculada: se guarda en Links/ con un nombre según su
+        contenido (la misma imagen en varias postales es un solo archivo)."""
+        datos, tipo, extension = codificar(img, formato)
+        prefijo = re.sub(r"[^a-z]+", "-", nombre.lower().split(" ")[0]).strip("-") or "imagen"
+        archivo = f"{prefijo}-{hashlib.sha1(datos).hexdigest()[:12]}{extension}"
+        self.enlaces.mkdir(parents=True, exist_ok=True)
+        ruta = self.enlaces / archivo
+        if not ruta.exists():
+            ruta.write_bytes(datos)
         w, h = img.size
-        sx, sy = caja.width / w, caja.height / h
+        sx, sy = caja.width * self.k / w, caja.height * self.k / h
         ident, enlace = self.nuevo(), self.nuevo()
-        archivo = re.sub(r"[^A-Za-z0-9]+", "-", nombre).strip("-").lower() + (".jpg" if formato == "JPEG" else ".png")
         return (f'<Image Self="{ident}" Space="$ID/RGB" ActualPpi="72 72" EffectivePpi="{round(72 / sx)} {round(72 / sy)}" '
                 f'ImageRenderingIntent="UseColorSettings" LocalDisplaySetting="Default" ImageTypeName="{tipo}" '
                 f'AppliedObjectStyle="ObjectStyle/$ID/[None]" Visible="true" Name="$ID/" '
                 f'ItemTransform="{sx:.6f} 0 0 {sy:.6f} {self.p(caja.x0, caja.y0)}">'
-                f'<Properties><Profile type="string">$ID/Embedded</Profile>'
-                f'<GraphicBounds Left="0" Top="0" Right="{w}" Bottom="{h}"/>'
-                f'<Contents><![CDATA[{base64.b64encode(datos).decode()}]]></Contents></Properties>'
-                f'<Link Self="{enlace}" AssetURL="$ID/" AssetID="$ID/" LinkResourceURI="file:{archivo}" '
-                f'LinkResourceFormat="{tipo}" StoredState="Embedded" LinkClassID="35906" LinkClientID="257" '
+                f'<Properties><GraphicBounds Left="0" Top="0" Right="{w}" Bottom="{h}"/></Properties>'
+                f'<Link Self="{enlace}" AssetURL="$ID/" AssetID="$ID/" LinkResourceURI="file:Links/{archivo}" '
+                f'LinkResourceFormat="{tipo}" StoredState="Normal" LinkClassID="35906" LinkClientID="257" '
                 f'LinkResourceModified="false" LinkObjectModified="false" ShowInUI="true" CanEmbed="true" '
                 f'CanUnembed="true" CanPackage="true" ImportPolicy="NoAutoImport" ExportPolicy="NoAutoExport"/>'
                 f'</Image>')
@@ -407,7 +463,7 @@ class Documento:
         cx, cy, radio = (caja.x0 + caja.x1) / 2, (caja.y0 + caja.y1) / 2, caja.width / 2
         self.objetos.append(
             f'<Oval Self="{self.nuevo()}" ContentType="GraphicType" Name={quoteattr(nombre)} ItemLayer="ucapa" '
-            f'Locked="false" Visible="true" FillColor="Swatch/None" StrokeColor="{color}" StrokeWeight="{num(filete)}" '
+            f'Locked="false" Visible="true" FillColor="Swatch/None" StrokeColor="{color}" StrokeWeight="{self.m(filete)}" '
             f'StrokeAlignment="CenterAlignment" AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="1 0 0 1 0 0">'
             + self.geometria(self.circulo_puntos(cx, cy, radio))
             + '<FrameFittingOption FittingOnEmptyFrame="FillProportionally"/>'
@@ -416,7 +472,7 @@ class Documento:
     def foto_recortada(self, img, caja, marco, radio, nombre):
         """Foto en un marco de esquinas redondeadas; la imagen (más grande que
         el marco) queda recortada por él, como en el PDF."""
-        esquinas = "".join(f' {e}CornerOption="RoundedCorner" {e}CornerRadius="{num(radio)}"'
+        esquinas = "".join(f' {e}CornerOption="RoundedCorner" {e}CornerRadius="{self.m(radio)}"'
                            for e in ("TopLeft", "TopRight", "BottomLeft", "BottomRight"))
         self.objetos.append(
             f'<Rectangle Self="{self.nuevo()}" ContentType="GraphicType" Name={quoteattr(nombre)} ItemLayer="ucapa" '
@@ -425,9 +481,9 @@ class Documento:
             + self.geometria(self.rect_puntos(marco))
             # lo que la imagen sobresale del marco (InDesign la ubica con su
             # ItemTransform; esto lo repite para otros programas, como Scribus)
-            + f'<FrameFittingOption FittingOnEmptyFrame="FillProportionally" LeftCrop="{num(marco.x0 - caja.x0)}" '
-              f'TopCrop="{num(marco.y0 - caja.y0)}" RightCrop="{num(caja.x1 - marco.x1)}" '
-              f'BottomCrop="{num(caja.y1 - marco.y1)}"/>'
+            + f'<FrameFittingOption FittingOnEmptyFrame="FillProportionally" LeftCrop="{self.m(marco.x0 - caja.x0)}" '
+              f'TopCrop="{self.m(marco.y0 - caja.y0)}" RightCrop="{self.m(caja.x1 - marco.x1)}" '
+              f'BottomCrop="{self.m(caja.y1 - marco.y1)}"/>'
             + self.imagen_xml(img, "JPEG", caja, nombre) + '</Rectangle>')
 
     def rectangulo(self, caja, color, nombre):
@@ -440,7 +496,7 @@ class Documento:
     def linea(self, a, b, grueso, color, nombre):
         self.objetos.append(
             f'<GraphicLine Self="{self.nuevo()}" ContentType="Unassigned" Name={quoteattr(nombre)} ItemLayer="ucapa" '
-            f'Locked="false" Visible="true" FillColor="Swatch/None" StrokeColor="{color}" StrokeWeight="{num(grueso)}" '
+            f'Locked="false" Visible="true" FillColor="Swatch/None" StrokeColor="{color}" StrokeWeight="{self.m(grueso)}" '
             f'AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="1 0 0 1 0 0">'
             f'<Properties><PathGeometry><GeometryPathType PathOpen="true"><PathPointArray>'
             f'<PathPointType Anchor="{self.p(a.x, a.y)}" LeftDirection="{self.p(a.x, a.y)}" RightDirection="{self.p(a.x, a.y)}"/>'
@@ -453,7 +509,7 @@ class Documento:
         if firma not in self.estilos:
             k = len(self.estilos) + 1
             nombre_color = self.muestras.usados[color][0]
-            nombre = f"{k:02d} {ESTILOS.get(var, var)} {num(tam).replace('.', ',')} pt · {nombre_color}"
+            nombre = f"{k:02d} {ESTILOS.get(var, var)} {self.m(tam).replace('.', ',')} px · {nombre_color}"
             self.estilos[firma] = (f"ParagraphStyle/Postal{k:02d}", nombre)
         return self.estilos[firma][0]
 
@@ -487,7 +543,7 @@ class Documento:
         for np_, par in enumerate(parrafos):
             atributos = f'AppliedParagraphStyle="{estilo}" Hyphenation="false" Justification="LeftAlign"'
             if sangria:
-                atributos += f' LeftIndent="{num(sangria)}" FirstLineIndent="{num(-sangria)}"'
+                atributos += f' LeftIndent="{self.m(sangria)}" FirstLineIndent="{self.m(-sangria)}"'
             corridas = []
             for nl, r in enumerate(par):
                 for nc, (texto, var, tam, col, espaciado) in enumerate(r["corridas"]):
@@ -499,9 +555,9 @@ class Documento:
                 br = "<Br/>" if k == len(corridas) - 1 and np_ < len(parrafos) - 1 else ""
                 xml.append(
                     f'<CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" '
-                    f'FontStyle="{ESTILOS.get(var, var)}" PointSize="{num(tam)}" FillColor="{color}" Tracking="{tracking}">'
+                    f'FontStyle="{ESTILOS.get(var, var)}" PointSize="{self.m(tam)}" FillColor="{color}" Tracking="{tracking}">'
                     f'<Properties><AppliedFont type="string">Noto Sans</AppliedFont>'
-                    f'<Leading type="unit">{num(interlineado)}</Leading></Properties>'
+                    f'<Leading type="unit">{self.m(interlineado)}</Leading></Properties>'
                     f'<Content>{escape(texto)}</Content>{br}</CharacterStyleRange>')
             xml[-len(corridas)] = f'<ParagraphStyleRange {atributos}>' + xml[-len(corridas)]
             xml[-1] += '</ParagraphStyleRange>'
@@ -558,7 +614,7 @@ class Documento:
         for (var, tam, color), (ident, nombre) in self.estilos.items():
             parrafos.append(
                 f'<ParagraphStyle Self="{ident}" Name={quoteattr(nombre)} Imported="false" NextStyle="{ident}" '
-                f'FontStyle="{ESTILOS.get(var, var)}" PointSize="{num(tam)}" FillColor="{color}" '
+                f'FontStyle="{ESTILOS.get(var, var)}" PointSize="{self.m(tam)}" FillColor="{color}" '
                 f'Hyphenation="false" Justification="LeftAlign"><Properties>'
                 f'<BasedOn type="string">$ID/[No paragraph style]</BasedOn>'
                 f'<AppliedFont type="string">Noto Sans</AppliedFont></Properties></ParagraphStyle>')
@@ -582,8 +638,10 @@ class Documento:
                 '</RootObjectStyleGroup>\n</idPkg:Styles>\n')
 
     def guardar(self, destino, titulo):
-        w, h = num(self.ancho), num(self.alto)
-        traslado = f"{num(-self.ancho / 2)} {num(-self.alto / 2)}"
+        # en píxeles enteros (el PDF redondea el alto: 1349,998 → 1350)
+        ancho_px, alto_px = round(self.ancho * self.k), round(self.alto * self.k)
+        w, h = num(ancho_px), num(alto_px)
+        traslado = f"{num(-ancho_px / 2)} {num(-alto_px / 2)}"
         margenes = (f'<MarginPreference ColumnCount="1" ColumnGutter="12" Top="0" Bottom="0" Left="0" Right="0" '
                     f'ColumnDirection="Horizontal" ColumnsPositions="0 {w}"/>')
         maestra = (f'{CABECERA}<idPkg:MasterSpread {NS}>\n<MasterSpread Self="umaestra" Name="A-Página maestra" '
@@ -609,7 +667,7 @@ class Documento:
             'OverprintBlack="true" PageBinding="LeftToRight" ColumnDirection="Horizontal" ColumnGuideLocked="true" '
             'MasterTextFrame="false" SnippetImportUsesOriginalLocation="false" Intent="WebIntent" '
             'StartPageNumber="1"/>\n'
-            '<ViewPreference HorizontalMeasurementUnits="Millimeters" VerticalMeasurementUnits="Millimeters" '
+            '<ViewPreference HorizontalMeasurementUnits="Pixels" VerticalMeasurementUnits="Pixels" '
             'LineMeasurementUnits="Points" TypographicMeasurementUnits="Points" TextSizeMeasurementUnits="Points" '
             'PrintDialogMeasurementUnits="Points" RulerOrigin="SpreadOrigin"/>\n'
             '<TransparencyPreference BlendingSpace="RGB" GlobalLightAngle="120" GlobalLightAltitude="30"/>\n'
@@ -668,7 +726,7 @@ def convertir(pdf, pdf_fondo, plantilla, destino, titulo, pistas_fotos=None):
     pagina = doc[0]
     fondo = pymupdf.open(pdf_fondo)[0]
     muestras = Muestras(plantilla)
-    idml = Documento(pagina.rect.width, pagina.rect.height, muestras)
+    idml = Documento(pagina.rect.width, pagina.rect.height, muestras, Path(destino).parent / "Links")
 
     # 1. Fondo (bloqueado)
     pix = fondo.get_pixmap(dpi=PPP_FONDO)

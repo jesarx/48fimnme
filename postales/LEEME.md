@@ -13,7 +13,9 @@ Cada postal sale en cuatro formatos, cada uno en su carpeta:
 - `jpg/`: JPG de 1080 × 1350 px (calidad 90): se ve igual y pesa menos de la
   mitad; es el que usa el sitio web;
 - `pdf/`: PDF;
-- `idml/`: IDML para InDesign (ver «El IDML», abajo).
+- `idml/`: IDML para InDesign, con sus imágenes vinculadas (`idml/Links/`) y la
+  fuente (`idml/Document fonts/`): la carpeta lleva todo lo necesario para
+  editarlas y se comprime y se envía tal cual (ver «El IDML», abajo).
 
 En las mismas carpetas está la postal del abono (`fimnme2026-postal-abono`), que
 se genera aparte (`abono/`, abajo). El sitio web muestra la postal de cada
@@ -144,9 +146,10 @@ lleven los hombros.
 | `genera.py` | Prepara fotos (con sus rostros), logotipos y datos; compila cada postal y la exporta a PNG, JPG e IDML. |
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `postal.lua` | Disposición y recorte de las fotos en la franja (y sus marcos para el IDML). |
-| `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF. |
+| `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF, con sus imágenes en `idml/Links/`, y prepara la carpeta `idml/` (fuentes, LEEME). |
+| `idml-LEEME.txt` | Instrucciones para quien reciba la carpeta `idml/` (se copia ahí como `LEEME.txt`). |
 | `recursos/` | Pleca de Cultura e INBAL: el original vectorial (`.ai`) y el PNG que usan las postales. |
-| `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.jpg`, `.pdf` e `.idml`. La de cada función de un concierto que se repite empieza con su fecha. |
+| `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.jpg`, `.pdf` e `.idml` (y, en `idml/`, `Links/`, `Document fonts/` y `LEEME.txt`). La de cada función de un concierto que se repite empieza con su fecha. |
 | `abono/` | La postal del abono (inauguración y clausura): `abono.tex` (diseño y textos), `compila.sh` y `logos_blancos.py`. |
 
 ## El IDML
@@ -154,9 +157,11 @@ lleven los hombros.
 Lo arma `postales/idml_editable.py` (el mismo que hace el de la postal del
 abono) a partir del PDF de cada postal y del fondo, que se compila aparte
 (la plantilla con `\solofondo`, en `build/postales/fondo-verde.pdf` y
-`fondo-azul.pdf`, el verde azulado). Es un
-documento de InDesign de una página, del tamaño de la postal, con todo
-incrustado (no depende de otros archivos). De atrás hacia adelante:
+`fondo-azul.pdf`, el verde azulado). Es un documento de InDesign de una
+página de **1080 × 1350 px**, con las reglas en píxeles: todo se escala de
+los 108 × 135 mm del PDF (también los tamaños de letra), así que al exportar
+a JPG a 72 ppp sale de 1080 × 1350 px, como las postales. De atrás hacia
+adelante:
 
 - **Fondo**: verde, partitura, velo y degradado, como imagen (300 ppp),
   bloqueado.
@@ -171,10 +176,20 @@ incrustado (no depende de otros archivos). De atrás hacia adelante:
   letras que el PDF. Cada bloque tiene su estilo de párrafo y los colores
   están en las muestras con sus nombres (`acento`, `casiblanco`, `suave`…).
 
-Para editarlo hay que tener instalada la familia Noto Sans
-(`automatizacion/fuentes/`). Se revisó con el importador de IDML de Scribus:
-posiciones, imágenes, colores, fuentes y cortes de renglón coinciden con el
-PDF. No se ha abierto todavía en InDesign.
+Las imágenes van **vinculadas**, no incrustadas: se guardan en `idml/Links/`
+con un nombre según su contenido (`fondo-…`, `logotipo-…`, `foto-…`), así que
+las que se repiten en varias postales (el fondo, los logotipos, la pleca) son
+un solo archivo. La familia Noto Sans va en `idml/Document fonts/` (copias de
+`automatizacion/fuentes/`, con su licencia): InDesign activa esas fuentes
+cuando el documento está guardado en esa carpeta. `genera.py` (y la postal
+del abono) dejan además en `idml/` un `LEEME.txt` para quien reciba la
+carpeta (sale de `postales/idml-LEEME.txt`) y borran de `Links/` las
+imágenes que ya no vincula ningún IDML. Así, `postales/idml/` se comprime y
+se envía tal cual.
+
+Se revisó con el importador de IDML de Scribus: tamaño, posiciones, imágenes
+vinculadas, colores, fuentes y cortes de renglón coinciden con el PDF. No se
+ha abierto todavía en InDesign.
 
 Requisitos: LuaLaTeX, Python 3 con PyYAML, Pillow y PyMuPDF (OpenCV es
 opcional: centra las fotos en los rostros) y `pdftoppm`. Los archivos

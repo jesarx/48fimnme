@@ -43,5 +43,6 @@ python3 -c "from PIL import Image; Image.open('postales/png/$NOMBRE.png').conver
 # IDML editable (InDesign): fondo, recuadros, logotipos y textos en Noto Sans
 python3 postales/idml_editable.py "postales/pdf/$NOMBRE.pdf" build/postal/fondo.pdf postales/abono/abono.tex \
   "postales/idml/$NOMBRE.idml" "48º FIMNME · Postal del abono"
+python3 -c "import sys; sys.path.insert(0, 'postales'); import idml_editable; idml_editable.preparar_paquete('postales/idml')"
 tamano=$(python3 -c "from PIL import Image; print('×'.join(map(str, Image.open('postales/png/$NOMBRE.png').size)))")
 echo "✓ Listo: postales/png/$NOMBRE.png ($tamano px), y en postales/jpg, pdf e idml"
