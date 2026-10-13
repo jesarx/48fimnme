@@ -3118,7 +3118,7 @@ INTERMEDIO\
 
 ---
 
-**Dirén Checa**, violín y electrónica
+**Dirén Checa**, violín
 
 ### Personas compositoras
 

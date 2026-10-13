@@ -97,6 +97,6 @@ python3 newsletter/genera.py  # rehace el boletín (unos segundos)
   - El pie usa la CNMO y la pleca de Cultura e INBAL de las postales, con sus
     proporciones.
 - **Enlaces:** apuntan al sitio, a la dirección de `url` y `baseurl` en
-  `sitio/_config.yml`. Ahora es `https://fimnme.qumran.cc/2026`, la de prueba.
+  `sitio/_config.yml`: `https://forodemusicanueva.inba.gob.mx/2026`.
   - Si el sitio se publica en otra dirección, cámbiala ahí y rehaz el boletín
     antes de enviarlo.

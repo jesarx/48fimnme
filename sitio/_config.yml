@@ -11,17 +11,16 @@ description: >-
   Enríquez: conciertos, actividades académicas y Coloquio Enríquez | 100.
   Del 6 al 21 de noviembre de 2026.
 lang: es-MX
-# Dominio donde se publica (se usa en los enlaces para compartir en redes).
-# Por ahora, el de prueba; el definitivo será el que anuncia el sitio del
-# Palacio de Bellas Artes: https://forodemusicanueva.inba.gob.mx (ver
-# DESPLIEGUE.md).
+# Dominio donde se publica (se usa en los enlaces para compartir en redes, en
+# los QR de descargas y en el boletín). El de prueba era
+# https://fimnme.qumran.cc (ver DESPLIEGUE.md).
 url: "https://forodemusicanueva.inba.gob.mx"
 # El año de la edición va en todas las direcciones (…/2026/programacion/): así
 # las ediciones pueden convivir en el mismo dominio. genera.sh compila el
 # sitio en _site/2026/ y deja en la raíz una redirección a esta edición.
 baseurl: "/2026"
-# false mientras es de prueba: pide a los buscadores que no lo indexen
-# (robots.txt y <meta name="robots">). En el dominio definitivo: true.
+# true en el dominio definitivo. En un sitio de prueba, false: pide a los
+# buscadores que no lo indexen (robots.txt y <meta name="robots">).
 indexar: true
 timezone: America/Mexico_City
 permalink: pretty
