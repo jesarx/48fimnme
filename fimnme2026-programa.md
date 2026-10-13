@@ -3120,8 +3120,6 @@ INTERMEDIO\
 
 **Dirén Checa**, violín y electrónica
 
-**Juan Cáceres Avitia**, electrónica
-
 ### Personas compositoras
 
 #### René Mayoral (México, 1993)
@@ -3363,24 +3361,6 @@ algunos de los compositores más importantes de la escena actual. Su
 proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
-
-#### Juan Cáceres Avitia
-
-![](comp/Juan%20Cáceres%20Avítia.jpg)
-
-Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
-Continuó su formación en Musicología en el Conservatorio Nacional de
-Música bajo la cátedra de Ricardo Miranda, donde también estudió
-composición en el Taller de Electroacústica a cargo de Josué Peregrina.
-Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
-Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
-Universitarios e Internacionales de Música en Compostela. Ha participado
-en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
-Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
-Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
-premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
-Tecnologías aplicadas a la creación musical y Compositor residente del
-Cepromusic.
 
 ::: logos
 ![](<logos/Centro_Cultural_Bosque_logo.ai>)
