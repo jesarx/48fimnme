@@ -27,7 +27,7 @@ convivir en el mismo dominio. El sitio se compila en `sitio/_site/2026/`. En
 Para publicarlo se copia el contenido de `sitio/_site/` al servidor (son
 archivos estáticos): `sitio/publicar.sh CARPETA` lo compila y lo copia, en el
 mismo servidor o por SSH. Para entregarlo en un zip (git pull, compilar y
-comprimir `sitio/_site/`), los pasos están en el `LEEME.md` principal,
+comprimir `sitio/_site/`), los pasos están en el `README.md` principal,
 «Sitio web: compilarlo y entregarlo a Informática». **Cómo montarlo en un VPS con su dominio y HTTPS:
 [`DESPLIEGUE.md`](DESPLIEGUE.md).**
 

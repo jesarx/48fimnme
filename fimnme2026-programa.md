@@ -3120,8 +3120,6 @@ INTERMEDIO\
 
 **Dirén Checa**, violín y electrónica
 
-**Juan Cáceres Avitia**, electrónica
-
 ### Personas compositoras
 
 #### René Mayoral (México, 1993)
@@ -3363,24 +3361,6 @@ algunos de los compositores más importantes de la escena actual. Su
 proyecto MUSIC OF SOUND está dedicado a la difusión de música
 contemporánea y experimental de una forma accesible para todo público a
 través de conciertos, recursos académicos, conferencias y talleres.
-
-#### Juan Cáceres Avitia
-
-![](comp/Juan%20Cáceres%20Avítia.jpg)
-
-Comenzó sus estudios en Piano en la Facultad de Música de la UNAM.
-Continuó su formación en Musicología en el Conservatorio Nacional de
-Música bajo la cátedra de Ricardo Miranda, donde también estudió
-composición en el Taller de Electroacústica a cargo de Josué Peregrina.
-Además, cursó Análisis orquestal e Instrumentación con Jorge Torres
-Sáenz. En 2019 estudió Musicología en España, a través de los Cursos
-Universitarios e Internacionales de Música en Compostela. Ha participado
-en los festivales de Música de Morelia *Miguel Bernal Jiménez* y
-Visiones Sonoras del CMMAS. Su obra se ha presentado en México, Estados
-Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
-premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
-Tecnologías aplicadas a la creación musical y Compositor residente del
-Cepromusic.
 
 ::: logos
 ![](<logos/Centro_Cultural_Bosque_logo.ai>)
@@ -9977,6 +9957,10 @@ Morelia, Michoacán
 
 -   *Del desapego y la impermanencia* (2022) `\hfill `{=tex}8'
 
+**Federico Núñez**
+
+-   *Five introspections* (2015)\* `\hfill `{=tex}9'
+
 **Erika Vega**
 
 -   *Y sueña que su sueño se repite* (2016)\*\* `\hfill `{=tex}7'
@@ -10036,6 +10020,45 @@ deriva de la reflexión en torno al dolor, al sufrimiento y el proceso
 del desapego. De carácter meditativo y contemplativo, la obra se percibe
 como una nube sonora que nos incita a la escucha con una actitud
 reflexiva.
+
+#### Federico Núñez (Argentina, 1976)
+
+![](comp/Federico%20Núñez.jpg)
+
+Federico Núñez es compositor, guitarrista e investigador argentino
+dedicado a la creación contemporánea. Su producción abarca música para
+diversas formaciones como música de cámara, escénica y electrónica, con
+una búsqueda centrada en el timbre, la espacialidad sonora y la
+expansión de los recursos instrumentales desde una perspectiva vinculada
+al pensamiento musical latinoamericano. Parte de su obra incorpora
+instrumentos prehispánicos, especialmente en la ópera mexica
+*Otlatocaliztli*. Doctor en Artes con especialización en Composición por
+la Universidad Nacional de las Artes (UNA), se formó con Guillermo
+Pozzatti y realizó estudios con Gerardo Gandini y Mario Lavista. Sus
+obras fueron presentadas en Argentina, México, Estados Unidos, Europa y
+Japón. Ha recibido distinciones como el Premio Municipal de la Ciudad de
+Buenos Aires y el Premio «Juan Carlos Paz», además de becas y
+residencias otorgadas por Fonca y AECID. Su catálogo es publicado por
+Cayambis Music Press (USA).
+
+##### *Five introspections*
+
+La obra explora cinco reflexiones musicales centradas en las
+posibilidades tímbricas de la guitarra y en la transformación de
+recursos técnicos instrumentales en material compositivo. *Glissandi*,
+*tapping* sobre notas repetidas, trémolos, trinos y armónicos no
+funcionan únicamente como técnicas extendidas, sino como elementos
+generadores sometidos a constantes procesos de desarrollo y
+resignificación. Cada movimiento investiga distintas relaciones entre
+gesto, resonancia y textura. Como culminación del ciclo, la quinta pieza
+emerge como síntesis y transformación final de los materiales
+precedentes, caracterizada por una pulsación continua de corcheas, la
+alternancia entre sonidos naturales y armónicos, y la progresiva
+superposición de los distintos elementos temáticos expuestos
+anteriormente. En términos de escritura, la obra requiere
+frecuentemente el empleo de dos pentagramas por sistema, con el fin de
+articular planos sonoros independientes y complejos comportamientos
+resonantes.
 
 #### Erika Vega (México, 1987)
 

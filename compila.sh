@@ -78,6 +78,7 @@ grep -E "^(Overfull|Underfull) \\\\hbox" "build/$NOMBRE.log" | sort | uniq -c | 
 # Las postales toman los datos de cada evento del contenido del sitio, y el
 # sitio muestra las postales: primero el contenido, luego las postales y al
 # final los recursos (que copian las postales) y la compilación del sitio.
+# El boletín por correo (newsletter/) toma los datos del sitio y las postales.
 if [[ "${1:-}" != "--rapido" ]]; then
   echo "▸ Programa resumido…"
   resumen/compila.sh
@@ -90,4 +91,6 @@ if [[ "${1:-}" != "--rapido" ]]; then
   echo "▸ Sitio web: recursos y compilación…"
   python3 sitio/recursos.py
   sitio/genera.sh --compilar
+  echo "▸ Boletín por correo…"
+  python3 newsletter/genera.py
 fi

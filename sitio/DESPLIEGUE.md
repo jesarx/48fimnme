@@ -49,25 +49,17 @@ Ruby 3 o posterior basta (Ubuntu 22.04 o 24.04, Debian 12).
 
 ## 3. El repositorio
 
-El repositorio es privado, así que el VPS necesita una **clave de despliegue**
-(solo lectura):
+El repositorio es público: basta clonarlo.
 
 ```bash
-ssh-keygen -t ed25519 -f ~/.ssh/fimnme -N ""
-cat ~/.ssh/fimnme.pub
+git clone https://github.com/jesarx/48fimnme.git ~/48fimnme
 ```
 
-En GitHub, en *jesarx/48fimnme → Settings → Deploy keys → Add deploy key*,
-pega esa clave (sin marcar «Allow write access»). Después:
-
-```bash
-cat >> ~/.ssh/config <<'EOF'
-Host github-fimnme
-  HostName github.com
-  IdentityFile ~/.ssh/fimnme
-EOF
-git clone git@github-fimnme:jesarx/48fimnme.git ~/48fimnme
-```
+(Si algún día vuelve a ser privado, el VPS necesita una clave de despliegue
+de solo lectura: `ssh-keygen -t ed25519 -f ~/.ssh/fimnme -N ""`. La clave
+pública se agrega en GitHub, en *Settings → Deploy keys*, y el repositorio
+se clona con `git@github.com:jesarx/48fimnme.git`, usando esa clave en
+`~/.ssh/config`.)
 
 Instala Jekyll para el sitio y la gema de los códigos QR de la página de
 descargas (quedan dentro de `sitio/vendor/`, sin tocar el sistema):
