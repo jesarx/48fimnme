@@ -56,6 +56,63 @@ Para otra edición hacen falta tres cosas:
 - cambiar el diseño en las plantillas y en `sitio/assets/`;
 - poner el año en `baseurl` de `sitio/_config.yml`.
 
+## Sitio web: compilarlo y entregarlo a Informática
+
+El contenido del sitio ya está generado en el repositorio (cada compilación
+completa lo actualiza), así que para entregarlo **basta Jekyll**: no hacen
+falta pandoc, LaTeX ni Python.
+
+**Una sola vez** (instalar Jekyll y la gema de los códigos QR, dentro de
+`sitio/vendor/`):
+
+```bash
+# Ruby 3 o posterior con bundler:
+#   macOS:          brew install ruby          (y abrir una terminal nueva)
+#   Debian/Ubuntu:  sudo apt install ruby-full build-essential zlib1g-dev
+#   Windows:        RubyInstaller con DevKit (rubyinstaller.org) y Git Bash
+gem install bundler
+cd sitio
+bundle config set --local path vendor/bundle
+bundle install
+cd ..
+```
+
+**Cada vez:**
+
+```bash
+git pull                        # trae lo último
+sitio/genera.sh --compilar      # compila en sitio/_site/
+```
+
+Para revisarlo antes en el navegador: `sitio/genera.sh --servir` y abrir
+<http://localhost:4000/2026/>.
+
+**Para Informática**, se comprime el **contenido** de `sitio/_site/` (no la
+carpeta `sitio/`):
+
+```bash
+cd sitio/_site && zip -r ../../fimnme2026-sitio.zip . && cd ../..
+```
+
+(En macOS o Windows también se puede seleccionar todo lo que hay dentro de
+`sitio/_site/` y elegir «Comprimir».) El zip lleva la carpeta `2026/` (el
+sitio: páginas HTML, CSS, JavaScript, imágenes y PDF), un `index.html` que
+redirige de la raíz del dominio a `/2026/` y el `robots.txt`. Son archivos
+estáticos: se copian tal cual a la raíz del servidor web, sin base de datos
+ni PHP.
+
+**Antes de compilar la versión definitiva**, en `sitio/_config.yml`:
+
+- `url`: el dominio donde se va a publicar (hoy es el de prueba,
+  `https://fimnme.qumran.cc`). Se usa en los enlaces para compartir y en los
+  códigos QR de la página de descargas.
+- `indexar: true`, para que los buscadores lo encuentren (en `false` les
+  pide que no lo indexen).
+- `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
+
+Después de cambiarlos, volver a compilar (`sitio/genera.sh --compilar`) y
+hacer el zip. Más detalles en `sitio/LEEME.md` y `sitio/DESPLIEGUE.md`.
+
 ## Cómo está organizado
 
 | Archivo | Para qué sirve |
@@ -65,7 +122,7 @@ Para otra edición hacen falta tres cosas:
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores (también el de la CNMO en versión horizontal, de donde sale `automatizacion/plantilla/logo-cnmo-horizontal.tex`). |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
 | `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
-| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/LEEME.md`. |
+| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/LEEME.md`. |
 | `postales/abono/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos); sale, como las demás, en `postales/png`, `jpg`, `pdf` e `idml`. Sus textos están en `postales/abono/abono.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |

@@ -8254,7 +8254,7 @@ Róterdam, Países Bajos.
 
 ## VIE | NOV 20, 19 h - Cuarteto Ruvalcaba
 
-Casa del Tiempo, UAM
+Xico. Antigua Sede del Senado
 
 ### Programa
 
@@ -8441,9 +8441,7 @@ la memoria de Higinio Ruvalcaba (1905-1976), destacado violinista y
 compositor mexicano, integrante del Cuarteto Léner.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
-![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
-![](<logos/logos UAM/CasaDelTiempoNegro.png>)
+![](<logos/logo xico/xico_senado.jpg>)
 :::
 
 ## SÁB | NOV 21, 12 h - Cuarteto de Bellas Artes: Enríquez 100
@@ -11345,7 +11343,7 @@ Maby Muñoz, **moderadora**
 
 #### JUE | NOV 19, 10 h - Conferencia: Iracema de Andrade
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Iracema de Andrade, **ponente**
 
@@ -11355,7 +11353,7 @@ Luis Jaime Cortez, **moderador**
 
 #### JUE | NOV 19, 11:30 h - Mesa 3: Entre disciplinas
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
 
@@ -11365,7 +11363,7 @@ José María Serralde, **moderador**
 
 #### JUE | NOV 19, 13 h - Mesa 4: El gestor
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Guillermo Contreras, Arón Bitrán, Aurelio Tello y Susana Enríquez, **participantes**
 
@@ -11375,7 +11373,7 @@ Marusia Pola, **moderadora**
 
 #### JUE | NOV 19, 16:30 h - Conferencia: Leonora Saavedra
 
-Palacio de Bellas Artes, Sala Manuel M. Ponce
+Conservatorio Nacional de Música
 
 Leonora Saavedra, **ponente**
 
@@ -11422,8 +11420,8 @@ Xicoténcatl 126, Del Carmen, Coyoacán, Ciudad de México
 **Casa Rafael Galván, UAM**\
 Zacatecas 94, Roma Norte, Ciudad de México
 
-**Casa del Tiempo, UAM**\
-Pedro Antonio de los Santos 84, San Miguel Chapultepec, Ciudad de México
+**Xico. Antigua Sede del Senado**\
+Xicoténcatl 9, Centro Histórico, Ciudad de México
 
 **Universidad del Claustro de Sor Juana**\
 José María Izazaga 92, Centro Histórico, Ciudad de México
@@ -11511,6 +11509,9 @@ José Areán, *director artístico de la OJUEM*
 Gustavo Pacheco López, *rector*\
 Yissel Arce Padrón, *coordinadora general de Difusión*\
 Hugo García Galván, *director de la Casa Rafael Galván*
+
+**Senado de la República**\
+Martha López Castillo, *coordinadora de Eventos Culturales*
 
 **Universidad del Claustro de Sor Juana**\
 Rafael Tovar López-Portillo, *rector*

@@ -14,7 +14,9 @@ compila con LuaLaTeX.
 
 Salida: postales/png/, jpg/, pdf/ e idml/fimnme2026-postal-<evento>.* (el IDML,
 editable en InDesign con los textos en Noto Sans, lo arma
-postales/idml_editable.py).
+postales/idml_editable.py; sus imágenes vinculadas van en idml/Links/ y la
+fuente en idml/Document fonts/: la carpeta idml/ se comprime y se envía tal
+cual).
 """
 
 import json
@@ -480,6 +482,9 @@ def main():
         if azul not in fondos:
             fondos[azul] = fondo(datos)
         compilar(etiqueta, datos, fondos[azul])
+    # la carpeta de los IDML, lista para comprimir: fuentes, LEEME y solo las
+    # imágenes vinculadas que se usan
+    idml_editable.preparar_paquete(SALIDA / "idml")
 
 
 if __name__ == "__main__":

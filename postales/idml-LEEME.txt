@@ -1,0 +1,31 @@
+POSTALES DEL 48º FIMNME · ARCHIVOS EDITABLES (INDESIGN)
+
+Esta carpeta lleva todo lo necesario para editar las postales: se puede
+comprimir y enviar tal cual.
+
+  fimnme2026-postal-*.idml   Una postal por archivo (Archivo > Abrir en
+                             InDesign CS6 o posterior). Fondo, fotos,
+                             logotipos y textos van por separado; los textos,
+                             editables, con un estilo de párrafo por bloque.
+  Links/                     Las imágenes (fondo, fotos, logotipos y pleca de
+                             Cultura e INBAL), vinculadas.
+  Document fonts/            Noto Sans, la fuente de las postales (licencia
+                             libre OFL).
+
+TAMAÑO Y EXPORTACIÓN
+Cada postal mide 1080 × 1350 px (las reglas están en píxeles). Para obtener
+la imagen para redes: Archivo > Exportar > JPEG, con Resolución 72 ppp: sale
+de 1080 × 1350 px. (A otra resolución sale proporcionalmente más grande o
+más chica: a 144 ppp, 2160 × 2700 px.)
+
+SI FALTAN IMÁGENES O FUENTES
+- Imágenes: InDesign busca los vínculos en la carpeta Links/ junto al IDML.
+  Si avisa que faltan, en Ventana > Vínculos, «Volver a vincular» una de
+  ellas, elegir el archivo en esta carpeta Links/ y marcar «Buscar vínculos
+  faltantes en esta carpeta»: se vinculan todas.
+- Fuentes: InDesign activa las de «Document fonts» cuando el documento está
+  guardado en esta misma carpeta (al abrir el IDML, guardarlo aquí como
+  .indd y volver a abrirlo). Si aun así faltan, instalar las de esa carpeta
+  (doble clic en cada archivo).
+
+Las postales terminadas (PNG, JPG y PDF) están en postales/png, jpg y pdf.
