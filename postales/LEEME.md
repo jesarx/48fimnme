@@ -124,8 +124,9 @@ lleven los hombros.
   logotipo trae un recuadro de fondo (el de la Fundación Harp Helú), en la
   versión en blanco se quita el recuadro.
 - **Pleca de Cultura e INBAL** (`recursos/pleca-cultura-inbal80.png`): la de
-  los 80 años, con fondo transparente, en la posición y el tamaño de esas
-  postales.
+  los 80 años para redes, con fondo transparente, en la posición y el tamaño
+  de esas postales. Sale del vectorial `recursos/CULTURA_REDES_80_INBAL.ai`
+  (a 2400 px de ancho, recortada a su contenido).
 - **«Obras de…»** y **dirección**: como en el Markdown, con los nombres
   completos (sin pasar los nombres de pila a iniciales). Si la lista es larga,
   el contenido se compone un poco más chico (ver arriba).
@@ -144,7 +145,7 @@ lleven los hombros.
 | `postal.tex` | Diseño (LuaLaTeX/TikZ), común a todas. |
 | `postal.lua` | Disposición y recorte de las fotos en la franja (y sus marcos para el IDML). |
 | `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF. |
-| `recursos/` | Pleca de Cultura e INBAL. |
+| `recursos/` | Pleca de Cultura e INBAL: el original vectorial (`.ai`) y el PNG que usan las postales. |
 | `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.jpg`, `.pdf` e `.idml`. La de cada función de un concierto que se repite empieza con su fecha. |
 | `abono/` | La postal del abono (inauguración y clausura): `abono.tex` (diseño y textos), `compila.sh` y `logos_blancos.py`. |
 
