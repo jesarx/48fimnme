@@ -44,7 +44,7 @@ exclude:
   - recursos.py
   - Gemfile
   - Gemfile.lock
-  - LEEME.md
+  - README.md
   - DESPLIEGUE.md
   - publicar.sh
   - vendor

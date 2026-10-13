@@ -1,35 +1,100 @@
-# Programa General · 48º FIMNME
+# 48º Foro Internacional de Música Nueva Manuel Enríquez
 
-El PDF `fimnme2026-programa.pdf` se genera a partir de `fimnme2026-programa.md`
-(contenido) y `fimnme2026-programa.yaml` (metadatos).
+Materiales del **48º FIMNME** (6 al 21 de noviembre de 2026), de la
+Coordinación Nacional de Música y Ópera del INBAL: el programa de mano, el
+programa resumido, el sitio web, las postales para redes y el boletín por
+correo.
 
-```bash
-./compila.sh            # compilación completa (3–10 pasadas, ~4 min)
-./compila.sh --rapido   # una sola pasada, para revisar cambios
-resumen/compila.sh      # solo el programa resumido (la compilación completa también lo genera)
-sitio/genera.sh         # solo el sitio web (también lo genera la compilación completa)
-python3 postales/genera.py   # solo las postales de los eventos (también la compilación completa)
-postales/abono/compila.sh    # solo la postal del abono (también la compilación completa)
-python3 newsletter/genera.py # solo el boletín por correo (también la compilación completa)
+Todo sale de un solo archivo, [`fimnme2026-programa.md`](fimnme2026-programa.md):
+ahí está el contenido del Foro (conciertos, obras, semblanzas, notas al
+programa, actividades académicas, Coloquio, sedes y créditos). Un cambio en el
+Markdown se propaga a todos los materiales al volver a compilar.
+
+| Material | Dónde queda | Detalles |
+|---|---|---|
+| Programa general (PDF, para imprimir y descargar) | [`fimnme2026-programa.pdf`](fimnme2026-programa.pdf) | este documento |
+| Programa resumido (PDF) | [`resumen/fimnme2026-resumen.pdf`](resumen/fimnme2026-resumen.pdf) | [`resumen/README.md`](resumen/README.md) |
+| Sitio web (Jekyll) | [`sitio/`](sitio/) → `sitio/_site/` | [`sitio/README.md`](sitio/README.md), [`sitio/DESPLIEGUE.md`](sitio/DESPLIEGUE.md) |
+| Postales para redes, 1080 × 1350 px (PNG, JPG, PDF e IDML para InDesign) | [`postales/`](postales/) | [`postales/README.md`](postales/README.md) |
+| Boletín por correo (HTML y versiones para Outlook) | [`newsletter/`](newsletter/) | [`newsletter/README.md`](newsletter/README.md) |
+
+## Índice
+
+- [Cómo funciona](#cómo-funciona)
+- [Instalación](#instalación)
+- [Compilar](#compilar)
+- [Colaborar](#colaborar)
+- [Sitio web: compilarlo y entregarlo a Informática](#sitio-web-compilarlo-y-entregarlo-a-informática)
+- [Cómo está organizado](#cómo-está-organizado)
+- [Tipografía automática](#tipografía-automática)
+- [Convenciones del Markdown](#convenciones-del-markdown)
+- [Derechos](#derechos)
+
+## Cómo funciona
+
+```
+fimnme2026-programa.md ──┬─► pandoc + automatizacion/fimnme.lua + plantilla LaTeX ─► Programa general (PDF)
+(+ fotos comp/ e int/,   ├─► pandoc + resumen/resumen.lua + resumen.latex ────────► Programa resumido (PDF)
+ logotipos logos/)       └─► pandoc + sitio/sitio.lua ─► páginas y datos del sitio ─► Jekyll ─► Sitio web
+                                                          │
+                                                          ├─► postales/genera.py (LaTeX) ─► Postales
+                                                          └─► newsletter/genera.py ───────► Boletín
 ```
 
-Requisitos: pandoc ≥ 3.1, TeX Live ≥ 2023 con LuaLaTeX (koma-script, tcolorbox,
-tikz, microtype…), makeindex y Python 3 con Pillow. Con `opencv-python-headless`
-las fotos se recortan centradas en el rostro (si no está, el recorte es centrado).
-Para los logotipos en PDF, AI o SVG hace falta `pymupdf` (o, en su defecto,
-`pdftoppm` de poppler y `rsvg-convert`).
-Las fuentes Noto Sans van incluidas en `automatizacion/fuentes/`.
+No se usa una plantilla de pandoc convencional. El filtro
+`automatizacion/fimnme.lua` reconoce las convenciones del Markdown (ver
+[Convenciones del Markdown](#convenciones-del-markdown)) y escribe
+directamente las macros del diseño: conciertos, fichas, actividades,
+logotipos. La plantilla `automatizacion/plantilla/fimnme.latex` define esas
+macros, es decir, el aspecto del programa. El resumido funciona igual
+(`resumen/resumen.lua` y `resumen/resumen.latex`). El sitio también:
+`sitio/sitio.lua` escribe las páginas y los datos de Jekyll. De esos datos
+salen las postales (una por evento, compuestas en LaTeX) y el boletín.
 
-### Paquetes de TeX Live
+Las fotos se recortan solas (centradas en el rostro, si está OpenCV) y los
+logotipos se pasan a un solo color y a un tamaño visual parejo; las fuentes
+Noto Sans van incluidas en `automatizacion/fuentes/`.
 
-Con TeX Live completo ya está todo. En Debian o Ubuntu bastan estos paquetes:
+Para otra edición hacen falta tres cosas:
+
+- un Markdown que siga las mismas convenciones;
+- cambiar el diseño en las plantillas y en `sitio/assets/`;
+- poner el año en `baseurl` de `sitio/_config.yml`.
+
+## Instalación
+
+Hace falta:
+
+- pandoc ≥ 3.1;
+- TeX Live ≥ 2023 con LuaLaTeX y makeindex;
+- poppler (`pdftoppm`, `pdfinfo`);
+- Python 3 con los paquetes de [`requirements.txt`](requirements.txt): Pillow, NumPy, PyYAML,
+  PyMuPDF y, opcional, OpenCV (sin OpenCV las fotos se recortan al centro, no
+  en el rostro);
+- para compilar el sitio web, Ruby 3 con bundler: Jekyll se instala dentro de
+  `sitio/vendor/` (ver [Sitio web](#sitio-web-compilarlo-y-entregarlo-a-informática)).
+
+**Debian o Ubuntu:**
 
 ```bash
-sudo apt install texlive-luatex texlive-latex-recommended texlive-latex-extra \
+sudo apt install pandoc poppler-utils python3-pip python3-venv \
+  texlive-luatex texlive-latex-recommended texlive-latex-extra \
   texlive-pictures texlive-lang-spanish
+python3 -m venv .venv && . .venv/bin/activate   # opcional: un entorno solo para el proyecto
+pip install -r requirements.txt
 ```
 
-Los dos paquetes de LaTeX menos comunes son estos:
+**macOS** (con [Homebrew](https://brew.sh/)):
+
+```bash
+brew install pandoc poppler
+brew install --cask mactex-no-gui
+pip3 install -r requirements.txt
+```
+
+**Paquetes de TeX Live.** Con TeX Live completo ya está todo. En Debian o
+Ubuntu bastan los de arriba. Los dos paquetes de LaTeX menos comunes son
+estos:
 
 - `truncate` (de `texlive-latex-extra`) recorta el encabezado de página
   cuando el título del concierto no cabe. Hoy lo hace en dos: la mesa
@@ -40,22 +105,77 @@ Los dos paquetes de LaTeX menos comunes son estos:
 Ninguno pide instalar algo más: `texlive-latex-extra` ya hace falta para
 `tcolorbox`, `enumitem` y `xurl`, y `texlive-luatex` para LuaLaTeX.
 
-### Cómo funciona (para reutilizarlo)
+## Compilar
 
-No se usa una plantilla de pandoc convencional. El filtro
-`automatizacion/fimnme.lua` reconoce las convenciones del Markdown (ver
-«Convenciones del Markdown») y escribe directamente las macros del diseño:
-conciertos, fichas, actividades, logotipos. La plantilla
-`automatizacion/plantilla/fimnme.latex` define esas macros, es decir, el
-aspecto del programa. El resumido funciona igual (`resumen/resumen.lua` y
-`resumen/resumen.latex`). El sitio también: `sitio/sitio.lua` escribe las
-páginas de Jekyll.
+Desde la raíz del repositorio:
 
-Para otra edición hacen falta tres cosas:
+```bash
+./compila.sh                 # todo: programa, resumido, sitio, postales y boletín (~25 min)
+./compila.sh --rapido        # solo el programa general, en una pasada (para revisar cambios)
+resumen/compila.sh           # solo el programa resumido
+sitio/genera.sh              # solo el sitio web (ver sitio/README.md)
+python3 postales/genera.py   # solo las postales de los eventos
+postales/abono/compila.sh    # solo la postal del abono
+python3 newsletter/genera.py # solo el boletín por correo
+```
 
-- un Markdown que siga las mismas convenciones;
-- cambiar el diseño en las plantillas y en `sitio/assets/`;
-- poner el año en `baseurl` de `sitio/_config.yml`.
+La compilación completa sigue este orden, porque cada paso usa lo anterior:
+
+1. programa general (de 3 a 10 pasadas de LuaLaTeX, hasta que las
+   referencias de página se estabilizan);
+2. programa resumido;
+3. contenido del sitio;
+4. postal del abono y postales de los eventos (toman sus datos del contenido
+   del sitio);
+5. recursos y compilación del sitio (el sitio muestra las postales);
+6. boletín.
+
+Los archivos intermedios quedan en `build/`, que no se guarda en el
+repositorio.
+
+## Colaborar
+
+**La regla principal: todo se corrige en el Markdown y se vuelve a compilar.**
+Los archivos generados no se editan a mano, porque la siguiente compilación
+los reescribe:
+
+- los PDF;
+- `sitio/_conciertos/`, `sitio/_data/`, `sitio/assets/fotos/` y
+  `sitio/assets/logos/`;
+- `postales/png/`, `jpg/`, `pdf/` e `idml/`;
+- los HTML y el `.eml` de `newsletter/`.
+
+**Dónde va cada cosa:**
+
+| Para cambiar… | Se edita… |
+|---|---|
+| Programas, obras, semblanzas, notas, sedes, horarios, créditos | `fimnme2026-programa.md` (ver [Convenciones](#convenciones-del-markdown)) |
+| Fotos de compositoras, compositores e intérpretes | `comp/` e `int/` (con el nombre de la persona: `comp/Federico Núñez.jpg`, que en el Markdown se escribe `comp/Federico%20Núñez.jpg`) |
+| Logotipos de un concierto | `logos/` y el bloque `::: logos` del concierto |
+| Antetítulo, intérpretes y fotos de una postal | `postales/postales.yaml` |
+| Textos y precios del abono | `postales/abono/abono.tex` |
+| Diseño del programa general | `automatizacion/plantilla/fimnme.latex` |
+| Diseño del sitio | `sitio/_layouts/`, `sitio/_includes/`, `sitio/assets/css/sitio.css` |
+| Textos del boletín | `newsletter/genera.py` |
+
+**Flujo de trabajo:**
+
+1. `git pull` para partir de lo último.
+2. Una rama para el cambio: `git switch -c nombre-del-cambio`.
+3. Editar y compilar: `./compila.sh`, o solo lo que cambió (ver
+   [Compilar](#compilar)).
+4. Revisar el resultado:
+   - las páginas que cambian en el PDF;
+   - el sitio en el navegador (`sitio/genera.sh --servir`);
+   - las postales afectadas.
+5. Hacer commit. Los materiales generados también se guardan en el
+   repositorio, así quien no compila puede descargar los PDF y las
+   postales, e Informática puede compilar el sitio solo con Jekyll.
+   - Conviene separar el cambio de fuente (Markdown, plantillas, código) de
+     los archivos regenerados, en dos commits.
+   - Los mensajes van en español y dicen qué cambia y dónde (por ejemplo:
+     «Morelia, Julio I. Cervantes: obra de Federico Núñez»).
+6. `git push` y abrir un pull request contra `main`.
 
 ## Sitio web: compilarlo y entregarlo a Informática
 
@@ -105,35 +225,40 @@ ni PHP.
 **Antes de compilar la versión definitiva**, en `sitio/_config.yml`:
 
 - `url`: el dominio donde se va a publicar (hoy es el de prueba,
-  `https://fimnme.qumran.cc`). Se usa en los enlaces para compartir y en los
-  códigos QR de la página de descargas.
+  `https://fimnme.qumran.cc`). Se usa en los enlaces para compartir, en los
+  códigos QR de la página de descargas y en los enlaces del boletín.
 - `indexar: true`, para que los buscadores lo encuentren (en `false` les
   pide que no lo indexen).
 - `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
 
 Después de cambiarlos, volver a compilar (`sitio/genera.sh --compilar`) y
-hacer el zip. Más detalles en `sitio/LEEME.md` y `sitio/DESPLIEGUE.md`.
+hacer el zip. Más detalles en [`sitio/README.md`](sitio/README.md) y
+[`sitio/DESPLIEGUE.md`](sitio/DESPLIEGUE.md).
 
 ## Cómo está organizado
 
 | Archivo | Para qué sirve |
 |---|---|
 | `fimnme2026-programa.md`, `fimnme2026-programa.yaml` | Contenido y metadatos del programa. |
+| `compila.sh` | Compilación completa (ver [Compilar](#compilar)). |
 | `comp/`, `int/` | Fotos originales de compositores e intérpretes (las que usa el Markdown). |
-| `logos/` | Logotipos originales de sedes, instituciones y patrocinadores (también el de la CNMO en versión horizontal, de donde sale `automatizacion/plantilla/logo-cnmo-horizontal.tex`). |
-| `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/LEEME.md`). |
-| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/LEEME.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
-| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/LEEME.md`. |
+| `logos/` | Logotipos originales de sedes, instituciones y patrocinadores, con sus variantes (también el de la CNMO en versión horizontal, de donde sale `automatizacion/plantilla/logo-cnmo-horizontal.tex`). |
+| `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/README.md`). |
+| `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/README.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
+| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/README.md`. |
 | `postales/abono/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos); sale, como las demás, en `postales/png`, `jpg`, `pdf` e `idml`. Sus textos están en `postales/abono/abono.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
-| `newsletter/` | Boletín por correo para participantes y amistades (invitación, cifras, inauguración y clausura con el abono, Coloquio y programación día por día, con la CNMO y la pleca de Cultura e INBAL al pie): HTML, versión para pegar en Outlook en la web y `.eml` para Outlook de escritorio, generados de los datos del sitio. Cómo enviarlo: `newsletter/LEEME.md`. |
+| `newsletter/` | Boletín por correo para participantes y amistades (invitación, cifras, inauguración y clausura con el abono, Coloquio y programación día por día, con la CNMO y la pleca de Cultura e INBAL al pie): HTML, versión para pegar en Outlook en la web y `.eml` para Outlook de escritorio, generados de los datos del sitio. Cómo enviarlo: `newsletter/README.md`. |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
+| `automatizacion/tipografia.lua` | Reglas de [tipografía automática](#tipografía-automática) (siglas, nombres sin cortar, últimos renglones). |
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
 | `automatizacion/preparar_logos.py` | Pasa a un solo color, recorta y separa los logotipos que usa el Markdown (en `build/logos/`). |
 | `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
 | `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
+| `automatizacion/fuentes/` | Noto Sans (licencia OFL), la fuente de todos los materiales. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
 | `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial, tomada de la plantilla institucional. |
+| `requirements.txt` | Paquetes de Python. |
 
 ## Tipografía automática
 
@@ -241,3 +366,10 @@ que nada se sale del margen.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
 - El índice general y el índice onomástico se generan automáticamente.
+
+## Derechos
+
+Los textos (semblanzas y notas al programa), las fotografías y los logotipos
+pertenecen a sus autoras, autores e instituciones, y están aquí para producir
+los materiales del Foro. Las fuentes Noto Sans tienen licencia SIL Open Font
+License (`automatizacion/fuentes/LICENCIA-OFL.txt`).

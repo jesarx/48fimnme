@@ -1,0 +1,7 @@
+# Paquetes de Python para compilar los materiales (pip install -r requirements.txt)
+Pillow>=10
+numpy>=1.24
+PyYAML>=6
+PyMuPDF>=1.23
+# Opcional: recorta las fotos centradas en el rostro (sin él, al centro)
+opencv-python-headless>=4.8
