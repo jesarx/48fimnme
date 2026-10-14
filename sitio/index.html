@@ -106,6 +106,9 @@ clase: pagina-inicio
       <h2>Inauguración y clausura en el Palacio de Bellas Artes</h2>
       <p class="abono-precios" aria-label="Precios del abono">{{ site.data.abono.precios | join: " · " }}</p>
       <p class="abono-sede">Abono para ambos conciertos · {{ site.data.abono.sede }}<br>{{ site.data.abono.direccion }}</p>
+      {%- if site.abono_boletos %}
+      <p class="abono-comprar"><a class="boton boton-caja" href="{{ site.abono_boletos }}" target="_blank" rel="noopener">Comprar el abono</a></p>
+      {%- endif %}
     </div>
     {%- for c in (1..2) %}
       {%- if c == 1 %}{% assign ev = inauguracion %}{% assign etiqueta = "Concierto inaugural" %}{% else %}{% assign ev = clausura %}{% assign etiqueta = "Concierto de clausura" %}{% endif %}

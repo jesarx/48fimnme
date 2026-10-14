@@ -78,14 +78,15 @@ def leer_json(nombre):
     return json.loads((DATOS / nombre).read_text(encoding="utf-8"))
 
 
+def config(clave):
+    """Un valor de sitio/_config.yml (la dirección del sitio, la venta del abono)."""
+    texto = (RAIZ / "sitio/_config.yml").read_text(encoding="utf-8")
+    m = re.search(rf'^{clave}:\s*"?([^"\n#]*)"?', texto, flags=re.M)
+    return m.group(1).strip() if m else ""
+
+
 def sitio_url():
-    config = (RAIZ / "sitio/_config.yml").read_text(encoding="utf-8")
-
-    def valor(clave):
-        m = re.search(rf'^{clave}:\s*"?([^"\n#]*)"?', config, flags=re.M)
-        return m.group(1).strip() if m else ""
-
-    return valor("url").rstrip("/") + valor("baseurl").rstrip("/")
+    return config("url").rstrip("/") + config("baseurl").rstrip("/")
 
 
 def hora(e):
@@ -284,7 +285,9 @@ def armar_html(agenda, foro, abono, destacados, url, imgs):
         + p(escape(ABONO), tam=15, color=DORADO, alto=1.3, abajo=4, extra=" font-weight:700;")
         + p(escape(precios), tam=24, color=DORADO, alto=1.25, abajo=8, extra=" font-weight:700;")
         + p(escape(f"{abono['sede']} · {abono['direccion']}"), tam=13, color=SUAVE, alto=1.45,
-            abajo=0)
+            abajo=16 if abono.get("boletos") else 0)
+        + (boton(escape(abono["boletos"]), "Comprar el abono", DORADO, VERDEOSCURO)
+           if abono.get("boletos") else "")
         + "</td></tr></table>",
         relleno="0 40px 36px"))
 
@@ -417,7 +420,10 @@ def armar_texto(agenda, foro, abono, destacados, url):
         t += [f"{e['_dia']['dia']} · {hora(e)} · {e['subtitulo']}", e["interpretes"], e["obras"],
               url + e["url"], ""]
     t += [f"{ABONO}: {' · '.join(abono['precios'])}",
-          f"{abono['sede']} · {abono['direccion']}", "",
+          f"{abono['sede']} · {abono['direccion']}"]
+    if abono.get("boletos"):
+        t.append(f"Compra del abono: {abono['boletos']}")
+    t += ["",
           "PROGRAMACIÓN DÍA POR DÍA", f"{ENTRADA}, salvo la inauguración y la clausura (abono).", ""]
     for d in agenda:
         t.append(d["dia"].upper())
@@ -447,6 +453,7 @@ def main():
     agenda = leer_json("agenda.json")
     foro = leer_json("foro.json")
     abono = leer_json("abono.json")
+    abono["boletos"] = config("abono_boletos")
     url = sitio_url()
     destacados = {}
     for d in agenda:

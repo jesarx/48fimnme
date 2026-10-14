@@ -39,12 +39,15 @@ En `_config.yml`:
 - `baseurl` es la carpeta de la edición (`"/2026"`).
 - `indexar: true` deja que los buscadores lo indexen; en un sitio de prueba
   va en `false`, para pedirles que no lo hagan.
+- `abono_boletos` es la página de venta del abono (Ticketmaster). Lleva ahí el
+  botón «Comprar el abono» de la portada, de las páginas de la inauguración y
+  la clausura, y del boletín.
 
 ## Páginas
 
 | Página | Qué muestra |
 |---|---|
-| Inicio | Portada (como la del programa), cifras del Foro, próximos eventos (según la fecha del día), calendario de noviembre, partes del programa, abono de inauguración y clausura, logotipos. |
+| Inicio | Portada (como la del programa), cifras del Foro, próximos eventos (según la fecha del día), calendario de noviembre, partes del programa, abono de inauguración y clausura (con el botón para comprarlo), logotipos. |
 | Programación | Agenda día por día con filtros por parte (Ciudad de México, En los estados, Actividades académicas, Ecos del Foro, Coloquio) y búsqueda por obra, compositor, intérprete o sede. El filtro queda en la dirección (`?seccion=estados`, `?q=saariaho`) para compartirla. |
 | Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), su postal (con un clic, en grande; con un botón, para descargarla), programa, semblanzas con foto (con un clic, la foto completa), notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
 | Sedes | Sedes con dirección, mapa y lo que se presenta en cada una. |

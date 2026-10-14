@@ -539,6 +539,8 @@ details.nota[open] > summary::after { content: "–"; }
 }
 .chip-fecha:hover, .chip-fecha:focus-visible { background: var(--acento); color: var(--blanco); }
 .onom-vacio { color: var(--verdegris); }
+.abono-comprar { margin: 14px 0 0; }
+.abono-evento-precios { font-weight: 700; color: var(--verdeoscuro); margin: .2em 0 .6em; }
 .sedes { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .sede { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 20px 22px; }
 .sede-nombre { font-size: 1.1rem; }
