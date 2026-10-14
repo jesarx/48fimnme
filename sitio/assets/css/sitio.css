@@ -513,6 +513,34 @@ details.nota[open] > summary::after { content: "–"; }
 .saltos a { padding: .4em 1em; border-radius: 999px; background: var(--blanco); border: 1.5px solid var(--filete); text-decoration: none; font-weight: 600; font-size: .9rem; color: var(--verdeoscuro); }
 .saltos a:hover { border-color: var(--acento); }
 .region { margin-bottom: 44px; }
+
+/* Índice onomástico: nombre y, a la derecha, un botoncito por concierto */
+.onom-herramientas { margin-bottom: 8px; }
+.onom-buscar {
+  width: 100%; max-width: 420px; margin-bottom: 16px; padding: .6em .9em; font: inherit;
+  border: 1.5px solid var(--filete); border-radius: var(--radio); background: var(--blanco); color: var(--verdeoscuro);
+}
+.onom-buscar:focus { outline: none; border-color: var(--acento); }
+.onom-letras a { padding: .3em .75em; min-width: 2.4em; text-align: center; }
+.onom-letra { margin-bottom: 30px; scroll-margin-top: 90px; }
+.onom-inicial { margin: 0 0 6px; font-size: 1.15rem; font-weight: 700; color: var(--acento); }
+.onom-lista { list-style: none; margin: 0; padding: 0; columns: 2 22rem; column-gap: 48px; }
+.onom-entrada {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 6px 0; border-bottom: 1px solid var(--filete); break-inside: avoid;
+}
+.onom-entrada[hidden] { display: none; }
+.onom-nombre { font-weight: 600; color: var(--verdeoscuro); }
+.onom-fechas { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }
+.chip-fecha {
+  display: inline-block; padding: .14em .5em; border-radius: 4px; background: var(--verdeclaro);
+  color: var(--acento); font-size: .74rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  line-height: 1.4; text-decoration: none; white-space: nowrap;
+}
+.chip-fecha:hover, .chip-fecha:focus-visible { background: var(--acento); color: var(--blanco); }
+.onom-vacio { color: var(--verdegris); }
+.abono-comprar { margin: 14px 0 0; }
+.abono-evento-precios { font-weight: 700; color: var(--verdeoscuro); margin: .2em 0 .6em; }
 .sedes { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .sede { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 20px 22px; }
 .sede-nombre { font-size: 1.1rem; }

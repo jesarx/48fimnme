@@ -1,7 +1,9 @@
 ---
-# Índice onomástico de personas compositoras
+# Índice onomástico de personas compositoras (Programa general y sitio web)
 #
-# El filtro arma cada entrada como «Apellido, Nombre» tomando la última palabra
+# Cada entrada lleva una fecha por concierto en que se toca la obra de esa
+# persona. Los filtros (automatizacion/fimnme.lua y sitio/sitio.lua) arman
+# cada nombre como «Apellido, Nombre» tomando la última palabra
 # como apellido. Aquí se registran solo las excepciones (apellidos compuestos,
 # partículas, variantes del mismo nombre). Usa "-" para no indexar un nombre.
 # La clave debe escribirse exactamente como aparece en el programa o en la ficha.

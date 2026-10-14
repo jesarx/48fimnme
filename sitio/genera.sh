@@ -33,6 +33,7 @@ if [[ "${1:-}" != "--compilar" ]]; then
   pandoc fimnme2026-programa.md \
     --from markdown \
     --metadata-file=fimnme2026-programa.yaml \
+    --metadata-file=automatizacion/indice-onomastico.yaml \
     --lua-filter=sitio/sitio.lua \
     -t plain -o /dev/null
 

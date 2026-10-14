@@ -13,6 +13,8 @@
 --    sitio/_data/foro.json               cifras del Foro (conciertos, estrenos…)
 --    sitio/_data/secciones.json          partes del programa (Ciudad de México…)
 --    sitio/_data/logos.json              todos los logotipos, sin repetir
+--    sitio/_data/indice.json             índice onomástico: cada persona
+--                                        compositora con sus conciertos
 --    sitio/_includes/generado/*.html     Coloquio (presentación), créditos y
 --                                        directorio
 --    build/sitio/recursos.tsv            fotos y logotipos que usa (los copia,
@@ -711,8 +713,111 @@ local SECCION_PARTE = {
   ["enriquez | 100"] = { id = "coloquio", nombre = "Coloquio Manuel Enríquez 100" },
 }
 
+-- -----------------------------------------------------------------------------
+-- Índice onomástico: como el del Programa general (mismas excepciones de
+-- automatizacion/indice-onomastico.yaml y mismo orden), con una fecha por
+-- concierto que lleva a la semblanza en la página del concierto
+-- -----------------------------------------------------------------------------
+local NOMBRES_INDICE = {}   -- «Nombre Apellido» → «Apellido, Nombre» («-» = no va)
+
+local function nombre_indice(nombre)
+  nombre = trim(nombre:gsub("%s+", " "))
+  local o = NOMBRES_INDICE[nombre]
+  if o == "-" then return nil end
+  if o then return o end
+  local palabras = {}
+  for w in nombre:gmatch("%S+") do palabras[#palabras + 1] = w end
+  if #palabras < 2 then return nombre end
+  return palabras[#palabras] .. ", " .. table.concat(palabras, " ", 1, #palabras - 1)
+end
+
+-- la semblanza de la persona en la página del evento (la ficha puede llevar
+-- el nombre completo: «Federico Ibarra Groth»)
+local function ancla_ficha(nombre, ids)
+  local id = "ficha-" .. etiqueta(nombre)
+  if ids[id] then return id end
+  local candidatas = {}
+  for otro in pairs(ids) do
+    if otro:sub(1, #id + 1) == id .. "-" then candidatas[#candidatas + 1] = otro end
+  end
+  if #candidatas == 1 then return candidatas[1] end
+  -- sin semblanza en esa página (p. ej. un programa que se repite): el programa
+  if ids["programa"] then return "programa" end
+  return nil
+end
+
+local INDICE = {}   -- «Apellido, Nombre» → { orden, buscar, fechas = {…}, vistos = {} }
+
+local function registrar_indice(nombre, e, ids)
+  local display = nombre_indice(nombre)
+  if not display then return end
+  local x = INDICE[display]
+  if not x then
+    x = { orden = clave(display):gsub("[^%w ,]", ""), buscar = { clave(display) }, fechas = {}, vistos = {} }
+    INDICE[display] = x
+  end
+  x.buscar[#x.buscar + 1] = clave(nombre)
+  if x.vistos[e.slug] then return end
+  x.vistos[e.slug] = true
+  local ancla = ancla_ficha(nombre, ids)
+  -- ciudad, para distinguir dos conciertos del mismo día y hora
+  local ciudad = (e.seccion.id == "estados" or e.seccion.id == "ecos")
+                 and (e.titulo_txt:match("^([^:]+):") or "") or "CDMX"
+  for _, f in ipairs(e.fechas) do
+    x.fechas[#x.fechas + 1] = { iso = f.iso, hora = f.hora, hora_txt = f.hora_txt, ciudad = ciudad,
+      url = e.url .. (ancla and ("#" .. ancla) or ""),
+      titulo = f.texto_dia .. ", " .. f.hora_txt .. " h · " .. e.titulo_txt }
+  end
+end
+
+local function indice_datos()
+  local lista = {}
+  for display, x in pairs(INDICE) do lista[#lista + 1] = { nombre = display, x = x } end
+  table.sort(lista, function(a, b)
+    if a.x.orden ~= b.x.orden then return a.x.orden < b.x.orden end
+    return a.nombre < b.nombre
+  end)
+  local letras, actual = {}, nil
+  for _, item in ipairs(lista) do
+    local x = item.x
+    table.sort(x.fechas, function(a, b)
+      if a.iso ~= b.iso then return a.iso < b.iso end
+      return a.hora < b.hora
+    end)
+    local por_dia, por_hora = {}, {}
+    for _, f in ipairs(x.fechas) do
+      por_dia[f.iso] = (por_dia[f.iso] or 0) + 1
+      por_hora[f.iso .. f.hora] = (por_hora[f.iso .. f.hora] or 0) + 1
+    end
+    local misma_hora = {}
+    for _, f in ipairs(x.fechas) do
+      if por_hora[f.iso .. f.hora] > 1 then misma_hora[f.iso] = true end
+    end
+    local fechas = {}
+    for _, f in ipairs(x.fechas) do
+      local m, d = f.iso:match("%-(%d%d)%-(%d%d)$")
+      local texto = d .. "/" .. m
+      if misma_hora[f.iso] then texto = texto .. " · " .. f.ciudad
+      elseif por_dia[f.iso] > 1 then texto = texto .. " · " .. f.hora_txt .. " h" end
+      fechas[#fechas + 1] = { texto = texto, url = f.url, titulo = f.titulo }
+    end
+    local letra = x.orden:sub(1, 1):upper()
+    if letra ~= actual then
+      actual = letra
+      letras[#letras + 1] = { letra = letra, entradas = {} }
+    end
+    local entradas = letras[#letras].entradas
+    entradas[#entradas + 1] = { nombre = item.nombre, buscar = table.concat(x.buscar, " "), fechas = fechas }
+  end
+  return letras
+end
+
 function Pandoc(doc)
   cargar_manifiestos()
+  local mi = doc.meta["indice-onomastico"]
+  if mi then
+    for k, v in pairs(mi) do NOMBRES_INDICE[k] = stringify(v) end
+  end
   local bloques = doc.blocks
   local eventos = {}
   local sedes, region = {}, nil
@@ -964,8 +1069,12 @@ function Pandoc(doc)
       cuerpo[#cuerpo + 1] = '<section class="seccion seccion-' .. s.id .. '" id="' .. s.id .. '">' ..
         '<h2 class="seccion-titulo">' .. esc(s.titulo) .. "</h2>\n" .. s.html .. "</section>"
     end
-    escribir(dir .. "/" .. e.slug .. ".html", "---\n" .. json(fm) .. "\n---\n" ..
-      enlazar_programa(table.concat(cuerpo, "\n")) .. "\n")
+    local cuerpo_html = enlazar_programa(table.concat(cuerpo, "\n"))
+    escribir(dir .. "/" .. e.slug .. ".html", "---\n" .. json(fm) .. "\n---\n" .. cuerpo_html .. "\n")
+    -- índice onomástico
+    local ids = {}
+    for id in cuerpo_html:gmatch('id="([^"]+)"') do ids[id] = true end
+    for _, nombre in ipairs(e.compositores) do registrar_indice(nombre, e, ids) end
     -- agenda
     for k, f in ipairs(e.fechas) do
       local dia = por_dia[f.iso]
@@ -1070,6 +1179,7 @@ function Pandoc(doc)
     end
   end
   escribir(DESTINO .. "/_data/secciones.json", json(secciones) .. "\n")
+  escribir(DESTINO .. "/_data/indice.json", json(indice_datos()) .. "\n")
 
   -- 5. Textos generales
   pandoc.system.make_directory(DESTINO .. "/_includes/generado", true)

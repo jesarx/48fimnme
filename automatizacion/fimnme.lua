@@ -16,7 +16,8 @@
 --  Además:
 --    * genera la leyenda de estrenos (* / **) según las marcas que realmente
 --      aparecen en cada programa;
---    * alimenta el índice onomástico de personas compositoras (makeindex);
+--    * arma el índice onomástico de personas compositoras: cada nombre con
+--      la fecha de cada concierto en que se toca su música, enlazada;
 --    * usa las fotos ya recortadas por automatizacion/preparar_imagenes.py;
 --    * descarta los \clearpage y \vfill manuales: la paginación la decide
 --      la plantilla;
@@ -273,16 +274,76 @@ local function nombre_indice(nombre)
   return palabras[#palabras] .. ", " .. table.concat(palabras, " ", 1, #palabras - 1)
 end
 
-local function escape_indice(s)
-  s = escape(s)
-  return (s:gsub('([!@|"])', '"%1'))
+-- Cada persona compositora con los conciertos en que se tocan sus obras: una
+-- fecha (día/mes) por concierto, enlazada a su primera página. Un concierto
+-- con dos funciones da dos fechas; si dos conciertos de una persona caen el
+-- mismo día, sus fechas llevan además la hora (o, si también coincide, la
+-- ciudad).
+local INDICE = {}   -- «Apellido, Nombre» → { clave, conciertos = {…}, vistos = {} }
+local MESES_NUM = { ENE = 1, FEB = 2, MAR = 3, ABR = 4, MAY = 5, JUN = 6,
+                    JUL = 7, AGO = 8, SEP = 9, OCT = 10, NOV = 11, DIC = 12 }
+
+local function registrar_indice(nombre, concierto)
+  local display = concierto and nombre_indice(nombre)
+  if not display then return end
+  local e = INDICE[display]
+  if not e then
+    e = { clave = clave_orden(display), conciertos = {}, vistos = {} }
+    INDICE[display] = e
+  end
+  if e.vistos[concierto.etiqueta] then return end
+  e.vistos[concierto.etiqueta] = true
+  for _, f in ipairs(concierto.fechas) do
+    table.insert(e.conciertos, { etiqueta = concierto.etiqueta, mes = MESES_NUM[f.mes] or 0,
+                                 num = tonumber(f.num) or 0, hora = f.hora or "",
+                                 ciudad = concierto.ciudad })
+  end
 end
 
-local function entrada_indice(nombre, sufijo)
-  local display = nombre_indice(nombre)
-  if not display then return "" end
-  return "\\index{" .. escape_indice(clave_orden(display)) .. "@" ..
-         escape_indice(display) .. (sufijo or "") .. "}"
+local function indice_latex()
+  local lista = {}
+  for display, e in pairs(INDICE) do table.insert(lista, { display = display, e = e }) end
+  table.sort(lista, function(a, b)
+    if a.e.clave ~= b.e.clave then return a.e.clave < b.e.clave end
+    return a.display < b.display
+  end)
+  local out, letra_actual = { "\\begin{theindex}" }, nil
+  for _, x in ipairs(lista) do
+    local letra = x.e.clave:sub(1, 1):upper()
+    if letra ~= letra_actual then
+      letra_actual = letra
+      table.insert(out, "\\letraindice{" .. letra .. "}")
+    end
+    local cs = x.e.conciertos
+    table.sort(cs, function(a, b)
+      if a.mes ~= b.mes then return a.mes < b.mes end
+      if a.num ~= b.num then return a.num < b.num end
+      return a.hora < b.hora
+    end)
+    -- conciertos del mismo día: cuántos y si coinciden en la hora
+    local por_dia, por_hora = {}, {}
+    for _, c in ipairs(cs) do
+      local d = c.mes .. "/" .. c.num
+      por_dia[d] = (por_dia[d] or 0) + 1
+      por_hora[d .. " " .. c.hora] = (por_hora[d .. " " .. c.hora] or 0) + 1
+    end
+    local misma_hora = {}
+    for k, n in pairs(por_hora) do
+      if n > 1 then misma_hora[k:match("^(%S+)")] = true end
+    end
+    local chips = {}
+    for _, c in ipairs(cs) do
+      local d = c.mes .. "/" .. c.num
+      local texto = string.format("%02d/%02d", c.num, c.mes)
+      if misma_hora[d] then texto = texto .. "\\,·\\," .. escape(c.ciudad)
+      elseif por_dia[d] > 1 then texto = texto .. "\\,·\\," .. hora_texto(c.hora) end
+      table.insert(chips, "\\chipfecha{" .. c.etiqueta .. "}{" .. texto .. "}")
+    end
+    table.insert(out, "\\entradaindice{" .. escape(x.display) .. "}{" ..
+                      table.concat(chips, "\\sepchips") .. "}")
+  end
+  table.insert(out, "\\end{theindex}")
+  return table.concat(out, "\n")
 end
 
 -- -----------------------------------------------------------------------------
@@ -524,7 +585,7 @@ function Pandoc(doc)
   local cabecera = ""          -- texto de la cabecera del concierto actual
   local mes_actual = "NOV"
   local dia_toc = nil          -- último día escrito en el índice
-  local indice_abierto = nil   -- compositor con rango de índice abierto
+  local concierto_indice = nil -- concierto en curso, para el índice onomástico
   local mayor = nil            -- sección ## sin fecha en curso (sedes, créditos...)
   local concierto_abierto = nil -- número del concierto en curso (para el ajuste fino)
   local concierto_estable = nil -- su etiqueta estable («conc:…»)
@@ -606,13 +667,6 @@ function Pandoc(doc)
 
   local function clave_nota(h)
     return ultimo_comp .. "|" .. clave_orden(stringify(h.content))
-  end
-
-  local function cerrar_indice()
-    if indice_abierto then
-      emit(raw(entrada_indice(indice_abierto, "|)")))
-      indice_abierto = nil
-    end
   end
 
   local function cerrar_nota()
@@ -829,7 +883,6 @@ function Pandoc(doc)
 
   local function cerrar_seccion()
     cerrar_semblanza()
-    cerrar_indice()
     cerrar_programa()
     if seccion_abierta then
       emit(raw("\\finseccion{" .. seccion_abierta .. "}"))
@@ -979,8 +1032,7 @@ function Pandoc(doc)
     -- juntan en una franja al pie de la última página de actividades.
     if b.t == "Div" and b.classes:includes("logos") then
       cerrar_semblanza()
-      cerrar_indice()
-      cerrar_programa()
+        cerrar_programa()
       local items = logos_latex(b)
       if concierto_abierto and solo_programa then
         -- ya se compuso al pie del programa
@@ -1026,7 +1078,7 @@ function Pandoc(doc)
       elseif t == "\\printindex" then
         franja_actividades()
         cerrar_mayor()
-        emit(b)
+        emit(raw(indice_latex()))
       elseif titulo_parte then
         franja_actividades()
         cerrar_mayor()
@@ -1098,6 +1150,11 @@ function Pandoc(doc)
         -- \pageref{conc:mie-nov-18-electroacustica-i}
         local estable = "conc:" .. clave_orden(fecha_texto(f) .. " " .. titulo_txt):gsub("[^%w]+", "-"):gsub("^-+", ""):gsub("-+$", "")
         concierto_estable = estable
+        -- ciudad (para distinguir dos conciertos del mismo día y hora): la
+        -- CDMX o la que encabeza el título en los estados y los Ecos
+        local ciudad = clave_orden(parte or ""):find("ciudad de mexico") and "CDMX"
+                       or titulo_txt:match("^([^:]+):") or ""
+        concierto_indice = { etiqueta = estable, fechas = fechas, ciudad = ciudad }
         if macro == "\\actividadacademica" then
           emit(raw("\\begin{actividadentera}"))
           actividad_abierta = true
@@ -1247,8 +1304,7 @@ function Pandoc(doc)
 
     elseif b.t == "Header" and b.level == 4 then
       cerrar_semblanza()
-      cerrar_indice()
-      cerrar_programa()
+        cerrar_programa()
       local tipo = seccion and SECCIONES_FICHA[seccion]
       local texto = stringify(b.content)
       local izq_txt = partir_encabezado(texto)
@@ -1264,10 +1320,6 @@ function Pandoc(doc)
           i = i + 1
         end
         local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
-        if tipo == "comp" then
-          indice_abierto = stringify(nombre)
-          marca = marca .. entrada_indice(indice_abierto, "|(")
-        end
         local clave = clave_orden(stringify(nombre))
         local tiene_bio = siguiente_es_texto(i)
         if tipo == "comp" then ultimo_comp = clave end
@@ -1314,14 +1366,9 @@ function Pandoc(doc)
     elseif seccion and SECCIONES_FICHA[seccion] and (b.t == "Para" or b.t == "Plain")
            and #b.content == 1 and b.content[1].t == "Strong" and imagen_sola(siguiente) then
       cerrar_semblanza()
-      cerrar_indice()
-      local nombre = b.content[1].content
+        local nombre = b.content[1].content
       local foto = resolver_foto(imagen_sola(siguiente).src)
       local marca = "\\marcador{4}{" .. escape(stringify(nombre)) .. "}"
-      if SECCIONES_FICHA[seccion] == "comp" then
-        indice_abierto = stringify(nombre)
-        marca = marca .. entrada_indice(indice_abierto, "|(")
-      end
       if foto then
         emit(raw(string.format("\\ficha{%s}{%s}{}%s", foto, latex(nombre), marca)))
       else
@@ -1358,8 +1405,8 @@ function Pandoc(doc)
         local resto = pandoc.List()
         for k = 2, #b.content do resto:insert(b.content[k]) end
         local sep = (resto[1] and resto[1].t == "Space") and " " or ""
-        emit(raw("\\compositor{" .. latex(nombre) .. "}{" .. sep .. latex(strip_trailing_space(resto)) .. "}" ..
-                 entrada_indice(stringify(nombre))))
+        emit(raw("\\compositor{" .. latex(nombre) .. "}{" .. sep .. latex(strip_trailing_space(resto)) .. "}"))
+        registrar_indice(stringify(nombre), concierto_indice)
       else
         local c = strip_trailing_space(b.content)
         if #c == 1 and c[1].t == "Emph" then

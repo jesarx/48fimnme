@@ -19,6 +19,9 @@ url: "https://forodemusicanueva.inba.gob.mx"
 # las ediciones pueden convivir en el mismo dominio. genera.sh compila el
 # sitio en _site/2026/ y deja en la raíz una redirección a esta edición.
 baseurl: "/2026"
+# Venta del abono (inauguración y clausura), en Ticketmaster: la portada, las
+# páginas de esos dos conciertos y el boletín llevan a esta dirección
+abono_boletos: "https://www.ticketmaster.com.mx/evento-abono-46-fimnme-osn-inaugural-mexico-cdmx-06-11-2026/event/3D0065290920972A"
 # true en el dominio definitivo. En un sitio de prueba, false: pide a los
 # buscadores que no lo indexen (robots.txt y <meta name="robots">).
 indexar: true

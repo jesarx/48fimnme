@@ -120,8 +120,6 @@
 \usepackage[most]{tcolorbox}
 \usepackage{etoolbox}
 \usepackage{xurl}
-\usepackage{makeidx}
-\makeindex
 
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\pandocbounded}[1]{#1}
@@ -685,7 +683,9 @@
   \phantomsection\addcontentsline{toc}{seccionmayor}{Índice onomástico}%
   \marcador{0}{Índice onomástico}%
   {\fontsize{18}{22}\negrita\color{verdeoscuro}Índice onomástico\par}
-  \vspace{1mm}{\small\color{verdegris}Personas compositoras cuyas obras se interpretan en el Foro.\par}
+  \vspace{1mm}{\small\color{verdegris}Personas compositoras cuyas obras se interpretan en el
+    Foro, con la fecha (día/mes) de cada concierto en que se tocan; en la versión digital, cada
+    fecha lleva a su concierto.\par}
   \vspace{3mm}%
   \small\estilotitulos
   \setlength{\parskip}{0pt}%
@@ -697,7 +697,20 @@
 \newcommand{\letraindice}[1]{%
   \par\necesito{4\baselineskip}\addvspace{2mm}%
   {\fontsize{9}{11}\negrita\color{acento}#1\par}\nopagebreak\vspace{0.6mm}}
-\newcommand{\paginasindice}[1]{{\fuentecifras\color{verdegris}#1}}
+% Entrada: el nombre y, a la derecha, un botoncito por concierto (si no caben
+% en el renglón, siguen en el de abajo, también a la derecha)
+\newlength{\anchonombreindice}
+\newcommand{\entradaindice}[2]{%
+  \par\addvspace{0.55mm}\noindent
+  \settowidth{\anchonombreindice}{#1}%
+  #1\hfill
+  \parbox[t]{\dimexpr\linewidth-\anchonombreindice-3mm\relax}{%
+    \raggedleft\setlength{\lineskip}{0.7mm}\setlength{\lineskiplimit}{0.7mm}%
+    \leavevmode#2}\par}
+\newcommand{\chipfecha}[2]{\hyperref[#1]{\tikz[baseline=(c.base)]\node[fill=verdeclaro,
+  text=acento, rounded corners=0.5mm, inner xsep=0.75mm, inner ysep=0.35mm,
+  font=\fontsize{6.4}{7}\fuentecifras\bfseries] (c) {#2};}}
+\newcommand{\sepchips}{\hskip 0.9mm\relax}
 
 % ======================================================================
 \begin{document}

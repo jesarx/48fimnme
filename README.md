@@ -66,7 +66,7 @@ Para otra edición hacen falta tres cosas:
 Hace falta:
 
 - pandoc ≥ 3.1;
-- TeX Live ≥ 2023 con LuaLaTeX y makeindex;
+- TeX Live ≥ 2023 con LuaLaTeX;
 - poppler (`pdftoppm`, `pdfinfo`);
 - Python 3 con los paquetes de [`requirements.txt`](requirements.txt): Pillow, NumPy, PyYAML,
   PyMuPDF y, opcional, OpenCV (sin OpenCV las fotos se recortan al centro, no
@@ -222,12 +222,14 @@ redirige de la raíz del dominio a `/2026/` y el `robots.txt`. Son archivos
 estáticos: se copian tal cual a la raíz del servidor web, sin base de datos
 ni PHP.
 
-**La dirección del sitio** está en `sitio/_config.yml`:
+**La dirección del sitio y la venta del abono** están en `sitio/_config.yml`:
 
 - `url`: el dominio donde se publica, `https://forodemusicanueva.inba.gob.mx`
   (el de prueba era `https://fimnme.qumran.cc`). Se usa en los enlaces para
   compartir, en los códigos QR de la página de descargas y en los enlaces
   del boletín.
+- `abono_boletos`: la página de venta del abono (Ticketmaster), a la que
+  llevan los botones «Comprar el abono» del sitio y del boletín.
 - `indexar: true`, para que los buscadores lo encuentren (en `false` les
   pide que no lo indexen: es lo que se usa en un sitio de prueba).
 - `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
@@ -255,7 +257,7 @@ y `python3 newsletter/genera.py` para el boletín) y hacer el zip. Más detalles
 | `automatizacion/preparar_imagenes.py` | Recorta y ajusta las fotos de `comp/` e `int/` (en `build/fotos/`). |
 | `automatizacion/preparar_logos.py` | Pasa a un solo color, recorta y separa los logotipos que usa el Markdown (en `build/logos/`). |
 | `automatizacion/plantilla/ajuste.lua` | Ajuste fino de páginas (evita programas desbordados y finales de sección con pocas líneas). |
-| `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico. |
+| `automatizacion/indice-onomastico.yaml` | Excepciones de apellidos para el índice onomástico (del programa y del sitio). |
 | `automatizacion/fuentes/` | Noto Sans (licencia OFL), la fuente de todos los materiales. |
 | `automatizacion/plantilla/logo-*.tex`, `partitura-1x4.pdf` | Logotipos y partitura de la portada, en vectorial. |
 | `automatizacion/plantilla/pleca-cultura-inbal.pdf` | Pleca de la Secretaría de Cultura y el INBAL (pie de la contraportada), en vectorial, tomada de la plantilla institucional. |
@@ -366,7 +368,13 @@ que nada se sale del margen.
   al pie; el programa resumido también la lleva.
 - No hace falta poner `\clearpage` ni `\vfill`: la paginación la decide la
   plantilla (se ignoran si aparecen).
-- El índice general y el índice onomástico se generan automáticamente.
+- El índice general y el índice onomástico se generan automáticamente. El
+  onomástico lista a las personas compositoras de los programas, cada una
+  con un botoncito por concierto (la fecha, día/mes) que en el PDF lleva al
+  concierto. Si una persona tiene dos conciertos el mismo día, la fecha lleva
+  además la hora (o la ciudad, si la hora también coincide). Los apellidos
+  compuestos y las partículas van en `automatizacion/indice-onomastico.yaml`.
+  El sitio web tiene el mismo índice, en `/2026/indice/`.
 
 ## Derechos
 

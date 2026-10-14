@@ -56,6 +56,16 @@ clase: pagina-evento
       </section>
       {%- endfor %}
 
+      {%- if site.abono_boletos and page.tipo == "concierto" %}
+      {%- if page.title contains "INAUGURACIÓN" or page.title contains "CLAUSURA" %}
+      <section class="dato abono-evento" aria-label="Abono">
+        <p class="dato-cuando"><b>Abono para la inauguración y la clausura</b></p>
+        <p class="abono-evento-precios">{{ site.data.abono.precios | join: " · " }}</p>
+        <p class="dato-acciones"><a class="boton boton-acento" href="{{ site.abono_boletos }}" target="_blank" rel="noopener">Comprar el abono</a></p>
+      </section>
+      {%- endif %}
+      {%- endif %}
+
       {%- assign postales = site.data.postales[page.slug] %}
       {%- if postales %}
       <section class="dato postal-evento" aria-label="Postal para compartir">

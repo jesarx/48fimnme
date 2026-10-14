@@ -4,7 +4,7 @@ Un boletín para enviar por correo a las personas participantes y a sus
 amistades:
 - la invitación;
 - el Foro en cifras;
-- la inauguración y la clausura, con el abono;
+- la inauguración y la clausura, con el abono y el botón para comprarlo;
 - el Coloquio Manuel Enríquez 100;
 - la programación día por día, con un enlace a cada evento en el sitio;
 - al pie, la Coordinación Nacional de Música y Ópera y la pleca de Cultura e
@@ -96,6 +96,8 @@ python3 newsletter/genera.py  # rehace el boletín (unos segundos)
 - **Encabezado y pie:** en `imagenes.tex`.
   - El pie usa la CNMO y la pleca de Cultura e INBAL de las postales, con sus
     proporciones.
+- **Compra del abono:** el botón lleva a `abono_boletos` de
+  `sitio/_config.yml` (la misma dirección que usa el sitio).
 - **Enlaces:** apuntan al sitio, a la dirección de `url` y `baseurl` en
   `sitio/_config.yml`: `https://forodemusicanueva.inba.gob.mx/2026`.
   - Si el sitio se publica en otra dirección, cámbiala ahí y rehaz el boletín

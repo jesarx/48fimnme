@@ -1,0 +1,34 @@
+---
+title: Índice onomástico
+antetitulo: Quién se toca
+entrada: Las personas compositoras cuyas obras se interpretan en el 48º Foro, en orden alfabético. Cada fecha (día/mes) es un concierto en que se toca su música y lleva a su semblanza en la página de ese concierto.
+clase: pagina-indice
+description: Índice onomástico del 48º Foro Internacional de Música Nueva Manuel Enríquez — las personas compositoras y los conciertos en que se interpretan sus obras.
+---
+{%- comment -%}
+  Los datos (sitio/_data/indice.json) los genera sitio/sitio.lua con las
+  mismas reglas que el índice del Programa general.
+{%- endcomment -%}
+<div class="onom-herramientas">
+  <label class="visualmente-oculto" for="onom-buscar">Buscar un nombre</label>
+  <input class="onom-buscar" id="onom-buscar" type="search" placeholder="Buscar un nombre" autocomplete="off" data-onom-buscar>
+  <nav class="saltos onom-letras" aria-label="Iniciales">
+    {%- for l in site.data.indice %}<a href="#letra-{{ l.letra | downcase }}">{{ l.letra }}</a>{% endfor %}
+  </nav>
+</div>
+{%- for l in site.data.indice %}
+<section class="onom-letra" id="letra-{{ l.letra | downcase }}" data-onom-letra>
+  <h2 class="onom-inicial">{{ l.letra }}</h2>
+  <ul class="onom-lista">
+    {%- for e in l.entradas %}
+    <li class="onom-entrada" data-buscar="{{ e.buscar | escape }}">
+      <span class="onom-nombre">{{ e.nombre }}</span>
+      <span class="onom-fechas">
+        {%- for f in e.fechas %}<a class="chip-fecha" href="{{ f.url | relative_url }}" title="{{ f.titulo | escape }}">{{ f.texto }}</a>{% endfor -%}
+      </span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}
+<p class="onom-vacio" hidden data-onom-vacio>Ningún nombre coincide con la búsqueda.</p>
