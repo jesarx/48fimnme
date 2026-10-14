@@ -48,6 +48,7 @@ En `_config.yml`:
 | Programación | Agenda día por día con filtros por parte (Ciudad de México, En los estados, Actividades académicas, Ecos del Foro, Coloquio) y búsqueda por obra, compositor, intérprete o sede. El filtro queda en la dirección (`?seccion=estados`, `?q=saariaho`) para compartirla. |
 | Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), su postal (con un clic, en grande; con un botón, para descargarla), programa, semblanzas con foto (con un clic, la foto completa), notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
 | Sedes | Sedes con dirección, mapa y lo que se presenta en cada una. |
+| Índice onomástico (`/2026/indice/`) | Las personas compositoras en orden alfabético, con un botoncito por concierto (la fecha, día/mes) que lleva a su semblanza en la página de ese concierto; búsqueda por nombre y saltos por inicial. Es el mismo índice del Programa general. |
 | Coloquio Enríquez &#124; 100 | Presentación y programa del Coloquio. |
 | Programa de mano (`/2026/descargas/`) | El Programa general y el resumido, cada uno con su código QR; un QR de la propia página (para carteles e impresos) y la galería de las postales de todos los eventos, por parte del programa. |
 | Créditos | Directorio de Cultura e INBAL, créditos y directorio de la CNMO y del Palacio. |
@@ -80,6 +81,7 @@ Generado (no editar: lo reescribe `genera.sh`):
 |---|---|
 | `_conciertos/*.html` | Una página por concierto, actividad académica o sesión del Coloquio. |
 | `_data/agenda.json`, `sedes.json`, `secciones.json`, `foro.json`, `logos.json` | Agenda por día, sedes, partes, cifras (conciertos, obras, estrenos, sedes) y logotipos. |
+| `_data/indice.json` | Índice onomástico: cada persona compositora con sus conciertos (fecha, enlace a su semblanza). Sigue las excepciones de `automatizacion/indice-onomastico.yaml`. |
 | `_data/abono.json` | Precios y sede del abono: los de `postales/abono/abono.tex`. |
 | `_data/descargas.json`, `descargas/` | Copias del Programa general y del resumido. |
 | `_data/postales.json`, `postales/`, `assets/postales/` | La postal de cada evento (de `postales/jpg/`): el JPG de 1080 × 1350 px para descargarla y una vista previa ligera (JPG de 540 × 675 px). |

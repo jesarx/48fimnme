@@ -222,4 +222,26 @@
       abrirFoto(enlace);
     });
   }
+
+  // Índice onomástico: buscar un nombre (en cualquier orden, sin acentos)
+  var buscarNombre = document.querySelector("[data-onom-buscar]");
+  if (buscarNombre) {
+    var letrasOnom = Array.prototype.slice.call(document.querySelectorAll("[data-onom-letra]"));
+    var vacioOnom = document.querySelector("[data-onom-vacio]");
+    buscarNombre.addEventListener("input", function () {
+      var palabras = clave(buscarNombre.value).split(/\s+/).filter(Boolean);
+      var hay = 0;
+      letrasOnom.forEach(function (seccion) {
+        var visibles = 0;
+        seccion.querySelectorAll(".onom-entrada").forEach(function (e) {
+          var ok = palabras.every(function (p) { return e.dataset.buscar.indexOf(p) !== -1; });
+          e.hidden = !ok;
+          if (ok) visibles++;
+        });
+        seccion.hidden = visibles === 0;
+        hay += visibles;
+      });
+      if (vacioOnom) vacioOnom.hidden = hay > 0;
+    });
+  }
 })();
