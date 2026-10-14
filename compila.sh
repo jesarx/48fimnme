@@ -5,7 +5,7 @@
 #   ./compila.sh --rapido   una sola pasada de LuaLaTeX (para revisar cambios)
 #
 # Requisitos: pandoc (≥ 3.1), LuaLaTeX (TeX Live ≥ 2023 con koma-script,
-# tcolorbox, tikz, microtype...), makeindex y Python 3 con Pillow.
+# tcolorbox, tikz, microtype...) y Python 3 con Pillow.
 # OpenCV (opencv-python-headless) es opcional: mejora el recorte de las fotos
 # centrándolas en el rostro.
 #
@@ -54,11 +54,10 @@ if [[ "${1:-}" != "--rapido" ]]; then rm -f "build/$NOMBRE.aux"; fi
 echo "▸ LuaLaTeX (pasada 1)…"
 lualatex_pasada
 if [[ "${1:-}" != "--rapido" ]]; then
-  # Se repite hasta que el índice, las referencias y el ajuste fino de
-  # páginas se estabilizan (mínimo 3 pasadas, máximo 10).
+  # Se repite hasta que las referencias y el ajuste fino de páginas se
+  # estabilizan (mínimo 3 pasadas, máximo 10).
   anterior=""
   for pasada in 2 3 4 5 6 7 8 9 10; do
-    makeindex -q -s automatizacion/plantilla/indice.ist "build/$NOMBRE.idx"
     echo "▸ LuaLaTeX (pasada $pasada)…"
     lualatex_pasada
     actual="$(firma_aux)"
