@@ -150,7 +150,7 @@ los reescribe:
 | Para cambiar… | Se edita… |
 |---|---|
 | Programas, obras, semblanzas, notas, sedes, horarios, créditos | `fimnme2026-programa.md` (ver [Convenciones](#convenciones-del-markdown)) |
-| Fotos de compositoras, compositores e intérpretes | `comp/` e `int/` (con el nombre de la persona: `comp/Federico Núñez.jpg`, que en el Markdown se escribe `comp/Federico%20Núñez.jpg`) |
+| Fotos de compositoras, compositores e intérpretes | `comp/` e `int/` (con el nombre de la persona: `comp/Federico Núñez.jpg`, que en el Markdown se escribe `comp/Federico%20Núñez.jpg`). El círculo de la ficha se recorta solo, centrado en el rostro; si la persona sale lejos y la cara queda chica, se acerca en `ACERCAR` de `automatizacion/preparar_imagenes.py` (un TIFF u otro formato conviene pasarlo antes a JPG). |
 | Logotipos de un concierto | `logos/` y el bloque `::: logos` del concierto |
 | Antetítulo, intérpretes y fotos de una postal | `postales/postales.yaml` |
 | Textos y precios del abono | `postales/abono/abono.tex` |

@@ -43,6 +43,14 @@ MODELO = os.path.join(RAIZ, "automatizacion", "modelos",
                       "face_detection_yunet_2023mar.onnx")
 EXTENSIONES = {".jpg", ".jpeg", ".jfif", ".png", ".tif", ".tiff", ".webp"}
 
+# Fotos en que la persona sale de cuerpo entero o lejos: el recorte se acerca
+# más al rostro que la regla general (un cuadrado de 2,7 veces el alto de la
+# cara). Valor mayor que 1: más cerca. Solo cambia el círculo de las fichas;
+# la foto completa del sitio sigue siendo la original.
+ACERCAR = {
+    "comp/Manuel Enríquez.jpg": 1.35,   # sentado al piano (UCLA, 1993)
+}
+
 
 def slug(texto):
     texto = unicodedata.normalize("NFKD", texto)
@@ -107,8 +115,8 @@ def detectar_rostros(img):
     return [tuple(int(v / escala) for v in c) for c in caras]
 
 
-def caja_recorte(img, caras):
-    """Decide el recorte cuadrado.
+def caja_recorte(img, caras, acercar=1.0):
+    """Decide el recorte cuadrado (``acercar`` > 1: más cerca del rostro).
 
     Devuelve (caja, lado) con caja = (izq, arriba, der, abajo). Si los rostros
     de una foto de grupo no caben en ningún cuadrado de la imagen, la caja es
@@ -141,7 +149,7 @@ def caja_recorte(img, caras):
             cy_rel = 0.45
         else:
             x, y, cw, ch = principal
-            lado = max(ch * 2.7, 0.45 * m)
+            lado = max(ch * 2.7 / acercar, 0.45 * m)
             cx, cy = x + cw / 2, y + ch / 2
             cy_rel = 0.42  # la cara queda un poco por encima del centro
         lado = min(lado, m)
@@ -188,7 +196,8 @@ def procesar(ruta_rel, forzar=False):
     ):
         return destino_rel
     img = abrir_rgb(origen)
-    caja, lado = caja_recorte(img, detectar_rostros(img))
+    acercar = ACERCAR.get(unicodedata.normalize("NFC", ruta_rel), 1.0)
+    caja, lado = caja_recorte(img, detectar_rostros(img), acercar)
     img = componer_cuadrado(img, caja, lado)
     img = img.resize((LADO, LADO), Image.LANCZOS)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
