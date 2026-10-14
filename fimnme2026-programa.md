@@ -5984,20 +5984,19 @@ Estudió Composición en la Escuela Superior de Música de la Ciudad de México 
 
 ##### *Magma Flux*
 
-Obra galardonada con el primer premio en el Egidio Carella Composition
-Competition, organizado por la Fondazione Val Tidone en Italia y
-publicada por Edizioni Tetracordo, refleja el interés del compositor por
-ampliar el repertorio solista del contrafagot y de instrumentos a menudo
-considerados periféricos, como el clarinete contrabajo, las ondas
-Martenot o el acordeón. Tradicionalmente relegado a funciones
-orquestales, el contrafagot posee una profundidad tímbrica y una fuerza
-expresiva singulares, como en el solo inicial del *Concierto para la
-mano izquierda* de Maurice Ravel, donde evoca un movimiento subterráneo
-y volcánico. Inspirada en esa imagen, la obra se abre con una alusión
-fragmentada al motivo de Ravel que pronto se emancipa y sigue su propio
-desarrollo. Estructurada en dos movimientos, explora el registro grave,
-la agilidad técnica y una narrativa definida, afirmando el carácter
-solista y versátil del instrumento.
+*Magma Flux*, para contrafagot y electrónica, explora un universo sonoro
+oscuro y subterráneo, donde los registros graves se convierten en materia
+y paisaje. La electrónica, concebida como una emulación poética de una
+textura magmática, evoca el movimiento lento e imprevisible de la materia
+incandescente en las profundidades de la tierra. En un diálogo constante,
+el contrafagot y la electrónica se complementan y se funden, dando forma a
+un entorno volcánico en el que el sonido parece surgir de las entrañas de
+la tierra. En este espacio, la belleza emerge también de lo tenebroso,
+mientras una sensación de incertidumbre atraviesa el paisaje sonoro y
+transforma la escucha en una experiencia de descubrimiento. La obra invita
+así a una caminata imaginaria hacia las profundidades terrestres, allí
+donde lo desconocido, lo inquietante y lo fascinante coexisten en una misma
+materia sonora.
 
 #### José Luis Hurtado (México, 1975)
 
