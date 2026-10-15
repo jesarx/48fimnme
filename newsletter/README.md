@@ -98,6 +98,9 @@ python3 newsletter/genera.py  # rehace el boletín (unos segundos)
     proporciones.
 - **Compra del abono:** el botón lleva a `abono_boletos` de
   `sitio/_config.yml` (la misma dirección que usa el sitio).
+- **Suscripción:** el enlace «Suscríbete al boletín de noticias del Foro» (para
+  quien lo reciba reenviado) lleva a `boletin_suscripcion` de
+  `sitio/_config.yml`, el formulario de Brevo.
 - **Enlaces:** apuntan al sitio, a la dirección de `url` y `baseurl` en
   `sitio/_config.yml`: `https://forodemusicanueva.inba.gob.mx/2026`.
   - Si el sitio se publica en otra dirección, cámbiala ahí y rehaz el boletín

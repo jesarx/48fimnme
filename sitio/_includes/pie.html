@@ -16,6 +16,9 @@
         <li><a href="{{ '/indice/' | relative_url }}">Índice onomástico</a></li>
         <li><a href="{{ '/creditos/' | relative_url }}">Créditos</a></li>
         <li><a href="{{ '/descargas/' | relative_url }}">Descargas</a></li>
+        {%- if site.boletin_suscripcion %}
+        <li><a href="{{ site.boletin_suscripcion }}" target="_blank" rel="noopener">Suscribirme al boletín</a></li>
+        {%- endif %}
       </ul>
     </div>
     <div class="pie-logos">
