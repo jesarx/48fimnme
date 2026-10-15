@@ -22,6 +22,9 @@ baseurl: "/2026"
 # Venta del abono (inauguración y clausura), en Ticketmaster: la portada, las
 # páginas de esos dos conciertos y el boletín llevan a esta dirección
 abono_boletos: "https://www.ticketmaster.com.mx/evento-abono-46-fimnme-osn-inaugural-mexico-cdmx-06-11-2026/event/3D0065290920972A"
+# Suscripción al boletín de noticias del FIMNME (formulario de Brevo): la
+# portada, el pie de todas las páginas y el boletín por correo llevan a él
+boletin_suscripcion: "https://1f5ec740.sibforms.com/serve/MUIFAJ0dwFW6FBPKjmSS9naxPn0RHuMMQhwHzdCzWVIgSkTHkGuzhKcBysPx3hXp19AkxtCIWzfz_NDzl8iQMUirZUV4wSn6KIaGsRMVmof5XQThHEwb3YMgfPukrvRh9G0sAFBZ0a6aVTZ2OgmHLuo238K5q4T7IaGp4Fh8xAoBcudwnX98G3cEtvXuSga1zvwy1ADNTZvoogfUjQ=="
 # true en el dominio definitivo. En un sitio de prueba, false: pide a los
 # buscadores que no lo indexen (robots.txt y <meta name="robots">).
 indexar: true

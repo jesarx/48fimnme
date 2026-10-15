@@ -213,6 +213,7 @@ def estados_y_ecos(agenda, foro):
 def armar_html(agenda, foro, abono, destacados, url, imgs):
     """imgs: nombre de la imagen → src (ruta relativa, data: o cid:)."""
     estados, ecos = estados_y_ecos(agenda, foro)
+    suscripcion = config("boletin_suscripcion")
     filas = []
 
     # Encabezado
@@ -366,6 +367,11 @@ def armar_html(agenda, foro, abono, destacados, url, imgs):
             "resumido.", color=SUAVE, abajo=22)
         + boton(url + "/programacion/", "Programación", DORADO, VERDEOSCURO)
         + boton(url + "/descargas/", "Descargas", VERDEPIE, CASIBLANCO, borde=SUAVE)
+        + (p("¿Te reenviaron este correo? "
+             + enlace(escape(suscripcion), "Suscríbete al boletín de noticias del Foro", color=DORADO,
+                      extra=" font-weight:700; text-decoration:underline;") + ".",
+             tam=14, color=SUAVE, alto=1.5, abajo=0, extra=" padding-top:6px;")
+           if suscripcion else "")
         + p(f"Recibes este correo porque participas en el {escape(TITULO)} o formas parte de su "
             "comunidad. Si prefieres no recibir más mensajes, basta con responder a este correo.",
             tam=12, color="#B9C7B3", alto=1.5, abajo=0, extra=" padding-top:14px;"),
@@ -400,6 +406,7 @@ def armar_html(agenda, foro, abono, destacados, url, imgs):
 # -----------------------------------------------------------------------------
 def armar_texto(agenda, foro, abono, destacados, url):
     estados, ecos = estados_y_ecos(agenda, foro)
+    suscripcion = config("boletin_suscripcion")
     texto_ecos = unir([f"{estado} ({unir(fechas)})" for estado, fechas in ecos.items()])
     t = [TITULO.upper(), f"Del {foro['fechas']}", "",
          "Querida comunidad del Foro:", "",
@@ -433,6 +440,8 @@ def armar_texto(agenda, foro, abono, destacados, url):
         t.append("")
     t += [f"Programación: {url}/programacion/", f"Coloquio Manuel Enríquez 100: {url}/coloquio/",
           f"Descargas (programa de mano, programa resumido y postales): {url}/descargas/", "",
+          *([f"¿Te reenviaron este correo? Suscríbete al boletín de noticias del Foro: {suscripcion}", ""]
+            if suscripcion else []),
           f"Recibes este correo porque participas en el {TITULO} o formas parte de su comunidad. "
           "Si prefieres no recibir más mensajes, basta con responder a este correo."]
     return "\n".join(t) + "\n"

@@ -222,7 +222,7 @@ redirige de la raíz del dominio a `/2026/` y el `robots.txt`. Son archivos
 estáticos: se copian tal cual a la raíz del servidor web, sin base de datos
 ni PHP.
 
-**La dirección del sitio y la venta del abono** están en `sitio/_config.yml`:
+**La dirección del sitio, la venta del abono y la suscripción al boletín** están en `sitio/_config.yml`:
 
 - `url`: el dominio donde se publica, `https://forodemusicanueva.inba.gob.mx`
   (el de prueba era `https://fimnme.qumran.cc`). Se usa en los enlaces para
@@ -230,6 +230,9 @@ ni PHP.
   del boletín.
 - `abono_boletos`: la página de venta del abono (Ticketmaster), a la que
   llevan los botones «Comprar el abono» del sitio y del boletín.
+- `boletin_suscripcion`: el formulario de Brevo para suscribirse al boletín de
+  noticias del FIMNME (franja de la portada, pie de todas las páginas y
+  boletín por correo).
 - `indexar: true`, para que los buscadores lo encuentren (en `false` les
   pide que no lo indexen: es lo que se usa en un sitio de prueba).
 - `baseurl` se queda en `"/2026"` si el sitio va en `…/2026/` del dominio.
