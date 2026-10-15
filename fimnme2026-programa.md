@@ -10522,7 +10522,7 @@ Percusionista mexicana interesada en entender el mundo mediante el arte y otras 
 ![](<logos/logos yucatan/Logos Yucatán CONVIVENCIA B Y N.jpg>){recorte="0.74 0 1 1"}
 :::
 
-## SÁB | NOV 14, 17 h - Acapulco: Fabián Rangel
+## SÁB | NOV 14, 19 h - Acapulco: Fabián Rangel
 
 Centro Cultural Domingo Soler\
 Acapulco, Guerrero
