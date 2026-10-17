@@ -11331,31 +11331,31 @@ compensarlo.
 
 Actividades académicas *in memoriam* en el marco del 48º FIMNME.
 
-**Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Literatum*
+**Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Litterarum*
 
 #### MIÉ | NOV 18, 10 h - Conferencia: Luis Jaime Cortez
 
-Biblioteca de las Artes, Cenart
+Aula Magna, Cenart
 
 Luis Jaime Cortez, **ponente**
-
-Nonis Prado, **moderadora**
-
----
-
-#### MIÉ | NOV 18, 11:30 h - Mesa 1: Un retrato de amigos
-
-Biblioteca de las Artes, Cenart
-
-Luis Jaime Cortez, Arturo Márquez, Federico Ibarra Groth, Marielena Arizpe y Antonio Russek, **participantes**
 
 Ana Lara, **moderadora**
 
 ---
 
-#### MIÉ | NOV 18, 13 h - Mesa 2: Sus intérpretes
+#### MIÉ | NOV 18, 11:10 h - Mesa 1: Un retrato de amigos
 
-Biblioteca de las Artes, Cenart
+Aula Magna, Cenart
+
+Arturo Márquez, Federico Ibarra Groth, Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
+
+Gladys Zamora, **moderadora**
+
+---
+
+#### MIÉ | NOV 18, 12:30 h - Mesa 2: Sus intérpretes
+
+Aula Magna, Cenart
 
 Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
 
@@ -11363,39 +11363,59 @@ Maby Muñoz, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 10 h - Conferencia: Iracema de Andrade
+#### MIÉ | NOV 18, 14 h - Conferencia: Iracema de Andrade
 
-Conservatorio Nacional de Música
+Aula Magna, Cenart
 
 Iracema de Andrade, **ponente**
+
+Nonis Prado, **moderadora**
+
+---
+
+#### JUE | NOV 19, 10 h - Conversación: Susana Enríquez
+
+Seminario de Cultura Mexicana
+
+Susana Enríquez, **invitada**
 
 Luis Jaime Cortez, **moderador**
 
 ---
 
-#### JUE | NOV 19, 11:30 h - Mesa 3: Entre disciplinas
+#### JUE | NOV 19, 11:10 h - Mesa 3: El gestor
 
-Conservatorio Nacional de Música
+Seminario de Cultura Mexicana
 
-Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
-
-José María Serralde, **moderador**
-
----
-
-#### JUE | NOV 19, 13 h - Mesa 4: El gestor
-
-Conservatorio Nacional de Música
-
-Guillermo Contreras, Arón Bitrán, Aurelio Tello y Susana Enríquez, **participantes**
+Guillermo Contreras y Aurelio Tello, **participantes**
 
 Marusia Pola, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 16:30 h - Conferencia: Leonora Saavedra
+#### JUE | NOV 19, 12 h - Conferencia: Sergio Cárdenas
 
-Conservatorio Nacional de Música
+Seminario de Cultura Mexicana
+
+*La visión de los vencidos*
+
+Sergio Cárdenas, **ponente**
+
+---
+
+#### JUE | NOV 19, 13 h - Mesa 4: Entre disciplinas
+
+Seminario de Cultura Mexicana
+
+José María Serralde, Antonio Russek, Emanuel Espinoza, Juan Arturo Brennan y Pilar Urreta, **participantes**
+
+Gladys Zamora, **moderadora**
+
+---
+
+#### JUE | NOV 19, 14:20 h - Conferencia: Leonora Saavedra
+
+Seminario de Cultura Mexicana
 
 Leonora Saavedra, **ponente**
 
@@ -11448,8 +11468,11 @@ Xicoténcatl 9, Centro Histórico, Ciudad de México
 **Universidad del Claustro de Sor Juana**\
 José María Izazaga 92, Centro Histórico, Ciudad de México
 
-**Biblioteca de las Artes, Cenart**\
+**Aula Magna, Cenart**\
 Río Churubusco 79, Country Club, Ciudad de México
+
+**Seminario de Cultura Mexicana**\
+Presidente Masaryk 526, Polanco, Ciudad de México
 
 ### En los estados
 

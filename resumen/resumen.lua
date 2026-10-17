@@ -67,6 +67,7 @@ local PAPELES = {
   imparte = true, imparten = true, ponente = true, ponentes = true, moderador = true,
   moderadora = true, moderan = true, presentador = true, presentadora = true,
   presentadores = true, presentadoras = true, participante = true, participantes = true,
+  invitado = true, invitada = true,
 }
 
 -- Un intérprete: «Nombre, papel» → el nombre sin cortarse y el papel (el
@@ -200,7 +201,7 @@ local CLAVES_SEDE = {
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
   "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
-  "convento del carmen", "rodolfo morales", "san pablo",
+  "convento del carmen", "rodolfo morales", "san pablo", "seminario de cultura mexicana",
 }
 
 local function palabra_sede(texto)
@@ -415,7 +416,7 @@ function Pandoc(doc)
       -- participantes); coloquio: solo los párrafos con participantes
       local t = clave(stringify(b.content))
       if #t < 300 and (ev.tipo == "actividad" or t:find("ponente") or t:find("moderador")
-                       or t:find("participantes")) then
+                       or t:find("participantes") or t:find("invitad")) then
         -- el papel («ponente», «moderadora»…), más ligero que los nombres,
         -- como el de los intérpretes; los nombres, sin cortarse
         local sin_saltos = pandoc.Inlines(b.content):walk({

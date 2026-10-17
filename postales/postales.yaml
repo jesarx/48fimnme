@@ -482,18 +482,18 @@ postales:
     titulo: Conferencia
     interpretes:
       - [Luis Jaime Cortez, ponente]
-      - [Nonis Prado, moderadora]
+      - [Ana Lara, moderadora]
 
   - evento: mie-nov-18-mesa-1-un-retrato-de-amigos
     antetitulo: Coloquio Manuel Enríquez 100
     titulo: "Mesa 1: Un retrato de amigos"
     interpretes:
-      - Luis Jaime Cortez
       - Arturo Márquez
       - Federico Ibarra Groth
       - Marielena Arizpe
-      - Antonio Russek
-      - [Ana Lara, moderadora]
+      - Jeannine Wagar
+      - Margarita Pruneda
+      - [Gladys Zamora, moderadora]
 
   - evento: mie-nov-18-mesa-2-sus-interpretes
     antetitulo: Coloquio Manuel Enríquez 100
@@ -505,32 +505,44 @@ postales:
       - José Luis Castillo
       - [Maby Muñoz, moderadora]
 
-  - evento: jue-nov-19-conferencia-iracema-de-andrade
+  - evento: mie-nov-18-conferencia-iracema-de-andrade
     antetitulo: Coloquio Manuel Enríquez 100
     titulo: Conferencia
     interpretes:
       - [Iracema de Andrade, ponente]
+      - [Nonis Prado, moderadora]
+
+  - evento: jue-nov-19-conversacion-susana-enriquez
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: Conversación
+    interpretes:
+      - [Susana Enríquez, invitada]
       - [Luis Jaime Cortez, moderador]
 
-  - evento: jue-nov-19-mesa-3-entre-disciplinas
+  - evento: jue-nov-19-mesa-3-el-gestor
     antetitulo: Coloquio Manuel Enríquez 100
-    titulo: "Mesa 3: Entre disciplinas"
-    interpretes:
-      - Álvaro Bitrán
-      - Marisa Canales
-      - Wendy Holdaway
-      - José Luis Castillo
-      - [José María Serralde, moderador]
-
-  - evento: jue-nov-19-mesa-4-el-gestor
-    antetitulo: Coloquio Manuel Enríquez 100
-    titulo: "Mesa 4: El gestor"
+    titulo: "Mesa 3: El gestor"
     interpretes:
       - Guillermo Contreras
-      - Arón Bitrán
       - Aurelio Tello
-      - Susana Enríquez
       - [Marusia Pola, moderadora]
+
+  - evento: jue-nov-19-conferencia-sergio-cardenas
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Conferencia: La visión de los vencidos"
+    interpretes:
+      - [Sergio Cárdenas, ponente]
+
+  - evento: jue-nov-19-mesa-4-entre-disciplinas
+    antetitulo: Coloquio Manuel Enríquez 100
+    titulo: "Mesa 4: Entre disciplinas"
+    interpretes:
+      - José María Serralde
+      - Antonio Russek
+      - Emanuel Espinoza
+      - Juan Arturo Brennan
+      - Pilar Urreta
+      - [Gladys Zamora, moderadora]
 
   - evento: jue-nov-19-conferencia-leonora-saavedra
     antetitulo: Coloquio Manuel Enríquez 100
