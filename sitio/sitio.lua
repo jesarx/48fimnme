@@ -197,7 +197,7 @@ local CLAVES_SEDE = {
   "arte contemporaneo", "nezahualcoyotl", "simon bolivar", "facultad de musica",
   "rafael galvan", "antigua sede del senado", "sor juana", "cenart", "artes sonoras",
   "artes de yucatan", "domingo soler", "bicentenario", "tlaqna",
-  "convento del carmen", "rodolfo morales", "san pablo",
+  "convento del carmen", "rodolfo morales", "san pablo", "seminario de cultura mexicana",
 }
 
 local function palabra_sede(texto)
