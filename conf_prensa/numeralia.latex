@@ -1,0 +1,87 @@
+% =============================================================================
+%  Numeralia para la conferencia de prensa del 48º FIMNME
+%  Plantilla de pandoc para conf_prensa/numeralia.md (la compila
+%  conf_prensa/genera.sh). Tamaño carta, dos páginas como máximo, con la
+%  tipografía (Noto Sans) y la paleta del Programa general.
+%    #  (título)   → banda verde con el nombre del Foro
+%    ## (sección)  → encabezado en verde acento con filete
+%    tablas        → filas alternas; la primera columna, la cifra
+% =============================================================================
+\documentclass[fontsize=9.5pt, parskip=false]{scrartcl}
+
+\usepackage[letterpaper, top=13mm, bottom=14mm, left=17mm, right=17mm,
+            footskip=7mm]{geometry}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\newcommand{\rutafuentes}{automatizacion/fuentes/}
+\setmainfont{NotoSans}[
+  Path=\rutafuentes, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic,
+  FontFace={l}{n}{*-Light},
+  Numbers=Lining
+]
+\usepackage[spanish, es-nodecimaldot, es-noquoting, es-noshorthands, es-nolayout]{babel}
+\usepackage[protrusion=true, expansion=true, final]{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\emergencystretch=1em
+\raggedbottom
+
+\usepackage[table]{xcolor}
+\definecolor{verdeoscuro}{HTML}{172B20}
+\definecolor{acento}{HTML}{2F7F59}
+\definecolor{verdeclaro}{HTML}{D2E8DB}
+\definecolor{verdegris}{HTML}{546B5C}
+\definecolor{filete}{HTML}{B9CDBF}
+\definecolor{portadabase}{HTML}{4E5F44}
+\definecolor{colorlogo}{HTML}{E6AE78}
+\color{verdeoscuro}
+
+% ------------------------------------------------------------- Títulos ------
+\usepackage{tikz}
+\setkomafont{disposition}{\color{acento}\bfseries}
+\RedeclareSectionCommand[
+  beforeskip=0pt, afterskip=6pt,
+  font=\color{white}\bfseries\fontsize{15}{18}\selectfont
+]{section}
+\RedeclareSectionCommand[
+  beforeskip=7pt, afterskip=2pt,
+  font=\color{acento}\bfseries\fontsize{10.5}{13}\selectfont
+]{subsection}
+% El título del documento va en una banda verde de lado a lado de la caja
+\renewcommand{\sectionlinesformat}[4]{%
+  \Ifstr{#1}{section}
+    {\colorbox{portadabase}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+       \vspace{2.2mm}\hspace{1.5mm}#4\vspace{2.2mm}}}}
+    {#4\par\nobreak\vspace{-1.2ex}{\color{filete}\rule{\linewidth}{0.5pt}}}}
+\setcounter{secnumdepth}{0}
+% una sección no empieza al pie de la página
+\usepackage{needspace}
+\pretocmd{\subsection}{\needspace{7\baselineskip}}{}{}
+
+% -------------------------------------------------------------- Tablas ------
+\usepackage{longtable, booktabs, array, calc}
+\setlength{\LTpre}{2pt}
+\setlength{\LTpost}{2pt}
+\setlength{\LTleft}{0pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\heavyrulewidth}{0pt}
+\setlength{\lightrulewidth}{0pt}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\AtBeginEnvironment{longtable}{\rowcolors{1}{verdeclaro!45}{white}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\real}[1]{#1}
+
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\cfoot*{\color{verdegris}\footnotesize 48º Foro Internacional de Música Nueva Manuel Enríquez · Numeralia · \pagemark}
+
+\usepackage[hidelinks, pdftitle={$if(pagetitle)$$pagetitle$$else$48º FIMNME · Numeralia$endif$}, pdflang=es-MX]{hyperref}
+
+\begin{document}
+$body$
+\end{document}
