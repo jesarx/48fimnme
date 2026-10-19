@@ -1087,10 +1087,10 @@ del INBAL.
 > de preservar para siempre las voces de los seres queridos».
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## SÁB | NOV 7, 19 h - Gonzalo Gutiérrez, piano
@@ -1453,10 +1453,10 @@ Trayectoria en la categoría del Sistema de Apoyos a la Creación en la
 categoría de Interdisciplina.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## DOM | NOV 8, 16:30 h - Cuarteto Arcano
@@ -2566,13 +2566,19 @@ Jardín Escénico, Laboratorio Escénico
 
 **Piccolegio**, piccolo
 
-**Kaija Saariaho**
+**Eugenio Vargas**
 
--   *Cloud Trio* (2010) `\hfill `{=tex}17'
+-   *Ecos* (2024)\* `\hfill `{=tex}6'
 
-**Manuel Enríquez**
+**Ana Elisa de María**
 
--   *Móvil II* (1978) `\hfill `{=tex}7'
+-   *Blanco* (2026)\* `\hfill `{=tex}8'
+
+**Luciano Berio**
+
+-   *Divertimento* (1946-rev. 1985) `\hfill `{=tex}5'
+
+INTERMEDIO\
 
 **Alejandro Romero**
 
@@ -2581,21 +2587,13 @@ Jardín Escénico, Laboratorio Escénico
 -   *Subito-con fuoco-Lontano*
 -   *Slogato*
 
-**Ana Elisa de María**
+**Kaija Saariaho**
 
--   *Blanco* (2026)\* `\hfill `{=tex}8'
+-   *Cloud Trio* (2010) `\hfill `{=tex}17'
 
-**Eugenio Vargas**
+**Manuel Enríquez**
 
--   *Ecos* (2024)\* `\hfill `{=tex}6'
-
-**György Kurtág**
-
--   *Signs, Games and Messages* (1989) `\hfill `{=tex}13'
-
-**Luciano Berio**
-
--   *Divertimento* (1946-rev. 1985) `\hfill `{=tex}5'
+-   *Móvil II* (1978) `\hfill `{=tex}7'
 
 ---
 
@@ -2649,31 +2647,68 @@ lenguaje musical de Saariaho.
 > personajes, y dejo al oyente imaginar qué tipos de nubes fueron sus
 > fuentes de inspiración».
 
-#### Manuel Enríquez (México, 1926-1994)
+#### Eugenio Vargas (México, 1994)
 
-![](comp/Manuel%20Enríquez.jpg)
+![](comp/Eugenio%20Vargas.jpg)
 
-Originario de Ocotlán, Jalisco, fue una figura fundamental de la
-vanguardia musical en México. Se formó con Áurea Corona y Miguel Bernal
-Jiménez, perfeccionándose después en la Juilliard School con Ivan
-Galamian y Peter Mennin. En 1961, gracias a la beca Guggenheim,
-incursionó en la música electrónica en Columbia y Princeton bajo la guía
-de Stefan Wolpe. Como violinista, fue concertino de la Sinfónica de
-Guadalajara y fundó el célebre Cuarteto México, con el que realizó giras
-por Europa y América. Su labor docente y administrativa fue vasta:
-dirigió el Conservatorio Nacional y el Cenidim, donde impulsó la
-investigación electroacústica y virreinal. En 1979 fundó el Foro
-Internacional de Música Nueva (que hoy lleva su nombre), espacio vital
-para la difusión de la creación contemporánea. Distinguido como Creador
-Emérito y miembro de la Academia de Artes, su legado permanece como
-pilar de la identidad musical mexicana del siglo XX.
+Egresó de la carrera de Composición en la Escuela de Bellas Artes de la
+Universidad Panamericana, donde estudió con Germán Romero, Mauricio
+García de la Torre, Francisco Cortés y Jorge Torres Sáenz, quien marcó
+de manera significativa su forma de acercarse a la música. El ritmo es
+el eje central de su trabajo creativo, un aspecto que constantemente lo
+inspira y motiva a explorar nuevas posibilidades sonoras. Compositores
+como Conlon Nancarrow, Olivier Messiaen y Georges Aperghis han sido
+referentes en su búsqueda musical, que se caracteriza por una dedicación
+constante para crear una expresión auténtica y personal.
 
-##### *Móvil II*
+##### *Ecos*
 
-La obra fue una colaboración con los laboratorios de música electrónica
-de Columbia-Princeton de Nueva York, en donde Enríquez utilizó el violín
-para transformar y procesar sus sonidos. La obra formó parte de la
-exposición *Modos de oír* en el Laboratorio Arte Alameda en 2018.
+En la obra se exploran las posibilidades de la microtonalidad, las
+texturas y la forma musical, que dialogan de manera orgánica y siempre
+están guiadas por el ritmo. La obra refleja un compromiso por mantener
+una relación sincera y consciente con la música, respetando su esencia y
+la del propio creador. Esta obra fue pensada y dedicada al Trío LaMN.
+
+#### Ana Elisa de María (México, 2004)
+
+![](int/Ana%20Elisa%20de%20María.jpeg)
+
+Saxofonista, compositora y etnomusicóloga originaria de Oaxaca. Con una
+fuerte conexión con sus raíces y un enfoque innovador en su obra,
+continúa desarrollando su lenguaje musical, explora nuevas sonoridades y
+contribuye activamente a la actual escena de la música contemporánea con
+la improvisación libre, la acusmática y, por supuesto, la música
+tradicional oaxaqueña. Es miembro de Mero Lek, cofundadora de Dal Niente
+y del Colectivo Surreal. Su trayectoria la ha llevado a presentarse en
+diferentes estados del país, festivales y salas de concierto.
+Actualmente estudia en la Escuela Superior de Música del INBAL y en la
+Facultad de Música de la UNAM.
+
+##### *Blanco*
+
+> «Es un trío de cuerdas que busca explorar la riqueza tímbrica de los
+> instrumentos para evocar la imagen de un atardecer blanco, aquel en el
+> que nuestra alma trasciende».
+
+#### Luciano Berio (Italia, 1925-2003)
+
+![](comp/Luciano%20Berio.jpg)
+
+Fue un compositor italiano modernista y uno de los principales
+representantes de la vanguardia musical europea. Es reconocido por su
+trabajo en la música experimental, particularmente su Sinfonía para
+orquesta; también fue pionero en la música electrónica. Sus primeras
+obras estuvieron influenciadas por Igor Stravinski y sus experimentos
+con técnicas seriales y electrónicas, mientras que sus obras posteriores
+exploran la indeterminación y el uso de textos hablados como material
+básico para la composición.
+
+##### *Divertimento*
+
+Es una obra temprana de cámara, antes de adentrarse por completo en la
+vanguardia y la música electrónica. Esta pieza es un ejemplo del estilo
+inicial de Berio, influenciado por la tradición clásica, a menudo
+asociado a su época de formación.
 
 #### Alejandro Romero (México, 1970)
 
@@ -2708,99 +2743,31 @@ Italia, Suiza, Canadá, Brasil, Chile y Argentina.
 > que le apuesta a esos instantes en donde la captura párvula se vuelve
 > una serie de sensaciones, plegándose infinitamente».
 
-#### Ana Elisa de María (México, 2004)
+#### Manuel Enríquez (México, 1926-1994)
 
-![](int/Ana%20Elisa%20de%20María.jpeg)
+![](comp/Manuel%20Enríquez.jpg)
 
-Saxofonista, compositora y etnomusicóloga originaria de Oaxaca. Con una
-fuerte conexión con sus raíces y un enfoque innovador en su obra,
-continúa desarrollando su lenguaje musical, explora nuevas sonoridades y
-contribuye activamente a la actual escena de la música contemporánea con
-la improvisación libre, la acusmática y, por supuesto, la música
-tradicional oaxaqueña. Es miembro de Mero Lek, cofundadora de Dal Niente
-y del Colectivo Surreal. Su trayectoria la ha llevado a presentarse en
-diferentes estados del país, festivales y salas de concierto.
-Actualmente estudia en la Escuela Superior de Música del INBAL y en la
-Facultad de Música de la UNAM.
+Originario de Ocotlán, Jalisco, fue una figura fundamental de la
+vanguardia musical en México. Se formó con Áurea Corona y Miguel Bernal
+Jiménez, perfeccionándose después en la Juilliard School con Ivan
+Galamian y Peter Mennin. En 1961, gracias a la beca Guggenheim,
+incursionó en la música electrónica en Columbia y Princeton bajo la guía
+de Stefan Wolpe. Como violinista, fue concertino de la Sinfónica de
+Guadalajara y fundó el célebre Cuarteto México, con el que realizó giras
+por Europa y América. Su labor docente y administrativa fue vasta:
+dirigió el Conservatorio Nacional y el Cenidim, donde impulsó la
+investigación electroacústica y virreinal. En 1979 fundó el Foro
+Internacional de Música Nueva (que hoy lleva su nombre), espacio vital
+para la difusión de la creación contemporánea. Distinguido como Creador
+Emérito y miembro de la Academia de Artes, su legado permanece como
+pilar de la identidad musical mexicana del siglo XX.
 
-##### *Blanco*
+##### *Móvil II*
 
-> «Es un trío de cuerdas que busca explorar la riqueza tímbrica de los
-> instrumentos para evocar la imagen de un atardecer blanco, aquel en el
-> que nuestra alma trasciende».
-
-#### Eugenio Vargas (México, 1994)
-
-![](comp/Eugenio%20Vargas.jpg)
-
-Egresó de la carrera de Composición en la Escuela de Bellas Artes de la
-Universidad Panamericana, donde estudió con Germán Romero, Mauricio
-García de la Torre, Francisco Cortés y Jorge Torres Sáenz, quien marcó
-de manera significativa su forma de acercarse a la música. El ritmo es
-el eje central de su trabajo creativo, un aspecto que constantemente lo
-inspira y motiva a explorar nuevas posibilidades sonoras. Compositores
-como Conlon Nancarrow, Olivier Messiaen y Georges Aperghis han sido
-referentes en su búsqueda musical, que se caracteriza por una dedicación
-constante para crear una expresión auténtica y personal.
-
-##### *Ecos*
-
-En la obra se exploran las posibilidades de la microtonalidad, las
-texturas y la forma musical, que dialogan de manera orgánica y siempre
-están guiadas por el ritmo. La obra refleja un compromiso por mantener
-una relación sincera y consciente con la música, respetando su esencia y
-la del propio creador. Esta obra fue pensada y dedicada al Trío LaMN.
-
-#### György Kurtág (Rumanía, 1926)
-
-![](comp/Gyorgy%20Kurtag.jpg)
-
-Compositor húngaro considerado una de las figuras más importantes de la
-música contemporánea europea, conocido por su estilo conciso, expresivo
-y profundamente introspectivo. Estudió en la Academia de Música Franz
-Liszt de Budapest, donde más tarde también fue profesor. Durante su
-carrera desarrolló un lenguaje musical muy personal, influido por Béla
-Bartók y Anton Webern, caracterizado por piezas breves pero intensas,
-con gran atención al detalle y al silencio. Entre sus obras más
-destacadas se encuentra *Játékok* (Juegos), una colección de piezas para
-piano que comenzó en la década de 1970, así como su ópera *Fin de
-partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág
-ha recibido numerosos premios internacionales y es reconocido por su
-contribución única a la música de los siglos XX y XXI.
-
-##### *Signs, Games and Messages*
-
-La obra es una colección abierta y en constante crecimiento de piezas
-breves escritas a partir de finales de los años ochenta. No es una obra
-única cerrada, sino un conjunto de miniaturas para distintas
-combinaciones instrumentales (violín, viola, violonchelo y trío de
-cuerdas, entre otros). Cada pieza es muy corta, a veces de apenas unos
-segundos o minutos. Tiene un estilo extremadamente concentrado, donde
-cada gesto musical es significativo. La obra refleja rasgos típicos de
-Kurtág, como el uso del silencio en cuanto elemento expresivo, lenguaje
-fragmentario y muy refinado. Asimismo, se hace evidente la influencia de
-Anton Webern en la brevedad y precisión, gran atención al color y la
-articulación instrumental.
-
-#### Luciano Berio (Italia, 1925-2003)
-
-![](comp/Luciano%20Berio.jpg)
-
-Fue un compositor italiano modernista y uno de los principales
-representantes de la vanguardia musical europea. Es reconocido por su
-trabajo en la música experimental, particularmente su Sinfonía para
-orquesta; también fue pionero en la música electrónica. Sus primeras
-obras estuvieron influenciadas por Igor Stravinski y sus experimentos
-con técnicas seriales y electrónicas, mientras que sus obras posteriores
-exploran la indeterminación y el uso de textos hablados como material
-básico para la composición.
-
-##### *Divertimento*
-
-Es una obra temprana de cámara, antes de adentrarse por completo en la
-vanguardia y la música electrónica. Esta pieza es un ejemplo del estilo
-inicial de Berio, influenciado por la tradición clásica, a menudo
-asociado a su época de formación.
+La obra fue una colaboración con los laboratorios de música electrónica
+de Columbia-Princeton de Nueva York, en donde Enríquez utilizó el violín
+para transformar y procesar sus sonidos. La obra formó parte de la
+exposición *Modos de oír* en el Laboratorio Arte Alameda en 2018.
 
 ------------------------------------------------------------------------
 
@@ -6546,10 +6513,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## MIÉ | NOV 18, 19 h - Francisco García Torres: Enríquez 100
@@ -7074,10 +7041,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## JUE | NOV 19, 19 h - OCBA
@@ -7539,10 +7506,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## VIE | NOV 20, 17 h - Iracema de Andrade / ÓNIX
@@ -10808,10 +10775,10 @@ Casa Rafael Galván, UAM
 **Tito Rivas**, moderador
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ---
