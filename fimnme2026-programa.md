@@ -1087,10 +1087,10 @@ del INBAL.
 > de preservar para siempre las voces de los seres queridos».
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## SÁB | NOV 7, 19 h - Gonzalo Gutiérrez, piano
@@ -1453,10 +1453,10 @@ Trayectoria en la categoría del Sistema de Apoyos a la Creación en la
 categoría de Interdisciplina.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## DOM | NOV 8, 16:30 h - Cuarteto Arcano
@@ -6546,10 +6546,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## MIÉ | NOV 18, 19 h - Francisco García Torres: Enríquez 100
@@ -7074,10 +7074,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## JUE | NOV 19, 19 h - OCBA
@@ -7539,10 +7539,10 @@ Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ## VIE | NOV 20, 17 h - Iracema de Andrade / ÓNIX
@@ -10808,10 +10808,10 @@ Casa Rafael Galván, UAM
 **Tito Rivas**, moderador
 
 ::: logos
-![](<logos/logos UAM/variacion5.png>)
+![](<logos/logos UAM/UAM institucional horizontal negro.png>)
+![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 ![](<logos/logos UAM/Logo Cultura UAM negro (1).png>)
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
-![](<logos/logos UAM/Lab_fut_mono_sin_UAM (1).png>)
 :::
 
 ---
