@@ -2578,9 +2578,7 @@ Jardín Escénico, Laboratorio Escénico
 
 -   *Divertimento* (1946-rev. 1985) `\hfill `{=tex}5'
 
-**György Kurtág**
-
--   *Signs, Games and Messages* (1989) `\hfill `{=tex}13'
+INTERMEDIO\
 
 **Alejandro Romero**
 
@@ -2711,37 +2709,6 @@ Es una obra temprana de cámara, antes de adentrarse por completo en la
 vanguardia y la música electrónica. Esta pieza es un ejemplo del estilo
 inicial de Berio, influenciado por la tradición clásica, a menudo
 asociado a su época de formación.
-
-#### György Kurtág (Rumanía, 1926)
-
-![](comp/Gyorgy%20Kurtag.jpg)
-
-Compositor húngaro considerado una de las figuras más importantes de la
-música contemporánea europea, conocido por su estilo conciso, expresivo
-y profundamente introspectivo. Estudió en la Academia de Música Franz
-Liszt de Budapest, donde más tarde también fue profesor. Durante su
-carrera desarrolló un lenguaje musical muy personal, influido por Béla
-Bartók y Anton Webern, caracterizado por piezas breves pero intensas,
-con gran atención al detalle y al silencio. Entre sus obras más
-destacadas se encuentra *Játékok* (Juegos), una colección de piezas para
-piano que comenzó en la década de 1970, así como su ópera *Fin de
-partie*, basada en la obra de Samuel Beckett, estrenada en 2018. Kurtág
-ha recibido numerosos premios internacionales y es reconocido por su
-contribución única a la música de los siglos XX y XXI.
-
-##### *Signs, Games and Messages*
-
-La obra es una colección abierta y en constante crecimiento de piezas
-breves escritas a partir de finales de los años ochenta. No es una obra
-única cerrada, sino un conjunto de miniaturas para distintas
-combinaciones instrumentales (violín, viola, violonchelo y trío de
-cuerdas, entre otros). Cada pieza es muy corta, a veces de apenas unos
-segundos o minutos. Tiene un estilo extremadamente concentrado, donde
-cada gesto musical es significativo. La obra refleja rasgos típicos de
-Kurtág, como el uso del silencio en cuanto elemento expresivo, lenguaje
-fragmentario y muy refinado. Asimismo, se hace evidente la influencia de
-Anton Webern en la brevedad y precisión, gran atención al color y la
-articulación instrumental.
 
 #### Alejandro Romero (México, 1970)
 
