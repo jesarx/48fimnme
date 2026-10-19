@@ -28,13 +28,13 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 
 | | |
 |:-----------------|:----------------------------------------------------------------|
-| **261 obras** | 305 interpretaciones, contando las que se repiten en varios conciertos |
-| **Por género** | 78 obras de compositoras (30 %), 182 de compositores y un arreglo de canciones tradicionales |
-| **Autores mexicanos** | 134 obras (51 %) |
+| **260 obras** | 304 interpretaciones, contando las que se repiten en varios conciertos |
+| **Por género** | 78 obras de compositoras (30 %), 181 de compositores y un arreglo de canciones tradicionales |
+| **Autores mexicanos** | 134 obras (52 %) |
 | **109 estrenos (42 %)** | **51 estrenos mundiales y 58 estrenos en México** |
 | **Estrenos mundiales** | 39 de los 51 son de compositores mexicanos; 18, de compositoras |
 | **Estrenos de compositoras** | 39 de los 109 (36 %): 18 mundiales y 21 en México |
-| **Música de hoy** | 104 obras escritas de 2020 en adelante y 164 desde el año 2000 (de las 240 con año en el programa) |
+| **Música de hoy** | 104 obras escritas de 2020 en adelante y 164 desde el año 2000 (de las 239 con año en el programa) |
 | **42 horas** | De repertorio distinto; más de 46 horas sumando todas las funciones |
 
 ## Enríquez | 100 y otros ejes
@@ -82,4 +82,4 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 
 Abono para la inauguración y la clausura (Sala Principal del Palacio de Bellas Artes): $250, $200, $120 y $100, en Ticketmaster. Programa completo: forodemusicanueva.inba.gob.mx/2026
 
-*Notas.* Las personas compositoras se cuentan una vez aunque tengan obras en varios conciertos; una obra que se toca en varios conciertos cuenta una vez. Nacionalidad: el país de nacimiento que consigna el programa. Las duraciones son las del programa (247 de las 261 obras la tienen). En las convocatorias, la residencia de 25 personas no se registró.
+*Notas.* Las personas compositoras se cuentan una vez aunque tengan obras en varios conciertos; una obra que se toca en varios conciertos cuenta una vez. Nacionalidad: el país de nacimiento que consigna el programa. Las duraciones son las del programa (246 de las 260 obras la tienen). En las convocatorias, la residencia de 25 personas no se registró.
