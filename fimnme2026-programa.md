@@ -7047,7 +7047,7 @@ Cepromusic.
 ![](<logos/logos UAM/CasaGalvánNegro (1).png>)
 :::
 
-## JUE | NOV 19, 19 h - OCBA
+## JUE | NOV 19, 20 h - OCBA
 
 Palacio de Bellas Artes, Sala Manuel M. Ponce
 
