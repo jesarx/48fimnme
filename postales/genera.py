@@ -12,7 +12,8 @@ compila con LuaLaTeX.
     python3 postales/genera.py                 todas las postales
     python3 postales/genera.py <evento>…       solo esas
 
-Salida: postales/png/, jpg/, pdf/ e idml/fimnme2026-postal-<evento>.* (el IDML,
+Salida: postales/png/, jpg/, pdf/ e idml/fimnme2026-postal-<evento>_<fecha>.*, con la
+fecha de compilación al final del nombre (p. ej. «_20oct»; ver postales/fecha.py). El IDML,
 editable en InDesign con los textos en Noto Sans, lo arma
 postales/idml_editable.py; sus imágenes vinculadas van en idml/Links/ y la
 fuente en idml/Document fonts/: la carpeta idml/ se comprime y se envía tal
@@ -34,6 +35,7 @@ from PIL import Image, ImageFilter, ImageOps
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "automatizacion"))
 sys.path.insert(0, str(RAIZ / "postales"))
+import fecha  # noqa: E402
 import idml_editable  # noqa: E402
 try:   # detección de rostros del Programa general (OpenCV es opcional)
     from preparar_imagenes import detectar_rostros
@@ -454,18 +456,20 @@ def compilar(etiqueta, datos, pdf_fondo):
                      etiqueta)
     for formato in ("png", "jpg", "pdf", "idml"):
         (SALIDA / formato).mkdir(exist_ok=True)
-    pdf = SALIDA / "pdf" / f"{nombre}.pdf"
+    salida = fecha.nombre(nombre)   # con la fecha de compilación al final
+    pdf = SALIDA / "pdf" / f"{salida}.pdf"
     shutil.copyfile(hecho, pdf)
     subprocess.run(["pdftoppm", "-png", "-scale-to-x", "1080", "-scale-to-y", "1350", "-singlefile",
-                    str(pdf), str(SALIDA / "png" / nombre)], check=True)
+                    str(pdf), str(SALIDA / "png" / salida)], check=True)
     # JPG: pesa mucho menos que el PNG (es el que usa el sitio)
-    Image.open(SALIDA / "png" / f"{nombre}.png").convert("RGB").save(
-        SALIDA / "jpg" / f"{nombre}.jpg", quality=90, optimize=True, progressive=True)
+    Image.open(SALIDA / "png" / f"{salida}.png").convert("RGB").save(
+        SALIDA / "jpg" / f"{salida}.jpg", quality=90, optimize=True, progressive=True)
     # IDML editable: fondo, recuadro, logotipos, fotos y textos por separado
     idml_editable.convertir(str(pdf), str(pdf_fondo), str(RAIZ / "postales/postal.tex"),
-                            str(SALIDA / "idml" / f"{nombre}.idml"), f"48º FIMNME · Postal: {etiqueta}",
+                            str(SALIDA / "idml" / f"{salida}.idml"), f"48º FIMNME · Postal: {etiqueta}",
                             pistas_fotos=carpeta / "fotos.json")
-    print(f"✓ {nombre}: postales/png, jpg, pdf e idml")
+    fecha.limpiar(nombre)   # sin las versiones de compilaciones anteriores
+    print(f"✓ {salida}: postales/png, jpg, pdf e idml")
 
 
 def main():

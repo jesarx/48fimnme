@@ -7,6 +7,8 @@ comprimir y enviar tal cual.
                              InDesign CS6 o posterior). Fondo, fotos,
                              logotipos y textos van por separado; los textos,
                              editables, con un estilo de párrafo por bloque.
+                             Al final del nombre va la fecha en que se
+                             compiló (p. ej. «_20oct»: 20 de octubre).
   Links/                     Las imágenes (fondo, fotos, logotipos y pleca de
                              Cultura e INBAL), vinculadas.
   Document fonts/            Noto Sans, la fuente de las postales (licencia

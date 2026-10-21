@@ -21,6 +21,14 @@ En las mismas carpetas está la postal del abono (`fimnme2026-postal-abono`), qu
 se genera aparte (`abono/`, abajo). El sitio web muestra la postal de cada
 evento en su página y todas juntas en la de descargas.
 
+**Fecha de compilación.** Cada archivo lleva al final del nombre el día en que
+se compiló, en la Ciudad de México: `fimnme2026-postal-jue-nov-19-ocba_20oct.png`
+es la postal de la OCBA compilada el 20 de octubre. Al compilar una postal se
+borran sus versiones anteriores, así que en el repositorio solo queda la última.
+La fecha la pone `fecha.py` (`./compila.sh` la fija una vez para todas las
+postales de la compilación). En el sitio web las postales van sin la fecha,
+para que su dirección no cambie.
+
 Siguen las postales del diseñador, que ya cumplen los lineamientos del INBAL.
 Los tamaños y posiciones de los logotipos están aprobados.
 
@@ -149,7 +157,8 @@ lleven los hombros.
 | `idml_editable.py` | Arma el IDML de cada postal (y el del abono) a partir de su PDF, con sus imágenes en `idml/Links/`, y prepara la carpeta `idml/` (fuentes, LEEME). |
 | `idml-LEEME.txt` | Instrucciones para quien reciba la carpeta `idml/` (se copia ahí como `LEEME.txt`). |
 | `recursos/` | Pleca de Cultura e INBAL: el original vectorial (`.ai`) y el PNG que usan las postales. |
-| `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>.png`, `.jpg`, `.pdf` e `.idml` (y, en `idml/`, `Links/`, `Document fonts/` y `LEEME.txt`). La de cada función de un concierto que se repite empieza con su fecha. |
+| `fecha.py` | La fecha de compilación al final del nombre de las postales (p. ej. `_20oct`) y la limpieza de sus versiones anteriores. |
+| `png/`, `jpg/`, `pdf/`, `idml/` | Las postales (generadas): `fimnme2026-postal-<evento>_<fecha>.png`, `.jpg`, `.pdf` e `.idml` (y, en `idml/`, `Links/`, `Document fonts/` y `LEEME.txt`). La de cada función de un concierto que se repite empieza con su fecha. |
 | `abono/` | La postal del abono (inauguración y clausura): `abono.tex` (diseño y textos), `compila.sh` y `logos_blancos.py`. |
 
 ## El IDML
