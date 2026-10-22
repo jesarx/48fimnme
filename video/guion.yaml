@@ -14,8 +14,15 @@
 #    cierre     dirección del sitio, logotipos de la CNMO y pleca de Cultura e INBAL
 #
 #  Estilos de texto: antetitulo, numero, etiqueta, detalle, detalle_acento,
-#  grande, grande_acento, media, media_acento, linea, sublinea y sitio. Las
-#  cifras son las del programa.
+#  grande, grande_acento, media, media_acento, linea, sublinea, obra (cursiva)
+#  y sitio. Las cifras son las del programa.
+#
+#  Videos (video/clips/, recortados y sin audio para que pesen poco):
+#    orquesta-travelling.mp4     34 s: 0-7 orquesta (plano general), 7-17
+#                                alientos de cerca, 17-22 violinista, 22-34 general
+#    instalacion-nuno-de-buen.mp4  34 s: 0-8 Nuño de Buen tocando, 8-20 torre
+#                                de botellas, 20-28 botella de cerca, 28-34 en
+#                                blanco y negro
 # =============================================================================
 
 salida: video/fimnme2026-promo-muestra.mp4
@@ -28,7 +35,8 @@ escenas:
     duracion: 3.0
     espacio: Orquesta Sinfónica Nacional
     foto: int/OSN 1.jpg
-    video:
+    video: video/clips/orquesta-travelling.mp4    # provisional (se repite)
+    inicio: 0.5
     textos:
       - {texto: "La música de hoy", estilo: grande}
       - {texto: "suena en vivo", estilo: grande_acento}
@@ -44,7 +52,8 @@ escenas:
     duracion: 3.0
     espacio: Tambuco
     foto: int/Tambuco 1.jpg
-    video:
+    video: video/clips/orquesta-travelling.mp4    # provisional (se repite)
+    inicio: 8
     textos:
       - {texto: "109", estilo: numero}
       - {texto: "estrenos", estilo: etiqueta}
@@ -61,12 +70,24 @@ escenas:
     duracion: 3.2
     espacio: Cuarteto de Cuerdas de Bellas Artes
     foto: int/Cuarteto de Cuerdas de Bellas Artes.png
-    video:
+    video: video/clips/orquesta-travelling.mp4    # provisional (se repite)
+    inicio: 17.2
     textos:
       - {texto: "1926 · 2026", estilo: antetitulo}
       - {texto: "Manuel Enríquez", estilo: grande}
       - {texto: "Centenario", estilo: grande_acento}
       - {texto: "Conciertos y coloquio", estilo: detalle}
+
+  - tipo: clip
+    duracion: 3.6
+    espacio: Instalación sonora de Andrés Nuño de Buen
+    video: video/clips/instalacion-nuno-de-buen.mp4
+    inicio: 0.6
+    textos:
+      - {texto: "Instalación sonora", estilo: antetitulo}
+      - {texto: "Andrés Nuño de Buen", estilo: media}
+      - {texto: "Sobre las sensaciones de tono y otros fantasmas", estilo: obra}
+      - {texto: "7 y 8 nov · Casa Rafael Galván, UAM", estilo: detalle_acento}
 
   - tipo: cifra
     duracion: 3.6
@@ -82,7 +103,8 @@ escenas:
     duracion: 3.0
     espacio: Black Noise Ensamble
     foto: int/Black Noise Ensamble.jpg
-    video:
+    video: video/clips/instalacion-nuno-de-buen.mp4    # provisional (se repite)
+    inicio: 9
     textos:
       - {texto: "Conciertos", estilo: media}
       - {texto: "Actividades académicas", estilo: media}

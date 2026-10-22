@@ -7909,7 +7909,7 @@ Alejandro Motta, **contrabajo** | Juan Cáceres Avitia, **coordinador de nuevas 
 
 #### Andrea Siano (Italia, 1997)
 
-![](comp/Andrea%20Siano.png)
+![](comp/Andrea%20Siano.jpg)
 
 Compositor, pianista e intérprete originario de Puglia. Estudió
 Composición y Piano en el Conservatorio de Bari y posteriormente
@@ -8230,7 +8230,7 @@ Rodolfo Jiménez, violonchelo
 
 #### Daniel Cui (China, 1998)
 
-![](comp/Daniel%20Cui.png)
+![](comp/Daniel%20Cui.jpg)
 
 Es un compositor cuya música mezcla historia, filosofía y perspectivas
 globales adquiridas en China, Australia y Estados Unidos. En su obra
@@ -10426,7 +10426,7 @@ Mérida, Yucatán
 
 #### Eduardo Rivas (México, 1995)
 
-![](comp/Eduardo Rivas.png)
+![](comp/Eduardo Rivas.jpg)
 
 Compositor, improvisador y artista interdisciplinar de Mérida. Clarinetista formado con Paolo Dorio, ha sido músico invitado de la Sinfónica de Yucatán. Es licenciado y maestro en Artes Musicales por la UNAY, donde estudió con Javier Álvarez. Ha tenido revisión de obra, talleres y clases magistrales con Marcelo Toledo, Eva Zöllner, Heather Roche, Rodrigo Sigal, Juan Sebastián Lach Lau y Mauricio Valdés San Emeterio, entre otros. Su música la han interpretado los ensambles Zöllner-Roche y Sequenza Sur, en los festivales Aires Nacionales y Visiones Sonoras. Obtuvo la mención honorífica en el Primer Concurso Estatal de Composición *Daniel Ayala Pérez* con la obra *La luz empieza a vomitar*. Fue beneficiario de PECDA 2019 y Fortalecimiento a Jóvenes Creadores de Yucatán 2020. Su trabajo abarca creación, producción, docencia, difusión y aprendizaje, crítica de cultura, tecnología del arte y gestión.
 
@@ -11314,7 +11314,7 @@ Ana Lara, **moderadora**
 
 Aula Magna, Cenart
 
-Arturo Márquez, Federico Ibarra Groth, Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
+Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
 
 Gladys Zamora, **moderadora**
 
@@ -11342,7 +11342,7 @@ Nonis Prado, **moderadora**
 
 #### JUE | NOV 19, 10 h - Conversación: Susana Enríquez
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Susana Enríquez, **invitada**
 
@@ -11352,7 +11352,7 @@ Luis Jaime Cortez, **moderador**
 
 #### JUE | NOV 19, 11:10 h - Mesa 3: El gestor
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Guillermo Contreras y Aurelio Tello, **participantes**
 
@@ -11362,7 +11362,7 @@ Marusia Pola, **moderadora**
 
 #### JUE | NOV 19, 12 h - Conferencia: Sergio Cárdenas
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 *La visión de los vencidos*
 
@@ -11372,9 +11372,9 @@ Sergio Cárdenas, **ponente**
 
 #### JUE | NOV 19, 13 h - Mesa 4: Entre disciplinas
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
-José María Serralde, Antonio Russek, Emanuel Espinoza, Juan Arturo Brennan y Pilar Urreta, **participantes**
+José María Serralde, Antonio Russek, Emanuel Espinoza y Pilar Urreta, **participantes**
 
 Gladys Zamora, **moderadora**
 
@@ -11382,7 +11382,7 @@ Gladys Zamora, **moderadora**
 
 #### JUE | NOV 19, 14:20 h - Conferencia: Leonora Saavedra
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Leonora Saavedra, **ponente**
 
@@ -11437,9 +11437,6 @@ José María Izazaga 92, Centro Histórico, Ciudad de México
 
 **Aula Magna, Cenart**\
 Río Churubusco 79, Country Club, Ciudad de México
-
-**Seminario de Cultura Mexicana**\
-Presidente Masaryk 526, Polanco, Ciudad de México
 
 ### En los estados
 
