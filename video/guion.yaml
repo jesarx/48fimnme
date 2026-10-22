@@ -1,0 +1,95 @@
+# =============================================================================
+#  Video promocional del 48º FIMNME (muestra) · guion
+#  Lo lee video/genera.py. Vertical 9:16 (1080 × 1920 px) para Reels, TikTok,
+#  historias y Shorts; sin música por ahora.
+#
+#  Cada escena dura «duracion» segundos. Tipos:
+#    apertura   logotipo, nombre del Foro y fechas
+#    cifra      textos sobre el fondo verde con la partitura
+#    clip       un video a pantalla completa con textos encima. Mientras no
+#               haya video, se ve la «foto» (con un acercamiento lento) y la
+#               etiqueta «ESPACIO PARA VIDEO»; para usar un video, se pone su
+#               ruta en «video» (p. ej. video/clips/osn.mp4) y, si hace falta,
+#               desde qué segundo empieza («inicio»)
+#    cierre     dirección del sitio, logotipos de la CNMO y pleca de Cultura e INBAL
+#
+#  Estilos de texto: antetitulo, numero, etiqueta, detalle, detalle_acento,
+#  grande, grande_acento, media, media_acento, linea, sublinea y sitio. Las
+#  cifras son las del programa.
+# =============================================================================
+
+salida: video/fimnme2026-promo-muestra.mp4
+
+escenas:
+  - tipo: apertura
+    duracion: 3.4
+
+  - tipo: clip
+    duracion: 3.0
+    espacio: Orquesta Sinfónica Nacional
+    foto: int/OSN 1.jpg
+    video:
+    textos:
+      - {texto: "La música de hoy", estilo: grande}
+      - {texto: "suena en vivo", estilo: grande_acento}
+
+  - tipo: cifra
+    duracion: 2.8
+    textos:
+      - {texto: "47", estilo: numero}
+      - {texto: "conciertos", estilo: etiqueta}
+      - {texto: "en 10 ciudades del país", estilo: detalle}
+
+  - tipo: clip
+    duracion: 3.0
+    espacio: Tambuco
+    foto: int/Tambuco 1.jpg
+    video:
+    textos:
+      - {texto: "109", estilo: numero}
+      - {texto: "estrenos", estilo: etiqueta}
+      - {texto: "51 mundiales · 58 en México", estilo: detalle}
+
+  - tipo: cifra
+    duracion: 2.8
+    textos:
+      - {texto: "194", estilo: numero}
+      - {texto: "compositoras y compositores", estilo: etiqueta}
+      - {texto: "de 31 países", estilo: detalle}
+
+  - tipo: clip
+    duracion: 3.2
+    espacio: Cuarteto de Cuerdas de Bellas Artes
+    foto: int/Cuarteto de Cuerdas de Bellas Artes.png
+    video:
+    textos:
+      - {texto: "1926 · 2026", estilo: antetitulo}
+      - {texto: "Manuel Enríquez", estilo: grande}
+      - {texto: "Centenario", estilo: grande_acento}
+      - {texto: "Conciertos y coloquio", estilo: detalle}
+
+  - tipo: cifra
+    duracion: 3.6
+    textos:
+      - {texto: "Palacio de Bellas Artes", estilo: antetitulo}
+      - {texto: "Inauguración", estilo: linea}
+      - {texto: "Orquesta Sinfónica Nacional · 6 nov", estilo: sublinea}
+      - {texto: "Clausura", estilo: linea}
+      - {texto: "Tambuco · 21 nov", estilo: sublinea}
+      - {texto: "Abono en Ticketmaster", estilo: detalle_acento}
+
+  - tipo: clip
+    duracion: 3.0
+    espacio: Black Noise Ensamble
+    foto: int/Black Noise Ensamble.jpg
+    video:
+    textos:
+      - {texto: "Conciertos", estilo: media}
+      - {texto: "Actividades académicas", estilo: media}
+      - {texto: "Coloquio Enríquez | 100", estilo: media_acento}
+
+  - tipo: cierre
+    duracion: 4.6
+    textos:
+      - {texto: "Programación completa", estilo: antetitulo}
+      - {texto: "forodemusicanueva.inba.gob.mx/2026", estilo: sitio}

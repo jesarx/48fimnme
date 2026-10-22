@@ -78,7 +78,12 @@ grep -E "^(Overfull|Underfull) \\\\hbox" "build/$NOMBRE.log" | sort | uniq -c | 
 # sitio muestra las postales: primero el contenido, luego las postales y al
 # final los recursos (que copian las postales) y la compilación del sitio.
 # El boletín por correo (newsletter/) toma los datos del sitio y las postales.
+# Las postales llevan al final del nombre la fecha de esta compilación (p. ej.
+# fimnme2026-postal-jue-nov-19-ocba_20oct.png; ver postales/fecha.py), la misma
+# para todas aunque la compilación pase la medianoche.
 if [[ "${1:-}" != "--rapido" ]]; then
+  FECHA_POSTALES="$(python3 postales/fecha.py)"
+  export FECHA_POSTALES
   echo "▸ Programa resumido…"
   resumen/compila.sh
   echo "▸ Sitio web: contenido…"

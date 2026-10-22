@@ -276,6 +276,7 @@ def postales():
     funciones, cada una con su fecha)."""
     sys.path.insert(0, str(RAIZ / "postales"))
     import genera   # noqa: E402  (nombre de cada postal, el mismo que al generarlas)
+    import fecha as fecha_postal   # noqa: E402  (el JPG vigente lleva la fecha de compilación)
     lista = yaml.safe_load((RAIZ / "postales/postales.yaml").read_text(encoding="utf-8"))["postales"]
     destino, previas = SITIO / "postales", ASSETS / "postales"
     destino.mkdir(exist_ok=True)
@@ -283,11 +284,13 @@ def postales():
     datos, archivos, jpgs = {}, set(), set()
     for postal in lista:
         nombre = genera.nombre_salida(postal)
-        jpg = RAIZ / "postales/jpg" / f"fimnme2026-postal-{nombre}.jpg"
-        if not jpg.exists():
-            print(f"  Aviso: falta {jpg.relative_to(RAIZ)} (python3 postales/genera.py)")
+        base = f"fimnme2026-postal-{nombre}"
+        jpg = fecha_postal.buscar(RAIZ / "postales/jpg", base, "jpg")
+        if not jpg:
+            print(f"  Aviso: falta postales/jpg/{base}_<fecha>.jpg (python3 postales/genera.py)")
             continue
-        copia = destino / jpg.name
+        # en el sitio, sin la fecha: la dirección de cada postal no cambia
+        copia = destino / f"{base}.jpg"
         if not copia.exists() or copia.read_bytes() != jpg.read_bytes():
             shutil.copyfile(jpg, copia)
         previa = previas / f"{nombre}.jpg"
@@ -300,9 +303,9 @@ def postales():
             f = genera.datos_evento(postal["evento"])["fechas"][postal["funcion"] - 1]
             fecha = f"{f['corto']} · {f['hora']} h"
         datos.setdefault(postal["evento"], []).append(
-            {"archivo": jpg.name, "previa": previa.name, "fecha": fecha,
+            {"archivo": copia.name, "previa": previa.name, "fecha": fecha,
              "kb": round(jpg.stat().st_size / 1024)})
-        archivos.add(jpg.name)
+        archivos.add(copia.name)
         jpgs.add(previa.name)
     limpiar_directorio(destino, archivos)
     limpiar_directorio(previas, jpgs)

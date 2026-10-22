@@ -41,6 +41,8 @@ from pathlib import Path
 from PIL import Image
 
 RAIZ = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RAIZ / "postales"))
+import fecha  # noqa: E402  (las postales llevan la fecha de compilación en el nombre)
 AQUI = RAIZ / "newsletter"
 IMG = AQUI / "img"
 BUILD = RAIZ / "build/newsletter"
@@ -137,7 +139,7 @@ def imagenes(destacados):
     guardar_si_cambia(lualatex("pie"), IMG / "pie.png", format="PNG", optimize=True)
     usadas = {"encabezado.jpg", "pie.png"}
     for clave, e in destacados.items():
-        origen = RAIZ / "postales/jpg" / f"fimnme2026-postal-{slug(e)}.jpg"
+        origen = fecha.buscar(RAIZ / "postales/jpg", f"fimnme2026-postal-{slug(e)}", "jpg")
         destino = IMG / f"postal-{clave}.jpg"
         if not destino.exists() or destino.stat().st_mtime < origen.stat().st_mtime:
             im = Image.open(origen).convert("RGB")

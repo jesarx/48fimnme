@@ -18,6 +18,7 @@ Markdown se propaga a todos los materiales al volver a compilar.
 | Postales para redes, 1080 × 1350 px (PNG, JPG, PDF e IDML para InDesign) | [`postales/`](postales/) | [`postales/README.md`](postales/README.md) |
 | Boletín por correo (HTML y versiones para Outlook) | [`newsletter/`](newsletter/) | [`newsletter/README.md`](newsletter/README.md) |
 | Numeralia para la conferencia de prensa (Markdown y PDF, dos páginas) | [`conf_prensa/numeralia.pdf`](conf_prensa/numeralia.pdf) | [`conf_prensa/numeralia.md`](conf_prensa/numeralia.md) |
+| Video promocional para redes, 9:16 (muestra, sin música) | [`video/fimnme2026-promo-muestra.mp4`](video/fimnme2026-promo-muestra.mp4) | [`video/README.md`](video/README.md) |
 
 ## Índice
 
@@ -119,6 +120,7 @@ python3 postales/genera.py   # solo las postales de los eventos
 postales/abono/compila.sh    # solo la postal del abono
 python3 newsletter/genera.py # solo el boletín por correo
 conf_prensa/genera.sh        # solo el PDF de la numeralia (las cifras se editan en conf_prensa/numeralia.md)
+python3 video/genera.py      # solo el video promocional (ver video/README.md)
 ```
 
 La compilación completa sigue este orden, porque cada paso usa lo anterior:
@@ -253,10 +255,11 @@ y `python3 newsletter/genera.py` para el boletín) y hacer el zip. Más detalles
 | `logos/` | Logotipos originales de sedes, instituciones y patrocinadores, con sus variantes (también el de la CNMO en versión horizontal, de donde sale `automatizacion/plantilla/logo-cnmo-horizontal.tex`). |
 | `resumen/` | Programa resumido (agenda, programas condensados, logotipos y directorio; ver `resumen/README.md`). |
 | `sitio/` | Sitio web en Jekyll con toda la programación (agenda con filtros y búsqueda, una página por concierto con programa, semblanzas, notas y su postal, sedes, Coloquio, descargas con QR), generado del mismo Markdown; ver `sitio/README.md` (y `sitio/DESPLIEGUE.md` para montarlo en un VPS). |
-| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/README.md`. |
+| `postales/` | Postales para redes de todos los eventos (conciertos en verde; actividades académicas y Coloquio en verde azulado), 1080 × 1350 px, en carpetas por formato: `png/`, `jpg/`, `pdf/` e `idml/` (InDesign, 1080 × 1350 px, con sus imágenes vinculadas y la fuente: la carpeta se comprime y se envía tal cual). Cada archivo lleva al final del nombre la fecha en que se compiló (p. ej. `fimnme2026-postal-jue-nov-19-ocba_20oct.png`). Datos del Markdown y, en `postales.yaml`, antetítulo, título, intérpretes y fotos; ver `postales/README.md`. |
 | `postales/abono/` | Postal para la venta del abono (concierto inaugural y de clausura; los precios son por ambos conciertos); sale, como las demás, en `postales/png`, `jpg`, `pdf` e `idml`. Sus textos están en `postales/abono/abono.tex`: si cambian esos conciertos en el Markdown, hay que cambiarlos ahí (el sitio web toma de ahí los precios del abono). |
 | `newsletter/` | Boletín por correo para participantes y amistades (invitación, cifras, inauguración y clausura con el abono, Coloquio y programación día por día, con la CNMO y la pleca de Cultura e INBAL al pie): HTML, versión para pegar en Outlook en la web y `.eml` para Outlook de escritorio, generados de los datos del sitio. Cómo enviarlo: `newsletter/README.md`. |
 | `conf_prensa/` | Numeralia para la conferencia de prensa: cifras del Foro, personas compositoras (por género y nacionalidad), obras y estrenos, intérpretes, convocatorias y tabulador de pagos. La fuente es `numeralia.md` (cifras escritas a mano, contadas del Markdown y de las bases de las convocatorias, que no están en el repositorio); `genera.sh` hace el PDF con `numeralia.latex`. |
+| `video/` | Video promocional para redes (9:16, unos 30 s, sin música): `guion.yaml` (escenas, textos y los videos de los ensambles), `genera.py` (Pillow y ffmpeg) y, en `clips/`, los videos de los ensambles. Mientras no hay videos, cada espacio muestra una foto y la etiqueta «ESPACIO PARA VIDEO». |
 | `automatizacion/plantilla/fimnme.latex` | Diseño: página, tipografía, colores, portada, divisorias, encabezados, fichas, índices. |
 | `automatizacion/fimnme.lua` | Convierte la estructura del Markdown en las macros del diseño. |
 | `automatizacion/tipografia.lua` | Reglas de [tipografía automática](#tipografía-automática) (siglas, nombres sin cortar, últimos renglones). |
