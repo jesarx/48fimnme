@@ -10,7 +10,7 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 | **63 actividades** | 47 conciertos, 2 sesiones de instalación sonora, 5 actividades académicas y 9 sesiones del Coloquio Enríquez \| 100 |
 | **47 conciertos** | 33 en la Ciudad de México, 11 en los estados y 3 de *Ecos del Foro* |
 | **6 al 21 de noviembre** | Actividades en 15 de los 16 días; *Ecos del Foro*: 30 de octubre (San Luis Potosí), 28 de noviembre (Ocotlán de Morelos) y 1 de diciembre (Oaxaca) |
-| **24 sedes** | 15 en la Ciudad de México y 9 en los estados |
+| **23 sedes** | 14 en la Ciudad de México y 9 en los estados |
 | **10 ciudades, 9 entidades** | Ciudad de México, Guerrero, Jalisco, Michoacán, Nuevo León, Oaxaca, San Luis Potosí, Veracruz y Yucatán |
 | **Fuera de la capital** | Morelia 5 conciertos (CMMAS); Monterrey 2; Acapulco, Guadalajara, Mérida, Xalapa, San Luis Potosí, Ocotlán y Oaxaca, 1 cada una |
 | **Sedes principales** | Palacio de Bellas Artes, 10 conciertos (Sala Principal: inauguración y clausura; Sala Manuel M. Ponce: 8); Jardín Escénico, 11; Casa Rafael Galván (UAM), 3 y la instalación sonora |
@@ -42,7 +42,7 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 | | |
 |:-----------------|:----------------------------------------------------------------|
 | **Manuel Enríquez (1926-1994)** | Centenario: 24 obras en 14 conciertos, entre ellas sus 5 cuartetos de cuerda (Cuarteto de Cuerdas de Bellas Artes, 21 de noviembre) |
-| **Coloquio Enríquez \| 100** | 9 sesiones (4 conferencias, 4 mesas y una conversación) con 26 participantes entre ponentes y moderadores, 18 y 19 de noviembre, en el Aula Magna del Cenart y el Seminario de Cultura Mexicana |
+| **Coloquio Enríquez \| 100** | 9 sesiones (4 conferencias, 4 mesas y una conversación) con 23 participantes entre ponentes y moderadores, 18 y 19 de noviembre, en el Aula Magna del Cenart y el Conservatorio Nacional de Música |
 | **Kaija Saariaho** | 14 obras en 11 conciertos |
 | **Con más obras** | Gabriela Ortiz, 5; Georgina Derbez, 4; Luciano Berio, György Ligeti y Pedro García Velásquez, 3 |
 
