@@ -55,6 +55,7 @@ ESTILOS = {
     "linea":          ("SemiBold", 70, BLANCO, False, 0, 46),
     "sublinea":       ("Regular", 44, SUAVE, False, 0, 10),
     "sitio":          ("SemiBold", 50, BLANCO, False, 0, 22),
+    "obra":           ("Italic", 46, CASIBLANCO, False, 0, 22),
 }
 ANCHO_TEXTO = 920          # px: los textos más largos pasan al renglón siguiente
 ZONA_SEGURA = (230, 1560)  # px: arriba y abajo quedan los botones de las redes
@@ -441,7 +442,7 @@ def main():
     salida = RAIZ / guion["salida"]
     ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
                            "-s", f"{ANCHO}x{ALTO}", "-r", str(FPS), "-i", "-",
-                           "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
+                           "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-pix_fmt", "yuv420p",
                            "-movflags", "+faststart", str(salida)], stdin=subprocess.PIPE)
     n = math.ceil(total * FPS)
     for i in range(n):

@@ -10,3 +10,5 @@ sitio/.jekyll-metadata
 sitio/.bundle/
 sitio/vendor/
 sitio/Gemfile.lock
+# Archivos comprimidos: no se suben al repositorio
+*.zip
