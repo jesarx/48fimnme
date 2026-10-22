@@ -11314,7 +11314,7 @@ Ana Lara, **moderadora**
 
 Aula Magna, Cenart
 
-Arturo Márquez, Federico Ibarra Groth, Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
+Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
 
 Gladys Zamora, **moderadora**
 
@@ -11342,7 +11342,7 @@ Nonis Prado, **moderadora**
 
 #### JUE | NOV 19, 10 h - Conversación: Susana Enríquez
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Susana Enríquez, **invitada**
 
@@ -11352,7 +11352,7 @@ Luis Jaime Cortez, **moderador**
 
 #### JUE | NOV 19, 11:10 h - Mesa 3: El gestor
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Guillermo Contreras y Aurelio Tello, **participantes**
 
@@ -11362,7 +11362,7 @@ Marusia Pola, **moderadora**
 
 #### JUE | NOV 19, 12 h - Conferencia: Sergio Cárdenas
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 *La visión de los vencidos*
 
@@ -11372,9 +11372,9 @@ Sergio Cárdenas, **ponente**
 
 #### JUE | NOV 19, 13 h - Mesa 4: Entre disciplinas
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
-José María Serralde, Antonio Russek, Emanuel Espinoza, Juan Arturo Brennan y Pilar Urreta, **participantes**
+José María Serralde, Antonio Russek, Emanuel Espinoza y Pilar Urreta, **participantes**
 
 Gladys Zamora, **moderadora**
 
@@ -11382,7 +11382,7 @@ Gladys Zamora, **moderadora**
 
 #### JUE | NOV 19, 14:20 h - Conferencia: Leonora Saavedra
 
-Seminario de Cultura Mexicana
+Conservatorio Nacional de Música
 
 Leonora Saavedra, **ponente**
 
@@ -11437,9 +11437,6 @@ José María Izazaga 92, Centro Histórico, Ciudad de México
 
 **Aula Magna, Cenart**\
 Río Churubusco 79, Country Club, Ciudad de México
-
-**Seminario de Cultura Mexicana**\
-Presidente Masaryk 526, Polanco, Ciudad de México
 
 ### En los estados
 
