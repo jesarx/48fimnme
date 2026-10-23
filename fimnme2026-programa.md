@@ -4078,20 +4078,6 @@ Carlos Blázquez
 
 **Juan Cáceres Avitia**, electrónica
 
-**Gene Koshinski**
-
--   *Killjoy* (2019)\* `\hfill`{=tex}15'
-
-**Terry Riley**
-
--   *Días de los Muertos* (1998)\* `\hfill`{=tex}15'
--   *Se aparece la Muerte inocentemente por la tarde*
--   *La Muerte en medias caladas negras*
-
-**Aldo Aranda**, percusiones
-
-**Carlos Larrauri**, guitarra
-
 ### Personas compositoras
 
 #### Iannis Xenakis (Rumanía, 1922 -- Francia, 2001)
@@ -4356,76 +4342,6 @@ conjuntos instrumentales y vocales, respectivamente.
 > Shinti Ueno. La pieza fue encargada por el Conservatorio de Música de
 > Kunitachi y escrita para Shinti Ueno».
 
-#### Gene Koshinski (Estados Unidos, 1980)
-
-![](comp/Gene%20Koshinski.jpg)
-
-Conocido por su extraordinaria versatilidad, se ha presentado en
-Argentina, Austria, Bélgica, Brasil, China, República Checa, Francia,
-Alemania, Japón, Jordania, Países Bajos, Noruega, Eslovenia, España,
-Suecia, Reino Unido, Canadá y Estados Unidos; con más de doscientas
-presentaciones y conferencias como invitado en algunas de las
-instituciones más prestigiadas del mundo. Gracias a su enfoque en la
-creación de contenido audiovisual de alta calidad, su audiencia digital
-ha superado los cuatro millones de espectadores. Como compositor, sus
-obras se han utilizado en televisión, cine, museos de arte y
-producciones de ballet, y en salas de concierto se han interpretado en
-más de cuarenta países en cinco continentes, con cientos de
-presentaciones al año.
-
-##### *Killjoy*
-
-> «Cuando Zane Forshee se acercó a mí para componer esta pieza, me pidió
-> que basara el trabajo en algún material o idea(s) extraída(s) de un
-> libro u otra forma de literatura. Me pareció apropiado elegir una
-> historia infantil debido a su nuevo papel como padre. Esto me llevó a
-> la historia de *La Cenicienta*, que ha resistido la prueba del tiempo,
-> entreteniendo a niños y adultos por igual, generación tras generación.
-> En el corazón de la historia está la torre del reloj. Cuando el reloj
-> marca la medianoche, termina el tiempo de La Cenicienta en el baile
-> del príncipe y el hechizo mágico de su hada madrina. En la historia,
-> el reloj asume el papel de un antagonista (que, en la vida real, es
-> algo con lo que todos podemos identificarnos). *Killjoy* explora los
-> sonidos de los relojes, utilizando su valor musical como punto de
-> partida. En esencia, la obra es una colección de variaciones sobre
-> temas proporcionados por varios relojes donde, en muchos casos, el
-> *tema* nunca se declara realmente».
-
-#### Terry Riley (Estados Unidos, 1935)
-
-![](comp/Terry%20Riley.png)
-
-Estudió en la Universidad Estatal de San Francisco y en el Conservatorio
-de Música de San Francisco. Más tarde ganó un premio de composición en
-la Universidad de California en Berkeley. Comenzó con una educación
-musical formal pero pronto se sintió atraído por la música de John Cage,
-los experimentos de La Monte Young, las improvisaciones del jazz y la
-música clásica del norte de la India. Su influencia más notoria fue
-Pandit Pran Nath, un maestro de música clásica indostaní, que también
-enseñó a La Monte Young y Maria Zazeela. Viajó numerosas veces a la la
-India para el estudio de la rítmica de varios instrumentos musicales
-como la tabla, tambura y voz. Su obra más conocida es *In C* (en
-español: El do mayor), compuesta en 1964, donde se revela sobre todo la
-influencia de su colaboración con La Monte Young y el grupo Fluxus en
-Nueva York, así como el trabajo que realizó en los estudios de Radio
-France con grabaciones en cinta.
-
-##### *Días de los Muertos*
-
-Terry Riley concibió su suite de dos movimientos, *Días de los Muertos*,
-como una exploración musical de las formas intempestivas e inesperadas
-en las que la Muerte se manifiesta. Esta idea se inspiró en un pasaje de
-los escritos de Carlos Castañeda, en el que Don Juan advierte a Carlos
-que esté siempre atento a la Muerte, porque siempre está acechando cerca
-y puede aparecer sin previo aviso. Riley extrapola este concepto a dos
-escenarios musicales, que son ejecutados por un guitarrista acústico y
-un percusionista. El primero de los dos movimientos, *Se aparece la
-Muerte inocentemente por la tarde*, comienza con la guitarra en una
-serie de declaraciones figurativas contundentes puntuadas por pequeños
-platillos. El segundo movimiento, *La Muerte en medias caladas negras*,
-comienza con intercambios misteriosos y a veces tímidos entre la marimba
-y la guitarra. Suena como un rey de la Danza de los Siete Velos.
-
 ------------------------------------------------------------------------
 
 ### Intérpretes
@@ -4500,24 +4416,6 @@ Unidos, Argentina, Japón y Canadá donde obtuvo el tercer lugar del
 premio Jeux temps/Time to play 2022. Actualmente es Coordinador de
 Tecnologías aplicadas a la creación musical y Compositor residente del
 Cepromusic.
-
-#### Aldo Aranda
-
-![](int/Aldo%20Aranda.jpg)
-
-Es un percusionista multifacético y virtuoso de la marimba que concibe
-la percusión como un lenguaje expandido donde convergen sonido, cuerpo y
-escena. Su trabajo transita entre el teatro musical contemporáneo, la
-improvisación, la danza y la tecnología, creando propuestas que
-desdibujan los límites del concierto tradicional. Paralelamente a su
-labor interpretativa, desarrolla una intensa actividad pedagógica y ha
-sido invitado a impartir talleres y conferencias en instituciones
-internacionales como las universidades de California en San Diego, de
-Nuevo México, de Música de Bucarest y de Guanajuato. Reconocido por la
-Secretaría de Cultura como Creador Artístico con Trayectoria, su trabajo
-se proyecta como un puente entre culturas, generaciones y lenguajes.
-Actualmente reside en Amberes, donde desarrolla nuevos proyectos
-interdisciplinarios y su próxima producción discográfica como solista.
 
 ::: logos
 ![](<logos/Centro_Cultural_Bosque_logo.ai>)
