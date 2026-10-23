@@ -20,8 +20,8 @@ INBAL.
 | 1 | Apertura | Logotipo · Foro Internacional de Música Nueva Manuel Enríquez · 6 al 21 de noviembre · 2026 · 48ª edición |
 | 2 | **Video** (orquesta) | La música de hoy / suena en vivo |
 | 3 | Cifra | 47 conciertos en 10 ciudades del país |
-| 4 | **Video** (orquesta, alientos) | 109 estrenos: 51 mundiales · 58 en México |
-| 5 | Cifra | 194 compositoras y compositores de 31 países |
+| 4 | **Video** (orquesta, alientos) | 107 estrenos: 49 mundiales · 58 en México |
+| 5 | Cifra | 192 compositoras y compositores de 31 países |
 | 6 | **Video** (orquesta, violinista) | 1926 · 2026 · Manuel Enríquez · Centenario · Conciertos y coloquio |
 | 7 | **Video** (instalación) | Instalación sonora · Andrés Nuño de Buen · *Sobre las sensaciones de tono y otros fantasmas* · 7 y 8 nov · Casa Rafael Galván, UAM |
 | 8 | Palacio de Bellas Artes | Inauguración: Orquesta Sinfónica Nacional · 6 nov / Clausura: Tambuco · 21 nov / Abono en Ticketmaster |

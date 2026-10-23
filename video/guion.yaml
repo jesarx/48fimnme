@@ -55,14 +55,14 @@ escenas:
     video: video/clips/orquesta-travelling.mp4    # provisional (se repite)
     inicio: 8
     textos:
-      - {texto: "109", estilo: numero}
+      - {texto: "107", estilo: numero}
       - {texto: "estrenos", estilo: etiqueta}
-      - {texto: "51 mundiales · 58 en México", estilo: detalle}
+      - {texto: "49 mundiales · 58 en México", estilo: detalle}
 
   - tipo: cifra
     duracion: 2.8
     textos:
-      - {texto: "194", estilo: numero}
+      - {texto: "192", estilo: numero}
       - {texto: "compositoras y compositores", estilo: etiqueta}
       - {texto: "de 31 países", estilo: detalle}
 
