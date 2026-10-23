@@ -5882,9 +5882,9 @@ Jardín Escénico, Laboratorio Escénico
 
 -   *The Untitled L* (2022)\*\* `\hfill `{=tex}10'
 
-**Ehecatl Flores**, contrafagot
+[**Alex Motta**, contrabajo]{.solista}
 
-**Alex Motta**, contrabajo
+**Ehecatl Flores**, contrafagot
 
 **Juan Cáceres Avitia**, electrónica
 
