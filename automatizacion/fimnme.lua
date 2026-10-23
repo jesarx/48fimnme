@@ -849,9 +849,13 @@ function Pandoc(doc)
       end
       if l then
         local k = ultima_lista and ultima_lista + 1
-        if k and out[k] and out[k].t == "RawBlock" and out[k].text:match("^\\notaprograma") then
-          -- después de las notas breves que acompañan a la última obra
-          while out[k] and out[k].t == "RawBlock" and out[k].text:match("^\\notaprograma") do k = k + 1 end
+        local function acompana(blo)   -- notas breves y solistas de la última obra
+          return blo and blo.t == "RawBlock"
+                 and (blo.text:match("^\\notaprograma") or blo.text:match("^\\solista"))
+        end
+        if k and acompana(out[k]) then
+          -- después de las notas breves y los solistas de la última obra
+          while acompana(out[k]) do k = k + 1 end
           out:insert(k, raw(l))
         elseif ultima_lista then
           -- como último renglón de la lista de obras (sin corte de página)
