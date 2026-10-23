@@ -320,9 +320,10 @@ postales:
       - int/Dúo Arco y Teclas.jpeg
       - {archivo: int/Trío Siqueiros.jpg, peso: 1.6}   # el Trío, más grande
 
-  - evento: dom-nov-15-ehecatl-flores-fagot-contrabajo
+  - evento: dom-nov-15-ehecatl-flores-contrafagot
     interpretes:
-      - [Ehecatl Flores, fagot contrabajo]
+      - [Ehecatl Flores, contrafagot]
+      - [Alex Motta, contrabajo]
       - [Juan Cáceres Avitia, electrónica]
     fotos:
       - int/Ehecatl Flores.jpg
@@ -586,4 +587,4 @@ postales:
 # ([x, y] de 0 a 1), para todas las postales en que aparecen
 focos:
   int/Ensamble Danaus.jpg: [0.5, 0.6]   # el del fagot, de perfil, no se detecta
-  int/Ehecatl Flores.jpg: [0.5, 0.3]   # el rostro, tras el fagot contrabajo
+  int/Ehecatl Flores.jpg: [0.5, 0.3]   # el rostro, tras el contrafagot

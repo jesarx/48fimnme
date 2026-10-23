@@ -5860,7 +5860,7 @@ no solo de la comunidad artística y musical, sino de todo el público.
 ![](<logos/Jardin_Escenico_horiz.ai>)
 :::
 
-## DOM | NOV 15, 19 h - Ehecatl Flores, fagot contrabajo
+## DOM | NOV 15, 19 h - Ehecatl Flores, contrafagot
 
 Jardín Escénico, Laboratorio Escénico
 
@@ -5882,7 +5882,9 @@ Jardín Escénico, Laboratorio Escénico
 
 -   *The Untitled L* (2022)\*\* `\hfill `{=tex}10'
 
-**Ehecatl Flores**, fagot contrabajo
+**Ehecatl Flores**, contrafagot
+
+**Alex Motta**, contrabajo
 
 **Juan Cáceres Avitia**, electrónica
 
