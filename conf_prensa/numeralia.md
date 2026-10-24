@@ -19,23 +19,23 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 
 | | |
 |:-----------------|:----------------------------------------------------------------|
-| **194 en total** | **52 mujeres (27 %) y 142 hombres (73 %)** |
-| **97 mexicanas (50 %)** | 30 mujeres y 67 hombres |
-| **97 de otros 30 países** | 31 países en total. Más representados: España 19, Estados Unidos 14, Italia 11, Alemania 6, Argentina 5, Francia 5, Brasil 4, Venezuela 4 |
-| **159 vivas (82 %)** | 88 nacidas en 1980 o después; 42 en 1990 o después. Las más jóvenes, Ana Elisa de María y Kat Farn, nacieron en 2004 |
+| **192 en total** | **52 mujeres (27 %) y 140 hombres (73 %)** |
+| **97 mexicanas (51 %)** | 30 mujeres y 67 hombres |
+| **95 de otros 30 países** | 31 países en total. Más representados: España 19, Estados Unidos 12, Italia 11, Alemania 6, Argentina 5, Francia 5, Brasil 4, Venezuela 4 |
+| **157 vivas (82 %)** | 87 nacidas en 1980 o después; 42 en 1990 o después. Las más jóvenes, Ana Elisa de María y Kat Farn, nacieron en 2004 |
 
 ## Obras y estrenos
 
 | | |
 |:-----------------|:----------------------------------------------------------------|
-| **260 obras** | 304 interpretaciones, contando las que se repiten en varios conciertos |
-| **Por género** | 78 obras de compositoras (30 %), 181 de compositores y un arreglo de canciones tradicionales |
+| **258 obras** | 302 interpretaciones, contando las que se repiten en varios conciertos |
+| **Por género** | 78 obras de compositoras (30 %), 179 de compositores y un arreglo de canciones tradicionales |
 | **Autores mexicanos** | 134 obras (52 %) |
-| **109 estrenos (42 %)** | **51 estrenos mundiales y 58 estrenos en México** |
-| **Estrenos mundiales** | 39 de los 51 son de compositores mexicanos; 18, de compositoras |
-| **Estrenos de compositoras** | 39 de los 109 (36 %): 18 mundiales y 21 en México |
-| **Música de hoy** | 104 obras escritas de 2020 en adelante y 164 desde el año 2000 (de las 239 con año en el programa) |
-| **42 horas** | De repertorio distinto; más de 46 horas sumando todas las funciones |
+| **107 estrenos (41 %)** | **49 estrenos mundiales y 58 estrenos en México** |
+| **Estrenos mundiales** | 39 de los 49 son de compositores mexicanos; 18, de compositoras |
+| **Estrenos de compositoras** | 39 de los 107 (36 %): 18 mundiales y 21 en México |
+| **Música de hoy** | 104 obras escritas de 2020 en adelante y 163 desde el año 2000 (de las 237 con año en el programa) |
+| **41 horas y media** | De repertorio distinto; casi 46 horas sumando todas las funciones |
 
 ## Enríquez | 100 y otros ejes
 
@@ -50,7 +50,7 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 
 | | |
 |:-----------------|:----------------------------------------------------------------|
-| **Más de 60** | Agrupaciones, solistas y directores (58 con semblanza en el programa) |
+| **Más de 60** | Agrupaciones, solistas y directores (57 con semblanza en el programa) |
 | **5 orquestas y un coro** | Sinfónica Nacional, de Cámara de Bellas Artes, Sinfónica de Xalapa, Sinfónica Universitaria de San Luis Potosí y Juvenil Universitaria Eduardo Mata; Coro de Madrigalistas de Bellas Artes |
 
 ## Convocatoria de intérpretes
@@ -59,7 +59,7 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 |:-----------------|:----------------------------------------------------------------|
 | **73 postulaciones** | De 8 entidades: Ciudad de México 58, Nuevo León 4, Guanajuato 3, Michoacán 3, Yucatán 2; Baja California, Querétaro y Sinaloa, 1 |
 | **Formatos** | 28 solistas, 10 dúos, 9 tríos, 9 cuartetos y 17 ensambles |
-| **14 en el programa** | Vladimir Ibarra, Tetraktys Guitar Quartet, Aldo Aranda, Fourtissimo Percussion Ensemble, Black Noise, Ónix Ensamble, Dirén Checa, Trío Siqueiros, Ensamble Sonus y Dúo Gasparini-Monnet (Ciudad de México); Julio I. Cervantes y Ensamble Danaus (Morelia); Q-SION y Eusebio Sánchez (Monterrey). Los demás intérpretes son de asignación directa, como Tambuco |
+| **13 en el programa** | Vladimir Ibarra, Tetraktys Guitar Quartet, Fourtissimo Percussion Ensemble, Black Noise, Ónix Ensamble, Dirén Checa, Trío Siqueiros, Ensamble Sonus y Dúo Gasparini-Monnet (Ciudad de México); Julio I. Cervantes y Ensamble Danaus (Morelia); Q-SION y Eusebio Sánchez (Monterrey). Los demás intérpretes son de asignación directa, como Tambuco |
 
 **Tabulador de pagos** (pago total por agrupación)
 
@@ -82,4 +82,4 @@ Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de 
 
 Abono para la inauguración y la clausura (Sala Principal del Palacio de Bellas Artes): $250, $200, $120 y $100, en Ticketmaster. Programa completo: forodemusicanueva.inba.gob.mx/2026
 
-*Notas.* Las personas compositoras se cuentan una vez aunque tengan obras en varios conciertos; una obra que se toca en varios conciertos cuenta una vez. Nacionalidad: el país de nacimiento que consigna el programa. Las duraciones son las del programa (246 de las 260 obras la tienen). En las convocatorias, la residencia de 25 personas no se registró.
+*Notas.* Las personas compositoras se cuentan una vez aunque tengan obras en varios conciertos; una obra que se toca en varios conciertos cuenta una vez. Nacionalidad: el país de nacimiento que consigna el programa. Las duraciones son las del programa (244 de las 258 obras la tienen). En las convocatorias, la residencia de 25 personas no se registró.
