@@ -422,6 +422,15 @@ postales:
 
   # --- Actividades académicas (fondo verde azulado) ---------------------------
 
+  - evento: jue-nov-5-clase-maestra-de-trompeta
+    antetitulo: Actividad académica
+    titulo: Clase maestra de trompeta
+    interpretes:
+      - [Simon Höfele, imparte]
+    nota: "Dirigida a compositores\nAbierto a público oyente"
+    fotos:
+      - int/Simon Hofele.jpg
+
   - evento: mar-nov-10-conferencia-el-piano-contemporaneo
     antetitulo: Conferencia
     titulo: El piano contemporáneo
@@ -448,7 +457,7 @@ postales:
     titulo: Clase maestra de piano
     interpretes:
       - [Alberto Rosado, imparte]
-    nota: Para un máximo de ocho estudiantes de nivel avanzado
+    nota: "Para un máximo de ocho estudiantes de nivel avanzado\nAbierto a público oyente"
     fotos:
       - int/Andrés Rosado - foto de Michal Novak.jpg
 
@@ -468,7 +477,7 @@ postales:
     interpretes:
       - [Dario Calderone, imparte]
       - [Stefano Bassanese, imparte]
-    nota: Dirigida a estudiantes de contrabajo, de composición y de música en general
+    nota: "Dirigida a estudiantes de contrabajo, de composición y de música en general\nAbierto a público oyente"
     fotos:
       - int/Dario Calderone.jpg
       - int/Stefano Bassanese.jpg

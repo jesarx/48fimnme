@@ -10638,6 +10638,22 @@ Morelia, Michoacán
 
 \part{ACTIVIDADES ACADÉMICAS}
 
+## JUE | NOV 5, 16:30 h - Clase maestra de trompeta
+
+Conservatorio Nacional de Música
+
+**Simon Höfele** (Alemania), imparte
+
+::: descripcion
+**Dirigido a:** compositores. **Abierto a público oyente.**
+:::
+
+::: logos
+![](<logos/logos CNM/CNM 160 años.png>)
+:::
+
+---
+
 ## MAR | NOV 10, 11 h - Conferencia: El piano contemporáneo
 
 Conservatorio Nacional de Música
@@ -10696,7 +10712,7 @@ con una pausa a las 12 h).
 
 **Dirigido a:** un máximo de ocho estudiantes de nivel avanzado, de
 preferencia con obras compuestas a partir de 1950, aunque no es limitativo.
-La obra que se presente deberá ser aprobada previamente por Alberto Rosado.
+La obra que se presente deberá ser aprobada previamente por Alberto Rosado. **Abierto a público oyente.**
 :::
 
 ::: logos
@@ -10754,7 +10770,7 @@ presentar de nuevo una obra que quedó sin registrarse en una partitura tras
 la muerte de su autor.
 
 **Dirigido a:** estudiantes de contrabajo, de composición y de música en
-general.
+general. **Abierto a público oyente.**
 :::
 
 ::: logos

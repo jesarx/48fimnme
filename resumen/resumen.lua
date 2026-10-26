@@ -456,6 +456,13 @@ function Pandoc(doc)
         table.insert(ev.extra, table.concat(partes))
       end
 
+    elseif ev and ev.tipo == "actividad" and b.t == "Div" then
+      -- de la descripción, solo el aviso «Abierto a público oyente»
+      b:walk({ Strong = function(el)
+        local t = stringify(el)
+        if clave(t):find("publico oyente") then ev.aviso = escape((t:gsub("%.$", ""))) end
+      end })
+
     elseif en_programa and ev then
       if b.t == "HorizontalRule" then
         tras_obras = true
@@ -803,7 +810,8 @@ function Pandoc(doc)
         hay = true
       end
       emit(string.format("\\actividad{%s}{%s}{%s}{%s}", fecha_larga(e),
-        "\\letra{" .. letra_de(e, 1) .. "}", e.titulo_tex, table.concat(e.extra, "; ")))
+        "\\letra{" .. letra_de(e, 1) .. "}", e.titulo_tex, table.concat(e.extra, "; ")
+        .. (e.aviso and ("\\par\\textit{" .. e.aviso .. "}") or "")))
     end
   end
   emit("\\end{programas}")

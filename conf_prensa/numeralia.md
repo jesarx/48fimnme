@@ -1,15 +1,15 @@
 # 48º FIMNME · Numeralia para la conferencia de prensa
 
 Foro Internacional de Música Nueva Manuel Enríquez, fundado en 1979 · 48ª edición · 6 al 21 de noviembre de 2026.
-Cifras al 17 de octubre de 2026, tomadas del Programa general y de las bases de datos de las convocatorias.
+Cifras al 26 de octubre de 2026, tomadas del Programa general y de las bases de datos de las convocatorias.
 
 ## El Foro en cifras
 
 | | |
 |:-----------------|:----------------------------------------------------------------|
-| **63 actividades** | 47 conciertos, 2 sesiones de instalación sonora, 5 actividades académicas y 9 sesiones del Coloquio Enríquez \| 100 |
+| **64 actividades** | 47 conciertos, 2 sesiones de instalación sonora, 6 actividades académicas y 9 sesiones del Coloquio Enríquez \| 100 |
 | **47 conciertos** | 33 en la Ciudad de México, 11 en los estados y 3 de *Ecos del Foro* |
-| **6 al 21 de noviembre** | Actividades en 15 de los 16 días; *Ecos del Foro*: 30 de octubre (San Luis Potosí), 28 de noviembre (Ocotlán de Morelos) y 1 de diciembre (Oaxaca) |
+| **6 al 21 de noviembre** | Actividades en 15 de los 16 días, más la clase maestra de Simon Höfele el 5 de noviembre; *Ecos del Foro*: 30 de octubre (San Luis Potosí), 28 de noviembre (Ocotlán de Morelos) y 1 de diciembre (Oaxaca) |
 | **23 sedes** | 14 en la Ciudad de México y 9 en los estados |
 | **10 ciudades, 9 entidades** | Ciudad de México, Guerrero, Jalisco, Michoacán, Nuevo León, Oaxaca, San Luis Potosí, Veracruz y Yucatán |
 | **Fuera de la capital** | Morelia 5 conciertos (CMMAS); Monterrey 2; Acapulco, Guadalajara, Mérida, Xalapa, San Luis Potosí, Ocotlán y Oaxaca, 1 cada una |
