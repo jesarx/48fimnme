@@ -7433,7 +7433,7 @@ Claustro de Sor Juana
 -   *Conjuro*, para violín y sonidos electroacústicos (1977) `\hfill `{=tex}13'\
     Versión para violonchelo
 
-**Iracema de Andrade**, violonchelo eléctrico
+**Iracema de Andrade**, violonchelo
 
 **Juan Cáceres Avitia**, electrónica
 
