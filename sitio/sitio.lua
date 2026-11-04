@@ -150,6 +150,14 @@ local NOMBRE_MES = { [10] = "octubre", [11] = "noviembre", [12] = "diciembre" }
 local NOMBRE_DIA = { LUN = "Lunes", MAR = "Martes", ["MIÉ"] = "Miércoles", JUE = "Jueves",
   VIE = "Viernes", ["SÁB"] = "Sábado", DOM = "Domingo" }
 
+-- Boletos: los conciertos de la Sala Manuel M. Ponce cuestan $75; los demás
+-- eventos son de entrada libre (la inauguración y la clausura, con abono). Lo
+-- usan la página del evento, las postales y el boletín.
+local BOLETO_PONCE = "$75 boleto general"
+local function boleto(lugar)
+  return lugar:find("Sala Manuel M. Ponce", 1, true) and BOLETO_PONCE or ""
+end
+
 -- Horas: «12 h» y, si no son en punto, «13:30 h» (también se acepta «12:00 h»).
 -- Dentro: «hora» = «12:00» (para ordenar y para el calendario) y «hora_txt» =
 -- «12» o «13:30» (lo que se muestra, seguido de « h»).
@@ -1056,7 +1064,7 @@ function Pandoc(doc)
         inicio = f.iso:gsub("-", "") .. "T" .. string.format("%04d", tonumber((f.hora:gsub(":", "")))) .. "00",
         fin = f.iso:gsub("-", "") .. "T" .. string.format("%04d", math.min(tonumber((f.hora:gsub(":", ""))) + 200, 2359)) .. "00",
         lugar = lugares[k] or lugares[1] or "", sede = s.id or "", sede_nombre = s.nombre or "",
-        direccion = s.direccion or "" }
+        direccion = s.direccion or "", boleto = boleto(lugares[k] or lugares[1] or "") }
     end
     for _, s in ipairs(e.secciones) do fm.secciones[#fm.secciones + 1] = { id = s.id, titulo = s.titulo } end
     for _, l in ipairs(e.logos) do fm.logos[#fm.logos + 1] = l end
@@ -1088,6 +1096,7 @@ function Pandoc(doc)
         hora = f.hora_txt, momento = f.iso .. "T" .. f.hora, titulo = e.titulo_txt,
         titulo_html = e.titulo, url = e.url, tipo = e.tipo,
         seccion = e.seccion.id, seccion_nombre = e.seccion.nombre, lugar = table.concat(lugar, ", "),
+        boleto = boleto(table.concat(lugar, ", ")),
         sede = e.sedes[k] and e.sedes[k].id or "", interpretes = e.resumen_interpretes, obras = e.resumen_obras,
         estrenos = e.estrenos, orden = e.orden, subtitulo = e.subtitulo,
         buscar = clave(table.concat({ e.titulo_txt, e.subtitulo, table.concat(lugar, " "),

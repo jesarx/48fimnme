@@ -199,6 +199,18 @@ def imagen(src, ancho, alto, alt, url=None):
     return f'<a href="{url}" style="text-decoration:none;">{img}</a>' if url else img
 
 
+def entrada(agenda):
+    """«Entrada libre…, salvo…»: las excepciones son el abono y los conciertos
+    con boleto (los de la Sala Manuel M. Ponce; la regla está en sitio/sitio.lua)."""
+    boleto = next((e["boleto"] for d in agenda for e in d["eventos"] if e.get("boleto")), "")
+    return (f"{ENTRADA}, salvo la inauguración y la clausura (abono)"
+            + (f" y los conciertos de la Sala Manuel M. Ponce ({boleto})" if boleto else ""))
+
+
+def lugar_y_boleto(e):
+    return e["lugar"] + (f" · {e['boleto']}" if e.get("boleto") else "")
+
+
 def estados_y_ecos(agenda, foro):
     """Los estados con conciertos (sin la CDMX) y los ecos, con sus fechas."""
     estados, ecos = [], {}
@@ -347,14 +359,14 @@ def armar_html(agenda, foro, abono, destacados, url, imgs):
                      f'<td valign="top" style="padding:10px 0 0 0;">'
                      + p(enlace(url + e["url"], e["titulo_html"], extra=" font-weight:600;"),
                          tam=15, alto=1.35, abajo=2)
-                     + p(escape(seccion + e["lugar"]), tam=13, color=VERDEGRIS, alto=1.4, abajo=0)
+                     + p(escape(seccion + lugar_y_boleto(e)), tam=13, color=VERDEGRIS, alto=1.4, abajo=0)
                      + "</td></tr>")
     primero, ultimo = agenda[0], agenda[-1]
     filas.append(fila(
         antetitulo(f"Del {primero['numero']} de {primero['mes']} al {ultimo['numero']} de "
                    f"{ultimo['mes']}")
         + titulo2("Programación día por día")
-        + p(f"{ENTRADA}, salvo la inauguración y la clausura (abono). Cada título lleva a su "
+        + p(f"{escape(entrada(agenda))}. Cada título lleva a su "
             "página en el sitio del Foro, con el programa, las semblanzas y las notas.",
             tam=14, color=VERDEGRIS, alto=1.55, abajo=4)
         + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
@@ -433,12 +445,12 @@ def armar_texto(agenda, foro, abono, destacados, url):
     if abono.get("boletos"):
         t.append(f"Compra del abono: {abono['boletos']}")
     t += ["",
-          "PROGRAMACIÓN DÍA POR DÍA", f"{ENTRADA}, salvo la inauguración y la clausura (abono).", ""]
+          "PROGRAMACIÓN DÍA POR DÍA", f"{entrada(agenda)}.", ""]
     for d in agenda:
         t.append(d["dia"].upper())
         for e in d["eventos"]:
             titulo = re.sub(r"</?em>", "", e["titulo_html"]).replace("&amp;", "&")
-            t.append(f"  {hora(e)}  {titulo} · {e['lugar']}")
+            t.append(f"  {hora(e)}  {titulo} · {lugar_y_boleto(e)}")
         t.append("")
     t += [f"Programación: {url}/programacion/", f"Coloquio Manuel Enríquez 100: {url}/coloquio/",
           f"Descargas (programa de mano, programa resumido y postales): {url}/descargas/", "",
