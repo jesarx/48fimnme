@@ -80,6 +80,6 @@ Cifras al 4 de noviembre de 2026, tomadas del Programa general y de las bases de
 
 ## Boletos
 
-Abono para la inauguración y la clausura (Sala Principal del Palacio de Bellas Artes): $250, $200, $120 y $100, en Ticketmaster. Los 8 conciertos de la Sala Manuel M. Ponce: $75 boleto general. Los demás eventos son de entrada libre, con cupo limitado. Programa completo: forodemusicanueva.inba.gob.mx/2026
+Abono para la inauguración y la clausura (Sala Principal del Palacio de Bellas Artes): $250, $200, $120 y $100, en Ticketmaster. Los 8 conciertos de la Sala Manuel M. Ponce: $75 boleto general. El concierto de la OJUEM (Sala Nezahualcóyotl, 8 de noviembre): $50 boleto general. Los demás eventos son de entrada libre, con cupo limitado. Programa completo: forodemusicanueva.inba.gob.mx/2026
 
 *Notas.* Las personas compositoras se cuentan una vez aunque tengan obras en varios conciertos; una obra que se toca en varios conciertos cuenta una vez. Nacionalidad: el país de nacimiento que consigna el programa. Las duraciones son las del programa (244 de las 258 obras la tienen). En las convocatorias, la residencia de 25 personas no se registró.

@@ -201,10 +201,10 @@ def imagen(src, ancho, alto, alt, url=None):
 
 def entrada(agenda):
     """«Entrada libre…, salvo…»: las excepciones son el abono y los conciertos
-    con boleto (los de la Sala Manuel M. Ponce; la regla está en sitio/sitio.lua)."""
-    boleto = next((e["boleto"] for d in agenda for e in d["eventos"] if e.get("boleto")), "")
+    con boleto (la regla está en sitio/sitio.lua), que llevan el precio en la agenda."""
+    hay_boletos = any(e.get("boleto") for d in agenda for e in d["eventos"])
     return (f"{ENTRADA}, salvo la inauguración y la clausura (abono)"
-            + (f" y los conciertos de la Sala Manuel M. Ponce ({boleto})" if boleto else ""))
+            + (" y los conciertos que indican el precio del boleto" if hay_boletos else ""))
 
 
 def lugar_y_boleto(e):

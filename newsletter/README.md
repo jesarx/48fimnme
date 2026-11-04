@@ -7,7 +7,8 @@ amistades:
 - la inauguración y la clausura, con el abono y el botón para comprarlo;
 - el Coloquio Manuel Enríquez 100;
 - la programación día por día, con un enlace a cada evento en el sitio (los
-  conciertos de la Sala Manuel M. Ponce, con «$75 boleto general»);
+  conciertos con boleto, con su precio: los de la Sala Manuel M. Ponce y el de
+  la OJUEM);
 - al pie, la Coordinación Nacional de Música y Ópera y la pleca de Cultura e
   INBAL, como en las postales.
 
