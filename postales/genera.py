@@ -412,7 +412,7 @@ def preparar(postal):
         "nota": tex("\n".join(juntar_nombres(r) for r in postal.get("nota", "").split("\n")), nombres),
         "sede": tex(juntar_nombres(postal.get("sede", sede))),
         "direccion": tex(juntar_nombres(postal.get("direccion", direccion))),
-        "entrada": tex(postal.get("entrada", ENTRADA_LIBRE)),
+        "entrada": tex(postal.get("entrada", fm["fechas"][funcion].get("boleto") or ENTRADA_LIBRE)),
         "fotoslua": fotoslua,
         "franjanecesaria": f"{altos[0]:.2f}mm",
         "franjapreferida": f"{altos[1]:.2f}mm",

@@ -417,6 +417,7 @@ p { margin: 0 0 .85em; }
 .dato p { margin: 0 0 .3em; }
 .dato-lugar { font-weight: 600; }
 .dato-direccion { color: var(--verdegris); font-size: .86rem; }
+.dato-boleto { font-weight: 700; color: var(--verdeoscuro); margin-top: .3em; }
 .dato-acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px !important; }
 .indice, .mismo-dia { font-size: .9rem; }
 .indice-titulo { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--verdegris); margin: 0 0 .4em; }

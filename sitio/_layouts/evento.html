@@ -43,6 +43,9 @@ clase: pagina-evento
         {%- if f.direccion != "" %}
         <p class="dato-direccion">{{ f.direccion }}</p>
         {%- endif %}
+        {%- if f.boleto and f.boleto != "" %}
+        <p class="dato-boleto">{{ f.boleto }}</p>
+        {%- endif %}
         <p class="dato-acciones">
           {%- if f.direccion != "" %}
           {%- capture consulta %}{{ f.sede_nombre }}, {{ f.direccion }}{% endcapture %}
