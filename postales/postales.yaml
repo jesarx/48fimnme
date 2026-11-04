@@ -39,10 +39,11 @@
 #   sin_logos     (opcional) logotipos del evento que no van en esta postal
 #                 (partes de su ruta en el Markdown; p. ej. los de la sede de
 #                 la otra función)
-#   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado» (o de
-#                 «$75 boleto general», que llevan solas las funciones en la
-#                 Sala Manuel M. Ponce; ver sitio/sitio.lua); p. ej. el precio
-#                 de la inauguración o la clausura
+#   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado» (o del
+#                 boleto que llevan solas las funciones en la Sala Manuel M.
+#                 Ponce, «$75 boleto general», y el concierto de la OJUEM, «$50
+#                 boleto general»; ver sitio/sitio.lua); p. ej. el precio de la
+#                 inauguración o la clausura
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa
 #
 # Van en este orden: estados, Ciudad de México, actividades académicas,
