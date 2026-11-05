@@ -11593,6 +11593,14 @@ Guadalupe Cejudo Sánchez, Martín Antonio Alarcón Hernández, Patricia Sandova
 Sotelo, Elena del Carmen Briseño Gómez de la Llata, Sandra Rodríguez Maturano**\
 *Atención artística*
 
+### Sala Manuel M. Ponce
+
+**Alberto Morales Miranda**\
+*Jefe técnico*
+
+**Martín Gómez Gutiérrez y Óscar Vázquez Corona**\
+*Técnicos*
+
 ```{=tex}
 \begin{colofon}
 ```
