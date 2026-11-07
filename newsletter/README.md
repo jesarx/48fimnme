@@ -7,8 +7,8 @@ amistades:
 - la inauguración y la clausura, con el abono y el botón para comprarlo;
 - el Coloquio Manuel Enríquez 100;
 - la programación día por día, con un enlace a cada evento en el sitio (los
-  conciertos con boleto, con su precio: los de la Sala Manuel M. Ponce y el de
-  la OJUEM);
+  conciertos con boleto, con su precio: los de la Sala Manuel M. Ponce, el de
+  la OJUEM y el del Cepromusic en el Anfiteatro Simón Bolívar);
 - al pie, la Coordinación Nacional de Música y Ópera y la pleca de Cultura e
   INBAL, como en las postales.
 

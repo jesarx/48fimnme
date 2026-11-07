@@ -68,8 +68,8 @@ De arriba abajo:
    colaboración, a quién va dirigida una actividad). Si todos los compositores
    son intérpretes (una instalación de su autor), no va.
 6. Sede, dirección y «Entrada libre | Cupo limitado» (en la Sala Manuel M.
-   Ponce, «$75 boleto general»; en el concierto de la OJUEM, «$50 boleto
-   general»).
+   Ponce, «$75 boleto general»; en los conciertos de la OJUEM y del
+   Cepromusic en el Anfiteatro Simón Bolívar, «$50 boleto general»).
 
 No hay cursivas. El fondo (verde o verde azulado) lleva la partitura de *1 x 4* de
 Enríquez; detrás del contenido se oscurece un poco para que los textos se lean
@@ -143,9 +143,10 @@ lleven los hombros.
   completos (sin pasar los nombres de pila a iniciales). Si la lista es larga,
   el contenido se compone un poco más chico (ver arriba).
 - **Entrada**: «Entrada libre | Cupo limitado», salvo que se indique otra cosa.
-  Los conciertos en la Sala Manuel M. Ponce llevan «$75 boleto general» y el
-  de la OJUEM, «$50 boleto general» (la regla está en `sitio/sitio.lua`, que lo
-  anota en los datos de cada función).
+  Los conciertos en la Sala Manuel M. Ponce llevan «$75 boleto general»; los
+  de la OJUEM y del Cepromusic en el Anfiteatro Simón Bolívar, «$50 boleto
+  general» (la regla está en `sitio/sitio.lua`, que lo anota en los datos de
+  cada función).
   La inauguración y la clausura llevan el precio del abono de ambos conciertos
   (el de la postal del abono).
 - **Cursivas**: ninguna. Los nombres de personas y lugares no se parten entre
