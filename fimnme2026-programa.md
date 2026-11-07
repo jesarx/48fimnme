@@ -5992,6 +5992,155 @@ contrabajistas más importantes del siglo XX y ha dejado un legado
 duradero en la música contemporánea. Su música y su técnica han
 inspirado a muchos músicos y compositores.
 
+##### *Voyage That Never Ends*
+
+> «Llegué tarde y el concierto ya había comenzado. Atravesé varias salas
+> de concreto hasta llegar a la galería donde tocaban la música. A lo
+> lejos podía escuchar sonidos de cornos franceses, trombones, cuerdas y
+> metales, combinándose todos en una bellísima textura modal, y pensé por
+> tanto que Stefano estaba tocando con una formación de cámara. Me quedé
+> atónito cuando entré en la galería y encontré a Stefano completamente
+> solo, tocando su contrabajo».
+
+Con estas palabras Terry Riley describe su primer encuentro con Stefano
+Scodanibbio y su *Voyage That Never Ends*, una experiencia significativa
+para él que, en los años siguientes, dio lugar a una intensa
+colaboración artística, además de humana. *Voyage That Never Ends* es un
+dispositivo, una madeja de posibles desarrollos, que tiene como base una
+*scordatura* particular del instrumento, que no hace alusión al sistema
+temperado; gracias a modalidades particulares de estimular las cuerdas,
+se generan infinitas combinaciones armónicas, que se manifiestan como
+sonido siguiendo complejas leyes físicas, a menudo vinculadas con la
+teoría del caos y los atractores de Lorenz, y que sitúan al intérprete
+en el límite de sus posibilidades de control instrumental.
+
+La obra, piedra angular de la historia del contrabajo, acompañó a
+Scodanibbio durante casi toda su vida. La singular decisión del
+compositor de no escribirla mediante un sistema convencional trasladó su
+existencia, a mi juicio, al territorio de la música popular
+instrumental. El único modo posible de transmitir *Voyage That Never
+Ends* era, por tanto, la transmisión oral, en un sentido mayéutico; tuve
+el privilegio de convertirme en receptor de esta tradición durante los
+últimos meses de su vida en ese mundo que debemos llamar oral, palabra
+por palabra, nota por nota. Este sistema de aprendizaje, común a
+muchísimas culturas no occidentales, abre el mundo de la música
+contemporánea a una serie de problemáticas y virtuosismos que
+pertenecían a nuestra propia cultura antes de la escritura (basta pensar
+en los aedos y sus relatos, que confluyeron en Homero, o en todo el
+patrimonio musical anterior a la notación mnemotécnica gregoriana). Esta
+perspectiva descolonizadora trae consigo muchos tesoros. Sobre todo dos:
+en primer lugar, acudir a la memoria para la ejecución de una compleja
+obra de más de cuarenta minutos influye por supuesto en las propias
+estructuras narrativas de la composición y en el acercamiento corporal
+al acontecimiento sonoro. Y enseguida la relación con la tradición
+musical: ¿qué puede considerarse *texto* en una obra como *Voyage* y qué
+es *interpretación*? ¿En qué punto puede definirse esta frontera?
+
+Pero, si volvemos a la cita inicial de Terry Riley, resulta imposible
+dejar de advertir cómo la obra despliega una tentativa ---lograda, a
+nuestro juicio--- de transformar al contrabajo en una caja mágica,
+ciertamente de colores, pero también de polifonías. Más allá de la
+tradición musical que concibe el contrabajo como pilar de la armonía,
+desde el bajo continuo hasta el jazz, *Voyage That Never Ends*
+transfigura la naturaleza monódica del instrumento solo. Esta búsqueda,
+constante en la literatura occidental para instrumento solo desde Bach
+hasta Berio, se encarna aquí en algo del todo nuevo, gracias a las
+resonancias de las larguísimas cuerdas del contrabajo.
+
+\hfill Dario Calderone
+
+##### *Oltracuidansa*
+
+Cuando Giorgio Agamben me entregó las tres páginas que conforman *El fin
+del pensamiento*, pensé de inmediato que no podía haber un texto más
+estimulante para un músico. Los conceptos fundamentales de esta obra
+---voz, pensamiento, lenguaje--- son conceptos esenciales para cualquier
+compositor/intérprete, sobre los cuales nunca se deja de reflexionar. Y
+este es justo el sentido de esta *Oltracuidansa*: un cuestionamiento
+radical de la relación entre cuerpo e instrumento. ¿Cuál es el lenguaje
+del contrabajo? ¿Cómo dar voz a un pensamiento? Entre la variedad de
+voces del contrabajo, entre sus mil voces («Une seule et même voix pour
+tout le multiple aux mille voies», como decía Deleuze), ¿cómo encontrar
+la Voz? ¿Es acaso el lenguaje aquello que oculta la voz? Y, finalmente,
+si «el vuelo de la voz hacia el lenguaje debe terminar», si «el
+pensamiento consumado ya no tiene pensamiento», ¿no nos encontramos
+entonces ante el abismo del silencio?
+
+Entre mis obras para contrabajo, esta es sin duda la que más explora su
+*devenir animal*. Una multiplicación de cuerpos e instrumentos, una
+extensión de unos sobre otros, puestos ahora en movimiento. Tras siglos
+de balbuceos e imitaciones, por fin parecen haber llegado los años de
+expresión plena del contrabajo. Todas sus connotaciones negativas (sus
+dimensiones, la longitud del diapasón, su peso, su registro abismal; en
+suma, su naturaleza *a escala humana*) se han convertido ahora, gracias
+a técnicas muy novedosas desarrolladas en las últimas décadas, en
+aspectos positivos, ofreciendo así un abanico de posibilidades sonoras
+difíciles de encontrar en otros instrumentos de cuerda.
+
+También a ello alude el título de la pieza. El provenzal
+*oltracuidansa*, origen de la palabra arrogancia, deriva ---según
+Agamben--- del latín *ultracogitare*: exceder, ir más allá del límite
+del pensamiento, sobrepensar, des-pensar. Los sonidos de la cinta, todos
+producidos por el contrabajo, se obtienen mediante la articulación de 26
+técnicas o modos de producción sonora: rebote vertical de las cerdas
+(rebote infinito), arcada oblicua, arcada circular, *ruido* (arcada muy
+lenta hasta producir un *diente de sierra*), arcada vertical muy lenta
+(incluyendo sostener el arco con ambas manos sobre las cuerdas al aire),
+*staccato* de las cerdas (o sea, *staccato* cepillado), cerdas
+golpeadas, efecto de pandereta con la mano izquierda sobre la punta del
+arco, *latigazo* del arco con madera y cerdas, *respiración* de las
+cerdas, arcada sobre el diapasón *à la clarinette basse*, percutir con
+los dedos arriba de la posición, *pizzicato* arriba de la posición,
+redoble de la mano derecha, *pizzicato* a la octava y a la doble octava,
+*pizzicato* *grueso* con dos dedos, *mandolinato*, raspado con la uña,
+*glissando* de armónicos artificiales, articulación de armónicos
+naturales en regiones extremas, multifónicos con la posición entre el
+arco y el puente, *botón* del arco alrededor de la octava de la
+posición, *pizzicato* de la mano izquierda sobre el *botón* presionado,
+rebote de la madera sobre una cuerda al aire en *pizzicato*, contrabajo
+*preparado* con clips, sonidos percusivos.
+
+Los sonidos originales del contrabajo fueron grabados con una microfonía
+muy cercana (micrófono sobre el puente) y posteriormente superpuestos
+mediante un sistema digital de grabación multipista. La cinta fue
+realizada en el Centro Iannis Xenakis para la Creación Musical de París
+(CCMIX). El estreno mundial tuvo lugar en Stuttgart en el Festival Éclat
+en 2002. Hubo otras interpretaciones en Los Ángeles, en el County Museum
+of Art, y en el Festival Synthèse de Bourges, ambas en 2002. Una parte de
+esta pieza fue utilizada en un espectáculo de danza, *The End of
+Thought* de 1998, de Hervé Diasnas, con un texto grabado de Giorgio
+Agamben.
+
+\hfill Stefano Scodanibbio
+
+Tras la prematura muerte de Stefano Scodanibbio en 2012, mi pensamiento
+volvió con frecuencia a *Oltracuidansa*. En 2001, en el CCMIX, habíamos
+trabajado juntos en el montaje de la cinta; más tarde, Stefano quiso que
+me hiciera cargo de la dirección sonora para el estreno mundial en
+Stuttgart en 2002 y, unos meses después, para el estreno italiano en
+Macerata. Los sonidos que Stefano era capaz de *extraer* de su
+contrabajo eran auténticas esculturas sonoras. Todavía recuerdo los
+ensayos en París: me fascinaba observar sus gestos y el extraordinario
+material sonoro que producían. *Oltracuidansa* no contaba con una
+partitura detallada para la parte solista, precisamente porque era el
+propio compositor quien la interpretaba mientras vivía. Sin embargo,
+cada intervención estaba rigurosamente definida y, en mi partitura de
+dirección sonora, las intervenciones estaban descritas con precisión,
+con referencia a las técnicas extendidas que las caracterizaban.
+
+Al cabo del tiempo decidí ponerme en contacto con Dario Calderone, a
+sabiendas de que, en los años finales de Stefano, había trabajado con él
+en el estudio de sus partituras. Dario era por tanto la persona indicada
+para reconstruir la parte solista de *Oltracuidansa*. Junto con él, y
+con la ayuda de Maresa, esposa de Stefano, y de Gianluca Gentili, amigo
+y colaborador suyo durante muchos años, reunimos y cotejamos todas las
+fuentes disponibles: grabaciones, apuntes, materiales y escritos. Me
+alegra mucho presentar el resultado de este trabajo y al fin devolver
+*Oltracuidansa* a la escucha en vivo. Una obra de indudable importancia
+para la literatura del contrabajo y la música electroacústica.
+
+\hfill Stefano Bassanese
+
 ------------------------------------------------------------------------
 
 ### Intérpretes
@@ -7087,6 +7236,32 @@ Francisco Savín, Luis Samuel Saloma, Enrique Barrios, Juan Trigos, Jesús
 Medina, José Luis Castillo, Ludwig Carrasco y, actualmente, Luis Manuel
 Sánchez Rivas. Se ha presentado en Alemania, Brasil, Estados Unidos,
 Portugal y Costa Rica.
+
+**Integrantes**
+
+Vladimir Tokarev Ivanovich, **primer concertino** | Francisco Ageo
+Méndez Peña, **segundo concertino** | Pastor Solís Guerra, Francisco R.
+Ladrón de Guevara Finck, José Isaí Pacheco Ríos, **violines primeros** |
+José Manuel del Águila Cortés, principal adjunto; José Alfredo Vega
+Morales, Jorge Chaparro González, Marco Alejandro Arias de la Vega,
+**violines segundos** | Guillermo Gutiérrez Crespo, principal; Arturo
+Rebolledo Díaz, principal adjunto; Ricardo David Orozco Buendía, Astrid
+Montserratt Cruz González, **violas** | Fabiola Flores Herrera,
+principal; Luz del Carmen Águila y Elvira, Ángel Romero Ortiz,
+**violonchelos** | Luis Enrique Aguilar Martínez, principal; Ulises
+Castillo Cano, principal adjunto, **contrabajos** | Abraham Alvarado
+Vargas, **piano**.
+
+Armando Castillo Flores, **gerencia** | Blanca Paulina Pérez Luna,
+**administradora** | Claudia del Águila Cortés, **coordinación
+ejecutiva** | Ana I. Durán Fonseca, **jefatura de difusión y relaciones
+públicas** | Aarón Córdova Garnica, **jefe de personal** | Ramón Rábago
+Robles, Mario A. Herrera Pérez, Sandra Rosas Esquivel, **técnicos** |
+Alexis Santana Figueroa, **bibliotecario** | Pilar Peimbert Gloria,
+Ixchel Rivera Cortés, María Eugenia Sánchez León, **secretarias** | J.
+Edgar Chavarría Aldana, Alejandra Silva Martínez, Maricruz Salinas
+Cayetano, J. Eduardo Rosas Cisneros, **asistentes** | Rafael Martínez
+Montiel, **mensajero**.
 
 ### Dirección y solistas
 
