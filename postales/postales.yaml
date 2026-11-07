@@ -41,8 +41,9 @@
 #                 la otra función)
 #   entrada       (opcional) en lugar de «Entrada libre | Cupo limitado» (o del
 #                 boleto que llevan solas las funciones en la Sala Manuel M.
-#                 Ponce, «$75 boleto general», y los conciertos de la OJUEM y
-#                 del Cepromusic en el Anfiteatro Simón Bolívar, «$50 boleto
+#                 Ponce, «$75 boleto general»; en el MUAC, «$100 pesos con
+#                 entrada al museo», y los conciertos de la OJUEM y del
+#                 Cepromusic en el Anfiteatro Simón Bolívar, «$50 boleto
 #                 general»; ver sitio/sitio.lua); p. ej. el precio de la
 #                 inauguración o la clausura
 #   fecha, sede, direccion   (opcionales) en lugar de las del programa

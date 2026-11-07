@@ -150,15 +150,19 @@ local NOMBRE_MES = { [10] = "octubre", [11] = "noviembre", [12] = "diciembre" }
 local NOMBRE_DIA = { LUN = "Lunes", MAR = "Martes", ["MIÉ"] = "Miércoles", JUE = "Jueves",
   VIE = "Viernes", ["SÁB"] = "Sábado", DOM = "Domingo" }
 
--- Boletos: los conciertos de la Sala Manuel M. Ponce cuestan $75; el de la
--- OJUEM y el del Cepromusic en el Anfiteatro Simón Bolívar, $50; los demás
--- eventos son de entrada libre (la inauguración y la clausura, con abono). Lo
--- usan la página del evento, las postales y el boletín.
+-- Boletos: los conciertos de la Sala Manuel M. Ponce cuestan $75; los del MUAC,
+-- $100 con la entrada al museo; el de la OJUEM y el del Cepromusic en el
+-- Anfiteatro Simón Bolívar, $50; los demás eventos son de entrada libre (la
+-- inauguración y la clausura, con abono). Lo usan la página del evento, las
+-- postales y el boletín.
 local BOLETOS_EVENTO = {
   ["dom-nov-8-ojuem-arean-rosado"] = "$50 boleto general",
   ["sab-nov-14-cepromusic-saariaho"] = "$50 boleto general",
 }
-local BOLETOS_SALA = { ["Sala Manuel M. Ponce"] = "$75 boleto general" }
+local BOLETOS_SALA = {
+  ["Sala Manuel M. Ponce"] = "$75 boleto general",
+  ["Museo Universitario Arte Contemporáneo"] = "$100 pesos con entrada al museo",
+}
 local function boleto(slug, lugar)
   if BOLETOS_EVENTO[slug] then return BOLETOS_EVENTO[slug] end
   for sala, precio in pairs(BOLETOS_SALA) do
