@@ -43,9 +43,6 @@ clase: pagina-evento
         {%- if f.direccion != "" %}
         <p class="dato-direccion">{{ f.direccion }}</p>
         {%- endif %}
-        {%- if f.boleto and f.boleto != "" %}
-        <p class="dato-boleto">{{ f.boleto }}</p>
-        {%- endif %}
         <p class="dato-acciones">
           {%- if f.direccion != "" %}
           {%- capture consulta %}{{ f.sede_nombre }}, {{ f.direccion }}{% endcapture %}
@@ -59,14 +56,43 @@ clase: pagina-evento
       </section>
       {%- endfor %}
 
-      {%- if site.abono_boletos and page.tipo == "concierto" %}
       {%- if page.title contains "INAUGURACIÓN" or page.title contains "CLAUSURA" %}
+      {%- if site.abono_boletos %}
       <section class="dato abono-evento" aria-label="Abono">
         <p class="dato-cuando"><b>Abono para la inauguración y la clausura</b></p>
         <p class="abono-evento-precios">{{ site.data.abono.precios | join: " · " }}</p>
         <p class="dato-acciones"><a class="boton boton-acento" href="{{ site.abono_boletos }}" target="_blank" rel="noopener">Comprar el abono</a></p>
       </section>
       {%- endif %}
+      {%- else %}
+      {%- comment %}
+        Entrada, como en las postales: el boleto de cada función (sitio/sitio.lua)
+        con el botón de compra (inactivo mientras el evento no tenga liga en
+        boletos_compra de _config.yml) o «Entrada libre | Cupo limitado». Si las
+        funciones tienen distinta entrada, va la de cada una con su fecha.
+      {%- endcomment %}
+      {%- assign entradas = page.fechas | map: "boleto" | uniq %}
+      {%- assign compra = site.boletos_compra[page.slug] %}
+      <section class="dato entrada-evento" aria-label="Entrada">
+        {%- for f in page.fechas %}
+        {%- if entradas.size > 1 %}
+        <p class="entrada-funcion">{{ f.dia }} · {{ f.hora }}&nbsp;h</p>
+        {%- elsif forloop.index > 1 %}{% break %}
+        {%- endif %}
+        {%- if f.boleto and f.boleto != "" %}
+        <p class="abono-evento-precios">{{ f.boleto }}</p>
+        <p class="dato-acciones">
+          {%- if compra %}
+          <a class="boton boton-acento" href="{{ compra }}" target="_blank" rel="noopener">Comprar boleto</a>
+          {%- else %}
+          <span class="boton boton-acento boton-inactivo" aria-disabled="true" title="Próximamente">Comprar boleto</span>
+          {%- endif %}
+        </p>
+        {%- else %}
+        <p class="abono-evento-precios">Entrada libre | Cupo limitado</p>
+        {%- endif %}
+        {%- endfor %}
+      </section>
       {%- endif %}
 
       {%- assign postales = site.data.postales[page.slug] %}

@@ -42,6 +42,11 @@ En `_config.yml`:
 - `abono_boletos` es la página de venta del abono (Ticketmaster). Lleva ahí el
   botón «Comprar el abono» de la portada, de las páginas de la inauguración y
   la clausura, y del boletín.
+- `boletos_compra` lleva, por etiqueta del evento (la de su dirección, p. ej.
+  `dom-nov-8-ojuem-arean-rosado`), la liga de venta de los conciertos con
+  costo. Cada página de evento tiene un recuadro con la entrada, como el del
+  abono: el precio y el botón «Comprar boleto» (inactivo mientras el concierto
+  no tenga liga aquí) o «Entrada libre | Cupo limitado».
 - `boletin_suscripcion` es el formulario de Brevo para suscribirse al boletín
   de noticias del FIMNME. Lleva ahí la franja «Boletín de noticias» de la
   portada, el enlace del pie de todas las páginas y el del boletín por
@@ -53,7 +58,7 @@ En `_config.yml`:
 |---|---|
 | Inicio | Portada (como la del programa), cifras del Foro, franja para suscribirse al boletín de noticias (Brevo), próximos eventos (según la fecha del día), calendario de noviembre, partes del programa, abono de inauguración y clausura (con el botón para comprarlo), logotipos. |
 | Programación | Agenda día por día con filtros por parte (Ciudad de México, En los estados, Actividades académicas, Ecos del Foro, Coloquio) y búsqueda por obra, compositor, intérprete o sede. El filtro queda en la dirección (`?seccion=estados`, `?q=saariaho`) para compartirla. |
-| Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección (en los conciertos con boleto, su precio: «$75 boleto general» en la Sala Manuel M. Ponce, «$100 pesos con entrada al museo» en el MUAC, «$50 boleto general» en los de la OJUEM y del Cepromusic en el Anfiteatro Simón Bolívar) y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), su postal (con un clic, en grande; con un botón, para descargarla), programa, semblanzas con foto (con un clic, la foto completa), notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
+| Cada evento (`/2026/conciertos/…/`) | Fecha, sede con dirección, un recuadro con la entrada (el precio y el botón «Comprar boleto» en los conciertos con costo: «$75 boleto general» en la Sala Manuel M. Ponce, «$100 pesos con entrada al museo» en el MUAC, «$50 boleto general» en los de la OJUEM y del Cepromusic en el Anfiteatro Simón Bolívar; en los demás, «Entrada libre | Cupo limitado»; en la inauguración y la clausura, el abono) y «Cómo llegar», «Agregar a mi calendario» (Google Calendar o archivo .ics), su postal (con un clic, en grande; con un botón, para descargarla), programa, semblanzas con foto (con un clic, la foto completa), notas al programa (desplegables) y logotipos. La dirección es la misma etiqueta que usa el Programa general (`vie-nov-6-inauguracion-osn-carrasco-hofele`). |
 | Sedes | Sedes con dirección, mapa y lo que se presenta en cada una. |
 | Índice onomástico (`/2026/indice/`) | Las personas compositoras en orden alfabético, con un botoncito por concierto (la fecha, día/mes) que lleva a su semblanza en la página de ese concierto; búsqueda por nombre y saltos por inicial. Es el mismo índice del Programa general. |
 | Coloquio Enríquez &#124; 100 | Presentación y programa del Coloquio. |

@@ -417,7 +417,6 @@ p { margin: 0 0 .85em; }
 .dato p { margin: 0 0 .3em; }
 .dato-lugar { font-weight: 600; }
 .dato-direccion { color: var(--verdegris); font-size: .86rem; }
-.dato-boleto { font-weight: 700; color: var(--verdeoscuro); margin-top: .3em; }
 .dato-acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px !important; }
 .indice, .mismo-dia { font-size: .9rem; }
 .indice-titulo { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--verdegris); margin: 0 0 .4em; }
@@ -561,6 +560,12 @@ details.nota[open] > summary::after { content: "–"; }
 .onom-vacio { color: var(--verdegris); }
 .abono-comprar { margin: 14px 0 0; }
 .abono-evento-precios { font-weight: 700; color: var(--verdeoscuro); margin: .2em 0 .6em; }
+/* Entrada de cada evento: boleto con su botón de compra o entrada libre */
+.entrada-evento > :last-child { margin-bottom: 0; }
+.entrada-funcion { font-size: .82rem; color: var(--verdegris); margin-top: .9em !important; }
+.entrada-funcion:first-child { margin-top: 0 !important; }
+.entrada-evento .abono-evento-precios { margin-top: 0; }
+.boton-inactivo, .boton-inactivo:hover { background: var(--filete); color: var(--verdegris); cursor: not-allowed; }
 .sedes { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .sede { background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra); padding: 20px 22px; }
 .sede-nombre { font-size: 1.1rem; }
