@@ -10861,7 +10861,7 @@ esta conferencia.
 
 Casa Rafael Galván, UAM
 
-**Valeria Macías Rodríguez, Andrés Nuño de Buen y Hugo Solís**, ponentes
+**Valeria Macías Rodríguez, Hugo Solís y Fernando Vigueras**, ponentes
 
 **Tito Rivas**, moderador
 
