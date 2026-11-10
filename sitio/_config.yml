@@ -27,7 +27,15 @@ abono_boletos: "https://www.ticketmaster.com.mx/evento-abono-46-fimnme-osn-inaug
 # sitio/sitio.lua): la etiqueta del evento y su liga. Mientras un concierto no
 # tenga liga, el botón «Comprar boleto» de su página sale inactivo. Por ejemplo:
 #   dom-nov-8-ojuem-arean-rosado: "https://www.ticketmaster.com.mx/…"
-boletos_compra: {}
+boletos_compra:
+  # Sala Manuel M. Ponce
+  mar-nov-10-alberto-rosado-piano: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-10-11-2026/event/3D006552B24C4F7A"
+  sab-nov-14-duo-gasparini-monnet: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-14-11-2026/event/3D006552B24E4F85"
+  vie-nov-13-coro-de-madrigalistas-de-bellas-artes-cadet: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-15-11-2026/event/3D006552B2504F88"   # la función del domingo 15
+  mie-nov-18-francisco-garcia-torres-enriquez-100: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-18-11-2026/event/3D006552B2524F93"
+  jue-nov-19-ocba: "https://www.ticketmaster.com.mx/ocba-orq-de-camara-de-bellas-mexico-19-11-2026/event/3D0064FEC7816330"
+  sab-nov-21-cuarteto-de-bellas-artes-enriquez-100: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-21-11-2026/event/3D006552B2534F9C"
+  sab-nov-21-ensamble-sonus: "https://www.ticketmaster.com.mx/coordinacion-nacional-de-musica-y-opera-mexico-21-11-2026/event/3D006552B2544F9E"
 # Suscripción al boletín de noticias del FIMNME (formulario de Brevo): la
 # portada, el pie de todas las páginas y el boletín por correo llevan a él
 boletin_suscripcion: "https://1f5ec740.sibforms.com/serve/MUIFAJ0dwFW6FBPKjmSS9naxPn0RHuMMQhwHzdCzWVIgSkTHkGuzhKcBysPx3hXp19AkxtCIWzfz_NDzl8iQMUirZUV4wSn6KIaGsRMVmof5XQThHEwb3YMgfPukrvRh9G0sAFBZ0a6aVTZ2OgmHLuo238K5q4T7IaGp4Fh8xAoBcudwnX98G3cEtvXuSga1zvwy1ADNTZvoogfUjQ=="
