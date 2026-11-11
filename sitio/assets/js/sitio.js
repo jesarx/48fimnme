@@ -115,6 +115,32 @@
       }, { rootMargin: "-45% 0px -50% 0px" });
       dias.forEach(function (d) { obs.observe(d); });
     }
+
+    // Al abrir la programación, la agenda se va al día de hoy (o al siguiente
+    // con eventos). No lo hace si la dirección ya pide un día (#dia-…) o una
+    // búsqueda, ni al volver con «Atrás» (el navegador devuelve a donde se
+    // estaba), ni antes del primer día del Foro o después del último.
+    var navegacion = window.performance && performance.getEntriesByType ?
+      performance.getEntriesByType("navigation")[0] : null;
+    var regreso = navegacion && navegacion.type === "back_forward";
+    if (!location.hash && !params.get("q") && !regreso) {
+      var destino = null;
+      dias.forEach(function (d) {
+        if (!destino && !d.hidden && d.dataset.fecha >= ahora.dia) destino = d;
+      });
+      if (destino && destino !== agenda.querySelector(".dia:not([hidden])")) {
+        var irAHoy = function () {
+          var cabecera = document.querySelector(".cabecera");
+          var tira = document.querySelector(".tira-dias");
+          var encima = (cabecera ? cabecera.offsetHeight : 0) + (tira ? tira.offsetHeight : 0) + 12;
+          var y = destino.getBoundingClientRect().top + window.scrollY - encima;
+          try { window.scrollTo({ top: y, behavior: "instant" }); } catch (e) { window.scrollTo(0, y); }
+        };
+        irAHoy();
+        // si las fuentes cambian las alturas al cargar, se ajusta una vez más
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(irAHoy);
+      }
+    }
   }
 
   /* --- Inicio: próximos eventos -------------------------------------------- */
