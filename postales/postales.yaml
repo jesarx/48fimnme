@@ -501,6 +501,7 @@ postales:
       - Marielena Arizpe
       - Jeannine Wagar
       - Margarita Pruneda
+      - Silvestre Villegas
       - [Gladys Zamora, moderadora]
 
   - evento: mie-nov-18-mesa-2-sus-interpretes
@@ -510,7 +511,6 @@ postales:
       - Álvaro Bitrán
       - Marisa Canales
       - Wendy Holdaway
-      - José Luis Castillo
       - [Maby Muñoz, moderadora]
 
   - evento: mie-nov-18-conferencia-iracema-de-andrade
@@ -520,26 +520,28 @@ postales:
       - [Iracema de Andrade, ponente]
       - [Nonis Prado, moderadora]
 
-  - evento: jue-nov-19-conversacion-susana-enriquez
+  - evento: jue-nov-19-conferencia-leonora-saavedra
     antetitulo: Coloquio Manuel Enríquez 100
-    titulo: Conversación
+    titulo: Conferencia
     interpretes:
-      - [Susana Enríquez, invitada]
-      - [Luis Jaime Cortez, moderador]
+      - [Leonora Saavedra, ponente]
+      - [Maby Muñoz, moderadora]
 
   - evento: jue-nov-19-mesa-3-el-gestor
     antetitulo: Coloquio Manuel Enríquez 100
     titulo: "Mesa 3: El gestor"
     interpretes:
       - Guillermo Contreras
+      - Ana Lara
       - Aurelio Tello
-      - [Marusia Pola, moderadora]
+      - [Nonis Prado, moderadora]
 
   - evento: jue-nov-19-conferencia-sergio-cardenas
     antetitulo: Coloquio Manuel Enríquez 100
     titulo: "Conferencia: La visión de los vencidos"
     interpretes:
       - [Sergio Cárdenas, ponente]
+      - [Luis Jaime Cortez, moderador]
 
   - evento: jue-nov-19-mesa-4-entre-disciplinas
     antetitulo: Coloquio Manuel Enríquez 100
@@ -547,16 +549,16 @@ postales:
     interpretes:
       - José María Serralde
       - Antonio Russek
-      - Emanuel Espinoza
+      - Emmanuel Espinosa
       - Pilar Urreta
       - [Gladys Zamora, moderadora]
 
-  - evento: jue-nov-19-conferencia-leonora-saavedra
+  - evento: jue-nov-19-conversacion-susana-enriquez
     antetitulo: Coloquio Manuel Enríquez 100
-    titulo: Conferencia
+    titulo: Conversación
     interpretes:
-      - [Leonora Saavedra, ponente]
-      - [Maby Muñoz, moderadora]
+      - [Susana Enríquez, invitada]
+      - [Luis Jaime Cortez, moderador]
 
   # --- Ecos del Foro (fuera de las fechas del Foro) ---------------------------
 
