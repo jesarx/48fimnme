@@ -10917,7 +10917,7 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 
 ## JUE | NOV 19, 10 h - Tres acercamientos a *Oltracuidansa* de Scodanibbio
 
-Escuela Superior de Música
+Sala 222, Escuela Superior de Música, Plantel CENART
 
 **Dario Calderone y Stefano Bassanese** (Italia), imparten
 
@@ -11506,8 +11506,8 @@ Revolución 1608, San Ángel, Ciudad de México
 **Conservatorio Nacional de Música**\
 Presidente Masaryk 582, Polanco, Ciudad de México
 
-**Escuela Superior de Música, INBAL**\
-Fernández Leal 31, La Concepción, Coyoacán, Ciudad de México
+**Escuela Superior de Música, Plantel Cenart**\
+Río Churubusco 79, Country Club, Ciudad de México
 
 **Museo Universitario Arte Contemporáneo, UNAM**\
 Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
