@@ -10917,7 +10917,7 @@ De Stefano Scodanibbio, con traducción de Sharbel Pimentel
 
 ## JUE | NOV 19, 10 h - Tres acercamientos a *Oltracuidansa* de Scodanibbio
 
-Escuela Superior de Música
+Sala 222, Escuela Superior de Música, Plantel CENART
 
 **Dario Calderone y Stefano Bassanese** (Italia), imparten
 
@@ -11391,6 +11391,8 @@ Actividades académicas *in memoriam* en el marco del 48º FIMNME.
 
 **Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Litterarum*
 
+**Inauguración**: miércoles 18 de noviembre, 9:30 h, Aula Magna del Cenart, con representantes del INBAL, el Cenart y *Sonus Litterarum*
+
 #### MIÉ | NOV 18, 10 h - Conferencia: Luis Jaime Cortez
 
 Aula Magna, Cenart
@@ -11401,11 +11403,11 @@ Ana Lara, **moderadora**
 
 ---
 
-#### MIÉ | NOV 18, 11:10 h - Mesa 1: Un retrato de amigos
+#### MIÉ | NOV 18, 11 h - Mesa 1: Un retrato de amigos
 
 Aula Magna, Cenart
 
-Marielena Arizpe, Jeannine Wagar y Margarita Pruneda, **participantes**
+Marielena Arizpe, Jeannine Wagar, Margarita Pruneda y Silvestre Villegas, **participantes**
 
 Gladys Zamora, **moderadora**
 
@@ -11415,7 +11417,7 @@ Gladys Zamora, **moderadora**
 
 Aula Magna, Cenart
 
-Álvaro Bitrán, Marisa Canales, Wendy Holdaway y José Luis Castillo, **participantes**
+Álvaro Bitrán, Marisa Canales y Wendy Holdaway, **participantes**
 
 Maby Muñoz, **moderadora**
 
@@ -11431,53 +11433,55 @@ Nonis Prado, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 10 h - Conversación: Susana Enríquez
+#### JUE | NOV 19, 10 h - Conferencia: Leonora Saavedra
 
-Conservatorio Nacional de Música
+Conservatorio Nacional de Música, Sala 34
 
-Susana Enríquez, **invitada**
+Leonora Saavedra, **ponente**
 
-Luis Jaime Cortez, **moderador**
-
----
-
-#### JUE | NOV 19, 11:10 h - Mesa 3: El gestor
-
-Conservatorio Nacional de Música
-
-Guillermo Contreras y Aurelio Tello, **participantes**
-
-Marusia Pola, **moderadora**
+Maby Muñoz, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 12 h - Conferencia: Sergio Cárdenas
+#### JUE | NOV 19, 11 h - Mesa 3: El gestor
 
-Conservatorio Nacional de Música
+Conservatorio Nacional de Música, Sala 34
+
+Guillermo Contreras, Ana Lara y Aurelio Tello, **participantes**
+
+Nonis Prado, **moderadora**
+
+---
+
+#### JUE | NOV 19, 12:15 h - Conferencia: Sergio Cárdenas
+
+Conservatorio Nacional de Música, Sala 34
 
 *La visión de los vencidos*
 
 Sergio Cárdenas, **ponente**
 
+Luis Jaime Cortez, **moderador**
+
 ---
 
-#### JUE | NOV 19, 13 h - Mesa 4: Entre disciplinas
+#### JUE | NOV 19, 13:30 h - Mesa 4: Entre disciplinas
 
-Conservatorio Nacional de Música
+Conservatorio Nacional de Música, Sala 34
 
-José María Serralde, Antonio Russek, Emanuel Espinoza y Pilar Urreta, **participantes**
+José María Serralde, Antonio Russek, Emmanuel Espinosa y Pilar Urreta, **participantes**
 
 Gladys Zamora, **moderadora**
 
 ---
 
-#### JUE | NOV 19, 14:20 h - Conferencia: Leonora Saavedra
+#### JUE | NOV 19, 14 h - Conversación: Susana Enríquez
 
-Conservatorio Nacional de Música
+Conservatorio Nacional de Música, Sala 34
 
-Leonora Saavedra, **ponente**
+Susana Enríquez, **invitada**
 
-Maby Muñoz, **moderadora**
+Luis Jaime Cortez, **moderador**
 
 ```{=tex}
 \printindex
@@ -11502,8 +11506,8 @@ Revolución 1608, San Ángel, Ciudad de México
 **Conservatorio Nacional de Música**\
 Presidente Masaryk 582, Polanco, Ciudad de México
 
-**Escuela Superior de Música, INBAL**\
-Fernández Leal 31, La Concepción, Coyoacán, Ciudad de México
+**Escuela Superior de Música, Plantel Cenart**\
+Río Churubusco 79, Country Club, Ciudad de México
 
 **Museo Universitario Arte Contemporáneo, UNAM**\
 Insurgentes Sur 3000, Ciudad Universitaria, Ciudad de México
