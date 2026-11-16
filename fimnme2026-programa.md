@@ -8279,13 +8279,13 @@ Xico. Antigua Sede del Senado
 
 ### Programa
 
-**Daniel Cui**
-
--   *樗栎 \[Chu-li\]* (2026)\*\* `\hfill `{=tex}12'
-
 **Eduardo Viñuela**
 
 -   *Mi ciudad está triste* (2022) `\hfill `{=tex}8'
+
+**Daniel Cui**
+
+-   *樗栎 \[Chu-li\]* (2026)\*\* `\hfill `{=tex}12'
 
 **Alejandro Ariza**
 
@@ -8302,33 +8302,6 @@ Roberto Campos, viola\
 Rodolfo Jiménez, violonchelo
 
 ### Personas compositoras
-
-#### Daniel Cui (China, 1998)
-
-![](comp/Daniel%20Cui.jpg)
-
-Es un compositor cuya música mezcla historia, filosofía y perspectivas
-globales adquiridas en China, Australia y Estados Unidos. En su obra
-para orquesta, ensambles de cámara y vocales y medios electroacústicos
-explora la tensión entre la disciplina externa y la libertad interna.
-Sus composiciones se interpretan internacionalmente por grupos como Wild
-Up, San Francisco Contemporary Music Players, Mivos Quartet y
-Switch-Ensemble, así como por las sinfónicas de Tesalónica y de Albany.
-Ha participado en los festivales Hear Now LA, CAMPGround 24 y MGMC.
-Estudia el Doctorado en Composición en la UC San Diego con Lei Liang.
-Posee licenciaturas por la Universidad de Indiana y el Conservatorio de
-Sídney.
-
-##### *樗栎 (Chu-li)*
-
-El título viene de la antigua parábola de Zhuangzi del árbol inútil.
-Este cuarteto de cuerdas explora la tensión entre la rígida estructura
-social y la preservación inherente de la naturaleza. Mientras las voces
-se fracturan por el sofocante peso de la conformidad mecánica, adquieren
-la liberación radical de ser consideradas funcionalmente inútiles.
-Guiada por el ritmo natural de la respiración, la obra culmina en una
-vibrante celebración de una indómita simetría, creciendo de modo
-orgánico hasta una resonancia de autonomía espiritual.
 
 #### Eduardo Viñuela (México, 1976)
 
@@ -8364,6 +8337,33 @@ von Bingen en la que la sangre que desciende es convertida en flor. En
 palabras de la poetisa: "Solo quiero morir en mi tierra, que me
 entierren en ella para resucitar siendo hierba en mi tierra, resucitar
 siendo flor que deshoje un niño crecido en mi patria".
+
+#### Daniel Cui (China, 1998)
+
+![](comp/Daniel%20Cui.jpg)
+
+Es un compositor cuya música mezcla historia, filosofía y perspectivas
+globales adquiridas en China, Australia y Estados Unidos. En su obra
+para orquesta, ensambles de cámara y vocales y medios electroacústicos
+explora la tensión entre la disciplina externa y la libertad interna.
+Sus composiciones se interpretan internacionalmente por grupos como Wild
+Up, San Francisco Contemporary Music Players, Mivos Quartet y
+Switch-Ensemble, así como por las sinfónicas de Tesalónica y de Albany.
+Ha participado en los festivales Hear Now LA, CAMPGround 24 y MGMC.
+Estudia el Doctorado en Composición en la UC San Diego con Lei Liang.
+Posee licenciaturas por la Universidad de Indiana y el Conservatorio de
+Sídney.
+
+##### *樗栎 (Chu-li)*
+
+El título viene de la antigua parábola de Zhuangzi del árbol inútil.
+Este cuarteto de cuerdas explora la tensión entre la rígida estructura
+social y la preservación inherente de la naturaleza. Mientras las voces
+se fracturan por el sofocante peso de la conformidad mecánica, adquieren
+la liberación radical de ser consideradas funcionalmente inútiles.
+Guiada por el ritmo natural de la respiración, la obra culmina en una
+vibrante celebración de una indómita simetría, creciendo de modo
+orgánico hasta una resonancia de autonomía espiritual.
 
 #### Alejandro Ariza (México, 2001)
 
