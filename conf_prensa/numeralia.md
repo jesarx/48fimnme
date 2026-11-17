@@ -1,7 +1,7 @@
 # 48º FIMNME · Numeralia para la conferencia de prensa
 
 Foro Internacional de Música Nueva Manuel Enríquez, fundado en 1979 · 48ª edición · 6 al 21 de noviembre de 2026.
-Cifras al 15 de noviembre de 2026, tomadas del Programa general y de las bases de datos de las convocatorias.
+Cifras al 17 de noviembre de 2026, tomadas del Programa general y de las bases de datos de las convocatorias.
 
 ## El Foro en cifras
 
@@ -42,7 +42,7 @@ Cifras al 15 de noviembre de 2026, tomadas del Programa general y de las bases d
 | | |
 |:-----------------|:----------------------------------------------------------------|
 | **Manuel Enríquez (1926-1994)** | Centenario: 24 obras en 14 conciertos, entre ellas sus 5 cuartetos de cuerda (Cuarteto de Cuerdas de Bellas Artes, 21 de noviembre) |
-| **Coloquio Enríquez \| 100** | 9 sesiones (4 conferencias, 4 mesas y una conversación) con 22 participantes entre ponentes y moderadores, 18 y 19 de noviembre, en el Aula Magna del Cenart y el Conservatorio Nacional de Música |
+| **Coloquio Enríquez \| 100** | 9 sesiones (4 conferencias, 4 mesas y una conversación) con 22 participantes entre ponentes y moderadores, 18 y 19 de noviembre, en el Foro de las Artes del Cenart y el Conservatorio Nacional de Música |
 | **Kaija Saariaho** | 14 obras en 11 conciertos |
 | **Con más obras** | Gabriela Ortiz, 5; Georgina Derbez, 4; Luciano Berio, György Ligeti y Pedro García Velásquez, 3 |
 
