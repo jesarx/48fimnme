@@ -11391,11 +11391,11 @@ Actividades académicas *in memoriam* en el marco del 48º FIMNME.
 
 **Curaduría**: Luis Jaime Cortez y Ana Lara, *Sonus Litterarum*
 
-**Inauguración**: miércoles 18 de noviembre, 9:30 h, Aula Magna del Cenart, con representantes del INBAL, el Cenart y *Sonus Litterarum*
+**Inauguración**: miércoles 18 de noviembre, 9:30 h, Foro de las Artes del Cenart, con representantes del INBAL, el Cenart y *Sonus Litterarum*
 
 #### MIÉ | NOV 18, 10 h - Conferencia: Luis Jaime Cortez
 
-Aula Magna, Cenart
+Foro de las Artes, Cenart
 
 Luis Jaime Cortez, **ponente**
 
@@ -11405,7 +11405,7 @@ Ana Lara, **moderadora**
 
 #### MIÉ | NOV 18, 11 h - Mesa 1: Un retrato de amigos
 
-Aula Magna, Cenart
+Foro de las Artes, Cenart
 
 Marielena Arizpe, Jeannine Wagar, Margarita Pruneda y Silvestre Villegas, **participantes**
 
@@ -11415,7 +11415,7 @@ Gladys Zamora, **moderadora**
 
 #### MIÉ | NOV 18, 12:30 h - Mesa 2: Sus intérpretes
 
-Aula Magna, Cenart
+Foro de las Artes, Cenart
 
 Álvaro Bitrán, Marisa Canales y Wendy Holdaway, **participantes**
 
@@ -11425,7 +11425,7 @@ Maby Muñoz, **moderadora**
 
 #### MIÉ | NOV 18, 14 h - Conferencia: Iracema de Andrade
 
-Aula Magna, Cenart
+Foro de las Artes, Cenart
 
 Iracema de Andrade, **ponente**
 
@@ -11530,7 +11530,7 @@ Xicoténcatl 9, Centro Histórico, Ciudad de México
 **Universidad del Claustro de Sor Juana**\
 José María Izazaga 92, Centro Histórico, Ciudad de México
 
-**Aula Magna, Cenart**\
+**Foro de las Artes, Cenart**\
 Río Churubusco 79, Country Club, Ciudad de México
 
 ### En los estados
